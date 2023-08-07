@@ -1,0 +1,78 @@
+#btn-menu {
+  display: none;
+}
+
+/* Contenedor del menu, cuando se abre y su posición */
+.container-menu {
+  position: absolute; z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 160%;
+  top: 0;
+  left: 0;
+  transition: all 500ms ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+/* Visibilidad del menú costado, traerlo */
+#btn-menu:checked~.container-menu {
+  opacity: 4;
+  visibility: visible;
+
+}
+
+/* Contenido del menú (Inicio, Usuario,etc, además del color del fondo del mismo) */
+.cont-menu {
+  width: 100%;
+  max-width: 250px;
+  background: #131F60;
+  height: 100vh;
+  position: relative;
+  transition: all 500ms ease;
+  transform: translateX(-100%);
+}
+/* Posición del contenedor (lo despega del lado izquierdo, dejalo así) */
+#btn-menu:checked~.container-menu .cont-menu {
+  transform: translateX(0%);
+}
+/* Determina la altura del contenido del menú */
+.cont-menu nav {
+  transform: translateY(100%);
+}
+
+/* Tamaño, tipo de letra y demás de Inicio, cerrar sesión  */
+.cont-menu nav a {
+  display: block;
+  text-decoration: none;
+  padding: 20px;
+  color: #c7c7c7;
+  border-left: 5px solid transparent;
+  transition: all 400ms ease;
+  position: relative;
+  top: -290px;
+}
+
+/* Color de cuando pasas el puntero por los botones */
+.cont-menu nav a:hover {
+  border-left: 5px solid #c7c7c7;
+  background: #1f1f1f;
+}
+
+/* Tamaño y color del icon de X (cerrar) */
+.cont-menu label {
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  color: rgb(250, 12, 12);
+  cursor: pointer;
+  font-size: 98px;
+}
+.usuario{
+  width: 150px;
+  height: 150px;
+  position: relative;
+    left: 15%;
+    top: -300px;
+}
