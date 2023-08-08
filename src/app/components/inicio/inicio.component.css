@@ -2,3 +2,11 @@
   height:60px;
   width:100px ;
 }
+
+#base-mapa{
+  
+  height:7000px;
+  width: 1000px;
+  background-color:aqua ;
+  margin: 30px auto;
+}
