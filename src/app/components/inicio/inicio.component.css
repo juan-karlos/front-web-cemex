@@ -2,11 +2,12 @@
   height:60px;
   width:100px ;
 }
-
-#base-mapa{
+ #base-mapa{
   
-  height:7000px;
-  width: 1000px;
-  background-color:aqua ;
-  margin: 30px auto;
+   height:90%;
+   width: 90%; 
+   margin: 30px auto;
+} 
+.imagen{
+  width: 100%;
 }
