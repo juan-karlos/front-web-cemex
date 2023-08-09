@@ -3,12 +3,60 @@
   width:100px ;
  
 }
+#body{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-image: url(https://i.ibb.co/G9cnWRQ/CEMEX-FONDO.jpg);
+  background-size:cover ;
+  background-position:center;
+}
+
+#titulo-inicio{
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+}
  #base-mapa{
   
-   height:90%;
-   width: 90%; 
+   height:70%;
+   width: 70%; 
    margin: 30px auto;
+   
 } 
+#boton-pacifico{
+  width: 480px;
+  height: 545px;
+  background: url(https://i.ibb.co/JB3PWxJ/pacifico.png);
+  background-repeat: no-repeat;
+  border:0;
+  margin-left: 5%;
+}
+#boton-norte{
+  width: 370px;
+  height: 420px;
+  background: url(https://i.ibb.co/4Jd3rYQ/zona-norte.png);
+  background-repeat: no-repeat;
+  border:0;
+
+}
+#boton-centro{
+  width: 200px;
+  height: 420px;
+  background: url(https://i.ibb.co/HtyZNd3/zona-centro.png);
+  background-repeat: no-repeat;
+  border:0;
+  margin-left: 40%;
+}
+#boton-sur{
+  width: 390px;
+  height: 400px;
+  background: url(https://i.ibb.co/q9ktNjk/zona-sur.png);
+  background-repeat: no-repeat;
+  border:0;
+  margin-left: 10%;
+
+}
 .imagen{
   width: 100%;
 }
@@ -23,7 +71,7 @@
 /* Contenedor del menu, cuando se abre y su posición */
 .container-menu {
   position: absolute; z-index: 1;
-  /* background: rgba(255, 255, 255, 0.96); */
+  background: rgba(255, 255, 255, 0.518); 
   width: 100%;
   height: 160%;
   top: 0;
