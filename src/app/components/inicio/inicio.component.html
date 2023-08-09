@@ -7,40 +7,36 @@
 
 </head>
 <header>
-  <nav class="navbar" style="background-color: #e4e0e0;">
+  <nav class="navbar navbar-expand-lg" style="background-color: #bfbdbd;">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <img src="https://i.ibb.co/HK2Btjq/Logo-Cemex.png"  class="logo">
+       <img id="logo" src="https://i.ibb.co/HK2Btjq/Logo-Cemex.png" alt="">
+        <label id="btn-menu1" for="btn-menu" style="font-size: 40px">☰</label>
       </a>
+        
     </div>
   </nav>
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Reporte mensual por segmentos</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Reporte mensual por zona</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Reporte anual</a>
-    </li> 
-   
-  </ul>
- 
-  
+  <input type="checkbox" id="btn-menu">
+  <div class="container-menu">
+    <div class="cont-menu">
+      <nav>
+        <a routerLink="/registrarse">Inicio</a>
+        <a href="">Reportes por segmento</a>
+        <a href=>Reportes por Zona</a>
+        <a href=>Reporte anual</a>
+        <a href=>Descargar archivos</a>
+        <a href="#">Cerrar sesión</a>
+      </nav>
+      <label for="btn-menu" id="Boton-cerrar">✖</label>
+    </div>
+  </div>
+
 </header>
-
-
-
 <body>
   
-<div id="base-mapa">
-<img class="imagen" src="https://i.ibb.co/qgHV9HQ/mapa.jpg" alt="">
-</div>
-
+  <div id="base-mapa">
+    <img class="imagen" src="https://i.ibb.co/qgHV9HQ/mapa.jpg" alt="">
+    </div>
 
 </body>
 </html>
