@@ -39,12 +39,20 @@
   <!-- <img class="imagen" src="https://i.ibb.co/qgHV9HQ/mapa.jpg" alt=""> 
    -->
    <div>
-    <button id="boton-pacifico"></button>
-    <button id="boton-norte"></button>
+    <button class="boton-mapa">
+      <img class="imagen" src="https://i.ibb.co/zbyNKwn/pacifico2-0.png" alt="">
+    </button>
+    <button class="boton-mapa">
+      <img class="imagen" src="https://i.ibb.co/RSxXNCb/zona-norte2-0.png" alt="">
+    </button>
    </div>
    <div>
-    <button id="boton-centro"></button>
-    <button id="boton-sur"></button>
+    <button class="boton-mapa">
+      <img class="imagen" src="https://i.ibb.co/YBWQxVs/zona-centro2-0.png" alt="">
+    </button>
+    <button class="boton-mapa">
+      <img class="imagen" src="https://i.ibb.co/Pr9XRnm/zona-sur2-0.png" alt="">
+    </button>
    </div>
     
   </div>
@@ -55,3 +63,40 @@
 
 </body>
 </html>
+
+<script>
+  
+if (window.screen.width < 768) {
+ 
+ var list;
+ list = document.querySelectorAll(".miboton");
+ for (var i = 0; i < list.length; ++i) {
+     list[i].classList.add('btn-chico');
+ }
+
+ console.log('Ventana Menor que 768px');
+
+}
+else if (window.screen.width < 900) {
+
+ var list;
+ list = document.querySelectorAll(".miboton");
+ for (var i = 0; i < list.length; ++i) {
+     list[i].classList.add('btn-mediano');
+ }
+
+ console.log('Ventana Menor que 900px');
+
+}
+else if (window.screen.width < 1200) {
+
+ var list;
+ list = document.querySelectorAll(".miboton");
+ for (var i = 0; i < list.length; ++i) {
+     list[i].classList.add('btn-grande');
+ }
+
+ console.log('Ventana Menor que 1200px');
+ 
+}
+</script>
