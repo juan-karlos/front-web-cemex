@@ -6,7 +6,7 @@
 #body{
   margin: 0;
   padding: 0;
-  height: 100vh;
+  height: 1400px;
   background-image: url(https://i.ibb.co/G9cnWRQ/CEMEX-FONDO.jpg);
   background-size:cover ;
   background-position:center;
@@ -15,50 +15,27 @@
 #titulo-inicio{
   font-weight: bold;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 0px;
 }
  #base-mapa{
   
-   height:70%;
+   /* height:70%; */
    width: 70%; 
-   margin: 30px auto;
+   margin: 0px auto;
    
 } 
-#boton-pacifico{
-  width: 480px;
-  height: 545px;
-  background: url(https://i.ibb.co/JB3PWxJ/pacifico.png);
-  background-repeat: no-repeat;
-  border:0;
-  margin-left: 5%;
-}
-#boton-norte{
-  width: 370px;
-  height: 420px;
-  background: url(https://i.ibb.co/4Jd3rYQ/zona-norte.png);
-  background-repeat: no-repeat;
-  border:0;
 
-}
-#boton-centro{
-  width: 200px;
-  height: 420px;
-  background: url(https://i.ibb.co/HtyZNd3/zona-centro.png);
+.boton-mapa{
+  width: 260px;
+  height: 260px;
+  background: none;
   background-repeat: no-repeat;
   border:0;
-  margin-left: 40%;
-}
-#boton-sur{
-  width: 390px;
-  height: 400px;
-  background: url(https://i.ibb.co/q9ktNjk/zona-sur.png);
-  background-repeat: no-repeat;
-  border:0;
-  margin-left: 10%;
-
+  margin-left: 20%;
+  margin-top: 3%;
 }
 .imagen{
-  width: 100%;
+  width: 90%;
 }
 #btn-menu {
   display: none;
@@ -83,7 +60,7 @@
 .contenedor-mapa{
   width: 80%;
   margin: auto;
-  background-color: aqua;
+ 
 }
 
 /* Visibilidad del menú costado, traerlo */
@@ -140,16 +117,47 @@
   cursor: pointer;
   font-size: 28px;
 }
-/* .usuario{
-  width: 150px;
-  height: 150px;
-  position: relative;
-    left: 15%;
-    top: -300px;
-} */
 
+/* Tamaño y posicion de el logo de cemex */
 #logo{
   width:120px;
   margin-right: 30px;
   margin-bottom: 10px;
 }
+
+
+
+.btn-chico {
+  width: 100px;
+  height: 100px;
+  background: none;
+  background-repeat: no-repeat;
+  border:10;
+  margin-left: 20%;
+  margin-top: 2%;
+  border:0;
+}
+
+.btn-mediano {
+  width: 150px;
+  height: 150px;
+  background: none;
+  background-repeat: no-repeat;
+  border:10;
+  margin-left: 20%;
+  margin-top: 2%;
+  border:0;
+} 
+
+.btn-grande {
+  width: 200px;
+  height: 200px;
+  background: none;
+  background-repeat: no-repeat;
+  border:10;
+  margin-left: 20%;
+  margin-top: 2%;
+  border:0;
+}
+
+
