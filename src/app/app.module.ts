@@ -9,6 +9,7 @@ import { ZonaPacificoComponent } from './components/zona-pacifico/zona-pacifico.
 import { ZonaNorteComponent } from './components/zona-norte/zona-norte.component';
 import { ZonaCentroComponent } from './components/zona-centro/zona-centro.component';
 import { ZonaSuresteComponent } from './components/zona-sureste/zona-sureste.component';
+import { InformeAnualComponent } from './components/informe-anual/informe-anual.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ZonaSuresteComponent } from './components/zona-sureste/zona-sureste.com
     ZonaPacificoComponent,
     ZonaNorteComponent,
     ZonaCentroComponent,
-    ZonaSuresteComponent
+    ZonaSuresteComponent,
+    InformeAnualComponent
   ],
   imports: [
     BrowserModule,
