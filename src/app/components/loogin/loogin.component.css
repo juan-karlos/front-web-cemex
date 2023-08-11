@@ -23,7 +23,7 @@
 para mover el contenedor azul */
 #mover{
   width: 30%;
-    background: #e0dadae0;
+    background: #adadadb0;
     top: auto;
     margin-top: 5%;
     left: 35%;
@@ -31,7 +31,7 @@ para mover el contenedor azul */
     position: absolute;
     box-sizing: border-box;
     padding: 10% 2%;
-    border-radius: 70px;
+    border-radius: 30px;
 }
 /* para mover la posisicion de arriba hacia abajo del login */
 #logo{
@@ -41,7 +41,7 @@ para mover el contenedor azul */
 
 }
 #cemlog{
-    background: #e0dada;
+    background: #553fff;
     top: auto;
     margin-top: 5%;
     left: 20%;
@@ -52,7 +52,6 @@ para mover el contenedor azul */
     border-radius: 70px;
 }
 #cem{
-
 
   margin-top: 15%;
   position:  absolute;
@@ -77,25 +76,10 @@ para mover el contenedor azul */
 }
 
 
-/* para el boton */
 
-/* darle color al boton cuando el cursor este encima de el */
-
-
-
-
-/* para la imagen de la papeleria */
-
-
-/* para el color de las letras de la navar */
-
-
-
-
-
-/* para mover el formulario */
-
-
+#contenedor-boton{
+  text-align: center;
+}
 .btn {
   outline: none;
   background: #4A7E94;
@@ -105,5 +89,6 @@ para mover el contenedor azul */
   margin: auto;
   height: 60px;
   cursor: pointer;
-  margin-left: 35%;
+  /* margin-left: 35%; */
+  
 }
