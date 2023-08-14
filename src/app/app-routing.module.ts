@@ -16,7 +16,7 @@ const routes: Routes = [
   {path:'Zona-noreste', component: ZonaNorteComponent},
   {path:'Zona-sureste', component: ZonaSuresteComponent},
   {path:'Zona-centro', component: ZonaCentroComponent},
-  {path:'contructores', component: SegmentoConstructoresComponent}
+  {path:'constructores', component: SegmentoConstructoresComponent}
   
 
   
