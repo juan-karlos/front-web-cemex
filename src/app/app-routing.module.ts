@@ -7,6 +7,7 @@ import { ZonaNorteComponent } from './components/zona-norte/zona-norte.component
 import { ZonaSuresteComponent } from './components/zona-sureste/zona-sureste.component';
 import { ZonaCentroComponent } from './components/zona-centro/zona-centro.component';
 import { SegmentoConstructoresComponent } from './components/segmento-constructores/segmento-constructores.component';
+import { SegmentoCadenaSuministroComponent } from './components/segmento-cadena-suministro/segmento-cadena-suministro.component';
 
 const routes: Routes = [
   {path:'', redirectTo: 'loggin', pathMatch: 'full'},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path:'Zona-noreste', component: ZonaNorteComponent},
   {path:'Zona-sureste', component: ZonaSuresteComponent},
   {path:'Zona-centro', component: ZonaCentroComponent},
-  {path:'constructores', component: SegmentoConstructoresComponent}
+  {path:'constructores', component: SegmentoConstructoresComponent},
+  {path:'cadena-suministros', component: SegmentoCadenaSuministroComponent}
   
 
   

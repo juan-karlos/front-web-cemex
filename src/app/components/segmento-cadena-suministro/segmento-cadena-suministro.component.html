@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Constructores</title>
+    <title>Cadena de suministros</title>
 </head>
 
 <header>
@@ -22,7 +22,7 @@
     <div class="cont-menu">
       <nav>
         <a href="inicio">Inicio</a>
-        <a href="cadena-suministros">Cadena de suministro</a>
+        <a href="constructores">Constructores</a>
         <a href="">Construrama Supply</a>
         <a href="">Industriales</a>
         <a href="">Inmuebles no operativos</a>
@@ -36,7 +36,7 @@
 
 </header>
 <body>
-    <h1 id="titulo">Informe mensual para operaciónes Constructores</h1>
+    <h1 id="titulo">Informe mensual para operaciónes Cadena de suministros</h1>
    <div class="contenedor-principal">
     <div class="div_paralelo">
        
@@ -44,11 +44,16 @@
         <div id="contenedor-grafica" class="tabla">
         <h3 id="subtitulo">Progreso de cumplimiento</h3> 
         <img class="imagen" src="https://i.ibb.co/M5P32r8/grafica-cemex-prueba.jpg" alt="">
-        </div>
-        <div id="contenedor-grafica" class="tabla">
+            
+    </div>
+    <div id="contenedor-grafica" class="tabla">
           <h3 id="subtitulo">Cumplimiento CERO</h3> 
-          <img class="imagen" src="https://i.ibb.co/cJTpF7K/grafica-de-barras-R-O.jpg" alt="">
-        </div>
+          <!-- <img class="imagen" src="https://i.ibb.co/cJTpF7K/grafica-de-barras-R-O.jpg" alt="">
+        -->
+    <canvas baseChart class="chart" [data]="barChartData" [options]="barChartOptions"
+     [plugins]="barChartPlugins" [type]="barChartType">
+    </canvas>
+     </div>
         <div id="contenedor-grafica" class="tabla">
             <h3 id="subtitulo">Cumplimiento Fijas/Moviles</h3> 
             <img class="imagen" src="https://i.ibb.co/xMrpBbG/grafica-de-barras-fijas-dedicadas.jpg" alt="">
@@ -252,3 +257,4 @@
     
 </body>
 </html>
+
