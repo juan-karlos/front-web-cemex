@@ -10,13 +10,13 @@ import { SegmentoConstructoresComponent } from './components/segmento-constructo
 
 const routes: Routes = [
   {path:'', redirectTo: 'loggin', pathMatch: 'full'},
-  {path:'cerrar-sesion', component: LooginComponent},
+  {path:'loggin', component: LooginComponent},
   {path:'inicio', component: InicioComponent},
   {path:'Zona-pacifico', component: ZonaPacificoComponent},
   {path:'Zona-noreste', component: ZonaNorteComponent},
   {path:'Zona-sureste', component: ZonaSuresteComponent},
   {path:'Zona-centro', component: ZonaCentroComponent},
-  {path:'contructores', component: SegmentoConstructoresComponent}
+  {path:'constructores', component: SegmentoConstructoresComponent}
   
 
   
