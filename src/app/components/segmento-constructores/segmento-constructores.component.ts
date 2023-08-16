@@ -44,9 +44,11 @@ public barChartOptionsLine: ChartConfiguration['options'] = {
   scales: {
     x: {},
     y: {
+      position: 'left',
       min: 60,
       max:100
     },
+   
   },
   plugins: {
     legend: {
@@ -80,8 +82,8 @@ public datoslineas: ChartData<'line'> = {
   labels: ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO'
   , 'JUNIO', 'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'],
   datasets: [
-    { data: [62, 66, 73, 74, 75, 77,78,78, 78, 80, 82, 83,], label: '2022' },
-    { data: [65, 71, 74, 74, 77,78], label: '2023' },
+    { data: [62, 66, 73, 74, 75, 77,78,78, 78, 80, 82, 83,], label: '2022'  },
+    { data: [65, 71, 74, 74, 77,78], label: '2023'},
   ],
 };
 
