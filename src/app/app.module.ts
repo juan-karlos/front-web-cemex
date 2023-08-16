@@ -11,6 +11,8 @@ import { ZonaCentroComponent } from './components/zona-centro/zona-centro.compon
 import { ZonaSuresteComponent } from './components/zona-sureste/zona-sureste.component';
 import { InformeAnualComponent } from './components/informe-anual/informe-anual.component';
 import { SegmentoConstructoresComponent } from './components/segmento-constructores/segmento-constructores.component';
+import { SegmentoCadenaSuministroComponent } from './components/segmento-cadena-suministro/segmento-cadena-suministro.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -22,11 +24,13 @@ import { SegmentoConstructoresComponent } from './components/segmento-constructo
     ZonaCentroComponent,
     ZonaSuresteComponent,
     InformeAnualComponent,
-    SegmentoConstructoresComponent
+    SegmentoConstructoresComponent,
+    SegmentoCadenaSuministroComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
