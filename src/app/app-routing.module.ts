@@ -8,6 +8,9 @@ import { ZonaSuresteComponent } from './components/zona-sureste/zona-sureste.com
 import { ZonaCentroComponent } from './components/zona-centro/zona-centro.component';
 import { SegmentoConstructoresComponent } from './components/segmento-constructores/segmento-constructores.component';
 import { SegmentoCadenaSuministroComponent } from './components/segmento-cadena-suministro/segmento-cadena-suministro.component';
+import { PlantasComponent } from './components/plantas/plantas.component';
+import { PermisosComponent } from './components/permisos/permisos.component';
+import { RegistroPermisoComponent } from './components/registro-permiso/registro-permiso.component';
 
 const routes: Routes = [
   {path:'', redirectTo: 'loggin', pathMatch: 'full'},
@@ -17,14 +20,11 @@ const routes: Routes = [
   {path:'Zona-noreste', component: ZonaNorteComponent},
   {path:'Zona-sureste', component: ZonaSuresteComponent},
   {path:'Zona-centro', component: ZonaCentroComponent},
+  {path:'plantas', component: PlantasComponent},
+  {path:'permisos', component: PermisosComponent},
+  {path:'registro-permisos', component: RegistroPermisoComponent},
   {path:'constructores', component: SegmentoConstructoresComponent},
   {path:'cadena-suministros', component: SegmentoCadenaSuministroComponent}
-  
-
-  
-
-
-
   
 
 ];
