@@ -24,7 +24,7 @@
         <a href="constructores">Reportes por segmento</a>
         <a href="Zona-centro">Reportes por Zona</a>
         <a href="">Operaciónes sin contrato y sin prediales</a>
-        <a href="">Unidades operativas</a>
+        <a href="plantas">Unidades operativas</a>
         <a href="">Permisos</a>
         <a href="">Renovar permiso</a>
         <a href="">Descargar archivos</a>
@@ -66,40 +66,3 @@
 
 </body>
 </html>
-
-<script>
-  
-if (window.screen.width < 768) {
- 
- var list;
- list = document.querySelectorAll(".miboton");
- for (var i = 0; i < list.length; ++i) {
-     list[i].classList.add('btn-chico');
- }
-
- console.log('Ventana Menor que 768px');
-
-}
-else if (window.screen.width < 900) {
-
- var list;
- list = document.querySelectorAll(".miboton");
- for (var i = 0; i < list.length; ++i) {
-     list[i].classList.add('btn-mediano');
- }
-
- console.log('Ventana Menor que 900px');
-
-}
-else if (window.screen.width < 1200) {
-
- var list;
- list = document.querySelectorAll(".miboton");
- for (var i = 0; i < list.length; ++i) {
-     list[i].classList.add('btn-grande');
- }
-
- console.log('Ventana Menor que 1200px');
- 
-}
-</script>
