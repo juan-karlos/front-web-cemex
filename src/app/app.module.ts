@@ -13,6 +13,9 @@ import { InformeAnualComponent } from './components/informe-anual/informe-anual.
 import { SegmentoConstructoresComponent } from './components/segmento-constructores/segmento-constructores.component';
 import { SegmentoCadenaSuministroComponent } from './components/segmento-cadena-suministro/segmento-cadena-suministro.component';
 import { NgChartsModule } from 'ng2-charts';
+import { PlantasComponent } from './components/plantas/plantas.component';
+import { PermisosComponent } from './components/permisos/permisos.component';
+import { RegistroPermisoComponent } from './components/registro-permiso/registro-permiso.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { NgChartsModule } from 'ng2-charts';
     ZonaSuresteComponent,
     InformeAnualComponent,
     SegmentoConstructoresComponent,
-    SegmentoCadenaSuministroComponent
+    SegmentoCadenaSuministroComponent,
+    PlantasComponent,
+    PermisosComponent,
+    RegistroPermisoComponent
   ],
   imports: [
     BrowserModule,
