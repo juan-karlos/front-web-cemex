@@ -39,25 +39,27 @@
     <h1 id="titulo">Informe mensual para operaciónes Cadena de suministros</h1>
    <div class="contenedor-principal">
     <div class="div_paralelo">
-       
-        
+      <br><br>
         <div id="contenedor-grafica" class="tabla">
         <h3 id="subtitulo">Progreso de cumplimiento</h3> 
-        <img class="imagen" src="https://i.ibb.co/M5P32r8/grafica-cemex-prueba.jpg" alt="">
-            
+        <canvas baseChart class="chart"  [data]="datoslineas" [options]="barChartOptionsLine"
+        [plugins]="barChartPlugins" [type]="graficalineas">
+       </canvas>   
     </div>
+    <br><br>
     <div id="contenedor-grafica" class="tabla">
-          <h3 id="subtitulo">Cumplimiento CERO</h3> 
-          <!-- <img class="imagen" src="https://i.ibb.co/cJTpF7K/grafica-de-barras-R-O.jpg" alt="">
-        -->
+      <h3 id="subtitulo">Cumplimiento CERO</h3> 
     <canvas baseChart class="chart" [data]="barChartData" [options]="barChartOptions"
-     [plugins]="barChartPlugins" [type]="barChartType">
+     [plugins]="barChartPlugins" [type]="barChartType" >
     </canvas>
      </div>
-        <div id="contenedor-grafica" class="tabla">
+     <br><br>
+      <div id="contenedor-grafica" class="tabla">
             <h3 id="subtitulo">Cumplimiento Fijas/Moviles</h3> 
-            <img class="imagen" src="https://i.ibb.co/xMrpBbG/grafica-de-barras-fijas-dedicadas.jpg" alt="">
-        </div>
+            <canvas baseChart class="chart" [data]="barChartData2" [options]="barChartOptions"
+            [plugins]="barChartPlugins" [type]="barChartType">
+           </canvas>
+      </div>
         <div id="contenedor-grafica" class="tabla">
               <h3 id="subtitulo" style="background-color: bisque; height:250px;">Nivel de riesgo</h3> 
               <!-- <img class="imagen" src="https://i.ibb.co/M5P32r8/grafica-cemex-prueba.jpg" alt=""> -->
