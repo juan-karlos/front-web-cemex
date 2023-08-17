@@ -35,7 +35,7 @@ export class RiesgoConstructoresComponent implements OnInit {
     labels: ['CLAUSURAS', 'MULTAS', 'OPTIMAS', 'NO TRAMITABLES'],
     datasets: [
       {
-        data: [133.3, 86.2, 52.2, 51.2],
+        data: [133, 86, 52, 51],
             backgroundColor: [
                 "#FF6384",
                 "#63FF84",
