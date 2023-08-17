@@ -16,6 +16,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { PlantasComponent } from './components/plantas/plantas.component';
 import { PermisosComponent } from './components/permisos/permisos.component';
 import { RegistroPermisoComponent } from './components/registro-permiso/registro-permiso.component';
+import { RiesgoConstructoresComponent } from './components/riesgo-constructores/riesgo-constructores.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { RegistroPermisoComponent } from './components/registro-permiso/registro
     SegmentoCadenaSuministroComponent,
     PlantasComponent,
     PermisosComponent,
-    RegistroPermisoComponent
+    RegistroPermisoComponent,
+    RiesgoConstructoresComponent
   ],
   imports: [
     BrowserModule,
