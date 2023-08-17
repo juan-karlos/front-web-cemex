@@ -1,39 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
 <header>
   <nav class="navbar navbar-expand-lg" style="background-color: #dedada;">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand">
        <img id="logo" src="https://i.ibb.co/HK2Btjq/Logo-Cemex.png" alt="">
-        <!-- <label id="btn-menu1" for="btn-menu" style="font-size: 40px">☰</label> -->
+        
       </a>
       <a href="constructores" ID="boton-riesgo"><h3>Volver</h3></a>
       
     </div>
   </nav>
   <input type="checkbox" id="btn-menu">
-  <!-- <div class="container-menu">
-    <div class="cont-menu">
-      <nav>
-        <a href="inicio">Inicio</a>
-        <a href="constructores">Constructores</a>
-        <a href="cadena-suministros">Cadena de suministros</a>
-        <a href="">Construrama Supply</a>
-        <a href="">Industriales</a>
-        <a href="">Inmuebles no operativos</a>
-        <a href="">Operaciónes</a>
-        <a href="">Promexma</a>
-        <a href="">Transporte</a>
-       
-      </nav>
-      <label for="btn-menu" id="Boton-cerrar">✖</label>
-    </div>
-  </div> -->
 
 </header>
 <body>
   <h1 id="titulo">CONSTRUCTORES - Nivel de riesgo por zona y bimestral</h1>
   <div class="contenedor-principal">
     <div class="div_paralelo">
-      <div id="contenedor-grafica" class="tabla">
+      <div  class="tabla">
         <h3 id="subtitulo">Nivel de riesgo MAYO</h3> 
         <canvas baseChart class="chart"  [data]="datosmes1" [options]="Opciones"
         [plugins]="barChartPlugins" [type]="Tipo">
@@ -41,7 +31,7 @@
        </div>
     </div>
     <div class="div_paralelo">
-      <div id="contenedor-grafica" class="tabla">
+      <div  class="tabla">
         <h3 id="subtitulo">Nivel de riesgo JUNIO</h3> 
         <canvas baseChart class="chart"  [data]="datosmes1" [options]="Opciones"
         [plugins]="barChartPlugins" [type]="Tipo">
@@ -52,7 +42,7 @@
   </div>
   <div class="contenedor-principal">
     <div class="div_paralelo">
-      <div id="contenedor-grafica" class="tabla">
+      <div  class="tabla">
         <h3 id="subtitulo">Nivel de riesgo PACIFICO</h3> 
         <canvas baseChart class="chart"  [data]="datosmes1" [options]="Opciones"
         [plugins]="barChartPlugins" [type]="Tipo">
@@ -60,7 +50,7 @@
        </div>
     </div>
     <div class="div_paralelo">
-      <div id="contenedor-grafica" class="tabla">
+      <div class="tabla">
         <h3 id="subtitulo">Nivel de riesgo NORESTE</h3> 
         <canvas baseChart class="chart"  [data]="datosmes1" [options]="Opciones"
         [plugins]="barChartPlugins" [type]="Tipo">
@@ -71,7 +61,7 @@
   </div>
   <div class="contenedor-principal">
     <div class="div_paralelo">
-      <div id="contenedor-grafica" class="tabla">
+      <div  class="tabla">
         <h3 id="subtitulo">Nivel de riesgo SURESTE</h3> 
         <canvas baseChart class="chart"  [data]="datosmes1" [options]="Opciones"
         [plugins]="barChartPlugins" [type]="Tipo">
@@ -79,7 +69,7 @@
        </div>
     </div>
     <div class="div_paralelo">
-      <div id="contenedor-grafica" class="tabla">
+      <div class="tabla">
         <h3 id="subtitulo">Nivel de riesgo CENTRO</h3> 
         <canvas baseChart class="chart"  [data]="datosmes1" [options]="Opciones"
         [plugins]="barChartPlugins" [type]="Tipo">
@@ -88,4 +78,7 @@
     </div>
     
   </div>
+  
 </body>
+
+</html>

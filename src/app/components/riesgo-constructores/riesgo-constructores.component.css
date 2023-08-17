@@ -181,3 +181,91 @@
   width: 100%;
   height: 100%;
   }
+  #titulo{
+    color: rgb(17, 17, 110);
+    margin-top: 20px;
+    margin-left: 35px;
+    /* text-align: center; */
+  }
+  #subtitulo{
+    color: rgb(151, 151, 151);
+    margin-top: 20px;
+    margin-left: 35px;
+    /* text-align: center; */
+  }
+  .contenedor-tabla{
+    width:70%;
+    margin: 0px auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  
+  
+  .logo{
+    height:60px;
+    width:100px ;
+   
+  }
+  #body{
+    margin: 0;
+    padding: 0;
+    height: 1400px;
+    background-image: url(https://i.ibb.co/G9cnWRQ/CEMEX-FONDO.jpg);
+    background-size:cover ;
+    background-position:center;
+  }
+  
+  #titulo-inicio{
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0px;
+  }
+   #base-mapa{
+    
+     /* height:70%; */
+     width: 70%; 
+     margin: 0px auto;
+     
+  } 
+  
+  .boton-mapa{
+    width: 260px;
+    height: 260px;
+    background: none;
+    background-repeat: no-repeat;
+    border:0;
+    margin-left: 20%;
+    margin-top: 3%;
+  }
+  .imagen{
+    width: 90%;
+  }
+  #btn-menu {
+    display: none;
+  }
+  #btn-menu1{
+    margin-top: 2px;
+   
+  }
+  
+  /* Contenedor del menu, cuando se abre y su posición */
+  .container-menu {
+    position: absolute; z-index: 1;
+    background: rgba(255, 255, 255, 0.518); 
+    width: 100%;
+    height: 160%;
+    top: 0;
+    left: 0;
+    transition: all 500ms ease;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .contenedor-mapa{
+    width: 80%;
+    margin: auto;
+   
+  }
+
+  
+
+  

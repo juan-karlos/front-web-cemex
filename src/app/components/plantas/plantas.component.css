@@ -113,6 +113,12 @@
     border-left: 5px solid #c7c7c7;
     background: #e9e8e8;
   }
+  .contenedor-tabla{
+    width:80%;
+    margin: 0px auto;
+    margin-top: 2%;
+    margin-bottom: 5%;
+  }
   
   /* Tamaño y color del icon de X (cerrar) */
   .cont-menu label {
