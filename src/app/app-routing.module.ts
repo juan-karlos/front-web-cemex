@@ -11,6 +11,7 @@ import { SegmentoCadenaSuministroComponent } from './components/segmento-cadena-
 import { PlantasComponent } from './components/plantas/plantas.component';
 import { PermisosComponent } from './components/permisos/permisos.component';
 import { RegistroPermisoComponent } from './components/registro-permiso/registro-permiso.component';
+import { RiesgoConstructoresComponent } from './components/riesgo-constructores/riesgo-constructores.component';
 
 const routes: Routes = [
   {path:'', redirectTo: 'loggin', pathMatch: 'full'},
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path:'permisos', component: PermisosComponent},
   {path:'registro-permisos', component: RegistroPermisoComponent},
   {path:'constructores', component: SegmentoConstructoresComponent},
-  {path:'cadena-suministros', component: SegmentoCadenaSuministroComponent}
+  {path:'cadena-suministros', component: SegmentoCadenaSuministroComponent},
+  {path:'riesgo-constructores', component: RiesgoConstructoresComponent}
   
 
 ];

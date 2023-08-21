@@ -11,6 +11,10 @@
   background-size:cover ;
   background-position:center;
 }
+#boton-riesgo{
+  margin-right: 10%;
+  
+}
 
 #titulo-inicio{
   font-weight: bold;
