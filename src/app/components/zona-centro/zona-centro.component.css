@@ -1,4 +1,4 @@
- #titulo{
+#titulo{
   color: rgb(17, 17, 110);
   margin-top: 20px;
   margin-left: 35px;
@@ -10,7 +10,12 @@
   margin-left: 35px;
   /* text-align: center; */
 }
-
+.contenedor-tabla{
+  width:70%;
+  margin: 0px auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
 
 
 .logo{
