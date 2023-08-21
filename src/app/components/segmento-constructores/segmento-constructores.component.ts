@@ -83,7 +83,7 @@ public datoslineas: ChartData<'line'> = {
   , 'JUNIO', 'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'],
   datasets: [
     { data: [62, 66, 73, 74, 75, 77,78,78, 78, 80, 82, 83,], label: '2022'  },
-    { data: [65, 71, 74, 74, 77,78], label: '2023'},
+    { data: [64, 71, 74, 74, 77,78], label: '2023'},
   ],
 };
 
