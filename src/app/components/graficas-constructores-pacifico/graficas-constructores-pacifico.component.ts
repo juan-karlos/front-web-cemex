@@ -35,8 +35,7 @@ public barChartOptions: ChartConfiguration['options'] = {
       display: true,
     },
     datalabels: {
-      anchor: 'end',
-      align: 'end',
+    
     },
   },
 };
