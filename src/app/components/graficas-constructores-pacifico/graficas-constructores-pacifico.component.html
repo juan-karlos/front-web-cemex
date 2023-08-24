@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructores</title>
+</head>
+
+<header>
+  <nav class="navbar navbar-expand-lg" style="background-color: #dedada;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+       <img id="logo" src="https://i.ibb.co/HK2Btjq/Logo-Cemex.png" alt="">
+        <label id="btn-menu1" for="btn-menu" style="font-size: 40px">☰</label>
+      </a>
+     
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="nivel-riesgo-constructores-pacifico" style="font-size: 20px;">Estatus por tienda</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="constructores-pacifico" style="font-size: 20px;">Volver</a>
+        </li>
+      </ul> 
+    </div>
+  </nav>
+
+
+</header>
+<body>
+    <h1 id="titulo">Informes de cumplimiento Constructores Pacifico</h1>
+   <div class="contenedor-principal">
+    <div>
+      <br>
+        
+    <br><br>
+    <div id="contenedor-grafica" class="tabla">
+      <h3 id="subtitulo">Cumplimiento CERO</h3> 
+      <br>
+    <canvas baseChart class="chart" [data]="barChartData" [options]="barChartOptions"
+     [plugins]="barChartPlugins" [type]="barChartType" >
+    </canvas>
+     </div>
+     <br><br>
+      <div id="contenedor-grafica" class="tabla">
+            <h3 id="subtitulo">Cumplimiento Fijas/Moviles</h3> 
+            <canvas baseChart class="chart" [data]="barChartData2" [options]="barChartOptions"
+            [plugins]="barChartPlugins" [type]="barChartType">
+           </canvas>
+      </div>
+      <br><br>
+        <div id="contenedor-grafica" class="tabla">
+        
+        </div>
+        <!-- <div class="tabla">
+         <h4>
+          - +1% comparado con el mes anterior, debido a 
+          la obtención de 11 Licencias Municipales y 9 de proteccion civil.
+         </h4>
+         <br>
+         <h4>
+          - +1% comparado con el mismo mes del año anterior.
+         </h4>
+        </div> -->
+
+    </div>
+    
+   </div>
+    
+</body>
+</html>
+
