@@ -70,7 +70,7 @@ public barChartData: ChartData<'bar'> = {
     { data: [28, 48, 40, 19, 86], label: 'Junio'  },
   ],
 };
-public barChartData2: ChartData<'bar'> = {
+public datosFijasMoviles: ChartData<'bar'> = {
   labels: ['NACIONAL', 'CENTRO', 'NORESTE', 'PACIFICO', 'SURESTE'],
   datasets: [
     { data: [65, 59, 80, 81, 56], label: 'Mayo',  backgroundColor: '#0048FB'},
