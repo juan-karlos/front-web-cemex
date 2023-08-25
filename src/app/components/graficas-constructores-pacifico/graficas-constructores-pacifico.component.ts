@@ -22,10 +22,12 @@ public barChartOptions: ChartConfiguration['options'] = {
   responsive: true,
   // We use these empty structures as placeholders for dynamic theming.
   scales: {
-    x: {},
+    x: {
+    },
     y: {
       min: 10,
-      max: 100
+      max: 100,
+      
     },
   },
   plugins: {
@@ -33,8 +35,27 @@ public barChartOptions: ChartConfiguration['options'] = {
       display: true,
     },
     datalabels: {
-      anchor: 'end',
-      align: 'end',
+    
+    },
+  },
+};
+public stackedBarChartOptions: ChartConfiguration['options'] = {
+  responsive: true,
+  // We use these empty structures as placeholders for dynamic theming.
+  scales: {
+    x: {stacked: true},
+    y: {
+      min: 10,
+      max: 150,
+      stacked: true
+    },
+  },
+  plugins: {
+    legend: {
+      display: true,
+    },
+    datalabels: {
+    
     },
   },
 };
@@ -52,8 +73,17 @@ public barChartData: ChartData<'bar'> = {
 public barChartData2: ChartData<'bar'> = {
   labels: ['NACIONAL', 'CENTRO', 'NORESTE', 'PACIFICO', 'SURESTE'],
   datasets: [
-    { data: [65, 59, 56, 55, 40], label: 'Mayo', backgroundColor: '#0048FB'},
-    { data: [ 40, 19, 86, 27, 90], label: 'Junio' },
+    { data: [65, 59, 80, 81, 56], label: 'Mayo',  backgroundColor: '#0048FB'},
+    { data: [28, 48, 40, 19, 86], label: 'Junio'  },
+  ],
+};
+public stackedBarData: ChartData<'bar'> = {
+  labels: ['NACIONAL', 'CENTRO', 'NORESTE', 'PACIFICO', 'SURESTE'],
+  datasets: [
+    { data: [34, 59, 56, 55, 40], label: 'Clausura', backgroundColor: '#FF1B1B'},
+    { data: [ 40, 19, 26, 27, 34], label: 'Multa', backgroundColor: '#E5FF0E' },
+    { data: [ 40, 19, 26, 27, 34], label: 'Optimas', backgroundColor: '#32FF00'  },
+    { data: [ 4, 9, 6, 7, 3], label: 'No tramitables', backgroundColor: '#A9A9A9'  },
   ],
 };
 
