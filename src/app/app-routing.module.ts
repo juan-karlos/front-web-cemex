@@ -76,6 +76,37 @@ import { GraficasTransporteNoresteComponent } from './components/graficas-transp
 import { GraficasTransportePacificoComponent } from './components/graficas-transporte-pacifico/graficas-transporte-pacifico.component';
 import { GraficasTransporteSuresteComponent } from './components/graficas-transporte-sureste/graficas-transporte-sureste.component';
 import { NivelRiesgoConstructoresPacificoComponent } from './components/nivel-riesgo-constructores-pacifico/nivel-riesgo-constructores-pacifico.component';
+import { NivelRiesgoConstructoresCentroComponent } from './components/nivel-riesgo-constructores-centro/nivel-riesgo-constructores-centro.component';
+import { NivelRiesgoConstructoresNoresteComponent } from './components/nivel-riesgo-constructores-noreste/nivel-riesgo-constructores-noreste.component';
+import { NivelRiesgoConstructoresSuresteComponent } from './components/nivel-riesgo-constructores-sureste/nivel-riesgo-constructores-sureste.component';
+import { NivelRiesgoConstruramaCentroComponent } from './components/nivel-riesgo-construrama-centro/nivel-riesgo-construrama-centro.component';
+import { NivelRiesgoConstruramaNoresteComponent } from './components/nivel-riesgo-construrama-noreste/nivel-riesgo-construrama-noreste.component';
+import { NivelRiesgoConstruramaPacificoComponent } from './components/nivel-riesgo-construrama-pacifico/nivel-riesgo-construrama-pacifico.component';
+import { NivelRiesgoConstruramaSuresteComponent } from './components/nivel-riesgo-construrama-sureste/nivel-riesgo-construrama-sureste.component';
+import { NivelRiesgoIndustrialesCentroComponent } from './components/nivel-riesgo-industriales-centro/nivel-riesgo-industriales-centro.component';
+import { NivelRiesgoIndustrialesNoresteComponent } from './components/nivel-riesgo-industriales-noreste/nivel-riesgo-industriales-noreste.component';
+import { NivelRiesgoIndustrialesPacificoComponent } from './components/nivel-riesgo-industriales-pacifico/nivel-riesgo-industriales-pacifico.component';
+import { NivelRiesgoIndustrialesSuresteComponent } from './components/nivel-riesgo-industriales-sureste/nivel-riesgo-industriales-sureste.component';
+import { NivelRiesgoNoOperativosCentroComponent } from './components/nivel-riesgo-no-operativos-centro/nivel-riesgo-no-operativos-centro.component';
+import { NivelRiesgoNoOperativosNoresteComponent } from './components/nivel-riesgo-no-operativos-noreste/nivel-riesgo-no-operativos-noreste.component';
+import { NivelRiesgoNoOperativosPacificoComponent } from './components/nivel-riesgo-no-operativos-pacifico/nivel-riesgo-no-operativos-pacifico.component';
+import { NivelRiesgoNoOperativosSuresteComponent } from './components/nivel-riesgo-no-operativos-sureste/nivel-riesgo-no-operativos-sureste.component';
+import { NivelRiesgoOperacionesCentroComponent } from './components/nivel-riesgo-operaciones-centro/nivel-riesgo-operaciones-centro.component';
+import { NivelRiesgoOperacionesNoresteComponent } from './components/nivel-riesgo-operaciones-noreste/nivel-riesgo-operaciones-noreste.component';
+import { NivelRiesgoOperacionesPacificoComponent } from './components/nivel-riesgo-operaciones-pacifico/nivel-riesgo-operaciones-pacifico.component';
+import { NivelRiesgoOperacionesSuresteComponent } from './components/nivel-riesgo-operaciones-sureste/nivel-riesgo-operaciones-sureste.component';
+import { NivelRiesgoPromexmaCentroComponent } from './components/nivel-riesgo-promexma-centro/nivel-riesgo-promexma-centro.component';
+import { NivelRiesgoPromexmaNoresteComponent } from './components/nivel-riesgo-promexma-noreste/nivel-riesgo-promexma-noreste.component';
+import { NivelRiesgoPromexmaPacificoComponent } from './components/nivel-riesgo-promexma-pacifico/nivel-riesgo-promexma-pacifico.component';
+import { NivelRiesgoPromexmaSuresteComponent } from './components/nivel-riesgo-promexma-sureste/nivel-riesgo-promexma-sureste.component';
+import { NivelRiesgoSuministroCentroComponent } from './components/nivel-riesgo-suministro-centro/nivel-riesgo-suministro-centro.component';
+import { NivelRiesgoSuministroNoresteComponent } from './components/nivel-riesgo-suministro-noreste/nivel-riesgo-suministro-noreste.component';
+import { NivelRiesgoSuministroPacificoComponent } from './components/nivel-riesgo-suministro-pacifico/nivel-riesgo-suministro-pacifico.component';
+import { NivelRiesgoSuministroSuresteComponent } from './components/nivel-riesgo-suministro-sureste/nivel-riesgo-suministro-sureste.component';
+import { NivelRiesgoTrasnporteCentroComponent } from './components/nivel-riesgo-trasnporte-centro/nivel-riesgo-trasnporte-centro.component';
+import { NivelRiesgoTrasnporteNoresteComponent } from './components/nivel-riesgo-trasnporte-noreste/nivel-riesgo-trasnporte-noreste.component';
+import { NivelRiesgoTrasnportePacificoComponent } from './components/nivel-riesgo-trasnporte-pacifico/nivel-riesgo-trasnporte-pacifico.component';
+import { NivelRiesgoTrasnporteSuresteComponent } from './components/nivel-riesgo-trasnporte-sureste/nivel-riesgo-trasnporte-sureste.component';
 
 const routes: Routes = [
   {path:'', redirectTo: 'loggin', pathMatch: 'full'},
@@ -157,6 +188,51 @@ const routes: Routes = [
   {path:'graficas-transporte-pacifico', component: GraficasTransportePacificoComponent},
   {path:'graficas-transporte-sureste', component: GraficasTransporteSuresteComponent},
   {path:'nivel-riesgo-constructores-pacifico', component: NivelRiesgoConstructoresPacificoComponent},
+  {path:'nivel-riesgo-constructores-centro', component: NivelRiesgoConstructoresCentroComponent},
+  {path:'nivel-riesgo-constructores-noreste', component: NivelRiesgoConstructoresNoresteComponent},
+  {path:'nivel-riesgo-constructores-sureste', component: NivelRiesgoConstructoresSuresteComponent},
+  {path:'nivel-riesgo-construrama-centro', component: NivelRiesgoConstruramaCentroComponent},
+  {path:'nivel-riesgo-construrama-noreste', component: NivelRiesgoConstruramaNoresteComponent},
+  {path:'nivel-riesgo-construrama-pacifico', component: NivelRiesgoConstruramaPacificoComponent},
+  {path:'nivel-riesgo-construrama-sureste', component: NivelRiesgoConstruramaSuresteComponent},
+  {path:'nivel-riesgo-industriales-centro', component: NivelRiesgoIndustrialesCentroComponent},
+  {path:'nivel-riesgo-industriales-noreste', component: NivelRiesgoIndustrialesNoresteComponent},
+  {path:'nivel-riesgo-industriales-pacifico', component: NivelRiesgoIndustrialesPacificoComponent},
+  {path:'nivel-riesgo-industriales-sureste', component: NivelRiesgoIndustrialesSuresteComponent},
+  {path:'nivel-riesgo-no-operativos-centro', component: NivelRiesgoNoOperativosCentroComponent},
+  {path:'nivel-riesgo-no-operativos-noreste', component: NivelRiesgoNoOperativosNoresteComponent},
+  {path:'nivel-riesgo-no-operativos-pacifico', component: NivelRiesgoNoOperativosPacificoComponent},
+  {path:'nivel-riesgo-no-operativos-sureste', component: NivelRiesgoNoOperativosSuresteComponent},
+  {path:'nivel-riesgo-operaciones-centro', component: NivelRiesgoOperacionesCentroComponent},
+  {path:'nivel-riesgo-operaciones-noreste', component: NivelRiesgoOperacionesNoresteComponent},
+  {path:'nivel-riesgo-operaciones-pacifico', component: NivelRiesgoOperacionesPacificoComponent},
+  {path:'nivel-riesgo-operaciones-sureste', component: NivelRiesgoOperacionesSuresteComponent},
+  {path:'nivel-riesgo-promexma-centro', component: NivelRiesgoPromexmaCentroComponent},
+  {path:'nivel-riesgo-promexma-noreste', component: NivelRiesgoPromexmaNoresteComponent},
+  {path:'nivel-riesgo-promexma-pacifico', component: NivelRiesgoPromexmaPacificoComponent},
+  {path:'nivel-riesgo-promexma-sureste', component: NivelRiesgoPromexmaSuresteComponent},
+  {path:'nivel-riesgo-suministro-centro', component: NivelRiesgoSuministroCentroComponent},
+  {path:'nivel-riesgo-suministro-noreste', component: NivelRiesgoSuministroNoresteComponent},
+  {path:'nivel-riesgo-suministro-pacifico', component: NivelRiesgoSuministroPacificoComponent},
+  {path:'nivel-riesgo-suministro-sureste', component: NivelRiesgoSuministroSuresteComponent},
+  {path:'nivel-riesgo-transporte-centro', component: NivelRiesgoTrasnporteCentroComponent},
+  {path:'nivel-riesgo-transporte-noreste', component: NivelRiesgoTrasnporteNoresteComponent},
+  {path:'nivel-riesgo-transporte-pacifico', component: NivelRiesgoTrasnportePacificoComponent},
+  {path:'nivel-riesgo-transporte-sureste', component: NivelRiesgoTrasnporteSuresteComponent},
+  
+  
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
 
 ];
