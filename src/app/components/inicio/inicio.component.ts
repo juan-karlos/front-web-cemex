@@ -6,10 +6,13 @@ import { Router } from '@angular/router';
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css']
 })
+//debemos agregar el constructor y los elementos necesarios en el pra poder hacer nuestro ruteo de la forma correcta//
 export class InicioComponent implements OnInit{
   constructor(private router: Router){}
   ngOnInit() {
   }
+  //agregamos los metodos que amos a mandar a llamar desde nuestros botones//
+  
   Norte(){
     this.router.navigate(['Zona-noreste']);
   }
