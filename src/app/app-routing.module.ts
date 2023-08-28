@@ -107,6 +107,7 @@ import { NivelRiesgoTrasnporteCentroComponent } from './components/nivel-riesgo-
 import { NivelRiesgoTrasnporteNoresteComponent } from './components/nivel-riesgo-trasnporte-noreste/nivel-riesgo-trasnporte-noreste.component';
 import { NivelRiesgoTrasnportePacificoComponent } from './components/nivel-riesgo-trasnporte-pacifico/nivel-riesgo-trasnporte-pacifico.component';
 import { NivelRiesgoTrasnporteSuresteComponent } from './components/nivel-riesgo-trasnporte-sureste/nivel-riesgo-trasnporte-sureste.component';
+import { IndustrialesNoresteComponent } from './components/industriales-noreste/industriales-noreste.component';
 
 const routes: Routes = [
   {path:'', redirectTo: 'loggin', pathMatch: 'full'},
@@ -126,7 +127,7 @@ const routes: Routes = [
   {path:'constructores-pacifico', component: ConstructoresPacificoComponent},
   {path:'constructores-centro', component: ConstructoresCentroComponent },
   {path:'constructores-sureste', component: ConstructoresSuresteComponent},
-  {path:'constructores-pnoreste', component: ConstructoresNoresteComponent},
+  {path:'constructores-noreste', component: ConstructoresNoresteComponent},
   {path:'suministro-pacifico', component: SuministroPacificoComponent },
   {path:'suministro-centro', component: SuministroCentroComponent },
   {path:'suministro-sureste', component:  SuministroSuresteComponent},
@@ -138,7 +139,7 @@ const routes: Routes = [
   {path:'industriales-pacifico', component:IndustrialesPacificoComponent },
   {path:'industriales-centro', component: IndustrialesCentroComponent },
   {path:'industriales-sureste', component: IndustrialesSuresteComponent },
-  {path:'industriales-noreste', component: IndustrialesSuresteComponent },
+  {path:'industriales-noreste', component: IndustrialesNoresteComponent },
   {path:'no-operativo-pacifico', component: NoOperativosPacificoComponent },
   {path:'no-operativo-centro', component: NoOperativosCentroComponent },
   {path:'no-operativo-sureste', component: NoOperativosSuresteComponent },
