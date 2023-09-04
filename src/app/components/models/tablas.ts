@@ -10,7 +10,7 @@ export interface planta{
   segmento: String,
   zona: String,
   estado: String,
-  procentaje_cumplimiento: number,
+  porcentaje_cumplimiento: number,
   fija: Boolean
 }
 
@@ -36,7 +36,7 @@ export interface historial{
 id_historial: number,
 segmento: String,
 zona: String,
-procentaje_cimplimiento: number,
+porcentaje_cumplimiento: number,
 fecha: Date
 }
 
