@@ -1,5 +1,5 @@
 export interface usuario{
-  id_usuario: number
+  
   correo:String,
   nombre:String,
   contraseña:String
@@ -18,7 +18,8 @@ export interface permiso{
   id_requerimiento: number,
   nombre_requerimiento: String,
   peso: number,
-  impacto: String
+  impacto: String, 
+  siglas: String
 }
 
 export interface registro{
