@@ -75,7 +75,12 @@
     visibility: visible;
     
   }
-  
+  .contenedor-tabla{
+    width:70%;
+    margin: 0px auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
   /* Contenido del menú (Inicio, etc, además del color del fondo del mismo) */
   .cont-menu {
     width: 100%;
