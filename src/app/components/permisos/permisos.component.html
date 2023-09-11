@@ -13,38 +13,30 @@
       </div>
     </nav>
     
-    <h1 id="titulo">Total de permisos</h1>
-    <!-- <h2 id="subtitulo">74% Cumplimiento CERO; 26 UUNN en riesgo de clausura, 8 en riesgo de multa y 3 optimas.</h2> -->
+    <h1 id="titulo">Listado de permisos base, sus pesos e impacto</h1>
   
   </header>
   <body>
     <div class="contenedor-tabla">
   
-      <!-- <a style="font-size: 32px; font-weight: bold; color: rgb(0, 47, 255);"> TOTAL</a>
-      <a style="font-size: 32px; font-weight: bold;"> DE UNIDADES OPERATIVAS </a>
-      <a style="font-size: 32px; font-weight: bold; color: rgb(31, 140, 7);"> MÉXICO</a> -->
       <br><br><br>
       <table class="table table-hover">
           <thead class="table-dark">
             <tr>
               <th scope="col">Nombre permiso</th>
-              <th scope="col">Siglas</th>
-              <th scope="col">Fecha vencimiento</th>
-              <th scope="col">Planta</th>
-              <th scope="col">Segmento</th>
-              <th scope="col">Estatus</th>
-              <th scope="col">Impacto</th>
-              <th scope="col">Validez unica</th>
               <th scope="col">Peso</th>
+              <th scope="col">Impacto</th>
+              <th scope="col">Siglas</th>
+         
             </tr>
           </thead>
           <tbody>
 
             <tr *ngFor="let Permiso of permiso.Permiso">
-              <td>{{Permiso.}}</td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>{{Permiso.nombre_requerimiento}}</td>
+              <td>{{Permiso.peso}}</td>
+              <td>{{Permiso.impacto}}</td>
+              <td>{{Permiso.siglas}}</td>
             </tr>
             
            
