@@ -112,6 +112,7 @@ import { IndustrialesNoresteComponent } from './components/industriales-noreste/
 const routes: Routes = [
   {path:'', redirectTo: 'loggin', pathMatch: 'full'},
   {path:'loggin', component: LooginComponent},
+  {path:'plantas', component: PlantasComponent},
   {path:'inicio', component: InicioComponent},
   {path:'Zona-pacifico', component: ZonaPacificoComponent},
   {path:'Zona-noreste', component: ZonaNorteComponent},
