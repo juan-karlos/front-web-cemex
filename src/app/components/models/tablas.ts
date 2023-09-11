@@ -6,10 +6,10 @@ export interface usuario{
 }
 export interface planta{
   id_planta: number,
-  nombre:String,
+  nombre_planta:String,
   segmento: String,
   zona: String,
-  estado: String,
+  Estado: String,
   porcentaje_cumplimiento: number,
   fija: Boolean
 }
