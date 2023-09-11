@@ -20,9 +20,6 @@
 <body>
   <div class="contenedor-tabla">
 
-    <!-- <a style="font-size: 32px; font-weight: bold; color: rgb(0, 47, 255);"> TOTAL</a>
-    <a style="font-size: 32px; font-weight: bold;"> DE UNIDADES OPERATIVAS </a>
-    <a style="font-size: 32px; font-weight: bold; color: rgb(31, 140, 7);"> MÉXICO</a> -->
     <br><br><br>
     <table class="table table-hover">
         <thead class="table-dark">
@@ -36,35 +33,17 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">PD0063 XALOSTOC, EDOMEX</th>
-            <td>Constructores</td>
-            <td>Centro</td>
-            <td>Xalostoc</td>
-            <td>78</td>
-            <td>Si</td>
-          
-          </tr>
-          <tr>
-            <th scope="row">PD0063 XALOSTOC, EDOMEX</th>
-            <td>Constructores</td>
-            <td>Centro</td>
-            <td>Xalostoc</td>
-            <td>78</td>
-            <td>Si</td>
-          
-          </tr>
-          <tr>
-            <th scope="row">PD0063 XALOSTOC, EDOMEX</th>
-            <td>Constructores</td>
-            <td>Centro</td>
-            <td>Xalostoc</td>
-            <td>78</td>
-            <td>Si</td>
+
+          <tr *ngFor="let Planta of unidad.Plantas">
+            <td>{{Planta.nombre_planta}}</td>
+            <td>{{Planta.segmento}}</td>
+            <td>{{Planta.zona}}</td>
+            <td>{{Planta.Estado}}</td>
+            <td>{{Planta.porcentaje_cumplimiento}} %</td>
+            <td>{{Planta.fija}}</td>
           
           </tr>
           
-       
          
         </tbody>
       </table>
