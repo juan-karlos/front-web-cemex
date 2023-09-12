@@ -108,6 +108,7 @@ import { NivelRiesgoTrasnporteNoresteComponent } from './components/nivel-riesgo
 import { NivelRiesgoTrasnportePacificoComponent } from './components/nivel-riesgo-trasnporte-pacifico/nivel-riesgo-trasnporte-pacifico.component';
 import { NivelRiesgoTrasnporteSuresteComponent } from './components/nivel-riesgo-trasnporte-sureste/nivel-riesgo-trasnporte-sureste.component';
 import { IndustrialesNoresteComponent } from './components/industriales-noreste/industriales-noreste.component';
+import { AgregarRegistroComponent } from './components/agregar-registro/agregar-registro.component';
 
 const routes: Routes = [
   {path:'', redirectTo: 'loggin', pathMatch: 'full'},
@@ -221,6 +222,7 @@ const routes: Routes = [
   {path:'nivel-riesgo-transporte-noreste', component: NivelRiesgoTrasnporteNoresteComponent},
   {path:'nivel-riesgo-transporte-pacifico', component: NivelRiesgoTrasnportePacificoComponent},
   {path:'nivel-riesgo-transporte-sureste', component: NivelRiesgoTrasnporteSuresteComponent},
+  {path: 'agregar_registro', component: AgregarRegistroComponent},
   
   
   
