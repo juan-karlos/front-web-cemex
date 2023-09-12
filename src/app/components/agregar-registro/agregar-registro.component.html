@@ -1,0 +1,125 @@
+<header>
+    <nav class="navbar navbar-expand-lg" style="background-color: #dedada;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="inicio">
+         <img id="logo" src="https://i.ibb.co/HK2Btjq/Logo-Cemex.png" alt="">
+        </a>
+       
+           <ul class="nav justify-content-end" style="margin-right: 3%; ">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="inicio" style="font-size: 20px;">Volver</a>
+            </li>
+  
+           
+          </ul>
+      </div>
+    </nav>
+    
+  </header>
+  <body>
+    <div class="contenedor-principal">
+        <form class="row g-3 needs-validation" novalidate>
+            <div class="col-md-6">
+              <label for="validationCustom01" class="form-label">Nombre de la planta</label>
+              <input type="text" class="form-control" id="validationCustom01"  required>
+              <div class="valid-feedback">
+               Excelente
+              </div>
+              <div class="invalid-feedback">
+                Por favor seleccione un estatus valido
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="validationCustom02" class="form-label">Nobre del permiso</label>
+              <input type="text" class="form-control" id="validationCustom02"  required>
+              <div class="valid-feedback">
+                Excelente
+              </div>
+              <div class="invalid-feedback">
+                Por favor seleccione un estatus valido
+              </div>
+            </div>
+          
+            <div class="col-md-6">
+              <label for="validationCustom03" class="form-label">Observaciones</label>
+              <input type="text" class="form-control" id="validationCustom03" required>
+              <div class="invalid-feedback">
+                Por favor ingresa un valor valido
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="validationCustom04" class="form-label">Estatus</label>
+              <select class="form-select" id="validationCustom04" required>
+                <option selected disabled value="">Elegir...</option>
+                <option>Vigente</option>
+                <option>Vencido</option>
+                <option>En tramite</option>
+                <option>No tramitable</option>
+                <option>No cumple</option>
+              </select>
+              <div class="invalid-feedback">
+                Por favor seleccione un estatus valido
+              </div>
+              
+            </div>
+            
+            <div class="col-12">
+            
+              
+            </div>
+            <div class="mb-3">
+                <input type="file" class="form-control" aria-label="file example" required>
+                <div class="invalid-feedback"></div>
+              </div>
+            <br><br>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                <label class="form-check-label" for="invalidCheck">
+                  Validez Unica
+                </label>
+              </div>
+              <!-- aqui empiezan los datepickers -->
+              <!-- <div class="col-12">
+                <div class="col-6">
+                <section class="container">
+                    <h2 class="py-2">Datepicker in Bootstrap 5</h2>
+                    <form class="row">
+                      <label for="date" class="col-1 col-form-label">Date</label>
+                      <div class="col-5">
+                        <div class="input-group date" id="datepicker">
+                          <input type="text" class="form-control" id="date"/>
+                          <span class="input-group-append">
+                            <span class="input-group-text bg-light d-block">
+                              <i class="fa fa-calendar"></i>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </form>
+                  </section>
+                  <div class="col-6">
+                    <section class="container">
+                        <h2 class="py-2">Datepicker in Bootstrap 5</h2>
+                        <form class="row">
+                          <label for="date" class="col-1 col-form-label">Date</label>
+                          <div class="col-5">
+                            <div class="input-group date" id="datepicker">
+                              <input type="text" class="form-control" id="date"/>
+                              <span class="input-group-append">
+                                <span class="input-group-text bg-light d-block">
+                                  <i class="fa fa-calendar"></i>
+                                </span>
+                              </span>
+                            </div>
+                          </div>
+                        </form>
+                      </section>
+                  </div>
+                </div>
+              </div> -->
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit">Submit form</button>
+            </div>
+          </form>
+    </div>
+  </body>
