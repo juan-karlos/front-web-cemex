@@ -115,6 +115,7 @@ import { NivelRiesgoTrasnporteCentroComponent } from './components/nivel-riesgo-
 import { NivelRiesgoTrasnporteSuresteComponent } from './components/nivel-riesgo-trasnporte-sureste/nivel-riesgo-trasnporte-sureste.component';
 import { NivelRiesgoTrasnporteNoresteComponent } from './components/nivel-riesgo-trasnporte-noreste/nivel-riesgo-trasnporte-noreste.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AgregarRegistroComponent } from './components/agregar-registro/agregar-registro.component';
 
 @NgModule({
   declarations: [
@@ -227,7 +228,8 @@ import { HttpClientModule } from '@angular/common/http';
     NivelRiesgoTrasnportePacificoComponent,
     NivelRiesgoTrasnporteCentroComponent,
     NivelRiesgoTrasnporteSuresteComponent,
-    NivelRiesgoTrasnporteNoresteComponent
+    NivelRiesgoTrasnporteNoresteComponent,
+    AgregarRegistroComponent
   ],
   imports: [
     BrowserModule,
