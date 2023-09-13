@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+
 
 @Component({
   selector: 'app-agregar-registro',
@@ -7,5 +7,15 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
   styleUrls: ['./agregar-registro.component.css']
 })
 export class AgregarRegistroComponent {
+  mostrar: boolean = false;
+
+  mostrarFechas(){
+    if(this.mostrar){
+      this.mostrar = false;
+    }
+    else{
+       this.mostrar = true;
+    }
+  }
 
 }
