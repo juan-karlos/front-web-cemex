@@ -21,10 +21,11 @@
     
     <div class="contenedor-principal">
       <br>
-        <form class="row g-3 needs-validation" novalidate>
+        <form class="row g-3 needs-validation" novalidate #FormRegistro ="ngForm">
             <div class="col-md-6">
               <label for="validationCustom01" class="form-label"><h3>Nombre de la planta</h3></label>
-              <input type="text" class="form-control" id="validationCustom01"  required>
+              <input type="text" class="form-control" id="validationCustom01"  required name="nombre_planta"
+              [(ngModel)]="servisplanta.PlantaSelect.nombre_planta">
               <div class="valid-feedback">
                Excelente
               </div>
@@ -32,25 +33,52 @@
                 Por favor ingrese un nombre válido
               </div>
             </div>
-           
+            <div class="col-md-3">
+              <label for="validationCustom02" class="form-label"><h3>Segmento</h3></label>
+              <select class="form-select" id="validationCustom02" required name="segmento"
+              [(ngModel)]="servisplanta.PlantaSelect.segmento">
+                <option selected disabled value="">Elegir segmento</option>
+                <option>Cadena de suministro</option>
+                <option>Contructores</option>
+                <option>Industriales</option>
+                <option>Inmuebles no operativos</option>
+                <option>Operaciones</option>
+                <option>Promexma</option>
+                <option>Transporte</option>
+              </select>
+              <div class="invalid-feedback">
+                Por favor seleccione un segmento valido válido
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="validationCustom03" class="form-label"><h3>Zona</h3></label>
+              <select class="form-select" id="validationCustom03" required name="zona"
+              [(ngModel)]="servisplanta.PlantaSelect.zona">
+                <option selected disabled value="">Elegir segmento</option>
+                <option>Centro</option>
+                <option>Noreste</option>
+                <option>Pacífico</option>
+                <option>Sureste</option>
+              </select>
+              <div class="invalid-feedback">
+                Por favor seleccione una zona valida
+              </div>
+            </div>
           
             <div class="col-md-6">
-              <label for="validationCustom03" class="form-label"> <h3>Ciudad</h3></label>
-              <input type="text" class="form-control" id="validationCustom03" required>
+              <label for="validationCustom04" class="form-label"> <h3>Estado</h3></label>
+              <input type="text" class="form-control" id="validationCustom04" required name="Estado"
+              [(ngModel)]="servisplanta.PlantaSelect.Estado">
              
             </div>
-            <div class="col-12">
-              
-            </div>
-            <div class="mb-3">
-                <input type="file" class="form-control" aria-label="file example" required>
-                <div class="invalid-feedback"></div>
-              </div>
+           
+            
             <br><br>
             <div class="form-check" style="margin-left: 10px;">
-                <input class="form-check-input" type="checkbox" value="false" id="invalidCheck">
+                <input class="form-check-input" type="checkbox" value="false" id="invalidCheck" required name="fija"
+                [(ngModel)]="servisplanta.PlantaSelect.fija">
                 <label class="form-check-label">
-                <h3>Validez Unica</h3>
+                <h3>Fija</h3>
                 </label>
               </div>
              
@@ -58,7 +86,7 @@
             
             <div class="col-12">
               <br><br>
-              <button class="btn btn-primary" type="submit">Agregar</button>
+              <button class="btn btn-primary" type="submit" (click)="insertar_planta(FormRegistro)">Agregar</button>
             </div>
           </form>
     </div>
