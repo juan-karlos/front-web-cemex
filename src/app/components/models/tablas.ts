@@ -10,7 +10,7 @@ export interface planta{
   segmento: String,
   zona: String,
   Estado: String,
-  porcentaje_cumplimiento: number,
+  porcentaje_cumplimiento: 0,
   fija: Boolean
 }
 

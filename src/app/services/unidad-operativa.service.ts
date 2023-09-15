@@ -5,7 +5,7 @@ import {planta} from '../components/models/tablas'
   providedIn: 'root'
 })
 export class UnidadOperativaService {
-URL_API = 'http://192.168.100.62:3500/api/unidad/'
+URL_API = 'http://192.168.100.65:2300/api/unidad/'
 Plantas:planta[]=[];
 
 PlantaSelect :planta={
@@ -14,12 +14,15 @@ PlantaSelect :planta={
   segmento:'',
   zona:'',
   Estado:'',
-  porcentaje_cumplimiento:0,
+  porcentaje_cumplimiento: 0,
   fija:true
   }
   constructor(private http:HttpClient) { }
   
   obtenerplanta(){
     return this.http.get<planta[]>(this.URL_API);
+  }
+  insertar(insplanta:planta){
+    return this.http.post(this.URL_API+"insertar",insplanta);
   }
 } 
