@@ -1,0 +1,66 @@
+
+<header>
+    <nav class="navbar navbar-expand-lg" style="background-color: #dedada;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="inicio">
+         <img id="logo" src="https://i.ibb.co/HK2Btjq/Logo-Cemex.png" alt="">
+        </a>
+       
+           <ul class="nav justify-content-end" style="margin-right: 3%; ">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="inicio" style="font-size: 20px;">Volver</a>
+            </li>
+  
+           
+          </ul>
+      </div>
+    </nav>
+    <H1 id="titulo">Registrar nueva planta</H1>
+  </header>
+  <body style="background-color: bisque; margin: 5%;">
+    
+    <div class="contenedor-principal">
+      <br>
+        <form class="row g-3 needs-validation" novalidate>
+            <div class="col-md-6">
+              <label for="validationCustom01" class="form-label"><h3>Nombre de la planta</h3></label>
+              <input type="text" class="form-control" id="validationCustom01"  required>
+              <div class="valid-feedback">
+               Excelente
+              </div>
+              <div class="invalid-feedback">
+                Por favor ingrese un nombre válido
+              </div>
+            </div>
+           
+          
+            <div class="col-md-6">
+              <label for="validationCustom03" class="form-label"> <h3>Ciudad</h3></label>
+              <input type="text" class="form-control" id="validationCustom03" required>
+             
+            </div>
+            <div class="col-12">
+              
+            </div>
+            <div class="mb-3">
+                <input type="file" class="form-control" aria-label="file example" required>
+                <div class="invalid-feedback"></div>
+              </div>
+            <br><br>
+            <div class="form-check" style="margin-left: 10px;">
+                <input class="form-check-input" type="checkbox" value="false" id="invalidCheck">
+                <label class="form-check-label">
+                <h3>Validez Unica</h3>
+                </label>
+              </div>
+             
+            
+            
+            <div class="col-12">
+              <br><br>
+              <button class="btn btn-primary" type="submit">Agregar</button>
+            </div>
+          </form>
+    </div>
+    <br><br><br>
+  </body>

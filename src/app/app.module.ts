@@ -3,6 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule} from '@angular/material/input';
+import {MatNativeDateModule} from '@angular/material/core';
 
 import { LooginComponent } from './components/loogin/loogin.component';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -116,6 +120,9 @@ import { NivelRiesgoTrasnporteSuresteComponent } from './components/nivel-riesgo
 import { NivelRiesgoTrasnporteNoresteComponent } from './components/nivel-riesgo-trasnporte-noreste/nivel-riesgo-trasnporte-noreste.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AgregarRegistroComponent } from './components/agregar-registro/agregar-registro.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { AgregarPlantaComponent } from './components/agregar-planta/agregar-planta.component';
 
 @NgModule({
   declarations: [
@@ -229,14 +236,20 @@ import { AgregarRegistroComponent } from './components/agregar-registro/agregar-
     NivelRiesgoTrasnporteCentroComponent,
     NivelRiesgoTrasnporteSuresteComponent,
     NivelRiesgoTrasnporteNoresteComponent,
-    AgregarRegistroComponent
+    AgregarRegistroComponent,
+    AgregarPlantaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgChartsModule,
     MatTabsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
