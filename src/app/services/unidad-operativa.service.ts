@@ -5,7 +5,7 @@ import {planta} from '../components/models/tablas'
   providedIn: 'root'
 })
 export class UnidadOperativaService {
-URL_API = 'http://192.168.100.65:2300/api/unidad/'
+URL_API = 'http://192.168.100.62:3200/api/unidad/'
 Plantas:planta[]=[];
 
 PlantaSelect :planta={
