@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, NgForm } from '@angular/forms';
 import { UnidadOperativaService } from 'src/app/services/unidad-operativa.service';
 import Swal from 'sweetalert2';
 
@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class AgregarPlantaComponent { 
 
-  constructor(public servisplanta:UnidadOperativaService){}
+  constructor(public servisplanta:UnidadOperativaService, private FB: FormBuilder){}
 
   insertar_planta(form:NgForm){
     this.servisplanta.insertar(form.value).subscribe(
