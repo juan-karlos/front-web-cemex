@@ -45,6 +45,23 @@ export class AgregarPlantaComponent {
     reverseButtons: true
   }).then((result) => {
     if (result.isConfirmed) {
+      this.servisplanta.insertar(form.value).subscribe(
+        res=>{
+          form.reset()
+          this.servisplanta.obtenerplanta().subscribe(
+            res=>this.servisplanta.Plantas=res,
+            err=>Swal.fire({
+              title: err,
+              showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+              },
+              hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+              }
+            })
+          )
+        }
+      )
       swalWithBootstrapButtons.fire(
         'Agregado',
         'La planta fue agregada',
