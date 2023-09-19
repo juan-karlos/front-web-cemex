@@ -26,9 +26,10 @@
   <div class="contenedor-tabla">
     <br>
     
-    <form class="d-flex">
-      <input class="form-control" type="text" placeholder="Buscar" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Buscar</button>
+    <form class="form-group">
+      <input class="form-control" type="text" name="filterpost" placeholder="Buscar" aria-label="Search"
+       [(ngModel)]="filterpost" >
+      <!-- <button class="btn btn-outline-success" type="submit">Buscar</button> -->
     </form>
 
     <br><br><br>
@@ -45,7 +46,7 @@
         </thead>
         <tbody>
 
-          <tr *ngFor="let Planta of unidad.Plantas">
+          <tr *ngFor="let Planta of unidad.Plantas | filtroPlanta:filterpost">
             <td>{{Planta.nombre_planta}}</td>
             <td>{{Planta.segmento}}</td>
             <td>{{Planta.zona}}</td>
