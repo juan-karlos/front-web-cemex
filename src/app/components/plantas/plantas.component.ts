@@ -9,6 +9,7 @@ import {UnidadOperativaService} from 'src/app/services/unidad-operativa.service'
 export class PlantasComponent implements OnInit {
 
   constructor(public unidad:UnidadOperativaService){}
+  filterpost ='';
   
   ngOnInit(): void {
     this.obtenerplantas();

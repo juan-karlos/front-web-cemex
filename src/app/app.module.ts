@@ -125,6 +125,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AgregarRegistroComponent } from './components/agregar-registro/agregar-registro.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgregarPlantaComponent } from './components/agregar-planta/agregar-planta.component';
+import { FiltroPlantaPipe } from './pipes/filtro-planta.pipe';
 
 @NgModule({
   declarations: [
@@ -239,7 +240,8 @@ import { AgregarPlantaComponent } from './components/agregar-planta/agregar-plan
     NivelRiesgoTrasnporteSuresteComponent,
     NivelRiesgoTrasnporteNoresteComponent,
     AgregarRegistroComponent,
-    AgregarPlantaComponent
+    AgregarPlantaComponent,
+    FiltroPlantaPipe
   ],
   imports: [
     FormsModule,
