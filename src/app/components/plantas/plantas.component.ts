@@ -15,11 +15,12 @@ export class PlantasComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerplantas();
   }
+ 
   obtenerplantas(){
     this.unidad.obtenerplanta().subscribe(
       res=>this.unidad.Plantas=res,
       err=>console.error(err)
     )
   }
-
 }
+

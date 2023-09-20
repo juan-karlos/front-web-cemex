@@ -47,6 +47,7 @@
         <tbody>
 
           <tr *ngFor="let Planta of unidad.Plantas | filtroPlanta:filterpost">
+          <!-- <tr *ngFor="let Planta of unidad.Plantas"> -->
             <td>{{Planta.nombre_planta}}</td>
             <td>{{Planta.segmento}}</td>
             <td>{{Planta.zona}}</td>

@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 
+
 import { LooginComponent } from './components/loogin/loogin.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { ZonaPacificoComponent } from './components/zona-pacifico/zona-pacifico.component';
