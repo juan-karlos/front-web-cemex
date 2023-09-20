@@ -25,11 +25,13 @@
 
   <div class="contenedor-tabla">
     <br>
+    <div class="col-md-3" style="background-color: rgb(220, 220, 220); padding: .5%; border-radius: 10px;">
+      <form class="form-group">
+        <input class="form-control" type="text" name="filterpost" placeholder="Buscar" aria-label="Search"
+         [(ngModel)]="filterPost" >
+      </form>
+    </div>
     
-    <form class="form-group">
-      <input class="form-control" type="text" name="filterpost" placeholder="Buscar" aria-label="Search"
-       [(ngModel)]="filterPost" >
-    </form>
 
     <br><br><br>
     <table class="table table-hover">
@@ -40,6 +42,7 @@
             <th scope="col">Zona</th>
             <th scope="col">Ciudad</th>
             <th scope="col">Porcentaje de cumplimiento</th>
+            <th scope="col"></th>
             <!-- <th scope="col">Fija</th> -->
           </tr>
         </thead>
@@ -52,6 +55,7 @@
             <td>{{Planta.zona}}</td>
             <td>{{Planta.Estado}}</td>
             <td>{{Planta.porcentaje_cumplimiento}} %</td>
+            <td><button type="button" class="btn btn-outline-info">Editar</button></td>
             <!-- <td>{{Planta.fija}}</td> -->
           
           </tr>
