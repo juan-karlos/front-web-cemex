@@ -28,7 +28,7 @@
     
     <form class="form-group">
       <input class="form-control" type="text" name="filterpost" placeholder="Buscar" aria-label="Search"
-       [(ngModel)]="filterpost" >
+       [(ngModel)]="filterPost" >
       <!-- <button class="btn btn-outline-success" type="submit">Buscar</button> -->
     </form>
 
@@ -46,7 +46,7 @@
         </thead>
         <tbody>
 
-          <tr *ngFor="let Planta of unidad.Plantas | filtroPlanta:filterpost">
+          <tr *ngFor="let Planta of unidad.Plantas | filtroPlanta:filterPost">
           <!-- <tr *ngFor="let Planta of unidad.Plantas"> -->
             <td>{{Planta.nombre_planta}}</td>
             <td>{{Planta.segmento}}</td>

@@ -259,6 +259,7 @@ import { FiltroPlantaPipe } from './pipes/filtro-planta.pipe';
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+  
     
   ],
   providers: [],

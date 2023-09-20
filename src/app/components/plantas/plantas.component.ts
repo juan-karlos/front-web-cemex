@@ -10,17 +10,20 @@ import { FormsModule } from '@angular/forms';
 export class PlantasComponent implements OnInit {
 
   constructor(public unidad:UnidadOperativaService){}
-  filterpost ='';
+  filterPost ='';
   
   ngOnInit(): void {
     this.obtenerplantas();
+    
   }
  
   obtenerplantas(){
     this.unidad.obtenerplanta().subscribe(
       res=>this.unidad.Plantas=res,
-      err=>console.error(err)
+      err=>console.error(err),
+      
     )
+    
   }
 }
 
