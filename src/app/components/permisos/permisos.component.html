@@ -20,9 +20,9 @@
     <div class="contenedor-tabla">
       <br>
     
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Buscar</button>
+      <form class="form-group">
+        <input class="form-control" type="text" name="filterpost" placeholder="Buscar" aria-label="Search"
+         [(ngModel)]="filterPost" >
       </form>
   
       <br><br><br>
@@ -38,7 +38,7 @@
           </thead>
           <tbody>
 
-            <tr *ngFor="let Permiso of permiso.Permiso">
+            <tr *ngFor="let Permiso of permiso.Permiso | filtroPermiso:filterPost">
               <td>{{Permiso.nombre_requerimiento}}</td>
               <td>{{Permiso.peso}}</td>
               <td>{{Permiso.impacto}}</td>

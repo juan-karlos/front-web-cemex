@@ -8,7 +8,7 @@ import { RequerimientoService } from 'src/app/services/requerimiento.service';
 })
 export class PermisosComponent implements OnInit{
   constructor(public permiso:RequerimientoService){}
-  
+  filterPost ='';
   ngOnInit(): void {
     this.obtenerpermisos();
   }

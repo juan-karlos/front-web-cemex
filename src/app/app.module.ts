@@ -129,6 +129,7 @@ import { AgregarRegistroComponent } from './components/agregar-registro/agregar-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgregarPlantaComponent } from './components/agregar-planta/agregar-planta.component';
 import { FiltroPlantaPipe } from './pipes/filtro-planta.pipe';
+import { FiltroPermisoPipe } from './pipes/filtro-permiso.pipe';
 
 @NgModule({
   declarations: [
@@ -244,7 +245,8 @@ import { FiltroPlantaPipe } from './pipes/filtro-planta.pipe';
     NivelRiesgoTrasnporteNoresteComponent,
     AgregarRegistroComponent,
     AgregarPlantaComponent,
-    FiltroPlantaPipe
+    FiltroPlantaPipe,
+    FiltroPermisoPipe
   ],
   imports: [
     FormsModule,
