@@ -7,8 +7,11 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule} from '@angular/material/core';
+import { NgModel } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+
+
 
 
 import { LooginComponent } from './components/loogin/loogin.component';
@@ -126,6 +129,8 @@ import { AgregarRegistroComponent } from './components/agregar-registro/agregar-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AgregarPlantaComponent } from './components/agregar-planta/agregar-planta.component';
+import { FiltroPlantaPipe } from './pipes/filtro-planta.pipe';
+import { FiltroPermisoPipe } from './pipes/filtro-permiso.pipe';
 
 @NgModule({
   declarations: [
@@ -240,7 +245,9 @@ import { AgregarPlantaComponent } from './components/agregar-planta/agregar-plan
     NivelRiesgoTrasnporteSuresteComponent,
     NivelRiesgoTrasnporteNoresteComponent,
     AgregarRegistroComponent,
-    AgregarPlantaComponent
+    AgregarPlantaComponent,
+    FiltroPlantaPipe,
+    FiltroPermisoPipe
   ],
   imports: [
     FormsModule,
@@ -254,7 +261,9 @@ import { AgregarPlantaComponent } from './components/agregar-planta/agregar-plan
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+  
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
