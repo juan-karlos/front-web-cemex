@@ -7,6 +7,9 @@
       </a>  
       <ul class="nav justify-content-end">
         <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="agregar-planta" style="font-size: 30px; margin-right: 40px;">Agregar planta</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="inicio" style="font-size: 30px; margin-right: 40px;">Volver</a>
         </li>
       </ul> 
@@ -18,7 +21,17 @@
 
 </header>
 <body>
+
+
   <div class="contenedor-tabla">
+    <br>
+    <div class="col-md-3" style="background-color: rgb(220, 220, 220); padding: .5%; border-radius: 10px;">
+      <form class="form-group">
+        <input class="form-control" type="text" name="filterpost" placeholder="Buscar" aria-label="Search"
+         [(ngModel)]="filterPost" >
+      </form>
+    </div>
+    
 
     <br><br><br>
     <table class="table table-hover">
@@ -29,17 +42,20 @@
             <th scope="col">Zona</th>
             <th scope="col">Ciudad</th>
             <th scope="col">Porcentaje de cumplimiento</th>
+            <th scope="col"></th>
             <!-- <th scope="col">Fija</th> -->
           </tr>
         </thead>
         <tbody>
 
-          <tr *ngFor="let Planta of unidad.Plantas">
+          <tr *ngFor="let Planta of unidad.Plantas | filtroPlanta:filterPost">
+          <!-- <tr *ngFor="let Planta of unidad.Plantas"> -->
             <td>{{Planta.nombre_planta}}</td>
             <td>{{Planta.segmento}}</td>
             <td>{{Planta.zona}}</td>
             <td>{{Planta.Estado}}</td>
             <td>{{Planta.porcentaje_cumplimiento}} %</td>
+            <td><button class="btn btn-primary"><i class="material-icons">edit</i></button></td>
             <!-- <td>{{Planta.fija}}</td> -->
           
           </tr>
