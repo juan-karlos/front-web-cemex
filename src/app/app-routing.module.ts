@@ -226,7 +226,7 @@ const routes: Routes = [
   {path:'nivel-riesgo-transporte-sureste', component: NivelRiesgoTrasnporteSuresteComponent},
   {path: 'agregar-registro', component: AgregarRegistroComponent},
   {path: 'agregar-planta', component: AgregarPlantaComponent},
-  {path: 'actualizar-planta', component: ActualizarPlantaComponent},
+  {path: 'actualizar-planta/:id', component: ActualizarPlantaComponent},
   
   
   
