@@ -12,6 +12,7 @@ export class AgregarPlantaComponent {
 
   constructor(public servisplanta:UnidadOperativaService, private FB: FormBuilder){}
 
+
   insertar_planta(form:NgForm){
     this.servisplanta.insertar(form.value).subscribe(
       res=>{
@@ -23,6 +24,7 @@ export class AgregarPlantaComponent {
       }
     )
   }
+
 
  validacion(form:NgForm){
   const swalWithBootstrapButtons = Swal.mixin({
@@ -43,6 +45,7 @@ export class AgregarPlantaComponent {
     confirmButtonText: 'Si, agregar',
     cancelButtonText: 'Volver a revisar',
     reverseButtons: true
+    
   }).then((result) => {
     if (result.isConfirmed) {
       this.servisplanta.insertar(form.value).subscribe(
@@ -50,15 +53,18 @@ export class AgregarPlantaComponent {
           form.reset()
           this.servisplanta.obtenerplanta().subscribe(
             res=>this.servisplanta.Plantas=res,
-            err=>Swal.fire({
-              title: err,
-              showClass: {
-                popup: 'animate__animated animate__fadeInDown'
-              },
-              hideClass: {
-                popup: 'animate__animated animate__fadeOutUp'
-              }
-            })
+            
+            err=>console.log(err)
+            // Swal.fire({
+            //   title: err,
+            //   showClass: {
+            //     popup: 'animate__animated animate__fadeInDown'
+            //   },
+            //   hideClass: {
+            //     popup: 'animate__animated animate__fadeOutUp'
+            //   }
+            // }
+            // )
           )
         }
       )
