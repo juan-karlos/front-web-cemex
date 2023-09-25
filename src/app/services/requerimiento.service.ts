@@ -7,7 +7,7 @@ import {permiso} from '../components/models/tablas'
 export class RequerimientoService {
   URL_API = 'http://192.168.100.62:3200/api/requerimiento/'
   Permiso:permiso[]=[];
-  
+
   PermisoSelect :permiso={
     id_requerimiento: 0,
     nombre_requerimiento: '',
