@@ -8,7 +8,7 @@ import {UsuariosService} from 'src/app/services/usuarios.service';
 })
 export class LooginComponent implements OnInit{
 
-  constructor(private router: Router,private usuarios:UsuariosService){}
+constructor(private router: Router,private usuarios:UsuariosService){}
 ngOnInit(){
   this.obtenerUsuario();
 }
