@@ -1,22 +1,21 @@
-
 <header>
     <nav class="navbar navbar-expand-lg" style="background-color: #dedada;">
       <div class="container-fluid">
         <a class="navbar-brand" href="inicio">
          <img id="logo" src="https://i.ibb.co/HK2Btjq/Logo-Cemex.png" alt="">
-        </a>
-       
-           <ul class="nav justify-content-end" style="margin-right: 3%; ">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="inicio" style="font-size: 20px;">Volver</a>
-            </li>
-  
-           
-          </ul>
+          
+        </a>  
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="plantas" style="font-size: 30px; margin-right: 40px;">Volver</a>
+          </li>
+        </ul> 
       </div>
     </nav>
-    <H1 id="titulo">Registrar nueva planta</H1>
-    <br>
+    
+    <h1 id="titulo">Actualizar Planta</h1>
+   
+  
   </header>
   <body >
     
@@ -25,19 +24,12 @@
         <form class="row g-3 needs-validation"  #FormRegistro ="ngForm">
             <div class="col-md-6">
               <label for="validationCustom01" class="form-label"><h3>Nombre de la planta</h3></label>
-              <input type="text" class="form-control" id="validationCustom01"  required name="nombre_planta"
-              [(ngModel)]="servisplanta.PlantaSelect.nombre_planta">
-              <div class="valid-feedback">
-               Excelente
-              </div>
-              <div class="invalid-feedback">
-                Por favor ingrese un nombre válido
-              </div>
+              <input type="text" class="form-control" id="validationCustom01"  required name="nombre_planta">
             </div>
             <div class="col-md-3">
               <label for="validationCustom02" class="form-label"><h3>Segmento</h3></label>
               <select class="form-select" id="validationCustom02"  name="segmento" required
-              [(ngModel)]="servisplanta.PlantaSelect.segmento">
+              >
                 <option selected disabled value="">Elegir segmento</option>
                 <option>Cadena de suministro</option>
                 <option>Contructores</option>
@@ -47,29 +39,40 @@
                 <option>Promexma</option>
                 <option>Transporte</option>
               </select>
-              
+              <div class="valid-feedback">
+                Perfecto
+              </div>
+              <div class="invalid-feedback">
+                Por favor seleccione un segmento valido válido
+              </div>
             </div>
             <div class="col-md-3">
               <label for="validationCustom03" class="form-label"><h3>Zona</h3></label>
               <select class="form-select" id="validationCustom03" required name="zona"
-              [(ngModel)]="servisplanta.PlantaSelect.zona">
+              >
                 <option selected disabled value="">Elegir zona</option>
                 <option>Centro</option>
                 <option>Noreste</option>
                 <option>Pacífico</option>
                 <option>Sureste</option>
               </select>
-            
             </div>
           
             <div class="col-md-6">
               <label for="validationCustom04" class="form-label"> <h3>Estado</h3></label>
-              <input type="text" class="form-control" id="validationCustom04" name="Estado" required 
-              [(ngModel)]="servisplanta.PlantaSelect.Estado">
+              <input type="text" class="form-control" id="validationCustom04" required name="Estado"
+              >
+              
+              <div class="valid-feedback">
+                Perfecto
+              </div>
+              <div class="invalid-feedback">
+                Por favor seleccione un segmento valido válido
+              </div>
             </div>
            
             
-       
+<!--        
             <div class="form-check" style="margin-left: 10px;">
                 <input class="form-check-input" type="checkbox" value="false" id="invalidCheck"  name="fija"
                 [(ngModel)]="servisplanta.PlantaSelect.fija">
@@ -77,13 +80,13 @@
                 <h3>Fija</h3>
                 </label>
               </div>
-             
+              -->
             
             
             <div class="col-12">
               <br><br>
               <!-- <button class="btn btn-primary" type="submit" (click)="insertar_planta(FormRegistro)">Agregar</button> -->
-              <button class="btn btn-primary" type="submit" (click)="validacion(FormRegistro)">Agregar</button>
+              <button class="btn btn-primary" type="submit" (click)="validacion()">Actualizar</button>
             </div>
           </form>
     </div>

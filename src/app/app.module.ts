@@ -131,6 +131,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgregarPlantaComponent } from './components/agregar-planta/agregar-planta.component';
 import { FiltroPlantaPipe } from './pipes/filtro-planta.pipe';
 import { FiltroPermisoPipe } from './pipes/filtro-permiso.pipe';
+import { ActualizarPlantaComponent } from './components/actualizar-planta/actualizar-planta.component';
 
 @NgModule({
   declarations: [
@@ -247,7 +248,8 @@ import { FiltroPermisoPipe } from './pipes/filtro-permiso.pipe';
     AgregarRegistroComponent,
     AgregarPlantaComponent,
     FiltroPlantaPipe,
-    FiltroPermisoPipe
+    FiltroPermisoPipe,
+    ActualizarPlantaComponent
   ],
   imports: [
     FormsModule,
