@@ -12,8 +12,6 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
-
-
 import { LooginComponent } from './components/loogin/loogin.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { ZonaPacificoComponent } from './components/zona-pacifico/zona-pacifico.component';
@@ -127,10 +125,11 @@ import { NivelRiesgoTrasnporteNoresteComponent } from './components/nivel-riesgo
 import { HttpClientModule } from '@angular/common/http';
 import { AgregarRegistroComponent } from './components/agregar-registro/agregar-registro.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AgregarPlantaComponent } from './components/agregar-planta/agregar-planta.component';
 import { FiltroPlantaPipe } from './pipes/filtro-planta.pipe';
 import { FiltroPermisoPipe } from './pipes/filtro-permiso.pipe';
+import sweetalert2 from 'sweetalert2';
+import { ActualizarPlantaComponent } from './components/actualizar-planta/actualizar-planta.component';
 
 @NgModule({
   declarations: [
@@ -247,7 +246,8 @@ import { FiltroPermisoPipe } from './pipes/filtro-permiso.pipe';
     AgregarRegistroComponent,
     AgregarPlantaComponent,
     FiltroPlantaPipe,
-    FiltroPermisoPipe
+    FiltroPermisoPipe,
+    ActualizarPlantaComponent
   ],
   imports: [
     FormsModule,
@@ -262,8 +262,8 @@ import { FiltroPermisoPipe } from './pipes/filtro-permiso.pipe';
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-  
-    
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
