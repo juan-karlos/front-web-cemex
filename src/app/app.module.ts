@@ -12,8 +12,6 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
-
-
 import { LooginComponent } from './components/loogin/loogin.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { ZonaPacificoComponent } from './components/zona-pacifico/zona-pacifico.component';
@@ -130,6 +128,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgregarPlantaComponent } from './components/agregar-planta/agregar-planta.component';
 import { FiltroPlantaPipe } from './pipes/filtro-planta.pipe';
 import { FiltroPermisoPipe } from './pipes/filtro-permiso.pipe';
+import sweetalert2 from 'sweetalert2';
 import { ActualizarPlantaComponent } from './components/actualizar-planta/actualizar-planta.component';
 
 @NgModule({
@@ -263,8 +262,8 @@ import { ActualizarPlantaComponent } from './components/actualizar-planta/actual
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-  
-    
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
