@@ -129,6 +129,7 @@ import { FiltroPlantaPipe } from './pipes/filtro-planta.pipe';
 import { FiltroPermisoPipe } from './pipes/filtro-permiso.pipe';
 import sweetalert2 from 'sweetalert2';
 import { ActualizarPlantaComponent } from './components/actualizar-planta/actualizar-planta.component';
+import { FiltroFechaPipe } from './pipes/filtro-fecha.pipe';
 
 @NgModule({
   declarations: [
@@ -246,7 +247,8 @@ import { ActualizarPlantaComponent } from './components/actualizar-planta/actual
     AgregarPlantaComponent,
     FiltroPlantaPipe,
     FiltroPermisoPipe,
-    ActualizarPlantaComponent
+    ActualizarPlantaComponent,
+    FiltroFechaPipe
   ],
   imports: [
     FormsModule,
