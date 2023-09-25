@@ -5,13 +5,13 @@
         <a class="navbar-brand" href="inicio">
          <img id="logo" src="https://i.ibb.co/HK2Btjq/Logo-Cemex.png" alt="">
         </a>
-       
+
            <ul class="nav justify-content-end" style="margin-right: 3%; ">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="inicio" style="font-size: 20px;">Volver</a>
             </li>
-  
-           
+
+
           </ul>
       </div>
     </nav>
@@ -19,7 +19,7 @@
     <br>
   </header>
   <body >
-    
+
     <div class="contenedor-principal" style="background-color: bisque; padding: 3%;">
       <br>
         <form class="row g-3 needs-validation"  #FormRegistro ="ngForm">
@@ -71,12 +71,12 @@
                 Por favor seleccione una zona valida
               </div>
             </div>
-          
+
             <div class="col-md-6">
               <label for="validationCustom04" class="form-label"> <h3>Estado</h3></label>
               <input type="text" class="form-control" id="validationCustom04" required name="Estado"
               [(ngModel)]="servisplanta.PlantaSelect.Estado">
-              
+
               <div class="valid-feedback">
                 Perfecto
               </div>
@@ -84,9 +84,9 @@
                 Por favor seleccione un segmento valido válido
               </div>
             </div>
-           
-            
-       
+
+
+
             <div class="form-check" style="margin-left: 10px;">
                 <input class="form-check-input" type="checkbox" value="false" id="invalidCheck"  name="fija"
                 [(ngModel)]="servisplanta.PlantaSelect.fija">
@@ -94,9 +94,9 @@
                 <h3>Fija</h3>
                 </label>
               </div>
-             
-            
-            
+
+
+
             <div class="col-12">
               <br><br>
               <!-- <button class="btn btn-primary" type="submit" (click)="insertar_planta(FormRegistro)">Agregar</button> -->
@@ -104,7 +104,7 @@
             </div>
           </form>
     </div>
-   
+
 
 
   </body>

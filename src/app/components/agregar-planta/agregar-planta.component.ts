@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
   templateUrl: './agregar-planta.component.html',
   styleUrls: ['./agregar-planta.component.css']
 })
-export class AgregarPlantaComponent { 
+export class AgregarPlantaComponent {
 
   constructor(public servisplanta:UnidadOperativaService, private FB: FormBuilder){}
 
@@ -23,18 +23,18 @@ export class AgregarPlantaComponent {
       }
     )
   }
-  
+
  validacion(form:NgForm){
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
       confirmButton: 'btn btn-success',
       cancelButton: 'btn btn-danger',
-      
-      
+
+
     },
     buttonsStyling: true
   })
-  
+
   swalWithBootstrapButtons.fire({
     title: '¿Los datos son correctos?',
     text: "Asegúrate de que los datos sean corectos",
