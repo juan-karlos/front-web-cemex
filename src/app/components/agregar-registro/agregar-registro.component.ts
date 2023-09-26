@@ -12,6 +12,9 @@ export class AgregarRegistroComponent {
   mostrar: boolean = false;
 
   selectedFile: File | null = null;
+  valor :String=''
+  fecha2:String=''
+
 
   constructor(private http: HttpClient, public Registros:RegistrosService) {}
 
@@ -60,5 +63,12 @@ export class AgregarRegistroComponent {
       }
     )
   }
+  mostrarIn(){
+    console.log(this.valor)
+    console.log(this.fecha2)
+
+  }
+
 
 }
+
