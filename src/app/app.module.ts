@@ -129,7 +129,8 @@ import { FiltroPlantaPipe } from './pipes/filtro-planta.pipe';
 import { FiltroPermisoPipe } from './pipes/filtro-permiso.pipe';
 import sweetalert2 from 'sweetalert2';
 import { ActualizarPlantaComponent } from './components/actualizar-planta/actualizar-planta.component';
-
+import { FiltroFechaPipe } from './pipes/filtro-fecha.pipe';
+import { Moment } from 'moment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -246,7 +247,9 @@ import { ActualizarPlantaComponent } from './components/actualizar-planta/actual
     AgregarPlantaComponent,
     FiltroPlantaPipe,
     FiltroPermisoPipe,
-    ActualizarPlantaComponent
+    ActualizarPlantaComponent,
+    FiltroFechaPipe,
+    
   ],
   imports: [
     FormsModule,
@@ -261,11 +264,12 @@ import { ActualizarPlantaComponent } from './components/actualizar-planta/actual
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    
 
 
   ],
   providers: [
-    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
+   
   ],
   bootstrap: [AppComponent]
 })
