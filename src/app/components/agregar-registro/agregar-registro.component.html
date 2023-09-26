@@ -107,15 +107,11 @@
           <div>
             <div class="div_paralelo">
               <h3>Elige la fecha de inicio</h3>
+
               <mat-form-field appearance="fill">
-                <mat-label>
-                Fecha de inicio
-                </mat-label>
-
+                <mat-label>Fecha de inicio</mat-label>
                 <input matInput [matDatepicker]="picker" name="fecha_inicio"
-                [(ngModel)]="Registros.RegistroSelect.fecha_inicio"
-                >
-
+                [(ngModel)]="Registros.RegistroSelect.fecha_inicio">
                 <mat-hint>MM/DD/AAAA</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
@@ -130,8 +126,7 @@
                 </mat-label>
 
                 <input matInput [matDatepicker]="picker2" name ="fecha_vencimiento"
-                [(ngModel)]="Registros.RegistroSelect.fecha_vencimiento"
-                >
+                [(ngModel)]="Registros.RegistroSelect.fecha_vencimiento">
 
                 <mat-hint>MM/DD/AAAA</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
