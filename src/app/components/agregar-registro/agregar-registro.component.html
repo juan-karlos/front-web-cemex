@@ -111,7 +111,12 @@
               <mat-form-field appearance="fill">
                 <mat-label>Fecha de inicio</mat-label>
                 <input matInput [matDatepicker]="picker" name="fecha_inicio"
-                [(ngModel)]="Registros.RegistroSelect.fecha_inicio">
+
+              <!-- [(ngModel)]="Registros.RegistroSelect.fecha_inicio"> -->
+
+                [(ngModel)]="valor">
+
+
                 <mat-hint>MM/DD/AAAA</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
@@ -126,7 +131,11 @@
                 </mat-label>
 
                 <input matInput [matDatepicker]="picker2" name ="fecha_vencimiento"
-                [(ngModel)]="Registros.RegistroSelect.fecha_vencimiento">
+
+                <!-- [(ngModel)]="Registros.RegistroSelect.fecha_vencimiento">-->
+
+                [(ngModel)]="fecha2" (input)="mostrarIn()">
+
 
                 <mat-hint>MM/DD/AAAA</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
@@ -137,7 +146,7 @@
 
           <div class="col-12">
             <br><br>
-            <button class="btn btn-primary" type="submit" (click)="  insertar_registro(FormRegis)">Agregar</button>
+            <button class="btn btn-primary" type="submit" (click)="mostrarIn()">Agregar</button>
           </div>
         </form>
   </div>
