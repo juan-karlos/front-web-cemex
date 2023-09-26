@@ -21,10 +21,13 @@ export class AgregarRegistroComponent {
   mostrar: boolean = false;
  // fechainicio = moment(this,datepicker.value).format(this.formato);
   selectedFile: File | null = null;
-  valor :string=""
-  fecha2:string=""
-  formato = 'yyyy/mm/dd';
-  
+   valor :string=""
+   valor2:string=""
+   formato = 'yyyy/mm/dd';
+   fecha1 = moment(this.valor);
+   fecha2=moment(this.valor2);
+   fechaAcomodada = this.fecha1.format(this.formato);
+   fechaAcomodada2= this.fecha2.format(this.formato);
  
  
 
@@ -76,12 +79,14 @@ export class AgregarRegistroComponent {
     )
   }
   mostrarIn(){
-    const fecha = moment(this.valor);
-    const fecha1=moment(this.fecha2)
-    const fechaAcomodada = fecha.format('DD/MM/YYYY');
-    const fechaAcomodada2=fecha1.format('DD/MM/YYYY');
+  
+   
+    const fecha1 = moment(this.valor);
+    const fecha2=moment(this.valor2);
+    const fechaAcomodada = fecha1.format('YYYY/MM/DD');
+    const fechaAcomodada2= fecha2.format('YYYY/MM/DD');
     console.log(fechaAcomodada);
-   console.log(fechaAcomodada2);
+    console.log(fechaAcomodada2);
 
   }
 

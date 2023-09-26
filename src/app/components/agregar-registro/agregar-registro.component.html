@@ -40,21 +40,14 @@
             <label for="validationCustom02" class="form-label"><h3>Nobre del permiso</h3></label>
 
             <input type="number" class="form-control" id="validationCustom02"  required name="id_requerimiento"
-            [(ngModel)]="Registros.RegistroSelect.id_requerimiento"
-            >
-            <div class="valid-feedback">
-              Excelente
-            </div>
-            <div class="invalid-feedback">
-              Por favor seleccione un estatus válido
-            </div>
+            [(ngModel)]="Registros.RegistroSelect.id_requerimiento">
+           
           </div>
 
           <div class="col-md-6">
             <label for="validationCustom03" class="form-label"> <h3>Observaciones</h3></label>
             <input type="text" class="form-control" id="validationCustom03" required name ="observaciones"
-            [(ngModel)]="Registros.RegistroSelect.observaciones"
-            >
+            [(ngModel)]="Registros.RegistroSelect.observaciones">
 
           </div>
           <div class="col-md-3">
@@ -111,10 +104,8 @@
               <mat-form-field appearance="fill">
                 <mat-label>Fecha de inicio</mat-label>
                 <input matInput [matDatepicker]="picker" name="fecha_inicio" [(ngModel)]="valor">
-               <!-- [(ngModel)]="Registros.RegistroSelect.fecha_inicio" -->
-                
+               <!-- [(ngModel)]="Registros.RegistroSelect.fecha_inicio" --> 
                 <mat-hint>MM/DD/AAAA</mat-hint>
-                 <!-- Fecha seleccionada: {{ picker | filtroFecha }} -->
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
                </mat-form-field>
@@ -131,11 +122,9 @@
                 </mat-label>
 
                 <input matInput [matDatepicker]="picker2" name ="fecha_vencimiento"
-                  [(ngModel)]="fecha2" formControlName="FechIn">
+                  [(ngModel)]="valor2">
                  
                <!-- [(ngModel)]="Registros.RegistroSelect.fecha_vencimiento" -->
-
-       
                 <mat-hint>MM/DD/AAAA</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
                 <mat-datepicker #picker2></mat-datepicker>
