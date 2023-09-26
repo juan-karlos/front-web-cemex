@@ -2,24 +2,32 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RegistrosService } from 'src/app/services/registros.service';
 import { NgForm } from '@angular/forms';
+import * as moment from 'moment';
 
+moment.locale('es');
 @Component({
   selector: 'app-agregar-registro',
   templateUrl: './agregar-registro.component.html',
   styleUrls: ['./agregar-registro.component.css']
 })
-export class AgregarRegistroComponent {
-  mostrar: boolean = false;
 
+export class AgregarRegistroComponent {
+  
+
+
+  //fechainicio = moment(this.datepicker.value);
+  formato = 'yyyy,mm,dd';
+  mostrar: boolean = false;
+ // fechainicio = moment(this,datepicker.value).format(this.formato);
   selectedFile: File | null = null;
   valor :String=''
   fecha2:String=''
 
 
   constructor(private http: HttpClient, public Registros:RegistrosService) {}
-
+  
   onFileSelected(event: any) {
-    console.log("archivo selecsionado");
+    console.log("archivo seleccionado");
     this.selectedFile = event.target.files[0];
     console.log(this.selectedFile);
   }
