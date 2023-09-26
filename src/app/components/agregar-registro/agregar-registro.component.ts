@@ -4,6 +4,7 @@ import { RegistrosService } from 'src/app/services/registros.service';
 import { NgForm } from '@angular/forms';
 import * as moment from 'moment';
 
+
 moment.locale('es');
 @Component({
   selector: 'app-agregar-registro',
@@ -16,13 +17,16 @@ export class AgregarRegistroComponent {
 
 
   //fechainicio = moment(this.datepicker.value);
-  formato = 'yyyy,mm,dd';
+ 
   mostrar: boolean = false;
  // fechainicio = moment(this,datepicker.value).format(this.formato);
   selectedFile: File | null = null;
-  valor :String=''
-  fecha2:String=''
-
+  valor :string=""
+  fecha2:string=""
+  formato = 'yyyy/mm/dd';
+  
+ 
+ 
 
   constructor(private http: HttpClient, public Registros:RegistrosService) {}
   
@@ -72,8 +76,12 @@ export class AgregarRegistroComponent {
     )
   }
   mostrarIn(){
-    console.log(this.valor)
-    console.log(this.fecha2)
+    const fecha = moment(this.valor);
+    const fecha1=moment(this.fecha2)
+    const fechaAcomodada = fecha.format('DD/MM/YYYY');
+    const fechaAcomodada2=fecha1.format('DD/MM/YYYY');
+    console.log(fechaAcomodada);
+   console.log(fechaAcomodada2);
 
   }
 

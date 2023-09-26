@@ -107,22 +107,22 @@
           <div>
             <div class="div_paralelo">
               <h3>Elige la fecha de inicio</h3>
-
+<!-- aqui inicia el primer datepicker -->
               <mat-form-field appearance="fill">
                 <mat-label>Fecha de inicio</mat-label>
-                <input matInput [matDatepicker]="picker" name="fecha_inicio"
-
-              <!-- [(ngModel)]="Registros.RegistroSelect.fecha_inicio"> -->
-
-                [(ngModel)]="valor">
-
-
+                <input matInput [matDatepicker]="picker" name="fecha_inicio" [(ngModel)]="valor">
+               <!-- [(ngModel)]="Registros.RegistroSelect.fecha_inicio" -->
+                
                 <mat-hint>MM/DD/AAAA</mat-hint>
+                 <!-- Fecha seleccionada: {{ picker | filtroFecha }} -->
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
                </mat-form-field>
-
+              
+<!-- aqui acaba el primer datepicker -->
             </div>
+
+
             <div class="div_paralelo">
               <h3>Elige la fecha de vencimiento</h3>
               <mat-form-field appearance="fill">
@@ -131,12 +131,11 @@
                 </mat-label>
 
                 <input matInput [matDatepicker]="picker2" name ="fecha_vencimiento"
+                  [(ngModel)]="fecha2" formControlName="FechIn">
+                 
+               <!-- [(ngModel)]="Registros.RegistroSelect.fecha_vencimiento" -->
 
-                <!-- [(ngModel)]="Registros.RegistroSelect.fecha_vencimiento">-->
-
-                [(ngModel)]="fecha2" (input)="mostrarIn()">
-
-
+       
                 <mat-hint>MM/DD/AAAA</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
                 <mat-datepicker #picker2></mat-datepicker>
