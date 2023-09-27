@@ -40,7 +40,7 @@
     <table class="table table-hover">
         <thead class="table-dark">
           <tr>
-            <th scope="col">ID</th>
+            <!-- <th scope="col">ID</th> -->
             <th scope="col">Planta</th>
             <th scope="col">Segmento</th>
             <th scope="col">Zona</th>
@@ -54,7 +54,7 @@
 
           <tr *ngFor="let Planta of unidad.Plantas | filtroPlanta:filterPost">
           <!-- <tr *ngFor="let Planta of unidad.Plantas"> -->
-            <td>{{Planta.id_planta}}</td>
+            <!-- <td>{{Planta.id_planta}}</td> -->
             <td>{{Planta.nombre_planta}}</td>
             <td>{{Planta.segmento}}</td>
             <td>{{Planta.zona}}</td>
