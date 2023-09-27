@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 import { LooginComponent } from './components/loogin/loogin.component';
@@ -267,8 +268,8 @@ import { Moment } from 'moment';
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    MatMomentDateModule
-    
+    MatMomentDateModule,
+    MatAutocompleteModule
 
 
   ],
