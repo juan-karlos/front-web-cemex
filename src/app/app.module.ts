@@ -10,6 +10,8 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+
 
 import { LooginComponent } from './components/loogin/loogin.component';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -250,6 +252,7 @@ import { Moment } from 'moment';
     ActualizarPlantaComponent,
     FiltroFechaPipe,
     
+    
   ],
   imports: [
     FormsModule,
@@ -264,6 +267,7 @@ import { Moment } from 'moment';
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    MatMomentDateModule
     
 
 
