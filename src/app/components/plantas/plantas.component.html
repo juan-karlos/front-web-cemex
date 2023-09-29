@@ -13,7 +13,7 @@
           <a class="nav-link active" aria-current="page" href="inicio" style="font-size: 30px; margin-right: 40px;">Volver</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="actualizar-planta" style="font-size: 30px; margin-right: 40px;">actualizar</a>
+          <a class="nav-link active" aria-current="page" href="agregar-planta" style="font-size: 30px; margin-right: 40px;">actualizar</a>
         </li>
       </ul> 
     </div>
@@ -40,6 +40,7 @@
     <table class="table table-hover">
         <thead class="table-dark">
           <tr>
+            <!-- <th scope="col">ID</th> -->
             <th scope="col">Planta</th>
             <th scope="col">Segmento</th>
             <th scope="col">Zona</th>
@@ -53,12 +54,13 @@
 
           <tr *ngFor="let Planta of unidad.Plantas | filtroPlanta:filterPost">
           <!-- <tr *ngFor="let Planta of unidad.Plantas"> -->
+            <!-- <td>{{Planta.id_planta}}</td> -->
             <td>{{Planta.nombre_planta}}</td>
             <td>{{Planta.segmento}}</td>
             <td>{{Planta.zona}}</td>
             <td>{{Planta.Estado}}</td>
             <td>{{Planta.porcentaje_cumplimiento}} %</td>
-            <td><button class="btn btn-primary" ><i class="material-icons" href="actualizar-planta">edit</i></button></td>
+            <td><button class="btn btn-primary" [routerLink]="['agregar-planta/:id',Planta.id_planta]"><i class="material-icons">edit</i></button></td>
             <!-- <td>{{Planta.fija}}</td> -->
           
           </tr>

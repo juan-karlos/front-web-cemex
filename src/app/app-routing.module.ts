@@ -110,7 +110,7 @@ import { NivelRiesgoTrasnporteSuresteComponent } from './components/nivel-riesgo
 import { IndustrialesNoresteComponent } from './components/industriales-noreste/industriales-noreste.component';
 import { AgregarRegistroComponent } from './components/agregar-registro/agregar-registro.component';
 import { AgregarPlantaComponent } from './components/agregar-planta/agregar-planta.component';
-import { ActualizarPlantaComponent } from './components/actualizar-planta/actualizar-planta.component';
+//import { ActualizarPlantaComponent } from './components/actualizar-planta/actualizar-planta.component';
 
 const routes: Routes = [
   {path:'', redirectTo: 'loggin', pathMatch: 'full'},
@@ -226,7 +226,7 @@ const routes: Routes = [
   {path:'nivel-riesgo-transporte-sureste', component: NivelRiesgoTrasnporteSuresteComponent},
   {path: 'agregar-registro', component: AgregarRegistroComponent},
   {path: 'agregar-planta', component: AgregarPlantaComponent},
-  {path: 'actualizar-planta/:id', component: ActualizarPlantaComponent},
+  {path: 'agregar-planta/:id', component: AgregarPlantaComponent},
   
   
   
