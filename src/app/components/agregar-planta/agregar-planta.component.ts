@@ -54,15 +54,17 @@ export class AgregarPlantaComponent {
     confirmButtonText: 'Si, agregar',
     cancelButtonText: 'Volver a revisar',
     reverseButtons: true
-    
+
   }).then((result) => {
     if (result.isConfirmed) {
+
+      
       this.servisplanta.insertar(form.value).subscribe(
         res=>{
           form.reset()
           this.servisplanta.obtenerplanta().subscribe(
             res=>this.servisplanta.Plantas=res,
-            
+
             err=>console.log(err)
             // Swal.fire({
             //   title: err,
