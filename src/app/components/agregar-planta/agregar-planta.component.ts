@@ -2,13 +2,22 @@ import { Component } from '@angular/core';
 import { FormBuilder, NgForm } from '@angular/forms';
 import { UnidadOperativaService } from 'src/app/services/unidad-operativa.service';
 import Swal from 'sweetalert2';
+//import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @Component({
   selector: 'app-agregar-planta',
   templateUrl: './agregar-planta.component.html',
   styleUrls: ['./agregar-planta.component.css']
 })
+
 export class AgregarPlantaComponent {
+  Estado = '';
+  opcionesSugeridas: string[] = [
+    'Apción 1', 
+    'Epción 2', 
+    'Spción 3', 
+    'Upción 4',
+  ];
 
   constructor(public servisplanta:UnidadOperativaService, private FB: FormBuilder){}
 
@@ -45,15 +54,17 @@ export class AgregarPlantaComponent {
     confirmButtonText: 'Si, agregar',
     cancelButtonText: 'Volver a revisar',
     reverseButtons: true
-    
+
   }).then((result) => {
     if (result.isConfirmed) {
+
+      
       this.servisplanta.insertar(form.value).subscribe(
         res=>{
           form.reset()
           this.servisplanta.obtenerplanta().subscribe(
             res=>this.servisplanta.Plantas=res,
-            
+
             err=>console.log(err)
             // Swal.fire({
             //   title: err,
