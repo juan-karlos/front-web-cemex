@@ -15,8 +15,6 @@ Registro:registro[]=[];
 RegistroSelect :registro={
 id_planta: 0,
 id_requerimiento:0,
-fecha_inicio: new Date(),
-fecha_vencimiento: new Date(),
 observaciones: '',
 estatus: '',
 validez_unica: true,
