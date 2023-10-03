@@ -26,8 +26,6 @@ export interface permiso{
 export interface registro{
 id_planta: number,
 id_requerimiento: number,
-fecha_inicio: Date,
-fecha_vencimiento: Date,
 observaciones: String,
 estatus: String,
 validez_unica: boolean,
