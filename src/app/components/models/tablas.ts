@@ -11,7 +11,8 @@ export interface planta{
   zona: String,
   Estado:String,
   porcentaje_cumplimiento: 0,
-  fija: Boolean
+  fija: Boolean,
+  activa: Boolean
 }
 
 export interface permiso{

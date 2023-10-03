@@ -134,6 +134,7 @@ import sweetalert2 from 'sweetalert2';
 import { ActualizarPlantaComponent } from './components/actualizar-planta/actualizar-planta.component';
 import { FiltroFechaPipe } from './pipes/filtro-fecha.pipe';
 import { Moment } from 'moment';
+import { PlantasInactivasComponent } from './components/plantas-inactivas/plantas-inactivas.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -252,6 +253,7 @@ import { Moment } from 'moment';
     FiltroPermisoPipe,
     ActualizarPlantaComponent,
     FiltroFechaPipe,
+    PlantasInactivasComponent,
     
     
   ],

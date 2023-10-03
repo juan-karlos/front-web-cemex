@@ -15,7 +15,8 @@ PlantaSelect :planta={
   zona:'',
   Estado:'',
   porcentaje_cumplimiento: 0,
-  fija:true
+  fija:true,
+  activa: true
   }
   constructor(private http:HttpClient) { }
   
