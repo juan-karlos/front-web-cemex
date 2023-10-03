@@ -111,6 +111,7 @@ import { IndustrialesNoresteComponent } from './components/industriales-noreste/
 import { AgregarRegistroComponent } from './components/agregar-registro/agregar-registro.component';
 import { AgregarPlantaComponent } from './components/agregar-planta/agregar-planta.component';
 import { PlantasInactivasComponent } from './components/plantas-inactivas/plantas-inactivas.component';
+import { ActualizarPlantaComponent } from './components/actualizar-planta/actualizar-planta.component';
 //import { ActualizarPlantaComponent } from './components/actualizar-planta/actualizar-planta.component';
 
 const routes: Routes = [
@@ -227,8 +228,9 @@ const routes: Routes = [
   {path:'nivel-riesgo-transporte-sureste', component: NivelRiesgoTrasnporteSuresteComponent},
   {path: 'agregar-registro', component: AgregarRegistroComponent},
   {path: 'agregar-planta', component: AgregarPlantaComponent},
-  {path: 'agregar-planta/:id', component: AgregarPlantaComponent},
   {path: 'plantas-inactivas', component: PlantasInactivasComponent},
+  {path: 'actualizar-planta', component: ActualizarPlantaComponent},
+  {path: 'actualizar-planta/:id_planta', component: ActualizarPlantaComponent},
   
   
   
