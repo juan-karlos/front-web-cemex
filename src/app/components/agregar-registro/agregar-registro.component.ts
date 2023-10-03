@@ -51,7 +51,7 @@ export class AgregarRegistroComponent {
       const formData = new FormData();
       formData.append('pdfFile', this.selectedFile);
 
-      this.http.post('http://localhost:2300/api/regi/insertar', formData).subscribe(
+      this.http.post('http://localhost:2300/api/regi/pdf', formData).subscribe(
         (response: any) => {
           // `response` puede contener la URL del PDF en el servidor
           console.log('URL del PDF en el servidor:', response);
@@ -73,17 +73,17 @@ export class AgregarRegistroComponent {
     }
   }
 
-  insertar_registro(form:NgForm){
-    this.Registros.insertar(form.value).subscribe(
-      res=>{
-        form.reset()
-        this.Registros.obtenerRegistro().subscribe(
-          res=>this.Registros.Registro=res,
-          err=>console.log(err)
-        )
-      }
-    )
-  }
+  // insertar_registro(form:NgForm){
+  //   this.Registros.insertar(form.value).subscribe(
+  //     res=>{
+  //       form.reset()
+  //       this.Registros.obtenerRegistro().subscribe(
+  //         res=>this.Registros.Registro=res,
+  //         err=>console.log(err)
+  //       )
+  //     }
+  //   )
+  // }
 
   mostrarIn(){
 
@@ -108,10 +108,29 @@ export class AgregarRegistroComponent {
 
 
   }
-  ejecutar(){
-    // this.onSubmit();
+
+  insertar_registro(form:NgForm){
+
     this.mostrarIn();
+    this.onSubmit();
+
+    this.Registros.insertar(form.value).subscribe(
+      res=>{
+        form.reset()
+        this.Registros.obtenerRegistro().subscribe(
+          res=>this.Registros.Registro=res,
+          err=>console.log(err)
+        )
+      }
+    )
+
   }
+
+
+  // ejecutar(){
+  //   this.onSubmit();
+  //   this.mostrarIn();
+  // }
 
 }
 

@@ -11,7 +11,8 @@ export interface planta{
   zona: String,
   Estado:String,
   porcentaje_cumplimiento: 0,
-  fija: Boolean
+  fija: Boolean,
+  activa: Boolean
 }
 
 export interface permiso{
@@ -25,8 +26,6 @@ export interface permiso{
 export interface registro{
 id_planta: number,
 id_requerimiento: number,
-fecha_inicio: Date,
-fecha_vencimiento: Date,
 observaciones: String,
 estatus: String,
 validez_unica: boolean,
