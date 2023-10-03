@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UnidadOperativaService} from 'src/app/services/unidad-operativa.service';
 import { FormsModule } from '@angular/forms'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-plantas',
@@ -9,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class PlantasComponent implements OnInit {
 
-  constructor(public unidad:UnidadOperativaService){}
+  constructor(public unidad:UnidadOperativaService,private router: Router){}
   filterPost ='';
   
   ngOnInit(): void {
@@ -21,9 +22,12 @@ export class PlantasComponent implements OnInit {
     this.unidad.obtenerplanta().subscribe(
       res=>this.unidad.Plantas=res,
       err=>console.error(err),
-      
-    )
-    
+    ) 
+  }
+
+
+  actualizarPlantas(){
+
   }
 }
 

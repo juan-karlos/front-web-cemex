@@ -64,9 +64,12 @@
             <td>{{Planta.zona}}</td>
             <td>{{Planta.Estado}}</td>
             <td>{{Planta.porcentaje_cumplimiento}} %</td>
-            
-            <td><button class="btn btn-primary" [routerLink]="['actuaizar-planta',Planta.id_planta]"><i class="material-icons">edit</i></button></td>
-            <!-- <td>{{Planta.fija}}</td> -->
+            <td>
+              <button class="btn btn-primary" 
+              [routerLink]="['actualizar-planta']">
+              <i class="material-icons">edit</i>
+              </button>
+            </td>
           
           </tr>
           
