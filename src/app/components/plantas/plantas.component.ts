@@ -26,8 +26,8 @@ export class PlantasComponent implements OnInit {
   }
 
 
-  actualizarPlantas(){
-
+  Actualizar(id: number) {
+    this.router.navigate(['actualizar-planta', id]);
   }
 }
 
