@@ -11,13 +11,7 @@ import Swal from 'sweetalert2';
 })
 
 export class AgregarPlantaComponent {
-  Estado = '';
-  opcionesSugeridas: string[] = [
-    'Apción 1', 
-    'Epción 2', 
-    'Spción 3', 
-    'Upción 4',
-  ];
+ 
 
   constructor(public servisplanta:UnidadOperativaService, private FB: FormBuilder){}
 
@@ -52,7 +46,7 @@ export class AgregarPlantaComponent {
     icon: 'warning',
     showCancelButton: true,
     confirmButtonText: 'Si, agregar',
-    cancelButtonText: 'Volver a revisar',
+    cancelButtonText: 'Cancelar',
     reverseButtons: true
 
   }).then((result) => {
@@ -66,16 +60,7 @@ export class AgregarPlantaComponent {
             res=>this.servisplanta.Plantas=res,
 
             err=>console.log(err)
-            // Swal.fire({
-            //   title: err,
-            //   showClass: {
-            //     popup: 'animate__animated animate__fadeInDown'
-            //   },
-            //   hideClass: {
-            //     popup: 'animate__animated animate__fadeOutUp'
-            //   }
-            // }
-            // )
+      
           )
         }
       )
@@ -90,7 +75,7 @@ export class AgregarPlantaComponent {
     ) {
       swalWithBootstrapButtons.fire(
         'Cancelado',
-        'Revisa que los datos esten correctos',
+        'La planta no fue agregada',
         'error'
       )
     }

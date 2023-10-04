@@ -1,37 +1,57 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
-
+import { UnidadOperativaService } from 'src/app/services/unidad-operativa.service';
+import { FormBuilder, NgForm } from '@angular/forms';
 @Component({
   selector: 'app-actualizar-planta',
   templateUrl: './actualizar-planta.component.html',
   styleUrls: ['./actualizar-planta.component.css']
 })
-export class ActualizarPlantaComponent {
+export class ActualizarPlantaComponent implements OnInit {
 
+  constructor(public servisplanta:UnidadOperativaService, private FB: FormBuilder){}
+  ngOnInit(): void {
+    
+  }
 
-
-  validacion(){
+  validacion(form:NgForm){
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',
-        cancelButton: 'btn btn-danger'
+        cancelButton: 'btn btn-danger',
+  
+  
       },
       buttonsStyling: true
     })
-    
+  
     swalWithBootstrapButtons.fire({
-      title: '¿Seguro que desea actualizar la información?',
-      text: "La informacion manejada aqui es critica",
+      title: '¿Desea actualizar los datos?',
+      text: "Asegúrate de que los datos sean corectos",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Si, actualizar',
       cancelButtonText: 'Cancelar',
       reverseButtons: true
+  
     }).then((result) => {
       if (result.isConfirmed) {
+  
+        
+        this.servisplanta.Actualizar(form.value).subscribe(
+          res=>{
+            form.reset()
+            this.servisplanta.obtenerplanta().subscribe(
+              res=>this.servisplanta.Plantas=res,
+  
+              err=>console.log(err)
+        
+            )
+          }
+        )
         swalWithBootstrapButtons.fire(
-          'Listo',
-          'Los datos fueron actualizados',
+          'Actualizado',
+          'La planta fue actualizada',
           'success'
         )
       } else if (
@@ -40,11 +60,12 @@ export class ActualizarPlantaComponent {
       ) {
         swalWithBootstrapButtons.fire(
           'Cancelado',
-          'Los datos no fueron actualizados',
+          'La planta no fue actualizada',
           'error'
         )
       }
     })
-  }
-
+   }
+  
+  
 }
