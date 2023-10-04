@@ -5,14 +5,10 @@
         <a class="navbar-brand" href="inicio">
          <img id="logo" src="https://i.ibb.co/HK2Btjq/Logo-Cemex.png" alt="">
         </a>
-
            <ul class="nav justify-content-end" style="margin-right: 3%; ">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="inicio" style="font-size: 20px;">Volver</a>
-            </li>
-
-
-          </ul>
+            </ul>
       </div>
     </nav>
     <H1 id="titulo">Registrar nueva planta</H1>
@@ -27,12 +23,6 @@
               <label for="validationCustom01" class="form-label"><h3>Nombre de la planta</h3></label>
               <input type="text" class="form-control" id="validationCustom01"  required name="nombre_planta"
               [(ngModel)]="servisplanta.PlantaSelect.nombre_planta">
-              <div class="valid-feedback">
-               Excelente
-              </div>
-              <div class="invalid-feedback">
-                Por favor ingrese un nombre válido
-              </div>
             </div>
             <div class="col-md-3">
               <label for="validationCustom02" class="form-label"><h3>Segmento</h3></label>
@@ -106,14 +96,16 @@
            </div>
 
            <div class="col-md-2" style="margin-top: 10%; margin-left: 5%;">
-            <div class="form-check" style="margin-left: 10px;">
-              <input class="form-check-input" type="checkbox" value="false" id="invalidCheck"  name="fija"
-              [(ngModel)]="servisplanta.PlantaSelect.fija">
-              <label class="form-check-label">
-              <h3>Fija</h3>
-              </label>
+           
+            <!-- <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+              <label class="form-check-label" for="inlineRadio1">Activa</label>
             </div>
-           </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+              <label class="form-check-label" for="inlineRadio2">Inactiva</label>
+            </div>
+           </div> -->
 
            <div class="col-md-2" style="margin-top: 10%;">
             <div class="form-check" style="margin-left: 10px;">
@@ -130,7 +122,6 @@
 
             <div class="col-12">
               <br><br>
-              <!-- <button class="btn btn-primary" type="submit" (click)="insertar_planta(FormRegistro)">Agregar</button> -->
               <button class="btn btn-primary" type="submit" (click)="validacion(FormRegistro)">Agregar</button>
             </div>
           </form>
