@@ -95,19 +95,18 @@
              </select>
            </div>
 
-           <div class="col-md-2" style="margin-top: 10%; margin-left: 5%;">
-           
-            <!-- <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-              <label class="form-check-label" for="inlineRadio1">Activa</label>
+           <div class="col-md-2" style="margin-top: 8%; margin-left: 5%;">
+         
+            <div class="form-check" style="margin-left: 5px;">
+              <input class="form-check-input" type="checkbox" value="false" id="invalidCheck"  name="fija"
+              [(ngModel)]="servisplanta.PlantaSelect.fija">
+              <label class="form-check-label">
+              <h3>Fija</h3>
+              </label>
             </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-              <label class="form-check-label" for="inlineRadio2">Inacti</label>
-            </div> -->
            </div>
 
-           <div class="col-md-2" style="margin-top: 10%;">
+           <div class="col-md-2" style="margin-top: 8%;">
             <div class="form-check" style="margin-left: 10px;">
               <input class="form-check-input" type="checkbox" value="false" id="invalidCheck"  name="activa"
               [(ngModel)]="servisplanta.PlantaSelect.activa">
