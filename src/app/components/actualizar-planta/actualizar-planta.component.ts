@@ -15,8 +15,19 @@ export class ActualizarPlantaComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.itemId = +params['id']});
+      this.itemId = +params['id_planta']});
   }
+  elemento: any;
+
+   pintarCampos(){
+    
+      this.servisplanta.obtenerPlantaPorId(this.itemId).subscribe((data) => {
+        this.elemento = data});
+        // return this.elemento;
+        console.log(this.elemento);
+   }
+
+
    validacion(form:NgForm){
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
