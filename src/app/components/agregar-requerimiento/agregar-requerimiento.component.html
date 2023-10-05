@@ -21,8 +21,8 @@
         <form class="row g-3 needs-validation"  #FormRegistro ="ngForm">
             <div class="col-md-6">
               <label for="validationCustom01" class="form-label"><h3>Nombre del requerimiento</h3></label>
-              <input type="text" class="form-control" id="validationCustom01"  required name="nombre_requerimiento"
-              [(ngModel)]="servicerequerimiento.PermisoSelect.nombre_requerimiento">
+              <input type="text" class="form-control" id="validationCustom01"  required name="nom_req"
+              [(ngModel)]="servicerequerimiento.PermisoSelect.nom_req">
             </div>
 
             <div class="col-md-4">
@@ -48,9 +48,9 @@
               <select class="form-select" id="validationCustom03"  name="peso" required
               [(ngModel)]="servicerequerimiento.PermisoSelect.peso">
                 <option selected disabled value="">Elegir impacto</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
               </select>
             </div>
 
