@@ -98,11 +98,11 @@
               </label>
             </div>
 
-          <div>
-            <div class="div_paralelo">
+          <div class="contenedor">
+            <div class="div1">
               <h3>Elige la fecha de inicio</h3>
 <!-- aqui inicia el primer datepicker -->
-              <mat-form-field appearance="fill">
+              <mat-form-field >
                 <mat-label>Fecha de inicio</mat-label>
                 <input matInput [matDatepicker]="picker" name="fecha_inicio" [(ngModel)]="fecha_inicio">
                <!-- [(ngModel)]="Registros.RegistroSelect.fecha_inicio" -->
@@ -115,9 +115,9 @@
             </div>
 
 
-            <div class="div_paralelo">
+            <div class="div2">
               <h3>Elige la fecha de vencimiento</h3>
-              <mat-form-field appearance="fill">
+              <mat-form-field >
                 <mat-label>
                 Fecha de vencimiento
                 </mat-label>
@@ -132,6 +132,7 @@
                </mat-form-field>
             </div>
           </div>
+          
 
           <div class="col-12">
             <br><br>

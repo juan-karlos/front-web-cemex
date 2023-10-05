@@ -39,12 +39,7 @@
                 <option>Promexma</option>
                 <option>Transporte</option>
               </select>
-              <div class="valid-feedback">
-                Perfecto
-              </div>
-              <div class="invalid-feedback">
-                Por favor seleccione un segmento valido válido
-              </div>
+              
             </div>
             <div class="col-md-3">
               <label for="validationCustom03" class="form-label"><h3>Zona</h3></label>
@@ -57,19 +52,69 @@
                 <option>Sureste</option>
               </select>
             </div>
-          
-            <div class="col-md-6">
-              <label for="validationCustom04" class="form-label"> <h3>Estado</h3></label>
-              <input type="text" class="form-control" id="validationCustom04" required name="Estado"
-              >
+
+          <div class="col-md-4">
+              <label for="Estado" class="form-label"> <h3>Estado Seleccionado: {{servisplanta.PlantaSelect.Estado}}</h3></label>
+              <select class="form-select" multiple aria-label="multiple select example" name="Estado"
+               [(ngModel)]="servisplanta.PlantaSelect.Estado" >
+               <option selected disabled value="">Elegir estado</option>
+               <option value="Aguascalientes">Aguascalientes</option>
+               <option value="Baja California">Baja California</option>
+               <option value="Baja California Sur">Baja California Sur</option>
+               <option value="Campeche">Campeche </option>
+               <option value="Chiapas">Chiapas</option>
+               <option value="Chihuahua">Chihuahua </option>
+               <option value="Ciudad de México">Ciudad de México</option>
+               <option value="Coahuila">Coahuila</option>
+               <option value="Colima">Colima</option>
+               <option value="Durango">Durango </option>
+               <option value="Estado de México">Estado de MéxicoTwo</option>
+               <option value="Guanajuato">Guanajuato Three</option>
+               <option value="Guerrero">Guerrero </option>
+               <option value="Hidalgo">Hidalgo</option>
+               <option value="Jalisco">Jalisco </option>
+               <option value="Michoacán">Michoacán </option>
+               <option value="Morelos">Morelos</option>
+               <option value="Nayarit">Nayarit</option>
+               <option value="Nuevo León">Nuevo León </option>
+               <option value="Oaxaca">Oaxaca </option>
+               <option value="Puebla">Puebla</option>
+               <option value="Querétaro">Querétaro </option>
+               <option value="Quintana Roo">Quintana Roo </option>
+               <option value="San Luis Potosí">San Luis Potosí </option>
+               <option value="Sinaloa">Sinaloa </option>
+               <option value="Sonora">Sonora </option>
+               <option value="Tabasco">Tabasco</option>
+               <option value="Tamaulipas">Tamaulipas</option>
+               <option value="Tlaxcala">Tlaxcala</option>
+               <option value="Veracruz">Veracruz</option>
+               <option value="Yucatán">Yucatán</option>
+               <option value="Zacatecas">Zacatecas </option>
               
-              <div class="valid-feedback">
-                Perfecto
-              </div>
-              <div class="invalid-feedback">
-                Por favor seleccione un segmento valido válido
-              </div>
+             </select>
+           </div>
+
+           <div class="col-md-2" style="margin-top: 10%; margin-left: 5%;">
+            <div class="form-check" style="margin-left: 10px;">
+              <input class="form-check-input" type="checkbox" value="false" id="invalidCheck"  name="fija"
+              [(ngModel)]="servisplanta.PlantaSelect.fija">
+              <label class="form-check-label">
+              <h3>Fija</h3>
+              </label>
             </div>
+           </div>
+
+           <div class="col-md-2" style="margin-top: 10%;">
+            <div class="form-check" style="margin-left: 10px;">
+              <input class="form-check-input" type="checkbox" value="false" id="invalidCheck"  name="activa"
+              [(ngModel)]="servisplanta.PlantaSelect.activa">
+              <label class="form-check-label">
+              <h3>Activa</h3>
+              </label>
+            </div>
+           </div>
+             
+           <h2>Detalles del elemento con ID: {{ itemId }}</h2>
            
             
 <!--        
@@ -86,7 +131,7 @@
             <div class="col-12">
               <br><br>
               <!-- <button class="btn btn-primary" type="submit" (click)="insertar_planta(FormRegistro)">Agregar</button> -->
-              <button class="btn btn-primary" type="submit" (click)="validacion()">Actualizar</button>
+              <button class="btn btn-primary" type="submit" (click)="pintarCampos()">Actualizar</button>
             </div>
           </form>
     </div>
