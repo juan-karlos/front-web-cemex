@@ -11,7 +11,7 @@
             </ul>
       </div>
     </nav>
-    <H1 id="titulo">Registrar nuevo requeriiento</H1>
+    <H1 id="titulo">Registrar nuevo requerimiento</H1>
     <br>
   </header>
   <body >
@@ -20,8 +20,8 @@
       <br>
         <form class="row g-3 needs-validation"  #FormRegistro ="ngForm">
             <div class="col-md-6">
-              <label for="validationCustom01" class="form-label"><h3>Nombre del permiso</h3></label>
-              <input type="text" class="form-control" id="validationCustom01"  required name="nombre_permiso"
+              <label for="validationCustom01" class="form-label"><h3>Nombre del requerimiento</h3></label>
+              <input type="text" class="form-control" id="validationCustom01"  required name="nombre_requerimiento"
               [(ngModel)]="servicerequerimiento.PermisoSelect.nombre_requerimiento">
             </div>
 
@@ -38,14 +38,14 @@
            
 
                 <div class="col-md-6">
-                    <label for="validationCustom01" class="form-label"><h3>Siglas</h3></label>
-                    <input type="text" class="form-control" id="validationCustom01"  required name="siglas"
+                    <label for="validationCustom04" class="form-label"><h3>Siglas</h3></label>
+                    <input type="text" class="form-control" id="validationCustom04"  required name="siglas"
                     [(ngModel)]="servicerequerimiento.PermisoSelect.siglas">
                   </div>
             
             <div class="col-md-4">
-              <label for="validationCustom02" class="form-label"><h3>Peso</h3></label>
-              <select class="form-select" id="validationCustom02"  name="peso" required
+              <label for="validationCustom03" class="form-label"><h3>Peso</h3></label>
+              <select class="form-select" id="validationCustom03"  name="peso" required
               [(ngModel)]="servicerequerimiento.PermisoSelect.peso">
                 <option selected disabled value="">Elegir impacto</option>
                 <option>1</option>
