@@ -16,6 +16,7 @@
     
   }
   
+  
   #titulo-inicio{
     font-weight: bold;
     text-align: center;
@@ -180,4 +181,20 @@
   width: 100%;
   height: 100%;
   }
+  
+
+
+  .contenedor {
+    display: flex;
+    flex-direction: row; /* Los divs se colocarán en línea horizontalmente */
+    flex-wrap: wrap; /* Los divs se apilarán cuando sea necesario */
+  }
+  
+  .div1, .div2 {
+    width: 50%; /* Cada div ocupará el 50% del ancho del contenedor */
+    box-sizing: border-box; /* Incluir el padding y el borde en el ancho total */
+    padding: 10px; /* Agregar espacio alrededor de los divs si lo deseas */
+  }
+  
+  /* Estilos adicionales para los divs, puedes personalizarlos según tus necesidades */
   
