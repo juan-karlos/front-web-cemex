@@ -15,9 +15,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="inicio" style="font-size: 30px; margin-right: 40px;">Volver</a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="agregar-planta" style="font-size: 30px; margin-right: 40px;">actualizar</a>
-        </li> -->
+      
       </ul> 
     </div>
   </nav>
@@ -65,10 +63,12 @@
             <td>{{Planta.Estado}}</td>
             <td>{{Planta.porcentaje_cumplimiento}} %</td>
             <td>
-              <button class="btn btn-primary" 
+              <!-- <button class="btn btn-primary" 
               [routerLink]="['actualizar-planta']">
               <i class="material-icons">edit</i>
-              </button>
+              </button> -->
+              <button class="btn btn-primary" (click)="Actualizar(Planta.id_planta)"><i class="material-icons">edit</i></button>
+              
             </td>
           
           </tr>
