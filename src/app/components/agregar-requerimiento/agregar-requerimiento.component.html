@@ -1,0 +1,66 @@
+
+<header>
+    <nav class="navbar navbar-expand-lg" style="background-color: #dedada;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="inicio">
+         <img id="logo" src="https://i.ibb.co/HK2Btjq/Logo-Cemex.png" alt="">
+        </a>
+           <ul class="nav justify-content-end" style="margin-right: 3%; ">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="inicio" style="font-size: 20px;">Volver</a>
+            </ul>
+      </div>
+    </nav>
+    <H1 id="titulo">Registrar nuevo requerimiento</H1>
+    <br>
+  </header>
+  <body >
+
+    <div class="contenedor-principal" style="background-color: bisque; padding: 3%;">
+      <br>
+        <form class="row g-3 needs-validation"  #FormRegistro ="ngForm">
+            <div class="col-md-6">
+              <label for="validationCustom01" class="form-label"><h3>Nombre del requerimiento</h3></label>
+              <input type="text" class="form-control" id="validationCustom01"  required name="nom_req"
+              [(ngModel)]="servicerequerimiento.PermisoSelect.nom_req">
+            </div>
+
+            <div class="col-md-4">
+              <label for="validationCustom02" class="form-label"><h3>Impacto</h3></label>
+              <select class="form-select" id="validationCustom02"  name="impacto" required
+              [(ngModel)]="servicerequerimiento.PermisoSelect.impacto">
+                <option selected disabled value="">Elegir impacto</option>
+                <option>Multa</option>
+                <option>Clausura</option>
+                <option>Administrativo</option>
+              </select>
+            </div>
+           
+
+                <div class="col-md-6">
+                    <label for="validationCustom04" class="form-label"><h3>Siglas</h3></label>
+                    <input type="text" class="form-control" id="validationCustom04"  required name="siglas"
+                    [(ngModel)]="servicerequerimiento.PermisoSelect.siglas">
+                  </div>
+            
+            <div class="col-md-4">
+              <label for="validationCustom03" class="form-label"><h3>Peso</h3></label>
+              <select class="form-select" id="validationCustom03"  name="peso" required
+              [(ngModel)]="servicerequerimiento.PermisoSelect.peso">
+                <option selected disabled value="">Elegir impacto</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
+
+            <div class="col-12">
+              <br><br>
+              <button class="btn btn-primary" type="submit" (click)="validacion(FormRegistro)">Agregar</button>
+            </div>
+          </form>
+    </div>
+
+
+
+  </body>

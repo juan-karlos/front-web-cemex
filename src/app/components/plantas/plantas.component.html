@@ -7,19 +7,20 @@
       </a>  
       <ul class="nav justify-content-end">
         <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="plantas-inactivas" style="font-size: 30px; margin-right: 40px;">Ver plantas inactivas</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="agregar-planta" style="font-size: 30px; margin-right: 40px;">Agregar planta</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="inicio" style="font-size: 30px; margin-right: 40px;">Volver</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="actualizar-planta" style="font-size: 30px; margin-right: 40px;">actualizar</a>
-        </li>
+      
       </ul> 
     </div>
   </nav>
   
-  <h1 id="titulo">Total de unidades operativas</h1>
+  <h1 id="titulo">Total de unidades operativas ACTIVAS</h1>
   <!-- <h2 id="subtitulo">74% Cumplimiento CERO; 26 UUNN en riesgo de clausura, 8 en riesgo de multa y 3 optimas.</h2> -->
 
 </header>
@@ -40,11 +41,13 @@
     <table class="table table-hover">
         <thead class="table-dark">
           <tr>
+            <!-- <th scope="col">ID</th> -->
             <th scope="col">Planta</th>
             <th scope="col">Segmento</th>
             <th scope="col">Zona</th>
             <th scope="col">Ciudad</th>
             <th scope="col">Porcentaje de cumplimiento</th>
+           
             <th scope="col"></th>
             <!-- <th scope="col">Fija</th> -->
           </tr>
@@ -53,13 +56,20 @@
 
           <tr *ngFor="let Planta of unidad.Plantas | filtroPlanta:filterPost">
           <!-- <tr *ngFor="let Planta of unidad.Plantas"> -->
+            <!-- <td>{{Planta.id_planta}}</td> -->
             <td>{{Planta.nombre_planta}}</td>
             <td>{{Planta.segmento}}</td>
             <td>{{Planta.zona}}</td>
             <td>{{Planta.Estado}}</td>
             <td>{{Planta.porcentaje_cumplimiento}} %</td>
-            <td><button class="btn btn-primary" ><i class="material-icons" href="actualizar-planta">edit</i></button></td>
-            <!-- <td>{{Planta.fija}}</td> -->
+            <td>
+              <!-- <button class="btn btn-primary" 
+              [routerLink]="['actualizar-planta']">
+              <i class="material-icons">edit</i>
+              </button> -->
+              <button class="btn btn-primary" (click)="Actualizar(Planta.id_planta)"><i class="material-icons">edit</i></button>
+              
+            </td>
           
           </tr>
           
