@@ -10,6 +10,9 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
 
 import { LooginComponent } from './components/loogin/loogin.component';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -129,7 +132,10 @@ import { FiltroPlantaPipe } from './pipes/filtro-planta.pipe';
 import { FiltroPermisoPipe } from './pipes/filtro-permiso.pipe';
 import sweetalert2 from 'sweetalert2';
 import { ActualizarPlantaComponent } from './components/actualizar-planta/actualizar-planta.component';
-
+import { FiltroFechaPipe } from './pipes/filtro-fecha.pipe';
+import { Moment } from 'moment';
+import { PlantasInactivasComponent } from './components/plantas-inactivas/plantas-inactivas.component';
+import { AgregarRequerimientoComponent } from './components/agregar-requerimiento/agregar-requerimiento.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -246,7 +252,12 @@ import { ActualizarPlantaComponent } from './components/actualizar-planta/actual
     AgregarPlantaComponent,
     FiltroPlantaPipe,
     FiltroPermisoPipe,
-    ActualizarPlantaComponent
+    ActualizarPlantaComponent,
+    FiltroFechaPipe,
+    PlantasInactivasComponent,
+    AgregarRequerimientoComponent,
+    
+    
   ],
   imports: [
     FormsModule,
@@ -261,11 +272,13 @@ import { ActualizarPlantaComponent } from './components/actualizar-planta/actual
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    MatMomentDateModule,
+    MatAutocompleteModule
 
 
   ],
   providers: [
-    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
+   
   ],
   bootstrap: [AppComponent]
 })
