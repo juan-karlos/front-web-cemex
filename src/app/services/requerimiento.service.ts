@@ -10,7 +10,7 @@ export class RequerimientoService {
 
   PermisoSelect :permiso={
     id_requerimiento: 0,
-    nombre_requerimiento: '',
+    nom_req: '',
     peso: 0,
     impacto:'',
     siglas:''

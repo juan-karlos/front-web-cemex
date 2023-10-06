@@ -17,7 +17,7 @@ export interface planta{
 
 export interface permiso{
   id_requerimiento: number,
-  nombre_requerimiento: String,
+  nom_req: String,
   peso: number,
   impacto: String,
   siglas: String
