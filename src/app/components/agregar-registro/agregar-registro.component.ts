@@ -106,16 +106,18 @@ export class AgregarRegistroComponent {
       }
     )
 
-
   }
 
   insertar_registro(form:NgForm){
 
     this.mostrarIn();
+
     this.onSubmit();
 
     this.Registros.insertar(form.value).subscribe(
+
       res=>{
+
         form.reset()
         this.Registros.obtenerRegistro().subscribe(
           res=>this.Registros.Registro=res,
@@ -123,6 +125,8 @@ export class AgregarRegistroComponent {
         )
       }
     )
+
+
 
   }
 
