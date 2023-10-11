@@ -9,7 +9,9 @@ export class UnidadOperativaService {
 
 constructor(private http:HttpClient) { }
 
-URL_API = 'http://192.168.100.62:3200/api/unidad/'
+// URL_API = 'http://192.168.100.62:3200/api/unidad/'
+URL_API = 'http://localhost:2300/api/unidad/'
+
 
 Plantas:planta[]=[];
 
@@ -18,13 +20,13 @@ PlantaSelect :planta={
   nombre_planta:'',
   segmento:'',
   zona:'',
-  Estado:'',
+  estado:'',
   porcentaje_cumplimiento: 0,
   fija:true,
   activa: true
   }
- 
-  
+
+
   obtenerplanta(){
     return this.http.get<planta[]>(this.URL_API);
   }
@@ -38,4 +40,4 @@ PlantaSelect :planta={
   insertar(insplanta:planta){
     return this.http.post(this.URL_API+"insertar",insplanta);
   }
-} 
+}
