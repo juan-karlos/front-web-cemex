@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 
 export class AgregarPlantaComponent {
- 
+
 
   constructor(public servisplanta:UnidadOperativaService, private FB: FormBuilder){}
 
@@ -23,6 +23,7 @@ export class AgregarPlantaComponent {
         this.servisplanta.obtenerplanta().subscribe(
           res=>this.servisplanta.Plantas=res,
           err=>console.log(err)
+          
         )
       }
     )
@@ -52,7 +53,7 @@ export class AgregarPlantaComponent {
   }).then((result) => {
     if (result.isConfirmed) {
 
-      
+
       this.servisplanta.insertar(form.value).subscribe(
         res=>{
           form.reset()
@@ -60,7 +61,7 @@ export class AgregarPlantaComponent {
             res=>this.servisplanta.Plantas=res,
 
             err=>console.log(err)
-      
+
           )
         }
       )
