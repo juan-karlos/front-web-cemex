@@ -78,7 +78,7 @@ export class AgregarRegistroComponent {
       formData.append('observaciones',observaciones)
       formData.append('id_requerimiento',String(this.id_requerimiento))
       formData.append('id_planta',String(this.id_planta))
-      this.http.post('http://localhost:2300/api/regi/pdf',formData).subscribe(
+      this.http.post('http://192.168.100.62:3200/api/regi/pdf',formData).subscribe(
         (response: any) => {
           // `response` puede contener la URL del PDF en el servidor
           console.log('URL del PDF en el servidor:', response);
