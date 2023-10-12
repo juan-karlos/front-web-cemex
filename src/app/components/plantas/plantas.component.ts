@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {UnidadOperativaService} from 'src/app/services/unidad-operativa.service';
-import { FormsModule } from '@angular/forms'; 
 import { Router } from '@angular/router';
 
 @Component({
