@@ -233,6 +233,7 @@ const routes: Routes = [
   {path: 'actualizar-planta', component: ActualizarPlantaComponent},
   {path: 'actualizar-planta/:id_planta', component: ActualizarPlantaComponent},
   {path: 'agregar-permiso', component: AgregarRequerimientoComponent},
+  {path: 'registro-permiso', component:RegistroPermisoComponent}
   
   
   

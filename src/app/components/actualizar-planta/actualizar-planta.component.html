@@ -21,10 +21,11 @@
     
     <div class="contenedor-principal" style="background-color: bisque; padding: 3%;">
       <br>
-        <form class="row g-3 needs-validation"  #FormRegistro ="ngForm">
+        <form class="row g-3 needs-validation"  #FormRegistro ="ngForm" >
             <div class="col-md-6">
               <label for="validationCustom01" class="form-label"><h3>Nombre de la planta</h3></label>
               <input type="text" class="form-control" id="validationCustom01"  required name="nombre_planta">
+              
             </div>
             <div class="col-md-3">
               <label for="validationCustom02" class="form-label"><h3>Segmento</h3></label>
@@ -54,9 +55,9 @@
             </div>
 
           <div class="col-md-4">
-              <label for="Estado" class="form-label"> <h3>Estado Seleccionado: {{servisplanta.PlantaSelect.Estado}}</h3></label>
-              <select class="form-select" multiple aria-label="multiple select example" name="Estado"
-               [(ngModel)]="servisplanta.PlantaSelect.Estado" >
+              <label for="estado" class="form-label"> <h3>Estado Seleccionado: {{servisplanta.PlantaSelect.estado}}</h3></label>
+              <select class="form-select" multiple aria-label="multiple select example" name="estado"
+               [(ngModel)]="servisplanta.PlantaSelect.estado" >
                <option selected disabled value="">Elegir estado</option>
                <option value="Aguascalientes">Aguascalientes</option>
                <option value="Baja California">Baja California</option>

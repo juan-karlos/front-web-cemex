@@ -9,8 +9,8 @@ export class UnidadOperativaService {
 
 constructor(private http:HttpClient) { }
 
-// URL_API = 'http://192.168.100.62:3200/api/unidad/'
-URL_API = 'http://localhost:2300/api/unidad/'
+URL_API = 'http://192.168.100.62:3200/api/unidad/'
+// URL_API = 'http://localhost:2300/api/unidad/'
 
 
 Plantas:planta[]=[];

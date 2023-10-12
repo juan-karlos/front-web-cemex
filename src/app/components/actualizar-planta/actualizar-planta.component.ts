@@ -10,12 +10,37 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ActualizarPlantaComponent implements OnInit {
   itemId!: number;
-  constructor(public servisplanta:UnidadOperativaService,
-     private FB: FormBuilder,private route: ActivatedRoute){}
+  datos: any;
+  FormRegistro: any;
+
+  constructor(public servisplanta:UnidadOperativaService,private FB: FormBuilder,private route: ActivatedRoute){
+    
+  }
 
   ngOnInit(): void {
+    // this.route.params.subscribe(params => {
+    //   this.itemId = +params['id_planta']});
+
     this.route.params.subscribe(params => {
-      this.itemId = +params['id_planta']});
+      this.itemId = params['id_planta'];
+      // Llama a tu servicio para obtener el objeto basado en el ID  
+      this.servisplanta.obtenerPlantaPorId(this.itemId).subscribe(objeto => {
+        this.datos = objeto;
+        if (objeto) {
+          // Accede a las propiedades del objeto aquí
+          console.log("Si se recibio el objeto: ",this.datos);
+          const nombre = this.datos.nombre_planta
+          console.log("dato pedido: ",this.datos.nombre_planta)
+        } else {
+          console.log('El objeto JSON es undefined o nulo.');
+        }
+      // Llena el formulario con los datos del objeto obtenido
+        // this.FormRegistro.form.controls['nombre_planta'].patchValue(
+        //   this.datos.nombre_planta
+        // );
+        
+      });
+  })
   }
   elemento: any;
 
