@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RequerimientoService } from 'src/app/services/requerimiento.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-permisos',
@@ -7,7 +8,7 @@ import { RequerimientoService } from 'src/app/services/requerimiento.service';
   styleUrls: ['./permisos.component.css']
 })
 export class PermisosComponent implements OnInit{
-  constructor(public permiso:RequerimientoService){}
+  constructor(public permiso:RequerimientoService, private router: Router){}
   filterPost ='';
   ngOnInit(): void {
     this.obtenerpermisos();
@@ -17,5 +18,8 @@ export class PermisosComponent implements OnInit{
       res=>this.permiso.Permiso=res,
       err=>console.error(err)
     )
+  }
+  Actualizar(id: number) {
+    this.router.navigate(['actualizar-requerimiento', id]);
   }
 }

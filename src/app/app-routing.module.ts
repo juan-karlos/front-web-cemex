@@ -113,6 +113,7 @@ import { AgregarPlantaComponent } from './components/agregar-planta/agregar-plan
 import { PlantasInactivasComponent } from './components/plantas-inactivas/plantas-inactivas.component';
 import { ActualizarPlantaComponent } from './components/actualizar-planta/actualizar-planta.component';
 import { AgregarRequerimientoComponent } from './components/agregar-requerimiento/agregar-requerimiento.component';
+import { ActualizarRequerimientoComponent } from './components/actualizar-requerimiento/actualizar-requerimiento.component';
 
 
 const routes: Routes = [
@@ -233,7 +234,8 @@ const routes: Routes = [
   {path: 'actualizar-planta', component: ActualizarPlantaComponent},
   {path: 'actualizar-planta/:id_planta', component: ActualizarPlantaComponent},
   {path: 'agregar-permiso', component: AgregarRequerimientoComponent},
-  {path: 'registro-permiso', component:RegistroPermisoComponent}
+  {path: 'registro-permiso', component:RegistroPermisoComponent},
+  {path: 'actualizar-requerimiento/:id_requerimiento', component:ActualizarRequerimientoComponent}
   
   
   
