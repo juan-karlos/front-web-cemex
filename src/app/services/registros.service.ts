@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class RegistrosService {
-URL_API='http://localhost:2300/api/regi/'
+URL_API='http://192.168.100.62:3200/api/regi/'
 
 Registro:registro[]=[];
 
@@ -15,10 +15,12 @@ Registro:registro[]=[];
 RegistroSelect :registro={
 id_planta: 0,
 id_requerimiento:0,
+fecha_inicio: new Date(),
+fecha_vencimiento: new Date(),
 observaciones: '',
 estatus: '',
+url:'',
 validez_unica: true,
-
 }
 
   constructor(private http:HttpClient) { }
