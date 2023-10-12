@@ -24,12 +24,13 @@
         <form class="row g-3 needs-validation"  #FormRegistro ="ngForm" >
             <div class="col-md-6">
               <label for="validationCustom01" class="form-label"><h3>Nombre de la planta</h3></label>
-              <input type="text" class="form-control" id="validationCustom01" name="nombre_planta" ngModel [value]="nombre">
+             <input type="text" class="form-control" id="validationCustom01" name="nombre_planta" 
+             [(ngModel)]="nombre_planta">
               
             </div>
             <div class="col-md-3">
               <label for="validationCustom02" class="form-label"><h3>Segmento</h3></label>
-              <select class="form-select" ngModel [value]="segmento" id="validationCustom02"  name="segmento" required
+              <select class="form-select" [(ngModel)]="segmento" id="validationCustom02"  name="segmento" required
               >
                 <option selected disabled value="">Elegir segmento</option>
                 <option>Cadena de suministro</option>
@@ -44,7 +45,7 @@
             </div>
             <div class="col-md-3">
               <label for="validationCustom03" class="form-label"><h3>Zona</h3></label>
-              <select class="form-select" ngModel [value]="zona" id="validationCustom03" required name="zona"
+              <select class="form-select" [(ngModel)]="zona" id="validationCustom03" required name="zona"
               >
                 <option selected disabled value="">Elegir zona</option>
                 <option>Centro</option>
@@ -55,10 +56,10 @@
             </div>
 
           <div class="col-md-4">
-              <label for="estado" class="form-label"> <h3>Estado Seleccionado: {{Estado}}</h3></label>
+              <label  class="form-label"> <h3>Estado Seleccionado: {{Estado}}</h3></label>
               
               
-              <select class="form-select"  multiple aria-label="multiple select example" name="estado"
+              <select for="estado" id="estado" class="form-select"  multiple aria-label="multiple select example" name="estado"
                [(ngModel)]="Estado" >
                <option selected disabled value="">Elegir estado</option>
                <option value="Aguascalientes">Aguascalientes</option>
@@ -99,7 +100,7 @@
 
            <div class="col-md-2" style="margin-top: 10%; margin-left: 5%;">
             <div class="form-check" style="margin-left: 10px;">
-              <input class="form-check-input" type="checkbox" value="false" id="invalidCheck"  name="fija"
+              <input for="invalidCheck" class="form-check-input" type="checkbox" value="false" id="invalidCheck"  name="fija"
               [(ngModel)]="fija">
               <label class="form-check-label">
               <h3>Fija</h3>
@@ -109,7 +110,7 @@
 
            <div class="col-md-2" style="margin-top: 10%;">
             <div class="form-check" style="margin-left: 10px;">
-              <input class="form-check-input" type="checkbox" value="false" id="invalidCheck"  name="activa"
+              <input for="invalidCheck2" class="form-check-input" type="checkbox" value="false" id="invalidCheck2"  name="activa"
               [(ngModel)]="activo">
               <label class="form-check-label">
               <h3>Activa</h3>
@@ -118,23 +119,11 @@
            </div>
              
           
-           
-            
-<!--        
-            <div class="form-check" style="margin-left: 10px;">
-                <input class="form-check-input" type="checkbox" value="false" id="invalidCheck"  name="fija"
-                [(ngModel)]="servisplanta.PlantaSelect.fija">
-                <label class="form-check-label">
-                <h3>Fija</h3>
-                </label>
-              </div>
-              -->
-            
-            
             <div class="col-12">
+              <input for="id_planta" id="id_planta" type="hidden" name="id_planta" [(ngModel)]="id_planta">
               <br><br>
               <!-- <button class="btn btn-primary" type="submit" (click)="insertar_planta(FormRegistro)">Agregar</button> -->
-              <button class="btn btn-primary" type="submit" >Actualizar</button>
+              <button class="btn btn-primary" type="submit" (click)="validacion(FormRegistro)">Agregar</button>
             </div>
           </form>
     </div>
