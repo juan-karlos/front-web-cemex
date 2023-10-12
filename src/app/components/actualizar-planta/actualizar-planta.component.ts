@@ -10,25 +10,41 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ActualizarPlantaComponent implements OnInit {
   itemId!: number;
-  constructor(public servisplanta:UnidadOperativaService,
-     private FB: FormBuilder,private route: ActivatedRoute){}
-
+  datos: any;
+  FormRegistro: any;
+  nombre_planta!: string
+  segmento!: string
+  zona!: string
+  Estado!: string
+  fija!: boolean;
+  activo!: boolean;
+  id_planta!: number;
+  constructor(public servisplanta:UnidadOperativaService,private FB: FormBuilder,private route: ActivatedRoute){
+    
+  }
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.itemId = +params['id_planta']});
+      
+      this.itemId = params['id_planta'];
+      this.servisplanta.obtenerPlantaPorId(this.itemId).subscribe(objeto => {
+        
+        this.datos = objeto;
+       
+        this.nombre_planta = this.datos[0].nombre_planta;
+        this.segmento = this.datos[0].segmento;
+        this.zona = this.datos[0].zona;
+        this.Estado = this.datos[0].Estado;
+        this.fija = this.datos[0].fija;
+        this.activo = this.datos[0].activo;
+        this.id_planta = this.datos[0].id_planta;
+      });
+  })
   }
-  elemento: any;
 
-   pintarCampos(){
-    
-      this.servisplanta.obtenerPlantaPorId(this.itemId).subscribe((data) => {
-        this.elemento = data});
-        // return this.elemento;
-        console.log(this.elemento);
-   }
 
 
    validacion(form:NgForm){
+    // console.log(form.value)
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',
@@ -46,14 +62,17 @@ export class ActualizarPlantaComponent implements OnInit {
       reverseButtons: true
     }).then((result) => {
       if (result.isConfirmed) {
+        console.log("Esto es cuando se manda", form.value)
         this.servisplanta.Actualizar(form.value).subscribe(
           res=>{
+            
             form.reset()
             this.servisplanta.obtenerplanta().subscribe(
               res=>this.servisplanta.Plantas=res,
               err=>console.log(err)
             )
-          }
+          },
+          err=>console.error(err)
         )
         swalWithBootstrapButtons.fire(
           'Actualizado',
