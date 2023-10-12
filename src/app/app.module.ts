@@ -136,6 +136,7 @@ import { FiltroFechaPipe } from './pipes/filtro-fecha.pipe';
 import { Moment } from 'moment';
 import { PlantasInactivasComponent } from './components/plantas-inactivas/plantas-inactivas.component';
 import { AgregarRequerimientoComponent } from './components/agregar-requerimiento/agregar-requerimiento.component';
+import { ActualizarRequerimientoComponent } from './components/actualizar-requerimiento/actualizar-requerimiento.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -256,6 +257,7 @@ import { AgregarRequerimientoComponent } from './components/agregar-requerimient
     FiltroFechaPipe,
     PlantasInactivasComponent,
     AgregarRequerimientoComponent,
+    ActualizarRequerimientoComponent,
     
     
   ],
