@@ -12,45 +12,32 @@ export class ActualizarPlantaComponent implements OnInit {
   itemId!: number;
   datos: any;
   FormRegistro: any;
-
+  nombre!: any
+  segmento!: any;
+  zona!: any;
+  Estado!: any;
+  fija!: boolean;
+  activo!: boolean;
   constructor(public servisplanta:UnidadOperativaService,private FB: FormBuilder,private route: ActivatedRoute){
     
   }
-
   ngOnInit(): void {
-    // this.route.params.subscribe(params => {
-    //   this.itemId = +params['id_planta']});
-
     this.route.params.subscribe(params => {
       this.itemId = params['id_planta'];
-      // Llama a tu servicio para obtener el objeto basado en el ID  
       this.servisplanta.obtenerPlantaPorId(this.itemId).subscribe(objeto => {
-        this.datos = objeto;
-        if (objeto) {
-          // Accede a las propiedades del objeto aquí
-          console.log("Si se recibio el objeto: ",this.datos);
-          const nombre = this.datos.nombre_planta
-          console.log("dato pedido: ",this.datos.nombre_planta)
-        } else {
-          console.log('El objeto JSON es undefined o nulo.');
-        }
-      // Llena el formulario con los datos del objeto obtenido
-        // this.FormRegistro.form.controls['nombre_planta'].patchValue(
-        //   this.datos.nombre_planta
-        // );
         
+        this.datos = objeto;
+        console.log(this.datos);
+        this.nombre = this.datos[0].nombre_planta;
+        this.segmento = this.datos[0].segmento;
+        this.zona = this.datos[0].zona;
+        this.Estado = this.datos[0].Estado;
+        this.fija = this.datos[0].fija;
+        this.activo = this.datos[0].activo;
       });
   })
   }
-  elemento: any;
 
-   pintarCampos(){
-    
-      this.servisplanta.obtenerPlantaPorId(this.itemId).subscribe((data) => {
-        this.elemento = data});
-        // return this.elemento;
-        console.log(this.elemento);
-   }
 
 
    validacion(form:NgForm){
