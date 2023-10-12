@@ -30,16 +30,17 @@ PlantaSelect :planta={
   obtenerplanta(){
     return this.http.get<planta[]>(this.URL_API);
   }
+  
   obtenerPlantaPorId(id_planta:number){
     const url = `${this.URL_API}${'uno'}/${id_planta}`; // Agrega el ID al final de la URL
     return this.http.get(url);
   }
+
   Actualizar(Planta:planta){
-  
-    console.log("Esto es cuando se recibe", Planta)
+      console.log("Esto es cuando se recibe", Planta)
     const url = `${this.URL_API}${'actualizar'}/${Planta.id_planta}`;
     // return this.http.put(this.URL_API+"actualizar"+"/"+Planta.id_planta,Planta);
-    return this.http.put(url,Planta.id_planta);
+    return this.http.patch(url,Planta);
   }
   insertar(insplanta:planta){
     return this.http.post(this.URL_API+"insertar",insplanta);
