@@ -19,7 +19,8 @@ export class ActualizarPlantaComponent implements OnInit {
   fija!: boolean;
   activo!: boolean;
   id_planta!: number;
-  constructor(public servisplanta:UnidadOperativaService,private FB: FormBuilder,private route: ActivatedRoute){
+  constructor(public servisplanta:UnidadOperativaService,private FB: FormBuilder,
+    private route: ActivatedRoute){
     
   }
   ngOnInit(): void {
