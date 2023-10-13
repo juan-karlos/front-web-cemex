@@ -23,4 +23,8 @@ export class RequerimientoService {
     insertar(requerimiento:permiso){
       return this.http.post(this.URL_API+"insertar",requerimiento);
     }
+    obtenerPermisoPorId(id_requerimiento:number){
+      const url = `${this.URL_API}${'reqIndivudual'}/${id_requerimiento}`; // Agrega el ID al final de la URL
+      return this.http.get(url);
+    }
 }
