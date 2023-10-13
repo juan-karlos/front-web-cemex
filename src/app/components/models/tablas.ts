@@ -24,8 +24,9 @@ export interface permiso{
 }
 
 export interface registro{
-id_planta: number,
-id_requerimiento: number,
+id_registro:number,
+nombre_planta: string,
+nombre_requerimiento: string,
 fecha_inicio: Date,
 fecha_vencimiento:Date ,
 observaciones: String,
