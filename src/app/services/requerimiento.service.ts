@@ -27,4 +27,10 @@ export class RequerimientoService {
       const url = `${this.URL_API}${'reqIndivudual'}/${id_requerimiento}`; // Agrega el ID al final de la URL
       return this.http.get(url);
     }
+    Actualizar(Permiso:permiso){
+      console.log("Esto es cuando se recibe", Permiso)
+    const url = `${this.URL_API}${'actualizar'}/${Permiso.id_requerimiento}`;
+    // return this.http.put(this.URL_API+"actualizar"+"/"+Planta.id_planta,Planta);
+    return this.http.patch(url,Permiso);
+  }
 }
