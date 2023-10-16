@@ -22,13 +22,13 @@
             <div class="col-md-6">
               <label for="validationCustom01" class="form-label"><h3>Nombre del requerimiento</h3></label>
               <input type="text" class="form-control" id="validationCustom01"  required name="nom_req"
-              [(ngModel)]="servicerequerimiento.PermisoSelect.nom_req">
+              [(ngModel)]="nom_req">
             </div>
 
             <div class="col-md-4">
               <label for="validationCustom02" class="form-label"><h3>Impacto</h3></label>
               <select class="form-select" id="validationCustom02"  name="impacto" required
-              [(ngModel)]="servicerequerimiento.PermisoSelect.impacto">
+              [(ngModel)]="impacto">
                 <option selected disabled value="">Elegir impacto</option>
                 <option>Multa</option>
                 <option>Clausura</option>
@@ -39,14 +39,14 @@
 
                 <div class="col-md-6">
                     <label for="validationCustom04" class="form-label"><h3>Siglas</h3></label>
-                    <input type="text" class="form-control" id="validationCustom04"  required name="siglas"
-                    [(ngModel)]="servicerequerimiento.PermisoSelect.siglas">
+                    <input type="text" class="form-control" id="validationCustom04"   name="siglas"
+                    [(ngModel)]="siglas">
                   </div>
             
             <div class="col-md-4">
               <label for="validationCustom03" class="form-label"><h3>Peso</h3></label>
               <select class="form-select" id="validationCustom03"  name="peso" required
-              [(ngModel)]="servicerequerimiento.PermisoSelect.peso">
+              [(ngModel)]="peso">
                 <option selected disabled value="">Elegir impacto</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -55,8 +55,9 @@
             </div>
 
             <div class="col-12">
+              <input for="id_requerimiento" id="id_requerimiento" type="hidden" name="id_requerimiento" [(ngModel)]="id_requerimiento">
               <br><br>
-              <button class="btn btn-primary" type="submit" (click)="validacion(FormRegistro)">Agregar</button>
+              <button class="btn btn-primary" type="submit" (click)="validacion(FormRegistro)">Actualizar</button>
             </div>
           </form>
     </div>
