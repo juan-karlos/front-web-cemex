@@ -37,10 +37,11 @@ export class ActualizarRequerimientoComponent implements OnInit {
           console.log('esto es lo que se recibe',this.datos);
 
           this.id_requerimiento = this.datos[0].id_requerimiento;
-          this.nom_req = this.datos[0].nom_req;
+          this.nom_req = this.datos[0].nombre_requerimiento;
           this.peso = this.datos[0].peso;
           this.impacto = this.datos[0].impacto;
-          this.peso = this.datos[0].peso;
+          this.siglas = this.datos[0].siglas
+          
         
         });
     })
