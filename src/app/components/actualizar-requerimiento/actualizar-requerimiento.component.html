@@ -39,7 +39,7 @@
 
                 <div class="col-md-6">
                     <label for="validationCustom04" class="form-label"><h3>Siglas</h3></label>
-                    <input type="text" class="form-control" id="validationCustom04"  required name="siglas"
+                    <input type="text" class="form-control" id="validationCustom04"   name="siglas"
                     [(ngModel)]="siglas">
                   </div>
             
@@ -55,6 +55,7 @@
             </div>
 
             <div class="col-12">
+              <input for="id_requerimiento" id="id_requerimiento" type="hidden" name="id_requerimiento" [(ngModel)]="id_requerimiento">
               <br><br>
               <button class="btn btn-primary" type="submit" (click)="validacion(FormRegistro)">Actualizar</button>
             </div>

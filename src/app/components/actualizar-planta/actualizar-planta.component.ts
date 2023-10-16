@@ -44,55 +44,68 @@ export class ActualizarPlantaComponent implements OnInit {
 
 
 
-   validacion(form:NgForm){
-    // console.log(form.value)
+  
+  validacion(form: NgForm) {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',
         cancelButton: 'btn btn-danger',
       },
       buttonsStyling: true
-    })
-    swalWithBootstrapButtons.fire({
-      title: '¿Desea actualizar los datos?',
-      text: "Asegúrate de que los datos sean corectos",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Si, actualizar',
-      cancelButtonText: 'Cancelar',
-      reverseButtons: true
-    }).then((result) => {
-      if (result.isConfirmed) {
-        console.log("Esto es cuando se manda", form.value)
-        this.servisplanta.Actualizar(form.value).subscribe(
-          res=>{
-            
-            form.reset()
-            this.servisplanta.obtenerplanta().subscribe(
-              res=>this.servisplanta.Plantas=res,
-              err=>console.log(err)
-            )
-          },
-          err=>console.error(err)
-        )
-        swalWithBootstrapButtons.fire(
-          'Actualizado',
-          'La planta fue actualizada',
-          'success'
-        )
-      } else if (
-        /* Read more about handling dismissals below */
-        result.dismiss === Swal.DismissReason.cancel
-      ) {
-        swalWithBootstrapButtons.fire(
-          'Cancelado',
-          'La planta no fue actualizada',
-          'error'
-        )
-      }
-    })
-   }
+    });
   
+    swalWithBootstrapButtons
+      .fire({
+        title: '¿Los datos son correctos?',
+        text: 'Asegúrate de que los datos sean correctos',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, actualizar',
+        cancelButtonText: 'Cancelar',
+        reverseButtons: true
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          this.servisplanta.Actualizar(form.value).subscribe(
+            (res) => {
+              form.reset();
+              this.servisplanta.obtenerplanta().subscribe(
+                (res) => {
+                  this.servisplanta.Plantas = res;
+                  swalWithBootstrapButtons.fire(
+                    'Actualizado',
+                    'La planta fue actualizada',
+                    'success'
+                  );
+                },
+                (err) => {
+                  console.log(err);
+                  swalWithBootstrapButtons.fire(
+                    'Error',
+                    'Hubo un error al obtener las plantas: ' + err.error.message,
+                    'error'
+                  );
+                }
+              );
+            },
+            (error) => {
+              console.log(error);
+              swalWithBootstrapButtons.fire(
+                'Error',
+                'Hubo un error al actualizar la planta: ' + error.error.message,
+                'error'
+              );
+            }
+          );
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          swalWithBootstrapButtons.fire(
+            'Cancelado',
+            'La planta no fue actualizada',
+            'error'
+          );
+        }
+      });
+  }
   
    
 }
