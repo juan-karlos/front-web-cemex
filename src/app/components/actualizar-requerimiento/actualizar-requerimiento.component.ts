@@ -29,11 +29,12 @@ export class ActualizarRequerimientoComponent implements OnInit {
     ngOnInit(): void {
       this.route.params.subscribe(params => {
         
-        this.itemId = params['id_planta'];
+        this.itemId = params['id_requerimiento'];
+        console.log( 'este es el id que se esta mandando',this.itemId);
         this.servicerequerimiento.obtenerPermisoPorId(this.itemId).subscribe(objeto => {
-          
+      
           this.datos = objeto;
-          console.log(this.datos);
+          console.log('esto es lo que se recibe',this.datos);
 
           this.id_requerimiento = this.datos[0].id_requerimiento;
           this.nom_req = this.datos[0].nom_req;
@@ -61,7 +62,7 @@ export class ActualizarRequerimientoComponent implements OnInit {
       text: "Asegúrate de que los datos sean corectos",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Si, agregar',
+      confirmButtonText: 'Si, actualizar',
       cancelButtonText: 'Cancelar',
       reverseButtons: true
   
@@ -69,7 +70,7 @@ export class ActualizarRequerimientoComponent implements OnInit {
       if (result.isConfirmed) {
   
         
-        this.servicerequerimiento.insertar(form.value).subscribe(
+        this.servicerequerimiento.Actualizar(form.value).subscribe(
           res=>{
             form.reset()
             this.servicerequerimiento.obtenerpermiso().subscribe(
@@ -82,7 +83,7 @@ export class ActualizarRequerimientoComponent implements OnInit {
         )
         swalWithBootstrapButtons.fire(
           'Agregado',
-          'El requerimento fue agregado',
+          'El requerimento fue actualizado',
           'success'
         )
       } else if (
@@ -91,7 +92,7 @@ export class ActualizarRequerimientoComponent implements OnInit {
       ) {
         swalWithBootstrapButtons.fire(
           'Cancelado',
-          'El requerimento no fue agregado',
+          'El requerimento no fue actualizado',
           'error'
         )
       }
