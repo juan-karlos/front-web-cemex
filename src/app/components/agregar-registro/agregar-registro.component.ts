@@ -3,7 +3,8 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { RegistrosService } from 'src/app/services/registros.service';
 import { NgForm } from '@angular/forms';
 import * as moment from 'moment';
-
+import { MatCheckboxChange } from '@angular/material/checkbox';
+import Swal from 'sweetalert2';
 
 moment.locale('es');
 @Component({
@@ -14,15 +15,17 @@ moment.locale('es');
 
 export class AgregarRegistroComponent {
 
+  public fechaHabilitada = true;
+  public checkboxActivado = false;
 
-
+ 
   //fechainicio = moment(this.datepicker.value);
 
   mostrar: boolean = false;
  // fechainicio = moment(this,datepicker.value).format(this.formato);
   selectedFile: File | null = null;
-  fecha_inicio :string="";
-  fecha_vencimiento:string="";
+  fecha_inicio: string | null = null;
+  fecha_vencimiento: string | null = null;
   validez_unica:boolean=false;
   estatus:string='';
   observaciones:string="";
@@ -33,6 +36,12 @@ export class AgregarRegistroComponent {
 
   }
 
+  toggleDatepickers(event: MatCheckboxChange) {
+    this.checkboxActivado = event.checked;
+    this.fechaHabilitada = !event.checked;
+    this.fecha_inicio = null; // También puedes reiniciar las fechas cuando se deshabilitan.
+    this.fecha_vencimiento = null;
+  }
   enviardat(){
     const fechas={
      fecha_inicio: this.fecha_inicio,
@@ -58,6 +67,13 @@ export class AgregarRegistroComponent {
 
 
   onSubmit() {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger',
+      },
+      buttonsStyling: true
+    });
     const fecha1 = moment(this.fecha_inicio);
     const fecha2=moment(this.fecha_vencimiento);
 
@@ -82,9 +98,18 @@ export class AgregarRegistroComponent {
         (response: any) => {
           // `response` puede contener la URL del PDF en el servidor
           console.log('URL del PDF en el servidor:', response);
+          swalWithBootstrapButtons.fire(
+            'Agregado',
+            'El registro fue agregado ',
+            'success'
+          );
         },
         (error) => {
-          console.log(error);
+          swalWithBootstrapButtons.fire(
+            'Error',
+            'Hubo un error: ' + error.error.message,
+            'error'
+          );
         }
       );
     }
@@ -93,68 +118,55 @@ export class AgregarRegistroComponent {
 
 
 
-  // insertar_registro(form:NgForm){
-  //   this.Registros.insertar(form.value).subscribe(
-  //     res=>{
-  //       form.reset()
-  //       this.Registros.obtenerRegistro().subscribe(
-  //         res=>this.Registros.Registro=res,
-  //         err=>console.log(err)
-  //       )
-  //     }
-  //   )
-  // }
-
-  // mostrarIn(){
-
-    // const fecha1 = moment(this.fecha_inicio);
-    // const fecha2=moment(this.fecha_vencimiento);
-    // const fechaAcomodada = fecha1.format('YYYY/MM/DD');
-    // // let fechaAcomodada="holaaaaa"
-    // const fechaAcomodada2= fecha2.format('YYYY/MM/DD');
-    // // let fechaAcomodada1=new Date();
-
-    //  const variablesJson={
-    //   fechaAcomodada,
-    //   fechaAcomodada2
-    //  }
-  //    console.log(variablesJson)
-
-  //   this.http.post('http://localhost:2300/api/regi/fechas',variablesJson).subscribe(
-  //     (respuesta:any)=>{
-  //       console.log('leido',respuesta)
-  //     }
-  //   )
-
-  // }
-
-  // insertar_registro(form:NgForm){
-
-  //   this.mostrarIn();
-
-  //   this.onSubmit();
-
-  //   this.Registros.insertar(form.value).subscribe(
-
-  //     res=>{
-
-  //       form.reset()
-  //       this.Registros.obtenerRegistro().subscribe(
-  //         res=>this.Registros.Registro=res,
-  //         err=>console.log(err)
-  //       )
-  //     }
-  //   )
-
-
-
-  // }
-
-
   ejecutar(){
     this.onSubmit();
-    // this.mostrarIn();
+  
   }
 
-}
+
+
+  validacion() {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger',
+      },
+      buttonsStyling: true
+    });
+  
+   
+      // Muestra un mensaje de error si el formulario es inválido o algún campo está vacío
+      swalWithBootstrapButtons.fire(
+        'Error',
+        'Por favor, completa todos los campos antes de agregar.',
+        'error'
+      );
+   
+      // Muestra la confirmación si el formulario es válido y los campos están llenos
+      swalWithBootstrapButtons
+        .fire({
+          title: '¿Los datos son correctos?',
+          text: 'Asegúrate de que los datos sean correctos',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Si, agregar',
+          cancelButtonText: 'Cancelar',
+          reverseButtons: true
+        })
+        .then((result) => {
+          if (result.isConfirmed) {
+            this.ejecutar();
+          } else if (result.dismiss === Swal.DismissReason.cancel) {
+            swalWithBootstrapButtons.fire(
+              'Cancelado',
+              'La planta no fue agregada',
+              'error'
+            );
+          }
+        });
+    }
+  }
+  
+
+
 

@@ -29,11 +29,32 @@
 
   <div class="contenedor-tabla">
     <br>
-    <div class="col-md-3" style="background-color: rgb(220, 220, 220); padding: .5%; border-radius: 10px;">
-      <form class="form-group">
-        <input class="form-control" type="text" name="filterpost" placeholder="Buscar" aria-label="Search"
-         [(ngModel)]="filterPost" >
-      </form>
+    
+     <div class="row">
+      <div class="col-md-3" style="background-color: rgb(220, 220, 220); padding: .8%; border-radius: 10px;">
+        <form class="form-group">
+          <input class="form-control" type="text" name="filterpost" placeholder="Buscar" aria-label="Search"
+           [(ngModel)]="filterPost" >
+        </form>
+        
+      </div>
+      
+      <div class="col-md-1" style="background-color: rgb(220, 220, 220);
+       padding: .5%; border-radius: 10px; margin-left: 20px;">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value=1 checked>
+          <label class="form-check-label" for="exampleRadios1">
+            Fijas
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value=0>
+          <label class="form-check-label" for="exampleRadios2">
+            Móviles
+          </label>
+        </div>
+     </div>
+
     </div>
     
 
