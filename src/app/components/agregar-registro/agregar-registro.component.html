@@ -14,7 +14,7 @@
         </ul>
     </div>
   </nav>
-  <H1 id="titulo">Registrar nuevo permiso</H1>
+  <H1 id="titulo">Asignar permiso a planta</H1>
 </header>
 <body style="background-color: bisque; margin: 5%;">
 
@@ -26,24 +26,28 @@
 
           <div class="col-md-6">
             <label for="validationCustom01" class="form-label"><h3>Nombre de la planta</h3></label>
-            <input type="number" class="form-control" id="validationCustom01"  required name ="id_planta"
-            [(ngModel)]="id_planta"
+            <input type="text" class="form-control" id="validationCustom01"  required name ="nombre_planta"
+            [(ngModel)]="nombre_planta"
             >
-            <div class="valid-feedback">
-             Excelente
-            </div>
-            <div class="invalid-feedback">
-              Por favor ingrese un nombre válido
-            </div>
+            
           </div>
+          
           <div class="col-md-6">
-
-            <label for="validationCustom02" class="form-label"><h3>Nobre del permiso</h3></label>
-
-            <input type="number" class="form-control" id="validationCustom02"  required name="id_requerimiento"
-            [(ngModel)]="id_requerimiento">
-
+            <label for="validationCustom02" class="form-label"><h3>Nombre del permiso</h3></label>
+            <select class="form-select" name="nombre_requerimiento" [(ngModel)]="nombre_requerimiento">
+              <option selected disabled value="">Elegir permiso</option>
+              <option *ngFor="let requerimiento of arregloRequerimientos" [value]="requerimiento">
+                {{ requerimiento }}
+              </option>
+            </select>
           </div>
+         
+          
+          
+          
+          
+          
+           
 
           <div class="col-md-6">
             <label for="validationCustom03" class="form-label"> <h3>Observaciones</h3></label>
@@ -98,14 +102,7 @@
           <div class="contenedor">
             <div class="div1">
               <h3>Elige la fecha de inicio</h3>
-<!-- aqui inicia el primer datepicker -->
-              <!-- <mat-form-field >
-                <mat-label>Fecha de inicio</mat-label>
-                <input matInput [matDatepicker]="picker" name="fecha_inicio" [(ngModel)]="fecha_inicio">
-                <mat-hint>MM/DD/AAAA</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-               </mat-form-field> -->
+
                <mat-form-field>
                 <mat-label>Fecha de inicio</mat-label>
                 <input matInput [matDatepicker]="picker" name="fecha_inicio" [(ngModel)]="fecha_inicio" 

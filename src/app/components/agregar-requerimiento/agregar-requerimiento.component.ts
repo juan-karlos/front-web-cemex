@@ -25,11 +25,11 @@ export class AgregarRequerimientoComponent implements OnInit{
     });
   
     if (
-      !form.valid ||
-      !form.value.nombre_planta ||
-      !form.value.segmento ||
-      !form.value.zona ||
-      !form.value.estado
+      !form.valid 
+      // !form.value.nombre_planta ||
+      // !form.value.segmento ||
+      // !form.value.zona ||
+      // !form.value.estado
     ) {
       // Muestra un mensaje de error si el formulario es inválido o algún campo está vacío
       swalWithBootstrapButtons.fire(
