@@ -38,7 +38,7 @@ export class AgregarRegistroComponent implements OnInit{
   }
   ngOnInit(): void {
    this.obtenerpermisos();
-   console.log("Valor de nombre_requerimiento en ngOnInit:", this.nombre_requerimiento);
+  
   }
 
   filterPost ='';
@@ -50,7 +50,7 @@ export class AgregarRegistroComponent implements OnInit{
         this.permiso.Permiso = datos;
         this.num = datos.length;
         this.arregloRequerimientos = datos.map((item: any) => item.nombre_requerimiento);
-        console.log(this.arregloRequerimientos);
+        
         return datos;
       },
       (err) => console.error(err)
@@ -61,7 +61,7 @@ export class AgregarRegistroComponent implements OnInit{
   toggleDatepickers(event: MatCheckboxChange) {
     this.checkboxActivado = event.checked;
     this.fechaHabilitada = !event.checked;
-    this.fecha_inicio = null; // También puedes reiniciar las fechas cuando se deshabilitan.
+    this.fecha_inicio = null; //puedes reiniciar las fechas cuando se deshabilitan.
     this.fecha_vencimiento = null;
   }
   enviardat(){
