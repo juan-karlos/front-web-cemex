@@ -26,8 +26,8 @@
 
           <div class="col-md-6">
             <label for="validationCustom01" class="form-label"><h3>Nombre de la planta</h3></label>
-            <input type="number" class="form-control" id="validationCustom01"  required name ="id_planta"
-            [(ngModel)]="id_planta"
+            <input type="text" class="form-control" id="validationCustom01"  required name ="nombre_planta"
+            [(ngModel)]="nombre_planta"
             >
             <div class="valid-feedback">
              Excelente
@@ -40,8 +40,8 @@
 
             <label for="validationCustom02" class="form-label"><h3>Nobre del permiso</h3></label>
 
-            <input type="number" class="form-control" id="validationCustom02"  required name="id_requerimiento"
-            [(ngModel)]="id_requerimiento">
+            <input type="text" class="form-control" id="validationCustom02"  required name="nombre_requerimiento"
+            [(ngModel)]="nombre_requerimiento">
 
           </div>
 
@@ -98,14 +98,7 @@
           <div class="contenedor">
             <div class="div1">
               <h3>Elige la fecha de inicio</h3>
-<!-- aqui inicia el primer datepicker -->
-              <!-- <mat-form-field >
-                <mat-label>Fecha de inicio</mat-label>
-                <input matInput [matDatepicker]="picker" name="fecha_inicio" [(ngModel)]="fecha_inicio">
-                <mat-hint>MM/DD/AAAA</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-               </mat-form-field> -->
+
                <mat-form-field>
                 <mat-label>Fecha de inicio</mat-label>
                 <input matInput [matDatepicker]="picker" name="fecha_inicio" [(ngModel)]="fecha_inicio" 

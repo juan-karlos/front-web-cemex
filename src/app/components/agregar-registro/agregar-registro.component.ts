@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import * as moment from 'moment';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import Swal from 'sweetalert2';
+import { RequerimientoService } from 'src/app/services/requerimiento.service';
 
 moment.locale('es');
 @Component({
@@ -29,8 +30,8 @@ export class AgregarRegistroComponent {
   validez_unica:boolean=false;
   estatus:string='';
   observaciones:string="";
-  id_requerimiento:Number=0
-  id_planta:number=0
+  nombre_requerimiento:string="";
+  nombre_planta:string="";
 
   constructor(private http: HttpClient, public Registros:RegistrosService) {
 
@@ -92,8 +93,8 @@ export class AgregarRegistroComponent {
       formData.append('validez_unica', validez_unica);
       formData.append('estatus',estatus)
       formData.append('observaciones',observaciones)
-      formData.append('id_requerimiento',String(this.id_requerimiento))
-      formData.append('id_planta',String(this.id_planta))
+      formData.append('id_requerimiento',String(this.nombre_requerimiento))
+      formData.append('id_planta',String(this.nombre_planta))
       this.http.post('http://192.168.100.62:3200/api/regi/pdf',formData).subscribe(
         (response: any) => {
           // `response` puede contener la URL del PDF en el servidor
