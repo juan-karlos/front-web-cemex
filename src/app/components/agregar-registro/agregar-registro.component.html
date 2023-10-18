@@ -29,21 +29,25 @@
             <input type="text" class="form-control" id="validationCustom01"  required name ="nombre_planta"
             [(ngModel)]="nombre_planta"
             >
-            <div class="valid-feedback">
-             Excelente
-            </div>
-            <div class="invalid-feedback">
-              Por favor ingrese un nombre válido
-            </div>
+            
           </div>
+          
           <div class="col-md-6">
-
-            <label for="validationCustom02" class="form-label"><h3>Nobre del permiso</h3></label>
-
-            <input type="text" class="form-control" id="validationCustom02"  required name="nombre_requerimiento"
-            [(ngModel)]="nombre_requerimiento">
-
+            <label for="validationCustom02" class="form-label"><h3>Nombre del permiso</h3></label>
+            <select class="form-select" name="nombre_requerimiento" [(ngModel)]="nombre_requerimiento">
+              <option selected disabled value="">Elegir permiso</option>
+              <option *ngFor="let requerimiento of arregloRequerimientos" [value]="requerimiento">
+                {{ requerimiento }}
+              </option>
+            </select>
           </div>
+         
+          
+          
+          
+          
+          
+           
 
           <div class="col-md-6">
             <label for="validationCustom03" class="form-label"> <h3>Observaciones</h3></label>

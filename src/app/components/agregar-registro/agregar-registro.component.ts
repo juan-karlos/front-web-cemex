@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { RegistrosService } from 'src/app/services/registros.service';
 import { NgForm } from '@angular/forms';
@@ -14,8 +14,8 @@ moment.locale('es');
   styleUrls: ['./agregar-registro.component.css']
 })
 
-export class AgregarRegistroComponent {
-
+export class AgregarRegistroComponent implements OnInit{
+  arregloRequerimientos: string[] = []; 
   public fechaHabilitada = true;
   public checkboxActivado = false;
 
@@ -33,8 +33,29 @@ export class AgregarRegistroComponent {
   nombre_requerimiento:string="";
   nombre_planta:string="";
 
-  constructor(private http: HttpClient, public Registros:RegistrosService) {
+  constructor(private http: HttpClient,public permiso:RequerimientoService, public Registros:RegistrosService) {
 
+  }
+  ngOnInit(): void {
+   this.obtenerpermisos();
+   console.log("Valor de nombre_requerimiento en ngOnInit:", this.nombre_requerimiento);
+  }
+
+  filterPost ='';
+  num: number = 0;
+
+  obtenerpermisos(){
+    this.permiso.obtenerpermiso().subscribe(
+      (datos) => {
+        this.permiso.Permiso = datos;
+        this.num = datos.length;
+        this.arregloRequerimientos = datos.map((item: any) => item.nombre_requerimiento);
+        console.log(this.arregloRequerimientos);
+        return datos;
+      },
+      (err) => console.error(err)
+      
+    )
   }
 
   toggleDatepickers(event: MatCheckboxChange) {
