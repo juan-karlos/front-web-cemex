@@ -15,11 +15,12 @@ moment.locale('es');
 })
 
 export class AgregarRegistroComponent implements OnInit{
-  arregloRequerimientos: string[] = []; 
+  arregloRequerimientos: string[] = [];
+
   public fechaHabilitada = true;
   public checkboxActivado = false;
 
- 
+
   //fechainicio = moment(this.datepicker.value);
 
   mostrar: boolean = false;
@@ -27,7 +28,7 @@ export class AgregarRegistroComponent implements OnInit{
   selectedFile: File | null = null;
   fecha_inicio: string | null = null;
   fecha_vencimiento: string | null = null;
-  validez_unica:boolean=false;
+  validez_unica:boolean=false ;
   estatus:string='';
   observaciones:string="";
   nombre_requerimiento:string="";
@@ -38,7 +39,7 @@ export class AgregarRegistroComponent implements OnInit{
   }
   ngOnInit(): void {
    this.obtenerpermisos();
-  
+
   }
 
   filterPost ='';
@@ -50,11 +51,11 @@ export class AgregarRegistroComponent implements OnInit{
         this.permiso.Permiso = datos;
         this.num = datos.length;
         this.arregloRequerimientos = datos.map((item: any) => item.nombre_requerimiento);
-        
+
         return datos;
       },
       (err) => console.error(err)
-      
+
     )
   }
 
@@ -88,6 +89,7 @@ export class AgregarRegistroComponent implements OnInit{
   }
 
 
+
   onSubmit() {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -105,18 +107,22 @@ export class AgregarRegistroComponent implements OnInit{
     const validez_unica = this.validez_unica ? 'true' : 'false';
     const estatus=this.estatus;
     const observaciones=this.observaciones;
+    const nombre_planta=this.nombre_planta;
+    const nombre_requerimiento= this.nombre_requerimiento
+
+    const formData = new FormData();
 
     if (this.selectedFile) {
-      const formData = new FormData();
+
       formData.append('pdfFile', this.selectedFile);
       formData.append('fechaAcomodada', fechaAcomodada);
       formData.append('fechaAcomodada2', fechaAcomodada2);
       formData.append('validez_unica', validez_unica);
-      formData.append('estatus',estatus)
-      formData.append('observaciones',observaciones)
-      formData.append('id_requerimiento',String(this.nombre_requerimiento))
-      formData.append('id_planta',String(this.nombre_planta))
-      this.http.post('http://192.168.100.62:3200/api/regi/pdf',formData).subscribe(
+      formData.append('estatus',estatus);
+      formData.append('observaciones',observaciones);
+      formData.append('nombre_planta',nombre_planta);
+      formData.append('nombre_requerimiento',nombre_requerimiento);
+      this.http.post('http://localhost:3200/api/regi/pdf',formData).subscribe(
         (response: any) => {
           // `response` puede contener la URL del PDF en el servidor
           console.log('URL del PDF en el servidor:', response);
@@ -134,7 +140,34 @@ export class AgregarRegistroComponent implements OnInit{
           );
         }
       );
+    }else {
+      formData.append('fechaAcomodada', fechaAcomodada);
+      formData.append('fechaAcomodada2', fechaAcomodada2);
+      formData.append('validez_unica', validez_unica);
+      formData.append('estatus',estatus);
+      formData.append('observaciones',observaciones);
+      formData.append('nombre_planta',nombre_planta);
+      formData.append('nombre_requerimiento',nombre_requerimiento);
+      this.http.post('http://localhost:3200/api/regi/pdf',formData).subscribe(
+        (response: any) => {
+          // `response` puede contener la URL del PDF en el servidor
+          console.log('URL del PDF en el servidor:', response);
+          swalWithBootstrapButtons.fire(
+            'Agregado',
+            'El registro fue agregado ',
+            'success'
+          );
+        },
+        (error) => {
+          swalWithBootstrapButtons.fire(
+            'Error',
+            'Hubo un error: ' + error.error.message,
+            'error'
+          );
+        }
+      )
     }
+
   }
 
 
@@ -142,7 +175,7 @@ export class AgregarRegistroComponent implements OnInit{
 
   ejecutar(){
     this.onSubmit();
-  
+
   }
 
 
@@ -155,15 +188,15 @@ export class AgregarRegistroComponent implements OnInit{
       },
       buttonsStyling: true
     });
-  
-   
+
+
       // Muestra un mensaje de error si el formulario es inválido o algún campo está vacío
       swalWithBootstrapButtons.fire(
         'Error',
         'Por favor, completa todos los campos antes de agregar.',
         'error'
       );
-   
+
       // Muestra la confirmación si el formulario es válido y los campos están llenos
       swalWithBootstrapButtons
         .fire({
@@ -177,7 +210,7 @@ export class AgregarRegistroComponent implements OnInit{
         })
         .then((result) => {
           if (result.isConfirmed) {
-            this.ejecutar();
+            this.onSubmit();
           } else if (result.dismiss === Swal.DismissReason.cancel) {
             swalWithBootstrapButtons.fire(
               'Cancelado',
@@ -188,7 +221,7 @@ export class AgregarRegistroComponent implements OnInit{
         });
     }
   }
-  
+
 
 
 

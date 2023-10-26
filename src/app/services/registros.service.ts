@@ -7,7 +7,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class RegistrosService {
-URL_API='http://192.168.100.62:3200/api/regi/'
+// URL_API='http://192.168.100.62:3200/api/regi/'
+URL_API='http://localhost:3200/api/regi'
 
 Registro:registro[]=[];
 
@@ -29,6 +30,7 @@ validez_unica: true,
   obtenerRegistro(){
     return this.http.get<registro[]>(this.URL_API);
   }
+  
   insertar(Registro:registro){
     return this.http.post(this.URL_API+"insertar",Registro)
   }

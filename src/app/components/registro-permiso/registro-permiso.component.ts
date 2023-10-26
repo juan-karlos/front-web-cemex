@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {RegistrosService} from 'src/app/services/registros.service';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 
@@ -22,7 +22,7 @@ export class RegistroPermisoComponent implements OnInit {
     this.registro.obtenerRegistro().subscribe(
       res=>this.registro.Registro=res,
       err=>console.error(err),
-    ) 
+    )
   }
 
 
@@ -31,6 +31,9 @@ export class RegistroPermisoComponent implements OnInit {
   }
 
   recortarTexto(cadena: string, longitud: number): string {
+    if(cadena==null){
+      return "fecha Unica"
+    }
     return cadena.slice(0, longitud);
   }
 }

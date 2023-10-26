@@ -3,26 +3,26 @@
       <div class="container-fluid">
         <a class="navbar-brand" href="inicio">
          <img id="logo" src="https://i.ibb.co/HK2Btjq/Logo-Cemex.png" alt="">
-          
-        </a>  
+
+        </a>
         <ul class="nav justify-content-end">
-          
+
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="inicio" 
+            <a class="nav-link active" aria-current="page" href="inicio"
             style="font-size: 30px; margin-right: 40px;">Volver</a>
           </li>
-        
-        </ul> 
+
+        </ul>
       </div>
     </nav>
-    
+
     <h1 id="titulo">Total de registros</h1>
     <!-- <h2 id="subtitulo">74% Cumplimiento CERO; 26 UUNN en riesgo de clausura, 8 en riesgo de multa y 3 optimas.</h2> -->
-  
+
   </header>
   <body>
-  
-  
+
+
     <div class="contenedor-tabla">
       <br>
       <div class="col-md-3" style="background-color: rgb(220, 220, 220); padding: .5%; border-radius: 10px;">
@@ -31,8 +31,8 @@
            [(ngModel)]="filterPost" >
         </form>
       </div>
-      
-  
+
+
       <br><br><br>
       <table class="table table-hover">
           <thead class="table-dark">
@@ -45,14 +45,14 @@
               <th scope="col">Observaciones</th>
               <th scope="col">Estatus</th>
               <th scope="col">Documento</th>
-              
-             
+
+
               <th scope="col"></th>
               <!-- <th scope="col">Fija</th> -->
             </tr>
           </thead>
           <tbody>
-  
+
             <tr *ngFor="let Registro of registro.Registro | filtroPlanta:filterPost">
             <!-- <tr *ngFor="let Planta of unidad.Plantas"> -->
               <!-- <td>{{Planta.id_planta}}</td> -->
@@ -63,19 +63,19 @@
               <td>{{Registro.observaciones}}</td>
               <td>{{Registro.estatus}}</td>
               <td>{{Registro.url}}</td>
-  
+
               <td>
-                <!-- <button class="btn btn-primary" 
+                <!-- <button class="btn btn-primary"
                 [routerLink]="['actualizar-planta']">
                 <i class="material-icons">edit</i>
                 </button> -->
                 <button class="btn btn-primary"><i class="material-icons">edit</i></button>
-                
+
               </td>
-            
+
             </tr>
-            
-           
+
+
           </tbody>
         </table>
   </div>
