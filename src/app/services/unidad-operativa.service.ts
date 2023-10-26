@@ -9,8 +9,8 @@ export class UnidadOperativaService {
 
 constructor(private http:HttpClient) { }
 
-URL_API = 'http://192.168.100.62:3200/api/unidad/'
-// URL_API = 'http://localhost:2300/api/unidad/'
+// URL_API = 'http://192.168.100.62:3200/api/unidad/'
+URL_API = 'http://localhost:3200/api/unidad/'
 
 
 Plantas:planta[]=[];
@@ -30,7 +30,7 @@ PlantaSelect :planta={
   obtenerplanta(){
     return this.http.get<planta[]>(this.URL_API);
   }
-  
+
   obtenerPlantaPorId(id_planta:number){
     const url = `${this.URL_API}${'uno'}/${id_planta}`; // Agrega el ID al final de la URL
     return this.http.get(url);

@@ -18,21 +18,21 @@ export class ActualizarRequerimientoComponent implements OnInit {
   peso!: number;
   impacto!: string;
   siglas!: string;
-  
-  
 
-  constructor(public servicerequerimiento:RequerimientoService, 
+
+
+  constructor(public servicerequerimiento:RequerimientoService,
     private FB: FormBuilder, private route: ActivatedRoute){
 
     }
 
     ngOnInit(): void {
       this.route.params.subscribe(params => {
-        
+
         this.itemId = params['id_requerimiento'];
         console.log( 'este es el id que se esta mandando',this.itemId);
         this.servicerequerimiento.obtenerPermisoPorId(this.itemId).subscribe(objeto => {
-      
+
           this.datos = objeto;
           console.log('esto es lo que se recibe',this.datos);
 
@@ -41,8 +41,8 @@ export class ActualizarRequerimientoComponent implements OnInit {
           this.peso = this.datos[0].peso;
           this.impacto = this.datos[0].impacto;
           this.siglas = this.datos[0].siglas
-            
-        
+
+
         });
     })
     }
@@ -57,10 +57,18 @@ export class ActualizarRequerimientoComponent implements OnInit {
         },
         buttonsStyling: true
       });
-    
+
       if (
+<<<<<<< Updated upstream
         !form.valid 
         
+=======
+        !form.valid ||
+        !form.value.nom_req ||
+        !form.value.impacto ||
+        !form.value.siglas ||
+        !form.value.peso
+>>>>>>> Stashed changes
       ) {
         // Muestra un mensaje de error si el formulario es inválido o algún campo está vacío
         swalWithBootstrapButtons.fire(
@@ -123,6 +131,6 @@ export class ActualizarRequerimientoComponent implements OnInit {
           });
       }
     }
-    
+
 
 }

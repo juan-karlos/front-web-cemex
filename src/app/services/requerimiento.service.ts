@@ -5,7 +5,9 @@ import {permiso} from '../components/models/tablas'
   providedIn: 'root'
 })
 export class RequerimientoService {
-  URL_API = 'http://192.168.100.62:3200/api/requerimiento/'
+  // URL_API = 'http://192.168.100.62:3200/api/requerimiento'
+  URL_API ='http://localhost:3200/api/requerimiento/'
+
   Permiso:permiso[]=[];
 
   PermisoSelect :permiso={
@@ -20,6 +22,7 @@ export class RequerimientoService {
     obtenerpermiso(){
       return this.http.get<permiso[]>(this.URL_API+"obtener");
     }
+    
     insertar(requerimiento:permiso){
       return this.http.post(this.URL_API+"insertar",requerimiento);
     }
