@@ -3,31 +3,31 @@
       <div class="container-fluid">
         <a class="navbar-brand" href="inicio">
          <img id="logo" src="https://i.ibb.co/HK2Btjq/Logo-Cemex.png" alt="">
-          
-        </a>  
+
+        </a>
         <ul class="nav justify-content-end">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="inicio" style="font-size: 30px; margin-right: 40px;">Volver</a>
           </li>
-        </ul> 
+        </ul>
       </div>
     </nav>
-    
+
     <h1 id="titulo">Listado de permisos base, sus pesos e impacto</h1>
-  
+
   </header>
   <body>
     <div class="contenedor-tabla" >
       <br>
-      
+
       <div class="col-md-3" style="background-color: rgb(220, 220, 220); padding: .5%; border-radius: 10px;">
         <form class="form-group" >
           <input class="form-control" type="text" name="filterpost" placeholder="Buscar" aria-label="Search"
            [(ngModel)]="filterPost" >
         </form>
       </div>
-      
-  
+
+
       <br><br><br>
       <table class="table table-hover">
           <thead class="table-dark">
@@ -49,8 +49,8 @@
               <td>
                 <button class="btn btn-primary" (click)="Actualizar(Permiso.id_requerimiento)"><i class="material-icons">edit</i></button>
               </tr>
-            
-           
+
+
           </tbody>
         </table>
   </div>

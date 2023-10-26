@@ -12,9 +12,9 @@ export class AgregarRequerimientoComponent implements OnInit{
   constructor(public servicerequerimiento:RequerimientoService, private FB: FormBuilder){}
 
   ngOnInit(): void {
- 
+
   }
- 
+
   validacion(form: NgForm) {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -23,13 +23,13 @@ export class AgregarRequerimientoComponent implements OnInit{
       },
       buttonsStyling: true
     });
-  
+
     if (
-      !form.valid 
-      // !form.value.nombre_planta ||
-      // !form.value.segmento ||
-      // !form.value.zona ||
-      // !form.value.estado
+      !form.valid ||
+      !form.value.nom_req ||
+      !form.value.impacto ||
+      !form.value.siglas ||
+      !form.value.peso
     ) {
       // Muestra un mensaje de error si el formulario es inválido o algún campo está vacío
       swalWithBootstrapButtons.fire(
@@ -92,7 +92,7 @@ export class AgregarRequerimientoComponent implements OnInit{
         });
     }
   }
-  
+
 
 
 }
