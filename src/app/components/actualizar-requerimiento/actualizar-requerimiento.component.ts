@@ -59,16 +59,12 @@ export class ActualizarRequerimientoComponent implements OnInit {
       });
 
       if (
-<<<<<<< Updated upstream
-        !form.valid 
-        
-=======
         !form.valid ||
         !form.value.nom_req ||
         !form.value.impacto ||
         !form.value.siglas ||
         !form.value.peso
->>>>>>> Stashed changes
+
       ) {
         // Muestra un mensaje de error si el formulario es inválido o algún campo está vacío
         swalWithBootstrapButtons.fire(
