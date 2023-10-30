@@ -43,3 +43,14 @@ porcentaje_cumplimiento: number,
 fecha: Date
 }
 
+export interface segmentos{
+  cadena_suministro:String,
+  industriales:String,
+  inmuebles_no_operativos:String,
+  operaciones:String,
+  transporte:String,
+  Promexma:String,
+  constructores:String
+
+}
+
