@@ -12,7 +12,7 @@ export class ConstructoresPacificoComponent implements OnInit {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
   constructor(private router: Router){}
   ngOnInit(): void {
-    
+
   }
   //Aqui comienzan los metodos para la graficación
 public barChartOptions: ChartConfiguration['options'] = {
@@ -45,7 +45,7 @@ public barChartOptionsLine: ChartConfiguration['options'] = {
       min: 60,
       max:100
     },
-   
+
   },
   plugins: {
     legend: {
