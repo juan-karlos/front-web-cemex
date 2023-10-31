@@ -8,8 +8,8 @@
   <nav class="navbar navbar-expand-lg" style="background-color: #dedada;">
     <div class="container-fluid">
       <a class="navbar-brand" href="inicio">
-       <img id="logo" src="https://i.ibb.co/HK2Btjq/Logo-Cemex.png" alt="">
-      </a>  
+        <img id="logo" src="https://i.ibb.co/HK2Btjq/Logo-Cemex.png" alt="">
+      </a>
       <ul class="nav justify-content-end">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="inicio" style="font-size: 30px; margin-right:40px;">Inicio</a>
@@ -24,96 +24,88 @@
 </header>
 
 <body >
-  <div class="contenedor-principal">
-    <div class="contenedor-segmentos">
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Constructores</h5>
-              <p class="card-text">Plantas totales: 56</p>
-              <a href="constructores-centro" class="btn btn-primary">Entrar</a>
+  <div *ngFor="let centro of centro.Segmentos" >
+    <div class="contenedor-principal">
+      <div class="contenedor-segmentos">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Constructores</h5>
+                <p class="card-text">{{centro.constructores}} Plantas</p>
+                <a href="constructores-centro" class="btn btn-primary">Entrar</a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Cadena de suministro</h5>
-              <p class="card-text">Plantas totales: 45</p>
-              <a href="suministro-centro" class="btn btn-primary">Entrar</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="contenedor-segmentos">
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Construrama supply</h5>
-              <p class="card-text">Plantas totales: 56</p>
-              <a href="construrama-centro" class="btn btn-primary">Entrar</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Industriales</h5>
-              <p class="card-text">Plantas totales: 56</p>
-             <a href="industriales-centro" class="btn btn-primary">Entrar</a>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Cadena de suministro</h5>
+                <p class="card-text">{{centro.cadena_suministro}} Plantas</p>
+                <a href="suministro-centro" class="btn btn-primary">Entrar</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="contenedor-segmentos">
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Inmuebles no opertivos</h5>
-              <p class="card-text">Plantas totales: 56</p>
-              <a href="no-operativo-centro" class="btn btn-primary">Entrar</a>
+      <div class="contenedor-segmentos">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Transportes</h5>
+                <p class="card-text">{{centro.transporte}} Plantas</p>
+                <a href="transporte-centro" class="btn btn-primary">Entrar</a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Operaciónes</h5>
-              <p class="card-text">Plantas totales: 56</p>
-              <a href="operaciones-centro" class="btn btn-primary">Entrar</a>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Industriales</h5>
+                <p class="card-text">{{centro.industriales}} Plantas</p>
+              <a href="industriales-centro" class="btn btn-primary">Entrar</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="contenedor-segmentos">
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Promexma</h5>
-              <p class="card-text">Plantas totales: 56</p>
-              <a href="promexma-centro" class="btn btn-primary">Entrar</a>
+      <div class="contenedor-segmentos">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Inmuebles no opertivos</h5>
+                <p class="card-text">{{centro.inmuebles_no_operativos}} Plantas</p>
+                <a href="no-operativo-centro" class="btn btn-primary">Entrar</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Operaciónes</h5>
+                <p class="card-text">{{centro.operaciones}} Plantas</p>
+                <a href="operaciones-centro" class="btn btn-primary">Entrar</a>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Transportes</h5>
-              <p class="card-text">Plantas totales: 56</p>
-              <a href="transporte-centro" class="btn btn-primary">Entrar</a>
+      </div>
+      <div class="contenedor-segmentos">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Promexma</h5>
+                <p class="card-text">{{centro.Promexma}} Plantas</p>
+                <a href="promexma-centro" class="btn btn-primary">Entrar</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-    
 </body>
 </html>

@@ -9,7 +9,7 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="inicio">
        <img id="logo" src="https://i.ibb.co/HK2Btjq/Logo-Cemex.png" alt="">
-      </a>  
+      </a>
       <ul class="nav justify-content-end">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="inicio" style="font-size: 30px; margin-right:40px;">Inicio</a>
@@ -24,14 +24,15 @@
 </header>
 
 <body >
-  <div class="contenedor-principal">
-    <div class="contenedor-segmentos">
-      <div class="row">
-        <div class="col-sm-6">
+  <div *ngFor="let Pasifico of pasifico.Segmentos">
+    <div class="contenedor-principal" >
+    <div class="contenedor-segmentos" >
+      <div class="row" >
+        <div class="col-sm-6" >
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Constructores</h5>
-              <p class="card-text">Plantas totales: 56</p>
+              <p class="card-text">{{Pasifico.constructores}} Plantas</p>
               <a href="constructores-pacifico" class="btn btn-primary">Entrar</a>
             </div>
           </div>
@@ -40,7 +41,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Cadena de suministro</h5>
-              <p class="card-text">Plantas totales: 45</p>
+              <p class="card-text">{{Pasifico.cadena_suministro}} Plantas</p>
               <a href="suministro-pacifico" class="btn btn-primary">Entrar</a>
             </div>
           </div>
@@ -52,9 +53,9 @@
         <div class="col-sm-6">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Construrama supply</h5>
-              <p class="card-text">Plantas totales: 56</p>
-              <a href="construrama-pacifico" class="btn btn-primary">Entrar</a>
+              <h5 class="card-title">Transportes</h5>
+              <p class="card-text">{{Pasifico.transporte}}  Plantas</p>
+              <a href="transporte-pacifico" class="btn btn-primary">Entrar</a>
             </div>
           </div>
         </div>
@@ -62,8 +63,8 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Industriales</h5>
-              <p class="card-text">Plantas totales: 56</p>
-             <a href="industriales-pacifico" class="btn btn-primary">Entrar</a>
+              <p class="card-text">{{Pasifico.industriales}} Plantas</p>
+              <a href="industriales-pacifico" class="btn btn-primary">Entrar</a>
             </div>
           </div>
         </div>
@@ -75,7 +76,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Inmuebles no opertivos</h5>
-              <p class="card-text">Plantas totales: 56</p>
+              <p class="card-text">{{Pasifico.inmuebles_no_operativos}} Plantas</p>
               <a href="no-operativo-pacifico" class="btn btn-primary">Entrar</a>
             </div>
           </div>
@@ -84,7 +85,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Operaciónes</h5>
-              <p class="card-text">Plantas totales: 56</p>
+              <p class="card-text">{{Pasifico.operaciones}} Plantas</p>
               <a href="operaciones-pacifico" class="btn btn-primary">Entrar</a>
             </div>
           </div>
@@ -97,23 +98,16 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Promexma</h5>
-              <p class="card-text">Plantas totales: 56</p>
+              <p class="card-text">{{Pasifico.Promexma}} Plantas</p>
               <a href="promexma-pacifico" class="btn btn-primary">Entrar</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Transportes</h5>
-              <p class="card-text">Plantas totales: 56</p>
-              <a href="transporte-pacifico" class="btn btn-primary">Entrar</a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-    
+  </div>
+
+
 </body>
 </html>
