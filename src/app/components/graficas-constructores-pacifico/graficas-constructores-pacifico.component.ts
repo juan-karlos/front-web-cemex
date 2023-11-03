@@ -13,10 +13,10 @@ export class GraficasConstructoresPacificoComponent implements OnInit {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
   constructor(private router: Router){}
   ngOnInit(): void {
-    
+
   }
 
-   
+
 //Aqui comienzan los metodos para la graficación
 public barChartOptions: ChartConfiguration['options'] = {
   responsive: true,
@@ -27,7 +27,7 @@ public barChartOptions: ChartConfiguration['options'] = {
     y: {
       min: 10,
       max: 100,
-      
+
     },
   },
   plugins: {
@@ -35,7 +35,7 @@ public barChartOptions: ChartConfiguration['options'] = {
       display: true,
     },
     datalabels: {
-    
+
     },
   },
 };
@@ -55,7 +55,7 @@ public stackedBarChartOptions: ChartConfiguration['options'] = {
       display: true,
     },
     datalabels: {
-    
+
     },
   },
 };
