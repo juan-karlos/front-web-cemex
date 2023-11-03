@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Constructores</title>
+    <title>Cadena de suministro </title>
 </head>
 
 <header>
@@ -13,7 +13,7 @@
       <a class="navbar-brand" href="inicio">
        <img id="logo" src="https://i.ibb.co/HK2Btjq/Logo-Cemex.png" alt="">
       </a>
-     
+
          <ul class="nav justify-content-end">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="graficas-suministro-pacifico" style="font-size: 20px;">Indicadores de cumplimiento</a>
@@ -25,24 +25,24 @@
         </ul>
     </div>
   </nav>
-  
+
 </header>
 <body>
     <h1 id="titulo">Informe mensual Cadena de Suministro PACÍFICO</h1>
    <div class="contenedor-principal">
     <div class="div_paralelo">
-      
+
      <div id="contenedor-grafica" class="tabla">
-        <h3 id="subtitulo">Progreso de cumplimiento</h3> 
+        <h3 id="subtitulo">Progreso de cumplimiento</h3>
         <canvas baseChart class="chart"  [data]="datoslineas" [options]="barChartOptionsLine"
         [plugins]="barChartPlugins" [type]="graficalineas">
-       </canvas>   
+       </canvas>
     </div>
     <br><br>
-   
+
     </div>
     <div class="div_paralelo">
-    
+
       <div class="tabla">
         <table class="table table-hover" style="font-size: 12px;">
           <thead class="table-dark">
@@ -56,9 +56,9 @@
             </tr>
           </thead>
           <tbody>
-          
-           
-          
+
+
+
           </tbody>
         </table>
       </div>
@@ -83,15 +83,15 @@
               <td>3</td>
               <td>3</td>
             </tr>
-           
+
           </tbody>
         </table>
       </div>
-      
-     
+
+
     </div>
    </div>
-    
+
 </body>
 </html>
 
