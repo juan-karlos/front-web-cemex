@@ -18,11 +18,16 @@
 
     <div class="contenedor-principal" style="background-color: bisque; padding: 3%;">
       <br>
+
+
+
         <form class="row g-3 needs-validation"  #FormRegistro ="ngForm">
             <div class="col-md-6">
               <label for="validationCustom01" class="form-label"><h3>Nombre de la planta</h3></label>
+
               <input type="text" class="form-control" id="validationCustom01"  required name="nombre_planta"
               [(ngModel)]="servisplanta.PlantaSelect.nombre_planta">
+              
             </div>
             <div class="col-md-3">
               <label for="validationCustom02" class="form-label"><h3>Segmento</h3></label>
