@@ -1,5 +1,4 @@
 export interface usuario{
-
   correo:String,
   nombre:String,
   contraseña:String
@@ -32,9 +31,9 @@ fecha_vencimiento:Date ,
 observaciones: String,
 estatus: String,
 validez_unica: boolean,
-url: String,
-
+url: String
 }
+
 export interface historial{
 id_historial: number,
 segmento: String,
@@ -51,6 +50,20 @@ export interface segmentos{
   transporte:String,
   Promexma:String,
   constructores:String
-
+}
+export interface conteo {
+nombre:String,
+plantaspas:number
+plantascen:number
+plantnor:number
+plantsur:number
+plantasgen:number
+}
+export interface zonas{
+  Centro: String,
+    Noreste: String,
+    Pasifico:String,
+    Sureste:String,
+    total: String
 }
 
