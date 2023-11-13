@@ -44,7 +44,7 @@
     <div class="div_paralelo">
 
       <div class="tabla">
-        <table class="table table-hover" style="font-size: 12px;">
+        <table class="table" style="font-size: 12px;">
           <thead class="table-dark">
             <tr>
               <th scope="col">REQUERIMIENTO</th>
@@ -56,14 +56,25 @@
             </tr>
           </thead>
           <tbody>
+            <tr *ngFor="let planper of perPlan.permiso_plan ">
+              <td>{{planper.nombre}}</td>
 
+              <td>{{planper.plantasgen}}</td>
+              <td>{{planper.plantascen}}</td>
+              <td>{{planper.plantnor}}</td>
+              <td>{{planper.plantaspas}}</td>
+              <td>{{planper.plantsur}}</td>
 
+            </tr>
 
           </tbody>
         </table>
       </div>
+
+
+
       <div class="tabla">
-        <table class="table table-hover" style="font-size: 12px;">
+        <table class="table" style="font-size: 12px;">
           <thead class="table-dark">
             <tr>
               <th scope="col">SUMA TOTAL</th>
@@ -75,21 +86,21 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">20</th>
-              <td>10</td>
-              <td>2</td>
-              <td>2</td>
-              <td>3</td>
-              <td>3</td>
+            <tr *ngFor=" let zon of perPlan.zonasConteo" >
+              <td>Total</td>
+              <td>{{zon.total}}</td>
+              <td>{{zon.Centro}}</td>
+              <td>{{zon.Noreste}}</td>
+              <td>{{zon.Pasifico}}</td>
+              <td>{{zon.Sureste}}</td>
             </tr>
-
           </tbody>
         </table>
       </div>
 
 
     </div>
+
    </div>
 
 </body>
