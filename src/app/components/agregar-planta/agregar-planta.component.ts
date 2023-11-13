@@ -23,7 +23,7 @@ export class AgregarPlantaComponent {
         this.servisplanta.obtenerplanta().subscribe(
           res=>this.servisplanta.Plantas=res,
           err=>console.log(err)
-          
+
         )
       }
     )
@@ -38,7 +38,7 @@ export class AgregarPlantaComponent {
       },
       buttonsStyling: true
     });
-  
+
     if (
       !form.valid ||
       !this.servisplanta.PlantaSelect.nombre_planta ||
@@ -66,6 +66,7 @@ export class AgregarPlantaComponent {
         })
         .then((result) => {
           if (result.isConfirmed) {
+            
             this.servisplanta.insertar(form.value).subscribe(
               (res) => {
                 form.reset();
@@ -107,7 +108,7 @@ export class AgregarPlantaComponent {
         });
     }
   }
-  
 
- 
+
+
 }
