@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UnidadOperativaService} from 'src/app/services/unidad-operativa.service';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
@@ -12,20 +12,26 @@ export class PlantasInactivasComponent implements OnInit{
 
   constructor(public unidad:UnidadOperativaService){}
   filterPost ='';
-  
+
   ngOnInit(): void {
-    this.obtenerplantas();
-    
+    // this.obtenerplantas();
+    this.obtenerplantasfalse();
+
   }
 
-
-  obtenerplantas(){
-    this.unidad.obtenerplanta().subscribe(
+  obtenerplantasfalse(){
+    this.unidad.planActivaFlase().subscribe(
       res=>this.unidad.Plantas=res,
-      err=>console.error(err),
-      
+      err=>console.error(err)
     )
-    
   }
+
+
+  // obtenerplantas(){
+  //   this.unidad.obtenerplanta().subscribe(
+  //     res=>this.unidad.Plantas=res,
+  //     err=>console.error(err)
+  //   )
+  // }
 
 }
