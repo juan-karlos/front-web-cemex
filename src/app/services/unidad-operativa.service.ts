@@ -40,7 +40,10 @@ PlantaSelect :planta={
 
 
   obtenerplanta(){
-    return this.http.get<planta[]>(this.URL_API);
+    return this.http.get<planta[]>(this.URL_API+"plantastrue");
+  }
+  planActivaFlase(){
+    return this.http.get<planta[]>(this.URL_API+"plantasfalse")
   }
 
   obtenerPasifico(){
