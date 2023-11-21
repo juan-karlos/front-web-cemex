@@ -137,6 +137,8 @@ import { Moment } from 'moment';
 import { PlantasInactivasComponent } from './components/plantas-inactivas/plantas-inactivas.component';
 import { AgregarRequerimientoComponent } from './components/agregar-requerimiento/agregar-requerimiento.component';
 import { ActualizarRequerimientoComponent } from './components/actualizar-requerimiento/actualizar-requerimiento.component';
+import { PlanmobilactivoComponent } from './components/planmobilactivo/planmobilactivo.component';
+import { PlanmobilinactivoComponent } from './components/planmobilinactivo/planmobilinactivo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -258,6 +260,8 @@ import { ActualizarRequerimientoComponent } from './components/actualizar-requer
     PlantasInactivasComponent,
     AgregarRequerimientoComponent,
     ActualizarRequerimientoComponent,
+    PlanmobilactivoComponent,
+    PlanmobilinactivoComponent,
     
     
   ],
