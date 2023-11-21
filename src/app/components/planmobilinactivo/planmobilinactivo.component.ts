@@ -5,12 +5,11 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-plantas-inactivas',
-  templateUrl: './plantas-inactivas.component.html',
-  styleUrls: ['./plantas-inactivas.component.css']
+  selector: 'app-planmobilinactivo',
+  templateUrl: './planmobilinactivo.component.html',
+  styleUrls: ['./planmobilinactivo.component.css']
 })
-export class PlantasInactivasComponent implements OnInit{
-
+export class PlanmobilinactivoComponent {
   constructor(public unidad:UnidadOperativaService, private router: Router){}
   filterPost ='';
 
@@ -21,21 +20,14 @@ export class PlantasInactivasComponent implements OnInit{
   }
 
   obtenerplantasfalse(){
-    this.unidad.planActivaFlase().subscribe(
+    this.unidad.obtenermovilfalse().subscribe(
       res=>this.unidad.Plantas=res,
       err=>console.error(err)
     )
   }
-  Actualizar(id: number) {
+    Actualizar(id: number) {
     this.router.navigate(['actualizar-planta', id]);
   }
 
-
-  // obtenerplantas(){
-  //   this.unidad.obtenerplanta().subscribe(
-  //     res=>this.unidad.Plantas=res,
-  //     err=>console.error(err)
-  //   )
-  // }
 
 }
