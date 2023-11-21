@@ -59,6 +59,12 @@ PlantaSelect :planta={
   obtenerSur(){
     return this.http.get<segmentos[]>(this.URL_API+"sur")
   }
+  obtenermovil(){
+    return this.http.get<planta[]>(this.URL_API+"movilestrue")
+  }
+  obtenermovilfalse(){
+    return this.http.get<planta[]>(this.URL_API+"movilesfalse")
+  }
 
 
 
