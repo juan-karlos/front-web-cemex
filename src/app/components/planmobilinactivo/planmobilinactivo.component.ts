@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UnidadOperativaService} from 'src/app/services/unidad-operativa.service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./planmobilinactivo.component.css']
 })
 export class PlanmobilinactivoComponent {
-  constructor(public unidad:UnidadOperativaService){}
+  constructor(public unidad:UnidadOperativaService, private router: Router){}
   filterPost ='';
 
   ngOnInit(): void {
@@ -23,6 +24,9 @@ export class PlanmobilinactivoComponent {
       res=>this.unidad.Plantas=res,
       err=>console.error(err)
     )
+  }
+    Actualizar(id: number) {
+    this.router.navigate(['actualizar-planta', id]);
   }
 
 
