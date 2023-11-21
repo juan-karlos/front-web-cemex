@@ -1,0 +1,83 @@
+<header>
+  <nav class="navbar navbar-expand-lg" style="background-color: #dedada;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="inicio">
+       <img id="logo" src="https://i.ibb.co/HK2Btjq/Logo-Cemex.png" alt="">
+
+      </a>
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="planmobilinactivo" style="font-size: 30px; margin-right: 40px;">Ver plantas inactivas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="agregar-planta" style="font-size: 30px; margin-right: 40px;">Agregar planta</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="inicio" style="font-size: 30px; margin-right: 40px;">Volver</a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+
+  <h1 id="titulo">Total de unidades operativas ACTIVAS-Moviles</h1>
+  <!-- <h2 id="subtitulo">74% Cumplimiento CERO; 26 UUNN en riesgo de clausura, 8 en riesgo de multa y 3 optimas.</h2> -->
+
+</header>
+<body>
+
+
+  <div class="contenedor-tabla">
+    <br>
+
+     <div class="row">
+      <div class="col-md-6" style="background-color: rgb(220, 220, 220); padding: .8%; border-radius: 10px;">
+        <form class="form-group">
+          <input class="form-control" type="text" name="filterpost" placeholder="Buscar" aria-label="Search"
+           [(ngModel)]="filterPost" >
+        </form>
+      </div>
+    </div>
+
+
+    <br><br><br>
+    <table class="table table-hover">
+        <thead class="table-dark">
+          <tr>
+            <!-- <th scope="col">ID</th> -->
+            <th scope="col">Planta</th>
+            <th scope="col">Segmento</th>
+            <th scope="col">Zona</th>
+            <th scope="col">Ciudad</th>
+            <th scope="col">Porcentaje de cumplimiento</th>
+
+            <th scope="col"></th>
+            <!-- <th scope="col">Fija</th> -->
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let Planta of unidad.Plantas | filtroPlanta:filterPost">
+          <!-- <tr *ngFor="let Planta of unidad.Plantas"> -->
+            <!-- <td>{{Planta.id_planta}}</td> -->
+            <td>{{Planta.nombre_planta}}</td>
+            <td>{{Planta.segmento}}</td>
+            <td>{{Planta.zona}}</td>
+            <td>{{Planta.Estado}}</td>
+            <td>{{Planta.porcentaje_cumplimiento}} %</td>
+            <td>
+              <!-- <button class="btn btn-primary"
+              [routerLink]="['actualizar-planta']">
+              <i class="material-icons">edit</i>
+              </button> -->
+              <button class="btn btn-primary" (click)="Actualizar(Planta.id_planta)"><i class="material-icons">edit</i></button>
+
+            </td>
+
+          </tr>
+
+
+        </tbody>
+      </table>
+</div>
+</body>
