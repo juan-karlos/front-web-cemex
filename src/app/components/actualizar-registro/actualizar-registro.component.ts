@@ -37,9 +37,8 @@ export class ActualizarRegistroComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       
-      this.itemId = params['id_registro'];
-      console.log('esto es lo que esta mandando:', this.itemId);
-      this.servisregistro.obtenerRegistroPorId(this.itemId).subscribe(objeto => {
+        this.itemId = params['id_registro'];
+        this.servisregistro.obtenerRegistroPorId(this.itemId).subscribe(objeto => {
         this.datos = objeto;
         this.id_registro = this.datos[0].id_registro;
         this.nombre_planta = this.datos[0].nombre_planta;
