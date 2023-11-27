@@ -34,4 +34,10 @@ validez_unica: true,
   insertar(Registro:registro){
     return this.http.post(this.URL_API+"insertar",Registro)
   }
+
+  obtenerRegistroPorId(id_registro:number){
+    const url = `${this.URL_API}${'/permiso'}/${id_registro}`; // Agrega el ID al final de la URL
+    return this.http.get(url);
+    
+  }
 }
