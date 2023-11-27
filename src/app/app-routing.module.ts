@@ -116,6 +116,7 @@ import { AgregarRequerimientoComponent } from './components/agregar-requerimient
 import { ActualizarRequerimientoComponent } from './components/actualizar-requerimiento/actualizar-requerimiento.component';
 import { PlanmobilactivoComponent } from './components/planmobilactivo/planmobilactivo.component';
 import { PlanmobilinactivoComponent } from './components/planmobilinactivo/planmobilinactivo.component';
+import { ActualizarRegistroComponent } from './components/actualizar-registro/actualizar-registro.component';
 
 
 const routes: Routes = [
@@ -239,7 +240,9 @@ const routes: Routes = [
   {path: 'registro-permiso', component:RegistroPermisoComponent},
   {path: 'actualizar-requerimiento/:id_requerimiento', component:ActualizarRequerimientoComponent},
   {path:'planmobilactivo',component:PlanmobilactivoComponent},
-  {path:'planmobilinactivo',component:PlanmobilinactivoComponent}
+  {path:'planmobilinactivo',component:PlanmobilinactivoComponent},
+  {path: 'actualizar-registro', component:ActualizarRegistroComponent},
+  {path: 'actualizar-registro/:id_registro', component: ActualizarRegistroComponent }
 ];
 
 @NgModule({
