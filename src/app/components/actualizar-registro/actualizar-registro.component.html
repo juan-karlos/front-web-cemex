@@ -1,0 +1,135 @@
+<header>
+    <nav class="navbar navbar-expand-lg" style="background-color: #dedada;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="inicio">
+         <img id="logo" src="https://i.ibb.co/HK2Btjq/Logo-Cemex.png" alt="">
+        </a>
+  
+           <ul class="nav justify-content-end" style="margin-right: 3%; ">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="inicio" style="font-size: 20px;">Volver</a>
+            </li>
+  
+  
+          </ul>
+      </div>
+    </nav>
+    <H1 id="titulo">Actualizar</H1>
+  </header>
+  <body style="background-color: bisque; margin: 5%;">
+  
+    <div class="contenedor-principal">
+      <br>
+  
+  
+        <form class="row g-3 needs-validation" novalidate (ngSubmit)="validacion()" enctype="multipart/form-data" >
+  
+            <div class="col-md-6">
+              <label for="validationCustom01" class="form-label"><h3>Nombre de la planta</h3></label>
+              <input type="text" class="form-control" id="validationCustom01"  required name ="nombre_planta"
+              [(ngModel)]="nombre_planta"
+              >
+              
+            </div>
+            
+            <div class="col-md-6">
+              <label for="validationCustom02" class="form-label"><h3>Nombre del permiso</h3></label>
+              <input type="text" class="form-control" id="validationCustom02"  required name ="nombre_requerimiento"
+              [(ngModel)]="nombre_requerimiento"
+              >
+              
+            </div> 
+            
+        
+            <div class="col-md-6">
+              <label for="validationCustom03" class="form-label"> <h3>Observaciones</h3></label>
+              <input type="text" class="form-control" id="validationCustom03" required name ="observaciones"
+              [(ngModel)]="observaciones">
+  
+            </div>
+            <div class="col-md-3">
+              <label for="validationCustom04" class="form-label"><h3>Estatus</h3></label>
+  
+              <select class="form-select" id="estatus" required name="estatus"
+              [(ngModel)]="estatus"
+              >
+  
+                <option selected disabled value="">Elegir...</option>
+                <option>Vigente</option>
+                <option>Vencido</option>
+                <option>En tramite</option>
+                <option>No tramitable</option>
+                <option>No cumple</option>
+              </select>
+  
+              <div class="invalid-feedback">
+                Por favor seleccione un estatus válido
+              </div>
+  
+            </div>
+  
+            <div class="col-12">
+  
+  
+            </div>
+  
+  
+  
+            <div class="mb-3">
+                <!-- <input type="file" class="form-control" aria-label="file example" required (change)="onFileSelected($event)" accept=".pdf" name="pdf"             >
+                -->
+                <div class="invalid-feedback"></div>
+            </div>
+  
+  
+  
+            <br><br>
+            <div class="form-check" style="margin-left: 10px;">
+              <input class="form-check-input" type="checkbox" id="validezUnicaCheckbox" name="validez_unica" 
+              [(ngModel)]="validez_unica">
+              <label class="form-check-label" for="validezUnicaCheckbox">
+                <h3>Validez Unica</h3>
+              </label>
+            </div>
+  
+            <div class="contenedor">
+              <div class="div1">
+                <h3>Elige la fecha de inicio</h3>
+  
+                 <mat-form-field>
+                  <mat-label>Fecha de inicio</mat-label>
+                  <input matInput [matDatepicker]="picker" name="fecha_inicio" [(ngModel)]="fecha_inicio" 
+                  [disabled]="validez_unica">
+                  <mat-hint>MM/DD/AAAA</mat-hint>
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+  
+  <!-- aqui acaba el primer datepicker -->
+              </div>
+               <div class="div2">
+                <h3>Elige la fecha de vencimiento</h3>
+                <mat-form-field>
+                  <mat-label>Fecha de vencimiento</mat-label>
+                  <input matInput [matDatepicker]="picker2" name="fecha_vencimientos" 
+                  [(ngModel)]="fecha_vencimiento" [disabled]="validez_unica">
+                  <mat-hint>MM/DD/AAAA</mat-hint>
+                  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                  <mat-datepicker #picker2></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+  
+  
+            <div class="col-12">
+              <br><br>
+              <button class="btn btn-primary" type="submit">Agregar</button>
+            </div>
+          </form>
+  
+  
+  
+    </div>
+    <br><br><br>
+  </body>
+  
