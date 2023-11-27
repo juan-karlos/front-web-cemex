@@ -139,6 +139,7 @@ import { AgregarRequerimientoComponent } from './components/agregar-requerimient
 import { ActualizarRequerimientoComponent } from './components/actualizar-requerimiento/actualizar-requerimiento.component';
 import { PlanmobilactivoComponent } from './components/planmobilactivo/planmobilactivo.component';
 import { PlanmobilinactivoComponent } from './components/planmobilinactivo/planmobilinactivo.component';
+import { ActualizarRegistroComponent } from './components/actualizar-registro/actualizar-registro.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -262,6 +263,7 @@ import { PlanmobilinactivoComponent } from './components/planmobilinactivo/planm
     ActualizarRequerimientoComponent,
     PlanmobilactivoComponent,
     PlanmobilinactivoComponent,
+    ActualizarRegistroComponent,
     
     
   ],

@@ -27,8 +27,9 @@ export class RegistroPermisoComponent implements OnInit {
 
 
   Actualizar(id: number) {
-    this.router.navigate(['actualizar-planta', id]);
+    this.router.navigate(['actualizar-registro', id]);
   }
+  
 
   recortarTexto(cadena: string, longitud: number): string {
     if(cadena==null){
