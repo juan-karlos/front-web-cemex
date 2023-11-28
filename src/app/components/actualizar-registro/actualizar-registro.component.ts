@@ -28,7 +28,7 @@ export class ActualizarRegistroComponent implements OnInit {
   observaciones:string="";
   nombre_requerimiento:string="";
   nombre_planta:string="";
-  id_registro!: number;
+  id_registro: number = 0;
 
   constructor(private http: HttpClient, public servisregistro:RegistrosService,private FB: FormBuilder,
     private route: ActivatedRoute){
@@ -51,6 +51,7 @@ export class ActualizarRegistroComponent implements OnInit {
         this.url = this.datos[0].url;
         // console.log(objeto);
         this.onSubmit();
+        // this.submitPrueba();
       });
   })
   
@@ -60,6 +61,9 @@ export class ActualizarRegistroComponent implements OnInit {
     this.selectedFile = event.target.files[0];
     console.log(this.selectedFile);
   }
+
+
+
 
 
   onSubmit() {
@@ -94,8 +98,8 @@ export class ActualizarRegistroComponent implements OnInit {
       formData.append('nombre_planta',nombre_planta);
       formData.append('nombre_requerimiento',nombre_requerimiento);
       console.log('Contenido de formData:');
-  formData.forEach((value, key) => {
-    console.log(key, value);
+      formData.forEach((value, key) => {
+      console.log(key, value);
   });
 
       
@@ -179,7 +183,7 @@ export class ActualizarRegistroComponent implements OnInit {
       // Muestra un mensaje de error si el formulario es inválido o algún campo está vacío
       swalWithBootstrapButtons.fire(
         'Error',
-        'Por favor, completa todos los campos antes de agregar.',
+        'Por favor, completa todos los campos antes de actualizar.',
         'error'
       );
 
@@ -190,13 +194,14 @@ export class ActualizarRegistroComponent implements OnInit {
           text: 'Asegúrate de que los datos sean correctos',
           icon: 'warning',
           showCancelButton: true,
-          confirmButtonText: 'Si, agregar',
+          confirmButtonText: 'Si, actualizar',
           cancelButtonText: 'Cancelar',
           reverseButtons: true
         })
         .then((result) => {
           if (result.isConfirmed) {
             this.onSubmit();
+            // this.submitPrueba();
           } else if (result.dismiss === Swal.DismissReason.cancel) {
             swalWithBootstrapButtons.fire(
               'Cancelado',

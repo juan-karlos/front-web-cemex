@@ -122,6 +122,10 @@ export class AgregarRegistroComponent implements OnInit{
       formData.append('observaciones',observaciones);
       formData.append('nombre_planta',nombre_planta);
       formData.append('nombre_requerimiento',nombre_requerimiento);
+      console.log('Contenido de formData:');
+      formData.forEach((value, key) => {
+      console.log(key, value);
+     });
       this.http.post('http://localhost:3200/api/regi/pdf',formData).subscribe(
         (response: any) => {
           // `response` puede contener la URL del PDF en el servidor
@@ -148,6 +152,10 @@ export class AgregarRegistroComponent implements OnInit{
       formData.append('observaciones',observaciones);
       formData.append('nombre_planta',nombre_planta);
       formData.append('nombre_requerimiento',nombre_requerimiento);
+      console.log('Contenido de formData:');
+      formData.forEach((value, key) => {
+      console.log(key, value);
+  });
       this.http.post('http://localhost:3200/api/regi/pdf',formData).subscribe(
         (response: any) => {
           // `response` puede contener la URL del PDF en el servidor
@@ -214,7 +222,7 @@ export class AgregarRegistroComponent implements OnInit{
           } else if (result.dismiss === Swal.DismissReason.cancel) {
             swalWithBootstrapButtons.fire(
               'Cancelado',
-              'El registro no fue actualizado',
+              'El registro no fue agregado',
               'error'
             );
           }
