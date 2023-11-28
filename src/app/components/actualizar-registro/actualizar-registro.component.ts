@@ -49,9 +49,7 @@ export class ActualizarRegistroComponent implements OnInit {
         this.estatus = this.datos[0].estatus;
         this.validez_unica = this.datos[0].validez_unica;
         this.url = this.datos[0].url;
-        // console.log(objeto);
-        this.onSubmit();
-        // this.submitPrueba();
+       
       });
   })
   
