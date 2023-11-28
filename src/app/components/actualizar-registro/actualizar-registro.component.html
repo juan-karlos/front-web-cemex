@@ -24,6 +24,8 @@
   
         <form class="row g-3 needs-validation" novalidate (ngSubmit)="validacion()" enctype="multipart/form-data" >
   
+
+          <label class="form-label"> <h3>Id del registro:  <a [href]="id_registro">{{ id_registro }}</a></h3></label>
             <div class="col-md-6">
               <label for="validationCustom01" class="form-label"><h3>Nombre de la planta</h3></label>
               <input type="text" class="form-control" id="validationCustom01"  required name ="nombre_planta"
@@ -45,7 +47,6 @@
               <label for="validationCustom03" class="form-label"> <h3>Observaciones</h3></label>
               <input type="text" class="form-control" id="validationCustom03" required name ="observaciones"
               [(ngModel)]="observaciones">
-  
             </div>
             <div class="col-md-3">
               <label for="validationCustom04" class="form-label"><h3>Estatus</h3></label>
@@ -73,11 +74,15 @@
   
             </div>
   
-  
+            <label class="form-label"> <h3>Documento actual:  <a [href]="url">{{ url }}</a></h3></label>
   
             <div class="mb-3">
-                <!-- <input type="file" class="form-control" aria-label="file example" required (change)="onFileSelected($event)" accept=".pdf" name="pdf"             >
-                -->
+              
+              
+              <label class="form-label"> <h3>Agregar un nuevo documento</h3></label>
+             
+              <input type="file" class="form-control" aria-label="file example" required (change)="onFileSelected($event)" accept=".pdf" name="pdf"             >
+                
                 <div class="invalid-feedback"></div>
             </div>
   
@@ -126,7 +131,6 @@
               <button class="btn btn-primary" type="submit">Agregar</button>
             </div>
           </form>
-  
   
   
     </div>
