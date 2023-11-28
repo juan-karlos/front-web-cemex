@@ -28,7 +28,7 @@ export class ActualizarRegistroComponent implements OnInit {
   observaciones:string="";
   nombre_requerimiento:string="";
   nombre_planta:string="";
-  id_registro!: number
+  id_registro: number = 0;
 
   constructor(private http: HttpClient, public servisregistro:RegistrosService,private FB: FormBuilder,
     private route: ActivatedRoute){
@@ -49,10 +49,19 @@ export class ActualizarRegistroComponent implements OnInit {
         this.estatus = this.datos[0].estatus;
         this.validez_unica = this.datos[0].validez_unica;
         this.url = this.datos[0].url;
-        console.log(objeto);
+       
       });
   })
+  
   }
+  onFileSelected(event: any) {
+    console.log("archivo seleccionado");
+    this.selectedFile = event.target.files[0];
+    console.log(this.selectedFile);
+  }
+
+
+
 
 
   onSubmit() {
@@ -65,21 +74,20 @@ export class ActualizarRegistroComponent implements OnInit {
     });
     const fecha1 = moment(this.fecha_inicio);
     const fecha2= moment(this.fecha_vencimiento);
-
     const fechaAcomodada = fecha1.format('YYYY/MM/DD');
-
     const fechaAcomodada2= fecha2.format('YYYY/MM/DD');
+
     const validez_unica = this.validez_unica ? 'true' : 'false';
     const estatus=this.estatus;
     const observaciones=this.observaciones;
     const nombre_planta=this.nombre_planta;
-    const nombre_requerimiento= this.nombre_requerimiento
-
+    const nombre_requerimiento= this.nombre_requerimiento;
+    const id_registro = this.id_registro;
     const formData = new FormData();
 
     if (this.selectedFile) {
-
       formData.append('pdfFile', this.selectedFile);
+      formData.append('id_registro', id_registro.toString());
       formData.append('fechaAcomodada', fechaAcomodada);
       formData.append('fechaAcomodada2', fechaAcomodada2);
       formData.append('validez_unica', validez_unica);
@@ -87,25 +95,33 @@ export class ActualizarRegistroComponent implements OnInit {
       formData.append('observaciones',observaciones);
       formData.append('nombre_planta',nombre_planta);
       formData.append('nombre_requerimiento',nombre_requerimiento);
-      this.http.post('http://localhost:3200/api/regi/pdf',formData).subscribe(
-        (response: any) => {
-          // `response` puede contener la URL del PDF en el servidor
-          console.log('URL del PDF en el servidor:', response);
-          swalWithBootstrapButtons.fire(
-            'Agregado',
-            'El registro fue agregado ',
-            'success'
-          );
-        },
-        (error) => {
-          swalWithBootstrapButtons.fire(
-            'Error',
-            'Hubo un error: ' + error.error.message,
-            'error'
-          );
-        }
-      );
+      console.log('Contenido de formData:');
+      formData.forEach((value, key) => {
+      console.log(key, value);
+  });
+
+      
+      // this.http.post('http://localhost:3200/api/regi/pdf',formData).subscribe(
+      //   (response: any) => {
+      //     // `response` puede contener la URL del PDF en el servidor
+      //     console.log('URL del PDF en el servidor:', response);
+          
+      //     swalWithBootstrapButtons.fire(
+      //       'Agregado',
+      //       'El registro fue agregado ',
+      //       'success'
+      //     );
+      //   },
+      //   (error) => {
+      //     swalWithBootstrapButtons.fire(
+      //       'Error',
+      //       'Hubo un error: ' + error.error.message,
+      //       'error'
+      //     );
+      //   }
+      // );
     }else {
+      formData.append('id_registro', id_registro.toString());
       formData.append('fechaAcomodada', fechaAcomodada);
       formData.append('fechaAcomodada2', fechaAcomodada2);
       formData.append('validez_unica', validez_unica);
@@ -113,24 +129,29 @@ export class ActualizarRegistroComponent implements OnInit {
       formData.append('observaciones',observaciones);
       formData.append('nombre_planta',nombre_planta);
       formData.append('nombre_requerimiento',nombre_requerimiento);
-      this.http.post('http://localhost:3200/api/regi/pdf',formData).subscribe(
-        (response: any) => {
-          // `response` puede contener la URL del PDF en el servidor
-          console.log('URL del PDF en el servidor:', response);
-          swalWithBootstrapButtons.fire(
-            'Agregado',
-            'El registro fue agregado ',
-            'success'
-          );
-        },
-        (error) => {
-          swalWithBootstrapButtons.fire(
-            'Error',
-            'Hubo un error: ' + error.error.message,
-            'error'
-          );
-        }
-      )
+      console.log('Contenido de formData:');
+  formData.forEach((value, key) => {
+    console.log(key, value);
+  });
+
+      // this.http.post('http://localhost:3200/api/regi/pdf',formData).subscribe(
+      //   (response: any) => {
+      //     // `response` puede contener la URL del PDF en el servidor
+      //     console.log('URL del PDF en el servidor:', response);
+      //     swalWithBootstrapButtons.fire(
+      //       'Agregado',
+      //       'El registro fue agregado ',
+      //       'success'
+      //     );
+      //   },
+      //   (error) => {
+      //     swalWithBootstrapButtons.fire(
+      //       'Error',
+      //       'Hubo un error: ' + error.error.message,
+      //       'error'
+      //     );
+      //   }
+      // )
     }
 
   }
@@ -160,7 +181,7 @@ export class ActualizarRegistroComponent implements OnInit {
       // Muestra un mensaje de error si el formulario es inválido o algún campo está vacío
       swalWithBootstrapButtons.fire(
         'Error',
-        'Por favor, completa todos los campos antes de agregar.',
+        'Por favor, completa todos los campos antes de actualizar.',
         'error'
       );
 
@@ -171,13 +192,14 @@ export class ActualizarRegistroComponent implements OnInit {
           text: 'Asegúrate de que los datos sean correctos',
           icon: 'warning',
           showCancelButton: true,
-          confirmButtonText: 'Si, agregar',
+          confirmButtonText: 'Si, actualizar',
           cancelButtonText: 'Cancelar',
           reverseButtons: true
         })
         .then((result) => {
           if (result.isConfirmed) {
             this.onSubmit();
+            // this.submitPrueba();
           } else if (result.dismiss === Swal.DismissReason.cancel) {
             swalWithBootstrapButtons.fire(
               'Cancelado',
