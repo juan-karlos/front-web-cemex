@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
-import { RegistrosService } from 'src/app/services/registros.service'; 
+import { RegistrosService } from 'src/app/services/registros.service';
 import { FormBuilder, NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./actualizar-registro.component.css']
 })
 export class ActualizarRegistroComponent implements OnInit {
-  
+
   itemId!: number;
   datos: any;
   FormRegistro: any;
@@ -32,11 +32,11 @@ export class ActualizarRegistroComponent implements OnInit {
 
   constructor(private http: HttpClient, public servisregistro:RegistrosService,private FB: FormBuilder,
     private route: ActivatedRoute){
-    
+
   }
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      
+
         this.itemId = params['id_registro'];
         this.servisregistro.obtenerRegistroPorId(this.itemId).subscribe(objeto => {
         this.datos = objeto;
@@ -49,10 +49,10 @@ export class ActualizarRegistroComponent implements OnInit {
         this.estatus = this.datos[0].estatus;
         this.validez_unica = this.datos[0].validez_unica;
         this.url = this.datos[0].url;
-       
+
       });
   })
-  
+
   }
   onFileSelected(event: any) {
     console.log("archivo seleccionado");
@@ -99,27 +99,25 @@ export class ActualizarRegistroComponent implements OnInit {
       formData.forEach((value, key) => {
       console.log(key, value);
   });
+      this.http.patch('http://localhost:3200/api/regi/actualizarPer',formData).subscribe(
+        (response: any) => {
+          // `response` puede contener la URL del PDF en el servidor
+          console.log('URL del PDF en el servidor:', response);
 
-      
-      // this.http.post('http://localhost:3200/api/regi/pdf',formData).subscribe(
-      //   (response: any) => {
-      //     // `response` puede contener la URL del PDF en el servidor
-      //     console.log('URL del PDF en el servidor:', response);
-          
-      //     swalWithBootstrapButtons.fire(
-      //       'Agregado',
-      //       'El registro fue agregado ',
-      //       'success'
-      //     );
-      //   },
-      //   (error) => {
-      //     swalWithBootstrapButtons.fire(
-      //       'Error',
-      //       'Hubo un error: ' + error.error.message,
-      //       'error'
-      //     );
-      //   }
-      // );
+          swalWithBootstrapButtons.fire(
+            'Agregado',
+            'El registro fue agregado ',
+            'success'
+          );
+        },
+        (error) => {
+          swalWithBootstrapButtons.fire(
+            'Error',
+            'Hubo un error: ' + error.error.message,
+            'error'
+          );
+        }
+      );
     }else {
       formData.append('id_registro', id_registro.toString());
       formData.append('fechaAcomodada', fechaAcomodada);
@@ -134,24 +132,24 @@ export class ActualizarRegistroComponent implements OnInit {
     console.log(key, value);
   });
 
-      // this.http.post('http://localhost:3200/api/regi/pdf',formData).subscribe(
-      //   (response: any) => {
-      //     // `response` puede contener la URL del PDF en el servidor
-      //     console.log('URL del PDF en el servidor:', response);
-      //     swalWithBootstrapButtons.fire(
-      //       'Agregado',
-      //       'El registro fue agregado ',
-      //       'success'
-      //     );
-      //   },
-      //   (error) => {
-      //     swalWithBootstrapButtons.fire(
-      //       'Error',
-      //       'Hubo un error: ' + error.error.message,
-      //       'error'
-      //     );
-      //   }
-      // )
+      this.http.patch('http://localhost:3200/api/regi/actualizarPer',formData).subscribe(
+        (response: any) => {
+          // `response` puede contener la URL del PDF en el servidor
+          console.log('URL del PDF en el servidor:', response);
+          swalWithBootstrapButtons.fire(
+            'Agregado',
+            'El registro fue agregado ',
+            'success'
+          );
+        },
+        (error) => {
+          swalWithBootstrapButtons.fire(
+            'Error',
+            'Hubo un error: ' + error.error.message,
+            'error'
+          );
+        }
+      )
     }
 
   }
@@ -167,7 +165,7 @@ export class ActualizarRegistroComponent implements OnInit {
 
 
 
-  
+
   validacion() {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -209,6 +207,6 @@ export class ActualizarRegistroComponent implements OnInit {
           }
         });
     }
-  
-   
+
+
 }
