@@ -66,10 +66,10 @@ export class AgregarRegistroComponent implements OnInit{
     this.fecha_vencimiento = null;
   }
   enviardat(){
+
     const fechas={
      fecha_inicio: this.fecha_inicio,
      fecha_vencimiento: this.fecha_vencimiento
-
     }
   }
 
