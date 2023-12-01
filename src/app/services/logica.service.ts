@@ -10,24 +10,24 @@ export class LogicaService {
 
   constructor(private http:HttpClient) { }
 
+  //esta funcion recibe un el nombre de la planta y te devuelve el peso total de todos los permisos de una planta
+  getPesoTotal(nombre: string) {
+    return this.http.get<any>(`${this.URL_API}/pesoTotal?nombre=${nombre}`);
+  }
   
-  getPesoTotal(nombre: string){
-    return this.http.post<any>(`${this.URL_API}/pesoTotal`, { nombre });
+  getPesoParcial(estatu: string, nombre: string) {
+    return this.http.get<any>(`${this.URL_API}/pesoParcial?estatu=${estatu}&nombre=${nombre}`);
   }
-
-  getPesoParcial(estatu: string, nombre: string){
-    return this.http.post<any>(`${this.URL_API}/pesoParcial`, { estatu, nombre });
+  
+  getPesoEnPorcentajeEstatus(nomPlanta: string, estatus: string) {
+    return this.http.get<any>(`${this.URL_API}/pesoEnPorcentajeEstatus?nomPlanta=${nomPlanta}&estatus=${estatus}`);
   }
-
-  getPesoEnPorcentajeEstatus(nomPlanta: string, estatus: string){
-    return this.http.post<any>(`${this.URL_API}/pesoEnPorcentajeEstatus`, { nomPlanta, estatus });
+  
+  getTotalPlantas(zona: string, segmento: string) {
+    return this.http.get<any>(`${this.URL_API}/totalPlantas?zona=${zona}&segmento=${segmento}`);
   }
-
-  getTotalPlantas(zona: string, segmento: string){
-    return this.http.post<any>(`${this.URL_API}/totalPlantas`, { zona, segmento });
-  }
-
-  getSumTotalZonaSegmento(zona: string, segmento: string){
-    return this.http.post<any>(`${this.URL_API}/sumTotalZonaSegmento`, { zona, segmento });
+  
+  getSumTotalZonaSegmento(zona: string, segmento: string) {
+    return this.http.get<any>(`${this.URL_API}/sumTotalZonaSegmento?zona=${zona}&segmento=${segmento}`);
   }
 }
