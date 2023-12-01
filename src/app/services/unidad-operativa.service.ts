@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {planta} from '../components/models/tablas'
 import { segmentos } from '../components/models/tablas';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -74,7 +75,7 @@ PlantaSelect :planta={
   }
 
   Actualizar(Planta:planta){
-      console.log("Esto es cuando se recibe", Planta)
+    // console.log("Esto es cuando se recibe", Planta)
     const url = `${this.URL_API}${'actualizar'}/${Planta.id_planta}`;
     // return this.http.put(this.URL_API+"actualizar"+"/"+Planta.id_planta,Planta);
     return this.http.patch(url,Planta);
