@@ -82,11 +82,10 @@ public stackedBarData: ChartData<'bar'> = {
   datasets: [
     { data: [34, 59, 56, 55, 40], label: 'Clausura', backgroundColor: '#FF1B1B'},
     { data: [ 40, 19, 26, 27, 34], label: 'Multa', backgroundColor: '#E5FF0E' },
-    { data: [ 40, 19, 26, 27, 34], label: 'Optimas', backgroundColor: '#32FF00'  },
-    { data: [ 4, 9, 6, 7, 3], label: 'No tramitables', backgroundColor: '#A9A9A9'  },
+    { data: [ 20, 19, 26, 27, 34], label: 'Optimas', backgroundColor: '#32FF00'  },
+    { data: [ 10, 23, 6, 7, 3], label: 'No tramitables', backgroundColor: '#A9A9A9'  },
   ],
 };
-
 
 }
 
