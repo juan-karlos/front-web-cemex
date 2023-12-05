@@ -51,7 +51,7 @@ public barChartOptionsLine: ChartConfiguration['options'] = {
     x: {},
     y: {
       position: 'left',
-      min: 60,
+      min: 30,
       max:100
     },
 
@@ -115,8 +115,8 @@ public barChartData2: ChartData<'bar'> = {
 public datoslineas: ChartData<'line'> = {
   labels: ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO', 'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'],
   datasets: [
-    { data: [62, 60, 70, 70, 75, 77, 78, 74, 78, 80, 82, 83], label: (new Date().getFullYear() - 1).toString() },
-    { data: [64, 71, 74, 74, 77, 78, 90], label: new Date().getFullYear().toString() },
+    { data: [56, 60, 70, 70, 75, 77, 78, 74, 78, 80, 82, 83], label: (new Date().getFullYear() - 1).toString() },
+    { data: [64, 71, 74, 74, 77, 78, 82, 76, 73, 87, 89, 84], label: new Date().getFullYear().toString() },
   ],
 };
 
