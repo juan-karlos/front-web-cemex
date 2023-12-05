@@ -3,22 +3,24 @@
   width:100px ;
  
 }
-#body{
+.body, html {
   margin: 0;
   padding: 0;
-  height: 1400px;
-  background-image: url(https://i.ibb.co/G9cnWRQ/CEMEX-FONDO.jpg);
-  background-size:cover ;
-  background-position:center;
+  height: 100%;
+  background-image: url(https://i.ibb.co/bPBmQdP/2500-x-1650.jpg);
+  background-size: 100% 100%;
+  background-position: center;
 }
+
 
 #titulo-inicio{
   font-weight: bold;
   text-align: center;
+  font-size: 42px;
   margin-top: 0px;
 }
  #base-mapa{
-  
+  height: 100%;
    /* height:70%; */
    width: 70%; 
    margin: 0px auto;
@@ -50,7 +52,7 @@
   position: absolute; z-index: 1;
   background: rgba(255, 255, 255, 0.518); 
   width: 100%;
-  height: 160%;
+  height: 140%;
   top: 0;
   left: 0;
   transition: all 500ms ease;
@@ -125,3 +127,8 @@
   margin-bottom: 10px;
 }
 
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
