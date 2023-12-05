@@ -10,15 +10,17 @@ export class LogicaService {
 
   constructor(private http:HttpClient) { }
 
-  
+
+
+
   getPesoEnPorcentajeEstatus(nomPlanta: string, estatus: string) {
     return this.http.get<any>(`${this.URL_API}/pesoEnPorcentajeEstatus?nomPlanta=${nomPlanta}&estatus=${estatus}`);
   }
-  
+
   getTotalPlantas(zona: string, segmento: string) {
     return this.http.get<any>(`${this.URL_API}/totalPlantas?zona=${zona}&segmento=${segmento}`);
   }
-  
+
   getSumTotalZonaSegmento(zona: string, segmento: string) {
     return this.http.get<any>(`${this.URL_API}/sumTotalZonaSegmento?zona=${zona}&segmento=${segmento}`);
   }

@@ -28,7 +28,7 @@ export class PlantasComponent implements OnInit {
   ngOnInit(): void {
   
     this.obtenerplantas();
-    
+
   }
 
 
@@ -36,9 +36,9 @@ export class PlantasComponent implements OnInit {
 obtener_planta_por_id(){
   this.itemId = 1;
       this.unidad.obtenerPlantaPorId(this.itemId).subscribe(objeto => {
-        
+
         this.datos = objeto;
-       
+
         this.nombre_planta = this.datos[0].nombre_planta;
         this.segmento = this.datos[0].segmento;
         this.zona = this.datos[0].zona;
@@ -56,12 +56,20 @@ obtener_planta_por_id(){
     this.unidad.obtenerplanta().subscribe(
       res=>this.unidad.Plantas=res,
       err=>console.error(err),
-    ) 
+    )
   }
 
 
   Actualizar(id: number) {
     this.router.navigate(['actualizar-planta', id]);
   }
+  recortarTexto(cadena: string) {
+    if(cadena=="NaN"){
+      return "0"
+    }
+     return cadena
+  }
+
+
 }
 

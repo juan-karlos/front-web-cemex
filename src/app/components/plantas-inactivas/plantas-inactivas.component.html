@@ -58,7 +58,7 @@
               <td>{{Planta.segmento}}</td>
               <td>{{Planta.zona}}</td>
               <td>{{Planta.Estado}}</td>
-              <td>{{Planta.porcentaje_cumplimiento}} %</td>
+              <td>{{recortarTexto(Planta.porcentaje_cumplimiento)}} %</td>
 
               <td><button class="btn btn-primary" (click)="Actualizar(Planta.id_planta)"><i class="material-icons">edit</i></button>
               </td>
