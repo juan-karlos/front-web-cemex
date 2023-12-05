@@ -28,6 +28,12 @@ export class PlanmobilinactivoComponent {
     Actualizar(id: number) {
     this.router.navigate(['actualizar-planta', id]);
   }
+  recortarTexto(cadena: string) {
+    if(cadena=="NaN"){
+      return "0"
+    }
+     return cadena
+  }
 
 
 }
