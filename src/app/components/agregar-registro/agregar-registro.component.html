@@ -29,9 +29,9 @@
             <input type="text" class="form-control" id="validationCustom01"  required name ="nombre_planta"
             [(ngModel)]="nombre_planta"
             >
-            
+
           </div>
-          
+
           <div class="col-md-6">
             <label for="validationCustom02" class="form-label"><h3>Nombre del permiso</h3></label>
             <select class="form-select" name="nombre_requerimiento" [(ngModel)]="nombre_requerimiento">
@@ -41,13 +41,13 @@
               </option>
             </select>
           </div>
-         
-          
-          
-          
-          
-          
-           
+
+
+
+
+
+
+
 
           <div class="col-md-6">
             <label for="validationCustom03" class="form-label"> <h3>Observaciones</h3></label>
@@ -92,7 +92,7 @@
 
           <br><br>
           <div class="form-check" style="margin-left: 10px;">
-            <input class="form-check-input" type="checkbox" id="validezUnicaCheckbox" name="validez_unica" 
+            <input class="form-check-input" type="checkbox" id="validezUnicaCheckbox" name="validez_unica"
             [(ngModel)]="validez_unica">
             <label class="form-check-label" for="validezUnicaCheckbox">
               <h3>Validez Unica</h3>
@@ -105,7 +105,7 @@
 
                <mat-form-field>
                 <mat-label>Fecha de inicio</mat-label>
-                <input matInput [matDatepicker]="picker" name="fecha_inicio" [(ngModel)]="fecha_inicio" 
+                <input matInput [matDatepicker]="picker" name="fecha_inicio" [(ngModel)]="fecha_inicio"
                 [disabled]="validez_unica">
                 <mat-hint>MM/DD/AAAA</mat-hint>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -118,7 +118,7 @@
               <h3>Elige la fecha de vencimiento</h3>
               <mat-form-field>
                 <mat-label>Fecha de vencimiento</mat-label>
-                <input matInput [matDatepicker]="picker2" name="fecha_vencimientos" 
+                <input matInput [matDatepicker]="picker2" name="fecha_vencimientos"
                 [(ngModel)]="fecha_vencimiento" [disabled]="validez_unica">
                 <mat-hint>MM/DD/AAAA</mat-hint>
                 <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
