@@ -88,6 +88,14 @@ export class AgregarRegistroComponent implements OnInit{
     }
   }
 
+  actualizar(){
+
+    const nombre_planta=this.nombre_planta;
+    const formData = new FormData();
+    formData.append('nombre_planta',nombre_planta)
+    this.http.post('http://localhost:3200/api/requerimiento/porcentajeAct',formData)
+  }
+
 
 
   onSubmit() {
@@ -127,9 +135,15 @@ export class AgregarRegistroComponent implements OnInit{
       console.log(key, value);
      });
       this.http.post('http://localhost:3200/api/regi/pdf',formData).subscribe(
+
+
         (response: any) => {
+
+
+      this.actualizar();
           // `response` puede contener la URL del PDF en el servidor
           console.log('URL del PDF en el servidor:', response);
+
           swalWithBootstrapButtons.fire(
             'Agregado',
             'El registro fue agregado ',
@@ -153,6 +167,7 @@ export class AgregarRegistroComponent implements OnInit{
       formData.append('nombre_planta',nombre_planta);
       formData.append('nombre_requerimiento',nombre_requerimiento);
       console.log('Contenido de formData:');
+
       formData.forEach((value, key) => {
       console.log(key, value);
   });
@@ -160,6 +175,8 @@ export class AgregarRegistroComponent implements OnInit{
         (response: any) => {
           // `response` puede contener la URL del PDF en el servidor
           console.log('URL del PDF en el servidor:', response);
+
+      this.actualizar();
           swalWithBootstrapButtons.fire(
             'Agregado',
             'El registro fue agregado ',
@@ -183,7 +200,7 @@ export class AgregarRegistroComponent implements OnInit{
 
   ejecutar(){
     this.onSubmit();
-
+    this.actualizar();
   }
 
 
@@ -218,7 +235,7 @@ export class AgregarRegistroComponent implements OnInit{
         })
         .then((result) => {
           if (result.isConfirmed) {
-            this.onSubmit();
+            this.ejecutar();
           } else if (result.dismiss === Swal.DismissReason.cancel) {
             swalWithBootstrapButtons.fire(
               'Cancelado',
