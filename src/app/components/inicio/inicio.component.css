@@ -6,10 +6,11 @@
 .body, html {
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: cover;
   background-image: url(https://i.ibb.co/bPBmQdP/2500-x-1650.jpg);
-  background-size: 100% 100%;
+  background-size: cover;
   background-position: center;
+  
 }
 
 
