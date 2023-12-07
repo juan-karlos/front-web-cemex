@@ -33,7 +33,7 @@ export class PlantasInactivasComponent implements OnInit{
     if(cadena=="NaN"){
       return "0"
     }
-     return cadena
+     return cadena.slice(0,5);
   }
 
 
