@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
 
 
 import { LooginComponent } from './components/loogin/loogin.component';
@@ -140,6 +140,8 @@ import { ActualizarRequerimientoComponent } from './components/actualizar-requer
 import { PlanmobilactivoComponent } from './components/planmobilactivo/planmobilactivo.component';
 import { PlanmobilinactivoComponent } from './components/planmobilinactivo/planmobilinactivo.component';
 import { ActualizarRegistroComponent } from './components/actualizar-registro/actualizar-registro.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -281,8 +283,8 @@ import { ActualizarRegistroComponent } from './components/actualizar-registro/ac
     MatNativeDateModule,
     ReactiveFormsModule,
     MatMomentDateModule,
-    MatAutocompleteModule
-
+    MatAutocompleteModule,
+  
 
   ],
   providers: [
