@@ -37,11 +37,5 @@ export class PlantasInactivasComponent implements OnInit{
   }
 
 
-  // obtenerplantas(){
-  //   this.unidad.obtenerplanta().subscribe(
-  //     res=>this.unidad.Plantas=res,
-  //     err=>console.error(err)
-  //   )
-  // }
 
 }
