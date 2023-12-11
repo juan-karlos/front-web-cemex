@@ -5,6 +5,7 @@ import { BaseChartDirective } from 'ng2-charts';
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 import { ZonaPasificoService } from 'src/app/services/zona-pasifico.service';
 import { HistorialService } from 'src/app/services/historial.service';
+import { LogicaService } from 'src/app/services/logica.service';
 
 @Component({
   selector: 'app-constructores-pacifico',
@@ -17,8 +18,9 @@ export class ConstructoresPacificoComponent implements OnInit {
   constructor(
     public perPlan: ZonaPasificoService,
     private router: Router,
-    private historialService: HistorialService) { }
-
+    private historialService: HistorialService,
+    private logicaService : LogicaService) { }
+   
   zona: string = "Pacífico";
   segmento: string = "Constructores";
   cumplimientoAnioActual: number[] = new Array(12).fill(0);
@@ -81,6 +83,7 @@ export class ConstructoresPacificoComponent implements OnInit {
     this.obtenerNacional();
     this.ontenerZonas();
     this.obtenerHistorial(this.zona, this.segmento);
+    this.obtenerPorcentajeZonaSegmentos();
   }
 
   obtenerHistorial(zona: string, segmento: string) {
@@ -94,7 +97,7 @@ export class ConstructoresPacificoComponent implements OnInit {
       }
     );
   }
-
+ 
   procesarDatosHistorial(datos: { [key: string]: any }, cumplimientoAnioActual: number[], cumplimientoAnioAnterior: number[]) {
     const arrayDeDatos = Object.values(datos);
 
@@ -117,6 +120,18 @@ export class ConstructoresPacificoComponent implements OnInit {
     if (this.chart) {
       this.chart.chart?.update();
     }
+  }
+
+
+  obtenerPorcentajeZonaSegmentos(){
+    this.logicaService.getProcentajeCumplimietoZonasSegmentos().subscribe(
+      (datos) => {
+        console.log('El porcentaje de cumplimiento de Cosntructores Pacífico es:', datos[0].Centro);
+      },
+      (error) => {
+        console.error('Error al obtener el porcentaje:', error);
+      }
+    )
   }
 
   obtenerNacional() {

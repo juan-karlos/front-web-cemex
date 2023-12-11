@@ -24,4 +24,11 @@ export class LogicaService {
   getSumTotalZonaSegmento(zona: string, segmento: string) {
     return this.http.get<any>(`${this.URL_API}/sumTotalZonaSegmento?zona=${zona}&segmento=${segmento}`);
   }
+
+
+  getProcentajeCumplimietoZonasSegmentos(){
+    return this.http.get<any>(`${this.URL_API}/zonas`);
+    }
+
+
 }
