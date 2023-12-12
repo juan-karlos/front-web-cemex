@@ -67,7 +67,7 @@ export class ConstructoresPacificoComponent implements OnInit {
     },
   };
 
-  public barChartType: ChartType = 'bar';
+  
   public graficalineas: ChartType = 'line';
   public barChartPlugins = [DataLabelsPlugin];
 
@@ -126,7 +126,7 @@ export class ConstructoresPacificoComponent implements OnInit {
   obtenerPorcentajeZonaSegmentos(){
     this.logicaService.getProcentajeCumplimietoZonasSegmentos().subscribe(
       (datos) => {
-        console.log('El porcentaje de cumplimiento de Cosntructores Pacífico es:', datos[0].Centro);
+        console.log('El porcentaje de cumplimiento de Cosntructores Pacífico es:', datos[1].Pacífico);
       },
       (error) => {
         console.error('Error al obtener el porcentaje:', error);
