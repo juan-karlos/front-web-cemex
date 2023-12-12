@@ -52,7 +52,7 @@ export class ConstructoresPacificoComponent implements OnInit {
       x: {},
       y: {
         position: 'left',
-        min: 60,
+        min: 0,
         max: 100
       },
     },
@@ -82,14 +82,14 @@ export class ConstructoresPacificoComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerNacional();
     this.ontenerZonas();
-    this.obtenerHistorial(this.zona, this.segmento);
-    this.obtenerPorcentajeZonaSegmentos();
+    // this.obtenerHistorial(this.zona, this.segmento, 3);
+   this.obtenerPorcentajeZonaSegmentos();
   }
 
-  obtenerHistorial(zona: string, segmento: string) {
+  obtenerHistorial(zona: string, segmento: string, PorcentajeEnTiempoReal: number) {
     this.historialService.getHistorialZonaSegmento(zona, segmento).subscribe(
       (datos) => {
-        this.procesarDatosHistorial(datos, this.cumplimientoAnioActual, this.cumplimientoAnioAnterior);
+        this.procesarDatosHistorial(datos, this.cumplimientoAnioActual, this.cumplimientoAnioAnterior, PorcentajeEnTiempoReal);
         this.actualizarGrafico();
       },
       (error) => {
@@ -98,9 +98,9 @@ export class ConstructoresPacificoComponent implements OnInit {
     );
   }
  
-  procesarDatosHistorial(datos: { [key: string]: any }, cumplimientoAnioActual: number[], cumplimientoAnioAnterior: number[]) {
+  procesarDatosHistorial(datos: { [key: string]: any }, cumplimientoAnioActual: number[], cumplimientoAnioAnterior: number[], PorcentajeEnTiempoReal: number) {
     const arrayDeDatos = Object.values(datos);
-
+    
     arrayDeDatos.forEach((dato: any) => {
       const fecha = new Date(dato.fecha);
       const mes = fecha.getMonth();
@@ -111,6 +111,10 @@ export class ConstructoresPacificoComponent implements OnInit {
         cumplimientoAnioAnterior[mes] = parseFloat(dato.cumplimiento);
       }
     });
+    
+    const mesActual = new Date().getMonth();
+    cumplimientoAnioActual[mesActual] = PorcentajeEnTiempoReal;
+
 
     this.datoslineas.datasets[0].data = [...cumplimientoAnioAnterior];
     this.datoslineas.datasets[1].data = [...cumplimientoAnioActual];
@@ -126,7 +130,10 @@ export class ConstructoresPacificoComponent implements OnInit {
   obtenerPorcentajeZonaSegmentos(){
     this.logicaService.getProcentajeCumplimietoZonasSegmentos().subscribe(
       (datos) => {
-        console.log('El porcentaje de cumplimiento de Cosntructores Pacífico es:', datos[1].Pacífico);
+       const PorcentajeEnTiempoReal =datos[1].Pacífico
+       this.obtenerHistorial(this.zona, this.segmento, PorcentajeEnTiempoReal);
+       
+
       },
       (error) => {
         console.error('Error al obtener el porcentaje:', error);
