@@ -67,7 +67,7 @@ obtener_planta_por_id(){
     if(cadena=="NaN"){
       return "0"
     }
-     return cadena
+     return cadena.slice(0,5);
   }
 
 
