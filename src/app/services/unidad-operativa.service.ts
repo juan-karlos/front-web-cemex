@@ -83,4 +83,9 @@ PlantaSelect :planta={
   insertar(insplanta:planta){
     return this.http.post(this.URL_API+"insertar",insplanta);
   }
+
+  obtenerSugerenciasNombresPlantas(query: string): Observable<string[]> {
+    const url = `${this.URL_API}sugerenciasNombresPlantas?query=${query}`;
+    return this.http.get<string[]>(url);
+  }
 }

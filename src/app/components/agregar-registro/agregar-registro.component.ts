@@ -6,6 +6,9 @@ import * as moment from 'moment';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import Swal from 'sweetalert2';
 import { RequerimientoService } from 'src/app/services/requerimiento.service';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { startWith, switchMap } from 'rxjs/operators';
+import { UnidadOperativaService } from 'src/app/services/unidad-operativa.service';
 
 moment.locale('es');
 @Component({
@@ -15,16 +18,13 @@ moment.locale('es');
 })
 
 export class AgregarRegistroComponent implements OnInit{
-  arregloRequerimientos: string[] = [];
 
+
+
+  arregloRequerimientos: string[] = [];
   public fechaHabilitada = true;
   public checkboxActivado = false;
-
-
-  //fechainicio = moment(this.datepicker.value);
-
   mostrar: boolean = false;
- // fechainicio = moment(this,datepicker.value).format(this.formato);
   selectedFile: File | null = null;
   fecha_inicio: string | null = null;
   fecha_vencimiento: string | null = null;
@@ -34,8 +34,31 @@ export class AgregarRegistroComponent implements OnInit{
   nombre_requerimiento:string="";
   nombre_planta:string="";
 
-  constructor(private http: HttpClient,public permiso:RequerimientoService, public Registros:RegistrosService) {
+form: FormGroup = new FormGroup({
+    nombre_planta: new FormControl(''), 
+  });
 
+  nombrePlantaControl = new FormControl();
+  sugerenciasNombresPlantas: string[] = [];
+
+ 
+
+  constructor(
+    private http: HttpClient,
+    public permiso:RequerimientoService, 
+    public Registros:RegistrosService,
+    private formBuilder: FormBuilder,
+    private unidadOperativaService: UnidadOperativaService
+  ) {
+    // Configura el autocompletado
+    this.nombrePlantaControl.valueChanges
+      .pipe(
+        startWith(''),
+        switchMap(value => this.unidadOperativaService.obtenerSugerenciasNombresPlantas(value))
+      )
+      .subscribe(sugerencias => {
+        this.sugerenciasNombresPlantas = sugerencias;
+      });
   }
   ngOnInit(): void {
    this.obtenerpermisos();
