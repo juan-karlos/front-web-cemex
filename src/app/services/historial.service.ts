@@ -18,4 +18,6 @@ export class HistorialService {
     return this.http.post(`${this.URL_API}/ZonaSegmento`, data);
   }
 
+  
+
 }
