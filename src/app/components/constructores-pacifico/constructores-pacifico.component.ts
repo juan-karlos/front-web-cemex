@@ -133,7 +133,7 @@ export class ConstructoresPacificoComponent implements OnInit {
       
       (datos) => {
         console.log
-        ('Esto me devuelve el obtener hidtorial: ', datos);
+        ('Esto me devuelve el obtener historial: ', datos);
        const PorcentajeEnTiempoReal =datos[1].Pacífico
        this.obtenerHistorial(this.zona, this.segmento, PorcentajeEnTiempoReal);
        

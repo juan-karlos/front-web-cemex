@@ -45,10 +45,10 @@ export class AgregarRegistroComponent implements OnInit {
     private unidadOperativaService: UnidadOperativaService
   ) {
     this.nombrePlantaControl.valueChanges
-      .pipe(
-        startWith(''),
-        switchMap(value => this.unidadOperativaService.obtenerSugerenciasNombresPlantas(value))
-      )
+      // .pipe(
+      //   startWith(''),
+      //   switchMap(value => this.unidadOperativaService.obtenerSugerenciasNombresPlantas(value))
+      // )
       .subscribe(sugerencias => {
         this.sugerenciasNombresPlantas = sugerencias;
       });
