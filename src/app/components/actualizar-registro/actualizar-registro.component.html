@@ -23,12 +23,12 @@
         <form class="row g-3 needs-validation" novalidate (ngSubmit)="validacion()" enctype="multipart/form-data" >
 
 
-          <label class="form-label"> <h3>Id del registro:  <a [href]="id_registro">{{ id_registro }}</a></h3></label>
-            <div class="col-md-6">
+          <!-- <label class="form-label"> <h3>Id del registro:  <a [href]="id_registro">{{ id_registro }}</a></h3></label>
+            -->
+          <div class="col-md-6">
               <label for="validationCustom01" class="form-label"><h3>Nombre de la planta</h3></label>
               <input type="text" class="form-control" id="validationCustom01"  required name ="nombre_planta"
-              [(ngModel)]="nombre_planta"
-              >
+              [(ngModel)]="nombre_planta">
 
             </div>
 
