@@ -25,7 +25,7 @@ public barChartOptions: ChartConfiguration['options'] = {
     x: {
     },
     y: {
-      min: 10,
+      min: 0,
       max: 100,
 
     },
@@ -45,7 +45,7 @@ public stackedBarChartOptions: ChartConfiguration['options'] = {
   scales: {
     x: {stacked: true},
     y: {
-      min: 10,
+      min: 0,
       max: 150,
       stacked: true
     },
@@ -66,17 +66,61 @@ public barChartPlugins = [DataLabelsPlugin];
 public barChartData: ChartData<'bar'> = {
   labels: ['NACIONAL', 'CENTRO', 'NORESTE', 'PACIFICO', 'SURESTE'],
   datasets: [
-    { data: [65, 59, 80, 81, 56], label: 'Mayo',  backgroundColor: '#0048FB'},
-    { data: [28, 48, 40, 19, 86], label: 'Junio'  },
+    { 
+      data: [28, 48, 40, 19, 86], 
+      label: (() => {
+        const currentDate = new Date();
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        return currentDate.toLocaleString('default', { month: 'long' });
+      })(), // Mes anterior
+      backgroundColor: '#0048FB'
+    },
+    { 
+      data: [65, 59, 80, 81, 56], 
+      label: new Date().toLocaleString('default', { month: 'long' }),  // Mes actual
+    },
   ],
 };
-public datosFijasMoviles: ChartData<'bar'> = {
+
+public datosFijas: ChartData<'bar'> = {
   labels: ['NACIONAL', 'CENTRO', 'NORESTE', 'PACIFICO', 'SURESTE'],
   datasets: [
-    { data: [65, 59, 80, 81, 56], label: 'Mayo',  backgroundColor: '#0048FB'},
-    { data: [28, 48, 40, 19, 86], label: 'Junio'  },
+    { 
+      data: [28, 48, 40, 19, 86], 
+      label: (() => {
+        const currentDate = new Date();
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        return currentDate.toLocaleString('default', { month: 'long' });
+      })(), // Mes anterior
+      backgroundColor: '#0048FB'
+    },
+    { 
+      data: [65, 59, 80, 81, 56], 
+      label: new Date().toLocaleString('default', { month: 'long' }),  // Mes actual
+    },
   ],
 };
+public datosMoviles: ChartData<'bar'> = {
+  labels: ['NACIONAL', 'CENTRO', 'NORESTE', 'PACIFICO', 'SURESTE'],
+  datasets: [
+    { 
+      data: [28, 48, 40, 19, 86], 
+      label: (() => {
+        const currentDate = new Date();
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        return currentDate.toLocaleString('default', { month: 'long' });
+      })(), // Mes anterior
+      backgroundColor: '#0048FB'
+    },
+    { 
+      data: [65, 59, 80, 81, 56], 
+      label: new Date().toLocaleString('default', { month: 'long' }),  // Mes actual
+    },
+  ],
+};
+
+
+
 public stackedBarData: ChartData<'bar'> = {
   labels: ['NACIONAL', 'CENTRO', 'NORESTE', 'PACIFICO', 'SURESTE'],
   datasets: [
