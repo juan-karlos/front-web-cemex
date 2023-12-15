@@ -29,13 +29,13 @@ export class PlantasInactivasComponent implements OnInit{
   Actualizar(id: number) {
     this.router.navigate(['actualizar-planta', id]);
   }
+  recortarTexto(cadena: string) {
+    if(cadena=="NaN"){
+      return "0"
+    }
+     return cadena.slice(0,5);
+  }
 
 
-  // obtenerplantas(){
-  //   this.unidad.obtenerplanta().subscribe(
-  //     res=>this.unidad.Plantas=res,
-  //     err=>console.error(err)
-  //   )
-  // }
 
 }
