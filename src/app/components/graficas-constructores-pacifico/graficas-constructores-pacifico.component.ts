@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType, Color, Colors } from 'chart.js';
 import { BaseChartDirective} from 'ng2-charts';
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
-
+import { HistorialService } from 'src/app/services/historial.service';
+import { LogicaService } from 'src/app/services/logica.service';
 @Component({
   selector: 'app-graficas-constructores-pacifico',
   templateUrl: './graficas-constructores-pacifico.component.html',
@@ -11,9 +12,18 @@ import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 })
 export class GraficasConstructoresPacificoComponent implements OnInit {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
-  constructor(private router: Router){}
-  ngOnInit(): void {
 
+
+  zona: string = "Pacífico";
+  segmento: string = "Constructores";
+  cumplimientomesanterior: number[] = new Array(4).fill(0);
+  
+
+
+  constructor(private router: Router, private historialService: HistorialService,  private logicaService : LogicaService){}
+  ngOnInit(): void {
+    
+    this.Graficarmesactual();
   }
 
 
@@ -35,6 +45,10 @@ public barChartOptions: ChartConfiguration['options'] = {
       display: true,
     },
     datalabels: {
+      formatter: (value: any) => {
+        // Ajusta la precisión de los números a dos decimales si el valor no es nulo o indefinido
+        return value != null ? value.toFixed(2) : 'N/A';
+      },
 
     },
   },
@@ -63,22 +77,12 @@ public stackedBarChartOptions: ChartConfiguration['options'] = {
 public barChartType: ChartType = 'bar';
 
 public barChartPlugins = [DataLabelsPlugin];
+
 public barChartData: ChartData<'bar'> = {
   labels: ['NACIONAL', 'CENTRO', 'NORESTE', 'PACIFICO', 'SURESTE'],
   datasets: [
-    { 
-      data: [28, 48, 40, 19, 86], 
-      label: (() => {
-        const currentDate = new Date();
-        currentDate.setMonth(currentDate.getMonth() - 1);
-        return currentDate.toLocaleString('default', { month: 'long' });
-      })(), // Mes anterior
-      backgroundColor: '#0048FB'
-    },
-    { 
-      data: [65, 59, 80, 81, 56], 
-      label: new Date().toLocaleString('default', { month: 'long' }),  // Mes actual
-    },
+    { data: [], label: this.getMesAnteriorLabel(), backgroundColor: '#0048FB' },
+    { data: [], label: this.getMesActualLabel() },
   ],
 };
 
@@ -87,38 +91,30 @@ public datosFijas: ChartData<'bar'> = {
   datasets: [
     { 
       data: [28, 48, 40, 19, 86], 
-      label: (() => {
-        const currentDate = new Date();
-        currentDate.setMonth(currentDate.getMonth() - 1);
-        return currentDate.toLocaleString('default', { month: 'long' });
-      })(), // Mes anterior
+      label: this.getMesAnteriorLabel(), // Mes anterior
       backgroundColor: '#0048FB'
     },
     { 
       data: [65, 59, 80, 81, 56], 
-      label: new Date().toLocaleString('default', { month: 'long' }),  // Mes actual
+      label: this.getMesActualLabel(),  // Mes actual
     },
   ],
 };
+
 public datosMoviles: ChartData<'bar'> = {
   labels: ['NACIONAL', 'CENTRO', 'NORESTE', 'PACIFICO', 'SURESTE'],
   datasets: [
     { 
       data: [28, 48, 40, 19, 86], 
-      label: (() => {
-        const currentDate = new Date();
-        currentDate.setMonth(currentDate.getMonth() - 1);
-        return currentDate.toLocaleString('default', { month: 'long' });
-      })(), // Mes anterior
+      label: this.getMesAnteriorLabel(), // Mes anterior
       backgroundColor: '#0048FB'
     },
     { 
       data: [65, 59, 80, 81, 56], 
-      label: new Date().toLocaleString('default', { month: 'long' }),  // Mes actual
+      label: this.getMesActualLabel(),  // Mes actual
     },
   ],
 };
-
 
 
 public stackedBarData: ChartData<'bar'> = {
@@ -130,6 +126,61 @@ public stackedBarData: ChartData<'bar'> = {
     { data: [ 10, 23, 6, 7, 3], label: 'No tramitables', backgroundColor: '#A9A9A9'  },
   ],
 };
+
+
+
+private Graficarmesactual() {
+  this.logicaService.getProcentajeCumplimietoZonasSegmentos().subscribe(
+    (datos) => {
+      console.log('Esto se va a mes actual que es en tiempo real: ', datos);
+      this.actualizarGrafica1mesactualConDatos(datos);
+    },
+    (error) => {
+      console.error('Error al obtener el porcentaje:', error);
+    }
+  );
+}
+
+
+actualizarGrafica1mesactualConDatos(datos: any) {
+  
+  // Asegúrate de que las propiedades sean correctas y coincidan con las reales
+  const pacifico = datos[1].Pacífico;
+  const norte = datos[1].Noreste;
+  const sur = datos[1].Sureste;
+  const centro = datos[1].Centro;
+  const nacional = ((pacifico+centro+sur+norte)/4);
+  console.log('Estos son los datos quese deberian actualizar en el mes actual: ',nacional,pacifico, norte, sur, centro);
+  // Asigna los datos al conjunto de datos, 
+  this.barChartData.datasets[1].data = [nacional, pacifico, norte, sur, centro];
+
+  // Verifica si la gráfica se actualiza automáticamente al cambiar los datos
+  if (this.chart) {
+    this.chart.update();
+  }
+}
+
+
+
+
+
+
+
+private getMesAnteriorLabel(): string {
+  const currentDate = new Date();
+  currentDate.setMonth(currentDate.getMonth() - 1);
+  return currentDate.toLocaleString('default', { month: 'long' });
+}
+
+private getMesActualLabel(): string {
+  return new Date().toLocaleString('default', { month: 'long' });
+}
+
+
+
+esMismoMes(fecha1: Date, fecha2: Date): boolean {
+  return fecha1.getFullYear() === fecha2.getFullYear() && fecha1.getMonth() === fecha2.getMonth();
+}
 
 }
 
