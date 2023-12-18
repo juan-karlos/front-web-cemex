@@ -24,6 +24,8 @@ export class GraficasConstructoresPacificoComponent implements OnInit {
   ngOnInit(): void {
     
     this.Graficarmesactual();
+    this.GraficarMesAnterior();
+
   }
 
 
@@ -46,8 +48,9 @@ public barChartOptions: ChartConfiguration['options'] = {
     },
     datalabels: {
       formatter: (value: any) => {
-        // Ajusta la precisión de los números a dos decimales si el valor no es nulo o indefinido
-        return value != null ? value.toFixed(2) : 'N/A';
+        // Asegúrate de que el valor sea un número antes de intentar formatearlo
+        const numericValue = parseFloat(value);
+        return !isNaN(numericValue) ? numericValue.toFixed(2) : 'N/A';
       },
 
     },
@@ -81,7 +84,7 @@ public barChartPlugins = [DataLabelsPlugin];
 public barChartData: ChartData<'bar'> = {
   labels: ['NACIONAL', 'CENTRO', 'NORESTE', 'PACIFICO', 'SURESTE'],
   datasets: [
-    { data: [], label: this.getMesAnteriorLabel(), backgroundColor: '#0048FB' },
+    { data: [], label: this.getMesAnteriorLabel(), backgroundColor: '#90EE90' },
     { data: [], label: this.getMesActualLabel() },
   ],
 };
@@ -142,6 +145,20 @@ private Graficarmesactual() {
 }
 
 
+GraficarMesAnterior() {
+  const segmento = 'Constructores'; // Reemplaza 'tu_segmento' con el valor adecuado
+
+  this.historialService.getMesPasado(segmento).subscribe(
+    (datos) => {
+     this.actualizarGrafica1mesAnteriorConDatos(datos);
+    },
+    (error) => {
+      console.error('Error al obtener el porcentaje:', error);
+    }
+  );
+}
+
+
 actualizarGrafica1mesactualConDatos(datos: any) {
   
   // Asegúrate de que las propiedades sean correctas y coincidan con las reales
@@ -152,18 +169,35 @@ actualizarGrafica1mesactualConDatos(datos: any) {
   const nacional = ((pacifico+centro+sur+norte)/4);
   console.log('Estos son los datos quese deberian actualizar en el mes actual: ',nacional,pacifico, norte, sur, centro);
   // Asigna los datos al conjunto de datos, 
+  this.barChartData.datasets[0].data = [nacional, pacifico, norte, sur, centro];
+
+  // Verifica si la gráfica se actualiza automáticamente al cambiar los datos
+  if (this.chart) {
+    this.chart.update();
+  }
+
+  
+}
+
+actualizarGrafica1mesAnteriorConDatos(datos: any) {
+  
+  // Asegúrate de que las propiedades sean correctas y coincidan con las reales
+  const pacifico = +datos[0].cumplimiento || 0;
+  const centro = +datos[1].cumplimiento || 0;
+  const norte = +datos[3].cumplimiento || 0;
+  const sur = +datos[2].cumplimiento || 0;
+
+  const nacional = ((pacifico+centro+sur+norte)/4);
+  console.log('Estos son los datos quese deberian actualizar en el mes anterior: ',nacional,pacifico, norte, sur, centro);
+  // Asigna los datos al conjunto de datos, 
   this.barChartData.datasets[1].data = [nacional, pacifico, norte, sur, centro];
 
   // Verifica si la gráfica se actualiza automáticamente al cambiar los datos
   if (this.chart) {
     this.chart.update();
   }
+
 }
-
-
-
-
-
 
 
 private getMesAnteriorLabel(): string {
