@@ -167,13 +167,15 @@ actualizarGrafica1mesactualConDatos(datos: any) {
   const sur = datos[1].Sureste;
   const centro = datos[1].Centro;
   const nacional = ((pacifico+centro+sur+norte)/4);
-  console.log('Estos son los datos quese deberian actualizar en el mes actual: ',nacional, centro, norte, pacifico, sur);
+  console.log('Estos son los datos quese deberian actualizar en el mes actual: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
   // Asigna los datos al conjunto de datos, 
-  this.barChartData.datasets[0].data = [nacional, centro, norte, pacifico, sur];
+  this.barChartData.datasets[1].data = [nacional, centro, norte, pacifico, sur];
 
   // Verifica si la gráfica se actualiza automáticamente al cambiar los datos
   if (this.chart) {
+
     this.chart.update();
+
   }
 
   
@@ -181,16 +183,25 @@ actualizarGrafica1mesactualConDatos(datos: any) {
 
 actualizarGrafica1mesAnteriorConDatos(datos: any) {
   
+  console.log('estos son los atosque se recben del mes pasado', datos);
+
   // Asegúrate de que las propiedades sean correctas y coincidan con las reales
-  const pacifico = +datos[0].cumplimiento || 0;
-  const centro = +datos[1].cumplimiento || 0;
-  const norte = +datos[3].cumplimiento || 0;
-  const sur = +datos[2].cumplimiento || 0;
+  const pacificoData = datos.find((item: any) => item.zona === 'Pacífico');
+  const centroData = datos.find((item: any) => item.zona === 'Centro');
+  const norteData = datos.find((item: any) => item.zona === 'Noreste');
+  const surData = datos.find((item: any) => item.zona === 'Sureste');
+
+  // Obtiene el valor de cumplimiento o establece en cero si no existe
+  const pacifico = pacificoData ? +pacificoData.cumplimiento : 0;
+  const centro = centroData ? +centroData.cumplimiento : 0;
+  const norte = norteData ? +norteData.cumplimiento : 0;
+  const sur = surData ? +surData.cumplimiento : 0;
+
 
   const nacional = ((pacifico+centro+sur+norte)/4);
-  console.log('Estos son los datos quese deberian actualizar en el mes anterior: ',nacional, centro, norte, pacifico, sur);
+  console.log('Estos son los datos quese deberian actualizar en el mes anterior: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
   // Asigna los datos al conjunto de datos, 
-  this.barChartData.datasets[1].data = [nacional, centro, norte, pacifico, sur];
+  this.barChartData.datasets[0].data = [nacional, centro, norte, pacifico, sur];
 
   // Verifica si la gráfica se actualiza automáticamente al cambiar los datos
   if (this.chart) {
