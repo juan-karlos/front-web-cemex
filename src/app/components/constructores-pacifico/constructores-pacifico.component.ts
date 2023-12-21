@@ -62,6 +62,11 @@ export class ConstructoresPacificoComponent implements OnInit {
       datalabels: {
         anchor: 'end',
         align: 'end',
+        formatter: (value: any) => {
+          // Asegúrate de que el valor sea un número antes de intentar formatearlo
+          const numericValue = parseFloat(value);
+          return !isNaN(numericValue) ? numericValue.toFixed(2) : 'N/A';
+        },
       },
     },
   };
