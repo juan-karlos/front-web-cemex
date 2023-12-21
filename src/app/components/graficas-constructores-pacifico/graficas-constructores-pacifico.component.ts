@@ -25,12 +25,39 @@ export class GraficasConstructoresPacificoComponent implements OnInit {
     
     this.Graficarmesactual();
     this.GraficarMesAnterior();
-
+    this.Fijas();
+    this.Moviles();
   }
 
 
 //Aqui comienzan los metodos para la graficación
 public barChartOptions: ChartConfiguration['options'] = {
+  responsive: true,
+  // We use these empty structures as placeholders for dynamic theming.
+  scales: {
+    x: {
+    },
+    y: {
+      min: 0,
+      max: 100,
+
+    },
+  },
+  plugins: {
+    legend: {
+      display: true,
+    },
+    datalabels: {
+      formatter: (value: any) => {
+        // Asegúrate de que el valor sea un número antes de intentar formatearlo
+        const numericValue = parseFloat(value);
+        return !isNaN(numericValue) ? numericValue.toFixed(2) : 'N/A';
+      },
+
+    },
+  },
+};
+public barChartOptions2: ChartConfiguration['options'] = {
   responsive: true,
   // We use these empty structures as placeholders for dynamic theming.
   scales: {
@@ -78,44 +105,21 @@ public stackedBarChartOptions: ChartConfiguration['options'] = {
 };
 
 public barChartType: ChartType = 'bar';
-
+public barChartType2: ChartType = 'bar';
 public barChartPlugins = [DataLabelsPlugin];
-
+public barChartPlugins2 = [DataLabelsPlugin];
 public barChartData: ChartData<'bar'> = {
   labels: ['NACIONAL', 'CENTRO', 'NORESTE', 'PACIFICO', 'SURESTE'],
   datasets: [
-    { data: [], label: this.getMesAnteriorLabel(), backgroundColor: '#90EE90' },
-    { data: [], label: this.getMesActualLabel() },
+    { data: [], label: this.getMesAnteriorLabel(), backgroundColor: '#B0E2FF' },
+    { data: [], label: this.getMesActualLabel(), backgroundColor: '#49BBFC' },
   ],
 };
-
-public datosFijas: ChartData<'bar'> = {
+public barChartData2: ChartData<'bar'> = {
   labels: ['NACIONAL', 'CENTRO', 'NORESTE', 'PACIFICO', 'SURESTE'],
   datasets: [
-    { 
-      data: [28, 48, 40, 19, 86], 
-      label: this.getMesAnteriorLabel(), // Mes anterior
-      backgroundColor: '#0048FB'
-    },
-    { 
-      data: [65, 59, 80, 81, 56], 
-      label: this.getMesActualLabel(),  // Mes actual
-    },
-  ],
-};
-
-public datosMoviles: ChartData<'bar'> = {
-  labels: ['NACIONAL', 'CENTRO', 'NORESTE', 'PACIFICO', 'SURESTE'],
-  datasets: [
-    { 
-      data: [28, 48, 40, 19, 86], 
-      label: this.getMesAnteriorLabel(), // Mes anterior
-      backgroundColor: '#0048FB'
-    },
-    { 
-      data: [65, 59, 80, 81, 56], 
-      label: this.getMesActualLabel(),  // Mes actual
-    },
+    { data: [], label: 'Fíjas', backgroundColor: '#B0E2FF' },
+    { data: [], label: 'Móviles', backgroundColor: '#49BBFC' },
   ],
 };
 
@@ -220,6 +224,94 @@ private getMesAnteriorLabel(): string {
 private getMesActualLabel(): string {
   return new Date().toLocaleString('default', { month: 'long' });
 }
+
+
+private Fijas() {
+  this.logicaService.getFijas().subscribe(
+    (datos) => {
+      
+      this.GraficarFijas(datos);
+    },
+    (error) => {
+      console.error('Error al obtener el porcentaje:', error);
+    }
+  );
+}
+
+
+private Moviles() {
+  this.logicaService.getMoviles().subscribe(
+    (datos) => {
+     
+      this.GraficarMoviles(datos);
+    },
+    (error) => {
+      console.error('Error al obtener el porcentaje:', error);
+    }
+  );
+}
+
+private GraficarFijas(datos: any) {
+  // Busca el objeto con la zona específica
+  const pacificoData = datos.find((item: any) => item.zona === 'Pacífico');
+  const centroData = datos.find((item: any) => item.zona === 'Centro');
+  const norteData = datos.find((item: any) => item.zona === 'Noreste');
+  const surData = datos.find((item: any) => item.zona === 'Sureste');
+
+  // Obtiene el valor de cumplimiento o establece en cero si no existe
+  const pacifico = pacificoData ? +pacificoData.porcentaje_cumplimiento_promedio : 0;
+  const centro = centroData ? +centroData.porcentaje_cumplimiento_promedio : 0;
+  const norte = norteData ? +norteData.porcentaje_cumplimiento_promedio : 0;
+  const sur = surData ? +surData.porcentaje_cumplimiento_promedio : 0;
+
+  // Calcula el total (opcional, dependiendo de tus necesidades)
+  const nacional = ((pacifico + centro + sur + norte)/4);
+
+  console.log('Estos son los datos que debe graficar en fijas:', nacional, pacifico, norte, sur, centro);
+
+  // Asigna los datos al conjunto de datos
+  this.barChartData2.datasets[0].data = [nacional, pacifico, norte, sur, centro];
+
+  // Verifica si la gráfica se actualiza automáticamente al cambiar los datos
+  if (this.chart) {
+    console.log('Se actualizo fijas');
+    this.chart.update();
+  } else {
+    console.log('this.chart es undefined. No se puede actualizar la gráfica.');
+  }
+}
+
+private GraficarMoviles(datos: any) {
+  // Busca el objeto con la zona específica
+  const pacificoData = datos.find((item: any) => item.zona === 'Pacífico');
+  const centroData = datos.find((item: any) => item.zona === 'Centro');
+  const norteData = datos.find((item: any) => item.zona === 'Noreste');
+  const surData = datos.find((item: any) => item.zona === 'Sureste');
+
+  // Obtiene el valor de cumplimiento o establece en cero si no existe
+  const pacifico = pacificoData ? +pacificoData.porcentaje_cumplimiento_promedio : 0;
+  const centro = centroData ? +centroData.porcentaje_cumplimiento_promedio : 0;
+  const norte = norteData ? +norteData.porcentaje_cumplimiento_promedio : 0;
+  const sur = surData ? +surData.porcentaje_cumplimiento_promedio : 0;
+
+  // Calcula el total (opcional, dependiendo de tus necesidades)
+  const nacional = ((pacifico + centro + sur + norte)/4);
+
+  console.log('Estos son los datos que debe graficar en moviles:', nacional, pacifico, norte, sur, centro);
+
+  // Asigna los datos al conjunto de datos
+  this.barChartData2.datasets[1].data = [nacional, pacifico, norte, sur, centro];
+
+  // Verifica si la gráfica se actualiza automáticamente al cambiar los datos
+  if (this.chart) {
+    console.log('Se actualizo moviles');
+    this.chart.update();
+  } else {
+    console.log('this.chart es undefined. No se puede actualizar la gráfica.');
+  }
+}
+
+
 
 
 

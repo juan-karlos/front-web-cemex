@@ -37,25 +37,26 @@
     <div id="contenedor-grafica" class="tabla">
       <h3 id="subtitulo">Cumplimiento CERO</h3>
       <br>
-    <canvas baseChart class="chart" [data]="barChartData" [options]="barChartOptions"
-     [plugins]="barChartPlugins" [type]="barChartType" >
-    </canvas>
-     </div><br><br>
-     <div id="contenedor-grafica" class="tabla">
-      <h3 id="subtitulo">Cumplimiento Fijas</h3>
-      <br>
-    <canvas baseChart class="chart" [data]="barChartData" [options]="barChartOptions"
-     [plugins]="barChartPlugins" [type]="barChartType" >
+    <canvas baseChart id="barChart1" 
+    class="chart" 
+    [data]="barChartData" 
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins" 
+    [type]="barChartType" >
     </canvas>
      </div>
      <br><br>
      <div id="contenedor-grafica" class="tabla">
-      <h3 id="subtitulo">Cumplimiento Móviles</h3>
+      <h3 id="subtitulo">Cumplimiento Fíjas y Móviles</h3>
       <br>
-    <canvas baseChart class="chart" [data]="barChartData" [options]="barChartOptions"
-     [plugins]="barChartPlugins" [type]="barChartType" >
-    </canvas>
+      <canvas baseChart id="barChart2" 
+      class="chart"
+      [data]="barChartData2" 
+      [options]="barChartOptions2" 
+      [plugins]="barChartPlugins2" 
+      [type]="barChartType2"></canvas>
      </div>
+   
      <br><br>
       <div id="contenedor-grafica" class="tabla">
             <h3 id="subtitulo">Niveles de riesgo</h3>
