@@ -5,14 +5,18 @@ import { BaseChartDirective} from 'ng2-charts';
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 import { HistorialService } from 'src/app/services/historial.service';
 import { LogicaService } from 'src/app/services/logica.service';
+import { ViewChildren, QueryList } from '@angular/core';
 @Component({
   selector: 'app-graficas-constructores-pacifico',
   templateUrl: './graficas-constructores-pacifico.component.html',
   styleUrls: ['./graficas-constructores-pacifico.component.css']
 })
 export class GraficasConstructoresPacificoComponent implements OnInit {
+ 
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
-
+  @ViewChild('chart1') chart1: BaseChartDirective | undefined;
+  @ViewChild('chart2') chart2: BaseChartDirective | undefined;
+  @ViewChild('chart3') chart3: BaseChartDirective | undefined;
 
   zona: string = "Pacífico";
   segmento: string = "Constructores";
@@ -27,8 +31,8 @@ export class GraficasConstructoresPacificoComponent implements OnInit {
     this.GraficarMesAnterior();
     this.Fijas();
     this.Moviles();
+    this.actualizarGrafico();
   }
-
 
 //Aqui comienzan los metodos para la graficación
 public barChartOptions: ChartConfiguration['options'] = {
@@ -57,32 +61,7 @@ public barChartOptions: ChartConfiguration['options'] = {
     },
   },
 };
-public barChartOptions2: ChartConfiguration['options'] = {
-  responsive: true,
-  // We use these empty structures as placeholders for dynamic theming.
-  scales: {
-    x: {
-    },
-    y: {
-      min: 0,
-      max: 100,
 
-    },
-  },
-  plugins: {
-    legend: {
-      display: true,
-    },
-    datalabels: {
-      formatter: (value: any) => {
-        // Asegúrate de que el valor sea un número antes de intentar formatearlo
-        const numericValue = parseFloat(value);
-        return !isNaN(numericValue) ? numericValue.toFixed(2) : 'N/A';
-      },
-
-    },
-  },
-};
 public stackedBarChartOptions: ChartConfiguration['options'] = {
   responsive: true,
   // We use these empty structures as placeholders for dynamic theming.
@@ -105,9 +84,7 @@ public stackedBarChartOptions: ChartConfiguration['options'] = {
 };
 
 public barChartType: ChartType = 'bar';
-public barChartType2: ChartType = 'bar';
 public barChartPlugins = [DataLabelsPlugin];
-public barChartPlugins2 = [DataLabelsPlugin];
 public barChartData: ChartData<'bar'> = {
   labels: ['NACIONAL', 'CENTRO', 'NORESTE', 'PACIFICO', 'SURESTE'],
   datasets: [
@@ -123,7 +100,6 @@ public barChartData2: ChartData<'bar'> = {
   ],
 };
 
-
 public stackedBarData: ChartData<'bar'> = {
   labels: ['NACIONAL', 'CENTRO', 'NORESTE', 'PACIFICO', 'SURESTE'],
   datasets: [
@@ -133,8 +109,6 @@ public stackedBarData: ChartData<'bar'> = {
     { data: [ 10, 23, 6, 7, 3], label: 'No tramitables', backgroundColor: '#A9A9A9'  },
   ],
 };
-
-
 
 private Graficarmesactual() {
   this.logicaService.getProcentajeCumplimietoZonasSegmentos().subscribe(
@@ -147,7 +121,6 @@ private Graficarmesactual() {
     }
   );
 }
-
 
 GraficarMesAnterior() {
   const segmento = 'Constructores'; // Reemplaza 'tu_segmento' con el valor adecuado
@@ -162,7 +135,6 @@ GraficarMesAnterior() {
   );
 }
 
-
 actualizarGrafica1mesactualConDatos(datos: any) {
   
   // Asegúrate de que las propiedades sean correctas y coincidan con las reales
@@ -175,14 +147,6 @@ actualizarGrafica1mesactualConDatos(datos: any) {
   // Asigna los datos al conjunto de datos, 
   this.barChartData.datasets[1].data = [nacional, centro, norte, pacifico, sur];
 
-  // Verifica si la gráfica se actualiza automáticamente al cambiar los datos
-  if (this.chart) {
-
-    this.chart.update();
-
-  }
-
-  
 }
 
 actualizarGrafica1mesAnteriorConDatos(datos: any) {
@@ -201,19 +165,12 @@ actualizarGrafica1mesAnteriorConDatos(datos: any) {
   const norte = norteData ? +norteData.cumplimiento : 0;
   const sur = surData ? +surData.cumplimiento : 0;
 
-
   const nacional = ((pacifico+centro+sur+norte)/4);
   console.log('Estos son los datos quese deberian actualizar en el mes anterior: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
   // Asigna los datos al conjunto de datos, 
   this.barChartData.datasets[0].data = [nacional, centro, norte, pacifico, sur];
 
-  // Verifica si la gráfica se actualiza automáticamente al cambiar los datos
-  if (this.chart) {
-    this.chart.update();
-  }
-
 }
-
 
 private getMesAnteriorLabel(): string {
   const currentDate = new Date();
@@ -224,7 +181,6 @@ private getMesAnteriorLabel(): string {
 private getMesActualLabel(): string {
   return new Date().toLocaleString('default', { month: 'long' });
 }
-
 
 private Fijas() {
   this.logicaService.getFijas().subscribe(
@@ -237,7 +193,6 @@ private Fijas() {
     }
   );
 }
-
 
 private Moviles() {
   this.logicaService.getMoviles().subscribe(
@@ -272,15 +227,7 @@ private GraficarFijas(datos: any) {
   // Asigna los datos al conjunto de datos
   this.barChartData2.datasets[0].data = [nacional, pacifico, norte, sur, centro];
 
-  // Verifica si la gráfica se actualiza automáticamente al cambiar los datos
-  if (this.chart) {
-    console.log('Se actualizo fijas');
-    this.chart.update();
-  } else {
-    console.log('this.chart es undefined. No se puede actualizar la gráfica.');
-  }
 }
-
 private GraficarMoviles(datos: any) {
   // Busca el objeto con la zona específica
   const pacificoData = datos.find((item: any) => item.zona === 'Pacífico');
@@ -302,18 +249,13 @@ private GraficarMoviles(datos: any) {
   // Asigna los datos al conjunto de datos
   this.barChartData2.datasets[1].data = [nacional, pacifico, norte, sur, centro];
 
-  // Verifica si la gráfica se actualiza automáticamente al cambiar los datos
-  if (this.chart) {
-    console.log('Se actualizo moviles');
-    this.chart.update();
-  } else {
-    console.log('this.chart es undefined. No se puede actualizar la gráfica.');
-  }
 }
 
-
-
-
+actualizarGrafico() {
+  if (this.chart) {
+    this.chart.chart?.update();
+  }
+}
 
 esMismoMes(fecha1: Date, fecha2: Date): boolean {
   return fecha1.getFullYear() === fecha2.getFullYear() && fecha1.getMonth() === fecha2.getMonth();
