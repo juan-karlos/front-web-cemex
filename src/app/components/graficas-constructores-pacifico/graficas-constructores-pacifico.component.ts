@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType, Color, Colors } from 'chart.js';
 import { BaseChartDirective} from 'ng2-charts';
@@ -13,7 +13,8 @@ import { ViewChildren, QueryList } from '@angular/core';
 })
 export class GraficasConstructoresPacificoComponent implements OnInit {
  
-  @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
+  @ViewChildren(BaseChartDirective) charts: QueryList<BaseChartDirective> | undefined;
+
   @ViewChild('chart1') chart1: BaseChartDirective | undefined;
   @ViewChild('chart2') chart2: BaseChartDirective | undefined;
   @ViewChild('chart3') chart3: BaseChartDirective | undefined;
@@ -24,14 +25,17 @@ export class GraficasConstructoresPacificoComponent implements OnInit {
   
 
 
-  constructor(private router: Router, private historialService: HistorialService,  private logicaService : LogicaService){}
+  constructor(private router: Router, private historialService: HistorialService,  private logicaService : LogicaService, private ngZone: NgZone){}
   ngOnInit(): void {
     
     this.Graficarmesactual();
     this.GraficarMesAnterior();
     this.Fijas();
     this.Moviles();
-    this.actualizarGrafico();
+    // this.actualizarGrafico();
+  }
+  ngAfterViewInit(): void {
+   
   }
 
 //Aqui comienzan los metodos para la graficación
@@ -113,7 +117,6 @@ public stackedBarData: ChartData<'bar'> = {
 private Graficarmesactual() {
   this.logicaService.getProcentajeCumplimietoZonasSegmentos().subscribe(
     (datos) => {
-      console.log('Esto se va a mes actual que es en tiempo real: ', datos);
       this.actualizarGrafica1mesactualConDatos(datos);
     },
     (error) => {
@@ -146,7 +149,7 @@ actualizarGrafica1mesactualConDatos(datos: any) {
   console.log('Estos son los datos quese deberian actualizar en el mes actual: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
   // Asigna los datos al conjunto de datos, 
   this.barChartData.datasets[1].data = [nacional, centro, norte, pacifico, sur];
-
+  this.actualizarGrafico();
 }
 
 actualizarGrafica1mesAnteriorConDatos(datos: any) {
@@ -169,7 +172,7 @@ actualizarGrafica1mesAnteriorConDatos(datos: any) {
   console.log('Estos son los datos quese deberian actualizar en el mes anterior: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
   // Asigna los datos al conjunto de datos, 
   this.barChartData.datasets[0].data = [nacional, centro, norte, pacifico, sur];
-
+  this.actualizarGrafico();
 }
 
 private getMesAnteriorLabel(): string {
@@ -226,7 +229,7 @@ private GraficarFijas(datos: any) {
 
   // Asigna los datos al conjunto de datos
   this.barChartData2.datasets[0].data = [nacional, pacifico, norte, sur, centro];
-
+  this.actualizarGrafico();
 }
 private GraficarMoviles(datos: any) {
   // Busca el objeto con la zona específica
@@ -248,12 +251,12 @@ private GraficarMoviles(datos: any) {
 
   // Asigna los datos al conjunto de datos
   this.barChartData2.datasets[1].data = [nacional, pacifico, norte, sur, centro];
-
+  this.actualizarGrafico();
 }
 
 actualizarGrafico() {
-  if (this.chart) {
-    this.chart.chart?.update();
+  if (this.charts) {
+    this.charts.forEach(chart => chart.chart?.update());
   }
 }
 

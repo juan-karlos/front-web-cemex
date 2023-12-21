@@ -6,19 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Constructores</title>
 </head>
-
 <header>
   <nav class="navbar navbar-expand-lg" style="background-color: #dedada;">
     <div class="container-fluid">
       <a class="navbar-brand" href="inicio">
        <img id="logo" src="https://i.ibb.co/HK2Btjq/Logo-Cemex.png" alt="">
       </a>
-
       <ul class="nav justify-content-end">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="nivel-riesgo-constructores-pacifico" style="font-size: 20px;">Estatus por tienda</a>
         </li>
-
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="constructores-pacifico" style="font-size: 20px;">Volver</a>
         </li>
@@ -26,16 +23,13 @@
     </div>
   </nav>
 </header>
-
 <body>
     <h1 id="titulo">Informes de cumplimiento Constructores PACÍFICO</h1>
    <div class="contenedor-principal">
     <div>
-      <br>
-
     <br><br>
     <div id="contenedor-grafica" class="tabla">
-      <h3 id="subtitulo">Cumplimiento CERO</h3>
+      <h2 id="subtitulo">Cumplimiento CERO</h2>
       <br>
     <canvas baseChart #chart1
     class="chart" 
@@ -47,7 +41,7 @@
      </div>
      <br><br>
      <div id="contenedor-grafica" class="tabla">
-      <h3 id="subtitulo">Cumplimiento Fíjas y Móviles</h3>
+      <h2 id="subtitulo">Cumplimiento Fíjas y Móviles</h2>
       <br>
       <canvas baseChart #chart2
       class="chart"
@@ -56,23 +50,15 @@
       [plugins]="barChartPlugins" 
       [type]="barChartType"></canvas>
      </div>
-   
      <br><br>
       <div id="contenedor-grafica" class="tabla">
-            <h3 id="subtitulo">Niveles de riesgo</h3>
+            <h2 id="subtitulo">Niveles de riesgo</h2>
             <canvas baseChart #char3 class="chart" [data]="stackedBarData" [options]="stackedBarChartOptions"
             [plugins]="barChartPlugins" [type]="barChartType">
            </canvas>
       </div>
-      <br><br>
-        <div id="contenedor-grafica" class="tabla">
-
-        </div>
-
     </div>
-
    </div>
-
 </body>
 </html>
 
