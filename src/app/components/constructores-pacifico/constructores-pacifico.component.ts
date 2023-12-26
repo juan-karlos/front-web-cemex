@@ -17,7 +17,6 @@ export class ConstructoresPacificoComponent implements OnInit {
 
   constructor(
     public perPlan: ZonaPasificoService,
-    private router: Router,
     private historialService: HistorialService,
     private logicaService : LogicaService) { }
    
@@ -63,6 +62,11 @@ export class ConstructoresPacificoComponent implements OnInit {
       datalabels: {
         anchor: 'end',
         align: 'end',
+        formatter: (value: any) => {
+          // Asegúrate de que el valor sea un número antes de intentar formatearlo
+          const numericValue = parseFloat(value);
+          return !isNaN(numericValue) ? numericValue.toFixed(2) : 'N/A';
+        },
       },
     },
   };
@@ -82,7 +86,7 @@ export class ConstructoresPacificoComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerNacional();
     this.ontenerZonas();
-    // this.obtenerHistorial(this.zona, this.segmento, 3);
+   
    this.obtenerPorcentajeZonaSegmentos();
   }
 
@@ -138,6 +142,22 @@ export class ConstructoresPacificoComponent implements OnInit {
        this.obtenerHistorial(this.zona, this.segmento, PorcentajeEnTiempoReal);
        
 
+      },
+      (error) => {
+        console.error('Error al obtener el porcentaje:', error);
+      }
+    )
+  }
+
+
+  obtenerPorcentajeTotalActual(){
+    this.logicaService.getProcentajeCumplimietoZonasSegmentos().subscribe(
+      
+      (datos) => {
+        console.log
+        ('Esto me devuelve el porcentaje de cumplimiento total: ', datos);
+      //  const PorcentajeEnTiempoReal =datos[1].Pacífico
+      //  this.obtenerHistorial(this.zona, this.segmento, PorcentajeEnTiempoReal);
       },
       (error) => {
         console.error('Error al obtener el porcentaje:', error);
