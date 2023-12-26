@@ -38,6 +38,11 @@ validez_unica: true,
   obtenerRegistroPorId(id_registro:number){
     const url = `${this.URL_API}${'/permiso'}/${id_registro}`; // Agrega el ID al final de la URL
     return this.http.get(url);
-    
   }
+
+  obtenerRiesgo(){
+    return this.http.get(`${this.URL_API}/graficaTotal`);
+  }
+  
+
 }
