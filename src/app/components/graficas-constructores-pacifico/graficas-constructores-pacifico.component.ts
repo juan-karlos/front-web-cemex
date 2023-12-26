@@ -6,6 +6,7 @@ import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 import { HistorialService } from 'src/app/services/historial.service';
 import { LogicaService } from 'src/app/services/logica.service';
 import { ViewChildren, QueryList } from '@angular/core';
+import { RegistrosService } from 'src/app/services/registros.service';
 @Component({
   selector: 'app-graficas-constructores-pacifico',
   templateUrl: './graficas-constructores-pacifico.component.html',
@@ -25,14 +26,14 @@ export class GraficasConstructoresPacificoComponent implements OnInit {
   
 
 
-  constructor(private router: Router, private historialService: HistorialService,  private logicaService : LogicaService, private ngZone: NgZone){}
+  constructor(private historialService: HistorialService,  private logicaService : LogicaService, private registroService: RegistrosService){}
   ngOnInit(): void {
     
     this.Graficarmesactual();
     this.GraficarMesAnterior();
     this.Fijas();
     this.Moviles();
-    // this.actualizarGrafico();
+    this.GraficarVerdes();
   }
   ngAfterViewInit(): void {
    
@@ -113,6 +114,21 @@ public stackedBarData: ChartData<'bar'> = {
     { data: [ 10, 23, 6, 7, 3], label: 'No tramitables', backgroundColor: '#A9A9A9'  },
   ],
 };
+
+private GraficarVerdes(){
+  this.registroService.obtenerRiesgo().subscribe(
+    (datos) => {
+     console.log('Estos sol los datos que obtengo de RIESGO', datos)
+    },
+    (error) => {
+      console.error('Error al obtener el porcentaje:', error);
+    }
+  );
+}
+private DatosVerdes(datos: any){
+  
+}
+
 
 private Graficarmesactual() {
   this.logicaService.getProcentajeCumplimietoZonasSegmentos().subscribe(
