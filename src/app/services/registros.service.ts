@@ -13,6 +13,7 @@ URL_API='http://localhost:3200/api/regi'
 Registro:registro[]=[];
 
 
+Segmento:'' | undefined;
 RegistroSelect :registro={
 id_registro:0,
 nombre_planta: '',
@@ -40,8 +41,8 @@ validez_unica: true,
     return this.http.get(url);
   }
 
-  obtenerRiesgo(){
-    return this.http.get(`${this.URL_API}/graficaTotal`);
+  obtenerRiesgo(Segmento: any){
+    return this.http.post(`${this.URL_API}/grafica`,Segmento);
   }
   
 

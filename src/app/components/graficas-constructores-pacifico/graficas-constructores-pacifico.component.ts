@@ -23,8 +23,10 @@ export class GraficasConstructoresPacificoComponent implements OnInit {
   zona: string = "Pacífico";
   segmento: string = "Constructores";
   cumplimientomesanterior: number[] = new Array(4).fill(0);
+  seg = {
+    "segmento":"Constructores"
+  }
   
-
 
   constructor(private historialService: HistorialService,  private logicaService : LogicaService, private registroService: RegistrosService){}
   ngOnInit(): void {
@@ -33,7 +35,7 @@ export class GraficasConstructoresPacificoComponent implements OnInit {
     this.GraficarMesAnterior();
     this.Fijas();
     this.Moviles();
-    this.GraficarVerdes();
+    this.GraficarRiesgo(this.seg);
   }
   ngAfterViewInit(): void {
    
@@ -108,17 +110,21 @@ public barChartData2: ChartData<'bar'> = {
 public stackedBarData: ChartData<'bar'> = {
   labels: ['NACIONAL', 'CENTRO', 'NORESTE', 'PACIFICO', 'SURESTE'],
   datasets: [
-    { data: [34, 59, 56, 55, 40], label: 'Clausura', backgroundColor: '#FF1B1B'},
-    { data: [ 40, 19, 26, 27, 34], label: 'Multa', backgroundColor: '#E5FF0E' },
-    { data: [ 20, 19, 26, 27, 34], label: 'Optimas', backgroundColor: '#32FF00'  },
-    { data: [ 10, 23, 6, 7, 3], label: 'No tramitables', backgroundColor: '#A9A9A9'  },
+    { data: [], label: 'Clausura', backgroundColor: '#FF1B1B'},
+    { data: [], label: 'Multa', backgroundColor: '#E5FF0E' },
+    { data: [], label: 'Optimas', backgroundColor: '#32FF00'  },
+    { data: [], label: 'Administrativos', backgroundColor: '#A9A9A9'  },
   ],
 };
 
-private GraficarVerdes(){
-  this.registroService.obtenerRiesgo().subscribe(
+private GraficarRiesgo(segmento:any){
+  this.registroService.obtenerRiesgo(segmento).subscribe(
     (datos) => {
      console.log('Estos sol los datos que obtengo de RIESGO', datos)
+     this.DatosVerdes(datos);
+     this.DatosRojos(datos);
+     this.DatosAmarillos(datos);
+     this.DatosGrices(datos);
     },
     (error) => {
       console.error('Error al obtener el porcentaje:', error);
@@ -127,6 +133,55 @@ private GraficarVerdes(){
 }
 private DatosVerdes(datos: any){
   
+  // Asegúrate de que las propiedades sean correctas y coincidan con las reales
+  const nacional = datos[0].optimasnas;
+  const norte = datos[2].optimasnor;
+  const sur = datos[4].optimaspassur;
+  const centro = datos[1].optimascen;
+  const pacifico = datos[3].optimaspas;
+  console.log('Estos son los datos que se iran a optimas: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
+  // Asigna los datos al conjunto de datos, 
+  this.stackedBarData.datasets[2].data = [nacional, centro, norte, pacifico, sur];
+  this.actualizarGrafico();
+}
+private DatosRojos(datos: any){
+  
+  // Asegúrate de que las propiedades sean correctas y coincidan con las reales
+  const nacional = datos[0].clausuradasnas;
+  const norte = datos[2].clausuradasnor;
+  const sur = datos[4].clausuradassur;
+  const centro = datos[1].clausuradascen;
+  const pacifico = datos[3].clausuradaspas;
+  console.log('Estos son los datos que se iran a clausuradas: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
+  // Asigna los datos al conjunto de datos, 
+  this.stackedBarData.datasets[0].data = [nacional, centro, norte, pacifico, sur];
+  this.actualizarGrafico();
+}
+private DatosAmarillos(datos: any){
+  
+  // Asegúrate de que las propiedades sean correctas y coincidan con las reales
+  const nacional = datos[0].multasnas;
+  const norte = datos[2].multasnor;
+  const sur = datos[4].optimaspassur;
+  const centro = datos[1].multascen;
+  const pacifico = datos[3].multaspas;
+  console.log('Estos son los datos que se iran a multas: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
+  // Asigna los datos al conjunto de datos, 
+  this.stackedBarData.datasets[1].data = [nacional, centro, norte, pacifico, sur];
+  this.actualizarGrafico();
+}
+private DatosGrices(datos: any){
+  
+  // Asegúrate de que las propiedades sean correctas y coincidan con las reales
+  const nacional = datos[0].administrativasnas;
+  const norte = datos[2].administrativasnor;
+  const sur = datos[4].administrativassur;
+  const centro = datos[1].administrativascen;
+  const pacifico = datos[3].administrativaspas;
+  console.log('Estos son los datos que se iran a grices: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
+  // Asigna los datos al conjunto de datos, 
+  this.stackedBarData.datasets[3].data = [nacional, centro, norte, pacifico, sur];
+  this.actualizarGrafico();
 }
 
 
