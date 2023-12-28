@@ -299,7 +299,7 @@ private GraficarFijas(datos: any) {
   console.log('Estos son los datos que debe graficar en fijas:', nacional, pacifico, norte, sur, centro);
 
   // Asigna los datos al conjunto de datos
-  this.barChartData2.datasets[0].data = [nacional, pacifico, norte, sur, centro];
+  this.barChartData2.datasets[0].data = [nacional, centro, norte,pacifico, sur];
   this.actualizarGrafico();
 }
 private GraficarMoviles(datos: any) {
@@ -321,7 +321,7 @@ private GraficarMoviles(datos: any) {
   console.log('Estos son los datos que debe graficar en moviles:', nacional, pacifico, norte, sur, centro);
 
   // Asigna los datos al conjunto de datos
-  this.barChartData2.datasets[1].data = [nacional, pacifico, norte, sur, centro];
+  this.barChartData2.datasets[1].data = [nacional, centro, norte,pacifico, sur];
   this.actualizarGrafico();
 }
 
