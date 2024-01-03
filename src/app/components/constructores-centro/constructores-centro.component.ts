@@ -13,6 +13,8 @@ import { ZonaPasificoService } from 'src/app/services/zona-pasifico.service';
 export class ConstructoresCentroComponent implements OnInit{
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
+suma = 0;
+
   constructor(public perPlan:ZonaPasificoService,private router: Router){}
   ngOnInit(): void {
     this.obtenerNacional();

@@ -171,7 +171,7 @@ export class ConstructoresPacificoComponent implements OnInit {
       err => console.log(err)
     );
   }
-
+ 
   ontenerZonas() {
     this.perPlan.conteoZon().subscribe(
       res => this.perPlan.zonasConteo = res,
