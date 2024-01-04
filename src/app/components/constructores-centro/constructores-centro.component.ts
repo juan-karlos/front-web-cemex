@@ -1,140 +1,196 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { ChartConfiguration, ChartData, ChartEvent, ChartType, Color, Colors } from 'chart.js';
-import { BaseChartDirective} from 'ng2-charts';
+import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
+import { BaseChartDirective } from 'ng2-charts';
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 import { ZonaPasificoService } from 'src/app/services/zona-pasifico.service';
+import { HistorialService } from 'src/app/services/historial.service';
+import { LogicaService } from 'src/app/services/logica.service';
 
 @Component({
   selector: 'app-constructores-centro',
   templateUrl: './constructores-centro.component.html',
   styleUrls: ['./constructores-centro.component.css']
 })
-export class ConstructoresCentroComponent implements OnInit{
+export class ConstructoresCentroComponent implements OnInit {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
-suma = 0;
+  constructor(
+    public perPlan: ZonaPasificoService,
+    private historialService: HistorialService,
+    private logicaService : LogicaService) { }
+   
+  zona: string = "Centro";
+  segmento: string = "Constructores";
+  cumplimientoAnioActual: number[] = new Array(12).fill(0);
+  cumplimientoAnioAnterior: number[] = new Array(12).fill(0);
 
-  constructor(public perPlan:ZonaPasificoService,private router: Router){}
+  public barChartOptions: ChartConfiguration['options'] = {
+    responsive: true,
+    scales: {
+      x: {},
+      y: {
+        min: 10,
+        max: 100
+      },
+    },
+    plugins: {
+      legend: {
+        display: true,
+      },
+      datalabels: {
+        anchor: 'end',
+        align: 'end',
+      },
+    },
+  };
+
+  public barChartOptionsLine: ChartConfiguration['options'] = {
+    responsive: true,
+    scales: {
+      x: {},
+      y: {
+        position: 'left',
+        min: 0,
+        max: 100
+      },
+    },
+    plugins: {
+      legend: {
+        display: true,
+      },
+      datalabels: {
+        anchor: 'end',
+        align: 'end',
+        formatter: (value: any) => {
+          // Asegúrate de que el valor sea un número antes de intentar formatearlo
+          const numericValue = parseFloat(value);
+          return !isNaN(numericValue) ? numericValue.toFixed(2) : 'N/A';
+        },
+      },
+    },
+  };
+
+  
+  public graficalineas: ChartType = 'line';
+  public barChartPlugins = [DataLabelsPlugin];
+
+  public datoslineas: ChartData<'line'> = {
+    labels: ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO', 'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'],
+    datasets: [
+      { data: [], label: (new Date().getFullYear() - 1).toString() },
+      { data: [], label: new Date().getFullYear().toString() },
+    ],
+  };
+
   ngOnInit(): void {
-    this.obtenerNacional();
-    this.obtenerConteo();
+    this.obtenerNacional(this.seg);
+    this.obtenerZonas(this.seg);
+    this.obtenerPorcentajeZonaSegmentos();
+  }
+
+  obtenerHistorial(zona: string, segmento: string, PorcentajeEnTiempoReal: number) {
+    this.historialService.getHistorialZonaSegmento(zona, segmento).subscribe(
+      (datos) => {
+       
+        this.procesarDatosHistorial(datos, this.cumplimientoAnioActual, this.cumplimientoAnioAnterior, PorcentajeEnTiempoReal);
+        this.actualizarGrafico();
+      },
+      (error) => {
+        console.error('Error al obtener el historial:', error);
+      }
+    );
+  }
+ 
+  procesarDatosHistorial(datos: { [key: string]: any }, cumplimientoAnioActual: number[], cumplimientoAnioAnterior: number[], PorcentajeEnTiempoReal: number) {
+    const arrayDeDatos = Object.values(datos);
+    
+    arrayDeDatos.forEach((dato: any) => {
+      const fecha = new Date(dato.fecha);
+      const mes = fecha.getMonth();
+
+      if (fecha.getFullYear() === new Date().getFullYear()) {
+        cumplimientoAnioActual[mes] = parseFloat(dato.cumplimiento);
+    } else if (fecha.getFullYear() === new Date().getFullYear() - 1) {
+        cumplimientoAnioAnterior[mes] = parseFloat(dato.cumplimiento);
+    }
+    });
+    
+    const mesActual = new Date().getMonth();
+    cumplimientoAnioActual[mesActual] = PorcentajeEnTiempoReal;
+
+
+    this.datoslineas.datasets[0].data = [...cumplimientoAnioAnterior];
+    this.datoslineas.datasets[1].data = [...cumplimientoAnioActual];
+  }
+
+  actualizarGrafico() {
+    if (this.chart) {
+      this.chart.chart?.update();
+    }
   }
 
 
-  //Aqui comienzan los metodos para la graficación
-public barChartOptions: ChartConfiguration['options'] = {
-  responsive: true,
-  // We use these empty structures as placeholders for dynamic theming.
-
-  scales: {
-    x: {},
-    y: {
-      min: 10,
-      max: 100
-    },
-  },
-  plugins: {
-    legend: {
-      display: true,
-    },
-    datalabels: {
-      anchor: 'end',
-      align: 'end',
+  obtenerPorcentajeZonaSegmentos(){
+    this.logicaService.getProcentajeCumplimietoZonasSegmentos().subscribe(
       
-    },
-    
-  },
-};
-public barChartOptionsLine: ChartConfiguration['options'] = {
-  responsive: true,
+      (datos) => {
+        console.log
+        ('Esto me devuelve el obtener historial: ', datos);
+       const PorcentajeEnTiempoReal =datos[1].centro
+       this.obtenerHistorial(this.zona, this.segmento, PorcentajeEnTiempoReal);
+       
+
+      },
+      (error) => {
+        console.error('Error al obtener el porcentaje:', error);
+      }
+    )
+  }
+
+
+  obtenerPorcentajeTotalActual(){
+    this.logicaService.getProcentajeCumplimietoZonasSegmentos().subscribe(
+      
+      (datos) => {
+        console.log
+        ('Esto me devuelve el porcentaje de cumplimiento total: ', datos);
+      //  const PorcentajeEnTiempoReal =datos[1].Pacífico
+      //  this.obtenerHistorial(this.zona, this.segmento, PorcentajeEnTiempoReal);
+      },
+      (error) => {
+        console.error('Error al obtener el porcentaje:', error);
+      }
+    )
+  }
+
+  obtenerNacional(segmento:any) {
+    this.perPlan.conteonacional2(segmento).subscribe(
+      (res) => {
+        console.log
+        ('Esto me devuelve el obtener nacional: ', res);
+        this.perPlan.permiso_plan = res
+      },
+      (error) => {
+        console.error('Error que arrja el obtener nacional:', error);
+      }
+    );
+  }
  
-  scales: {
-    x: {},
-    y: {
-      position: 'left',
-      min: 30,
-      max:100
-    },
+  obtenerZonas(segmento:any) {
+    this.perPlan.conteoZon2(segmento).subscribe(
+      (res) => {
+        console.log
+        ('Esto me devuelve el obtener nacional: ', res);
+        this.perPlan.zonasConteo = res
+      },
+      (error) => {
+        console.error('Error que arrja el conteo por zonas:', error);
+      }
+    );
+  }
 
-  },
-  plugins: {
-    legend: {
-      display: true,
-    },
-    datalabels: {
-      anchor: 'end',
-      align: 'end',
-    },
-  },
-};
-
-public barChartType: ChartType = 'bar';
-public graficalineas: ChartType = 'line';
-public barChartPlugins = [DataLabelsPlugin];
-
-
-
-
-
-public barChartData: ChartData<'bar'> = {
-  labels: ['NACIONAL', 'CENTRO', 'NORESTE', 'PACIFICO', 'SURESTE'],
-  datasets: [
-    { 
-      data: [23, 59, 80, 81, 56], 
-      label: new Date().toLocaleString('default', { month: 'long' }),  // Mes actual
-      backgroundColor: '#0048FB'
-    },
-    { 
-      data: [28, 48, 40, 19, 86], 
-      label: (() => {
-        const currentDate = new Date();
-        currentDate.setMonth(currentDate.getMonth() - 1);
-        return currentDate.toLocaleString('default', { month: 'long' });
-      })() // Mes anterior
-    },
-  ],
-};
-public barChartData2: ChartData<'bar'> = {
-  labels: ['NACIONAL', 'CENTRO', 'NORESTE', 'PACIFICO', 'SURESTE'],
-  datasets: [
-    { 
-      data: [65, 59, 56, 55, 40], 
-      label: new Date().toLocaleString('default', { month: 'long' }),  // Mes actual
-      backgroundColor: '#0048FB'
-    },
-    { 
-      data: [40, 19, 86, 27, 90], 
-      label: (() => {
-        const currentDate = new Date();
-        currentDate.setMonth(currentDate.getMonth() - 1);
-        return currentDate.toLocaleString('default', { month: 'long' });
-      })() // Mes anterior
-    },
-  ],
-};
-
-public datoslineas: ChartData<'line'> = {
-  labels: ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO', 'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'],
-  datasets: [
-    { data: [56, 60, 70, 70, 75, 77, 78, 74, 78, 80, 82, 83], label: (new Date().getFullYear() - 1).toString() },
-    { data: [64, 71, 74, 74, 77, 78, 82, 76, 73, 87, 89, 84], label: new Date().getFullYear().toString() },
-  ],
-};
-
-
-obtenerNacional(){
-  this.perPlan.conteonacional().subscribe(
-    res=>this.perPlan.permiso_plan=res,
-    err=>console.log(err)
-  )
-}
-obtenerConteo(){
-  this.perPlan.conteoZon().subscribe(
-   res=>this.perPlan.zonasConteo=res,
-   err=>console.log(err)
-  )
-
-}
-
+  seg = {
+    "segmento":"Constructores"
+  }
 }

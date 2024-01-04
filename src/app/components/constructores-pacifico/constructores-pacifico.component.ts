@@ -84,10 +84,9 @@ export class ConstructoresPacificoComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.obtenerNacional();
-    this.ontenerZonas();
-   
-   this.obtenerPorcentajeZonaSegmentos();
+    this.obtenerNacional(this.seg);
+    this.obtenerZonas(this.seg);
+    this.obtenerPorcentajeZonaSegmentos();
   }
 
   obtenerHistorial(zona: string, segmento: string, PorcentajeEnTiempoReal: number) {
@@ -165,17 +164,33 @@ export class ConstructoresPacificoComponent implements OnInit {
     )
   }
 
-  obtenerNacional() {
-    this.perPlan.conteonacional().subscribe(
-      res => this.perPlan.permiso_plan = res,
-      err => console.log(err)
+  obtenerNacional(segmento:any) {
+    this.perPlan.conteonacional2(segmento).subscribe(
+      (res) => {
+        console.log
+        ('Esto me devuelve el obtener nacional: ', res);
+        this.perPlan.permiso_plan = res
+      },
+      (error) => {
+        console.error('Error que arrja el obtener nacional:', error);
+      }
     );
   }
  
-  ontenerZonas() {
-    this.perPlan.conteoZon().subscribe(
-      res => this.perPlan.zonasConteo = res,
-      err => console.log(err)
+  obtenerZonas(segmento:any) {
+    this.perPlan.conteoZon2(segmento).subscribe(
+      (res) => {
+        console.log
+        ('Esto me devuelve el obtener nacional: ', res);
+        this.perPlan.zonasConteo = res
+      },
+      (error) => {
+        console.error('Error que arrja el conteo por zonas:', error);
+      }
     );
+  }
+
+  seg = {
+    "segmento":"Constructores"
   }
 }
