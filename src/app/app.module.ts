@@ -141,6 +141,7 @@ import { PlanmobilactivoComponent } from './components/planmobilactivo/planmobil
 import { PlanmobilinactivoComponent } from './components/planmobilinactivo/planmobilinactivo.component';
 import { ActualizarRegistroComponent } from './components/actualizar-registro/actualizar-registro.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { RegistrarUsuarioComponent } from './components/registrar-usuario/registrar-usuario.component';
 
 @NgModule({
   declarations: [
@@ -266,6 +267,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     PlanmobilactivoComponent,
     PlanmobilinactivoComponent,
     ActualizarRegistroComponent,
+    RegistrarUsuarioComponent,
     
     
   ],
