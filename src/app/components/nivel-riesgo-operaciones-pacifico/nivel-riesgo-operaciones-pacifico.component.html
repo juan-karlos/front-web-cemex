@@ -19,7 +19,7 @@
     </div>
   </nav>
 
-  <h1 id="titulo">Operaciones Zona PACÍFICO - Estatus por unidad operativa</h1>
+  <h1 id="titulo">Operaciones Zona PACIFICO - Estatus por unidad operativa</h1>
   <!-- <h2 id="subtitulo">74% Cumplimiento CERO; 26 UUNN en riesgo de clausura, 8 en riesgo de multa y 3 optimas.</h2> -->
 
 </header>
@@ -30,119 +30,108 @@
     <a style="font-size: 32px; font-weight: bold;">RIESGO DE</a>
     <a style="font-size: 32px; font-weight: bold; color: crimson;"> CLAUSURA</a>
     <br><br><br>
-    <table class="table table-hover">
-        <thead class="table-dark">
-          <tr>
-            <th scope="col">Planta</th>
-            <th scope="col">Area de oportunidad</th>
-            <th scope="col">%</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">PD0063 XALOSTOC, EDOMEX</th>
-            <td>ARME/AFRA/PPC</td>
-            <td>67</td>
+   
+      <div class="tabla">
+        <table class="table" style="font-size: 12px;">
+          <thead class="table-dark">
+            <tr>
+              <tr>
+                <th scope="col">Planta</th>
+                <th scope="col">Area de oportunidad</th>
+                <th scope="col">%</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let clausura of logicaService.DatosRiesgoClausura">
+              <td>{{clausura.nombre_planta}}</td>
+              <td>{{clausura.siglas}}</td>
+              <td>{{ clausura.porcentaje_cumplimiento | number:'1.2-2' }}</td>
+             
+            </tr>
 
-          </tr>
-          <tr>
-            <th scope="row">PD0063 SAHAGUN, HGO</th>
-            <td>ARME/AFRA/PPC</td>
-            <td>68</td>
-
-          </tr>
-          <tr>
-            <th scope="row">PD0067 VALLEJO, DF</th>
-            <td>ARME/AFRA/PPC</td>
-            <td>73</td>
-
-          </tr>
-
-
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
 </div>
 <div class="contenedor-tabla">
     <a style="font-size: 32px; font-weight: bold;">RIESGO DE</a>
     <a style="font-size: 32px; font-weight: bold; color: rgb(220, 220, 20);"> MULTA</a>
     <br><br><br>
-    <table class="table table-hover">
+    <div class="tabla">
+      <table class="table" style="font-size: 12px;">
         <thead class="table-dark">
           <tr>
-            <th scope="col">Planta</th>
-            <th scope="col">Area de oportunidad</th>
-            <th scope="col">%</th>
-          </tr>
+            <tr>
+              <th scope="col">Planta</th>
+              <th scope="col">Area de oportunidad</th>
+              <th scope="col">%</th>
+            </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">PD0063 XALOSTOC, EDOMEX</th>
-            <td>ARME/AFRA/PPC</td>
-            <td>67</td>
-
-          </tr>
-          <tr>
-            <th scope="row">PD0063 SAHAGUN, HGO</th>
-            <td>ARME/AFRA/PPC</td>
-            <td>68</td>
-
-          </tr>
-          <tr>
-            <th scope="row">PD0067 VALLEJO, DF</th>
-            <td>ARME/AFRA/PPC</td>
-            <td>73</td>
-
+          <tr *ngFor="let multa of logicaService.DatosRiesgoMulta">
+            <td>{{multa.nombre_planta}}</td>
+            <td>{{multa.siglas}}</td>
+            <td>{{ multa.porcentaje_cumplimiento | number:'1.2-2' }}</td>
+           
           </tr>
 
         </tbody>
       </table>
+    </div>
 </div>
+
+<div class="contenedor-tabla">
+  
+  <a style="font-size: 32px; font-weight: bold; color: rgb(120, 120, 120);">ADMINISTRATIVO</a>
+  <br><br><br>
+ 
+    <div class="tabla">
+      <table class="table" style="font-size: 12px;">
+        <thead class="table-dark">
+          <tr>
+            <tr>
+              <th scope="col">Planta</th>
+              <th scope="col">Area de oportunidad</th>
+              <th scope="col">%</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let admin of logicaService.DatosRiesgoAdmin">
+            <td>{{admin.nombre_planta}}</td>
+            <td>{{admin.siglas}}</td>
+            <td>{{ admin.porcentaje_cumplimiento | number:'1.2-2' }}</td>
+           
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+</div>
+
 <div class="contenedor-tabla">
     <a style="font-size: 32px; font-weight: bold;">OPTIMA</a>
     <br><br><br>
-    <table class="table table-hover">
+    
+    <div class="tabla">
+      <table class="table" style="font-size: 12px;">
         <thead class="table-dark">
           <tr>
-            <th scope="col">Planta</th>
-            <th scope="col">Area de oportunidad</th>
-            <th scope="col">%</th>
-          </tr>
+            <tr>
+              <th scope="col">Planta</th>
+              <th scope="col">Area de oportunidad</th>
+              <th scope="col">%</th>
+            </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">PD0063 XALOSTOC, EDOMEX</th>
-            <td>ARME/AFRA/PPC</td>
-            <td>67</td>
-
+          <tr *ngFor="let optima of logicaService.DatosOptimas">
+            <td>{{optima.nombre_planta}}</td>
+            <td>{{optima.siglas}}</td>
+            <td>{{optima.porcentaje_cumplimiento | number:'1.2-2' }}</td>
           </tr>
-          <tr>
-            <th scope="row">PD0063 SAHAGUN, HGO</th>
-            <td>ARME/AFRA/PPC</td>
-            <td>68</td>
-
-          </tr>
-          <tr>
-            <th scope="row">PD0067 VALLEJO, DF</th>
-            <td>ARME/AFRA/PPC</td>
-            <td>73</td>
-
-          </tr>
-          <tr>
-            <th scope="row">PD0063 XALOSTOC, EDOMEX</th>
-            <td>ARME/AFRA/PPC</td>
-            <td>67</td>
-
-          </tr>
-          <tr>
-            <th scope="row">PD0063 SAHAGUN, HGO</th>
-            <td>ARME/AFRA/PPC</td>
-            <td>68</td>
-
-          </tr>
-
 
         </tbody>
       </table>
+    </div>
 </div>
 
 </body>
