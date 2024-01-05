@@ -60,10 +60,23 @@ plantsur:number
 plantasgen:number
 }
 export interface zonas{
-  Centro: String,
+    Centro: String,
     Noreste: String,
     Pasifico:String,
     Sureste:String,
     total: String
+}
+
+export interface riesgo{
+  nombre_planta: String,
+  siglas: String,
+  impacto:String,
+  estatus: String,
+  porcentaje_cumplimiento: number
+}
+export interface optimas{
+  nombre_planta: String,
+  siglas: String,
+  porcentaje_cumplimiento: number
 }
 
