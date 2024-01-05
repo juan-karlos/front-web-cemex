@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { riesgo } from '../components/models/tablas';
+import { optimas } from '../components/models/tablas';
 @Injectable({
   providedIn: 'root'
 })
@@ -8,9 +9,15 @@ export class LogicaService {
  URL_API='http://localhost:3200/api/logica';
 
 
+
+ DatosRiesgoMulta:riesgo[]=[];
+ DatosRiesgoClausura:riesgo[]=[];
+ DatosRiesgoAdmin:riesgo[]=[]
+ DatosOptimas:optimas[]=[];
+
+ 
+
   constructor(private http:HttpClient) { }
-
-
 
 
   getPesoEnPorcentajeEstatus(nomPlanta: string, estatus: string) {
@@ -37,5 +44,11 @@ export class LogicaService {
       return this.http.get<any>(`${this.URL_API}/moviles`);
   }
 
+  getDatosRiesgo(cuerpo:any){
+      return this.http.post<any>(`${this.URL_API}/vencidas`, cuerpo)
+  }
+  getDatosOptimas(cuerpo:any){
+    return this.http.post<any>(`${this.URL_API}/vigentes`, cuerpo)
+}
 
 }
