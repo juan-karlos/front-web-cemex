@@ -282,7 +282,7 @@ private Moviles() {
 
 private GraficarFijas(datos: any) {
   // Busca el objeto con la zona específica
-  const pacificoData = datos.find((item: any) => item.zona === 'Pacífico');
+  const pacificoData = datos.find((item: any) => item.zona === 'Pacifico');
   const centroData = datos.find((item: any) => item.zona === 'Centro');
   const norteData = datos.find((item: any) => item.zona === 'Noreste');
   const surData = datos.find((item: any) => item.zona === 'Sureste');

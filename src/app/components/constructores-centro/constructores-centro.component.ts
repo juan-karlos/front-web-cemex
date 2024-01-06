@@ -181,7 +181,7 @@ export class ConstructoresCentroComponent implements OnInit {
     this.perPlan.conteoZon2(segmento).subscribe(
       (res) => {
         console.log
-        ('Esto me devuelve el obtener nacional: ', res);
+        ('Esto me devuelve el obtener zonas: ', res);
         this.perPlan.zonasConteo = res
       },
       (error) => {
