@@ -26,7 +26,7 @@ export class NivelRiesgoPromexmaNoresteComponent implements OnInit{
   cuerpoRiesgoClausura={
     "zona":this.zona,
     "segmento":this.segmento,
-    "impacto":"Clausura"
+    "impacto":"Clausura Total"
   }
   
   cuerpoRiesgoMulta={
@@ -76,7 +76,7 @@ export class NivelRiesgoPromexmaNoresteComponent implements OnInit{
       (res) => {
         console.log
         ('Esto me devuelve el metodo datos riesgo admin: ', res);
-        this.logicaService.DatosRiesgoAdmin = res
+        this.logicaService.DatosRiesgoAdmin = this.procesarDatos(res);
       },
       (error) => {
         console.error('Error que arrja el obtener nacional:', error);
@@ -89,7 +89,7 @@ export class NivelRiesgoPromexmaNoresteComponent implements OnInit{
       (res) => {
         console.log
         ('Esto me devuelve el metodo datos optimas: ', res);
-        this.logicaService.DatosOptimas = res
+        this.logicaService.DatosOptimas = this.procesarDatos(res);
       },
       (error) => {
         console.error(error);
