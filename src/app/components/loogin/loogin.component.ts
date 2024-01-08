@@ -8,9 +8,15 @@ import {UsuariosService} from 'src/app/services/usuarios.service';
 })
 export class LooginComponent implements OnInit{
 
+  
+  correo: string = '';
+  password: string = '';
+
+
 constructor(private router: Router,private usuarios:UsuariosService){}
+
 ngOnInit(){
-  this.obtenerUsuario();
+
 }
 obtenerUsuario(){
   this.usuarios.obtenerUsuario().subscribe(
@@ -19,7 +25,11 @@ obtenerUsuario(){
     }
   )
 }
+
 IniciarSesion(){
   this.router.navigate(['inicio']);
+}
+Registrarse(){
+  this.router.navigate(['registrar-usuario']);
 }
 }

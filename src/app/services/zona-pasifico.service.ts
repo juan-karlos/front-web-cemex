@@ -11,21 +11,6 @@ export class ZonaPasificoService {
   permiso_plan:conteo[]=[]
   zonasConteo:zonas[]=[]
 
-  requerimineto:conteo={
-    nombre:"",
-    plantaspas:0,
-    plantascen:0,
-    plantnor:0,
-    plantsur:0,
-    plantasgen:0
-  }
-  conteo:zonas={
-    Centro:  "",
-    Noreste: "",
-    Pasifico:"",
-    Sureste: "",
-    total:   ""
-  }
 
 
   constructor(private http:HttpClient){  }

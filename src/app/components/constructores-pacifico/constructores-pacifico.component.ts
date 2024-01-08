@@ -20,7 +20,7 @@ export class ConstructoresPacificoComponent implements OnInit {
     private historialService: HistorialService,
     private logicaService : LogicaService) { }
    
-  zona: string = "Pacífico";
+  zona: string = "Pacifico";
   segmento: string = "Constructores";
   cumplimientoAnioActual: number[] = new Array(12).fill(0);
   cumplimientoAnioAnterior: number[] = new Array(12).fill(0);
@@ -168,7 +168,7 @@ export class ConstructoresPacificoComponent implements OnInit {
     this.perPlan.conteonacional2(segmento).subscribe(
       (res) => {
         console.log
-        ('Esto me devuelve el obtener nacional: ', res);
+        ('Esto debe pintar la tabla de arriba: ', res);
         this.perPlan.permiso_plan = res
       },
       (error) => {
@@ -181,7 +181,7 @@ export class ConstructoresPacificoComponent implements OnInit {
     this.perPlan.conteoZon2(segmento).subscribe(
       (res) => {
         console.log
-        ('Esto me devuelve el obtener nacional: ', res);
+        ('Esto debe pintar la tabla de abajo: ', res);
         this.perPlan.zonasConteo = res
       },
       (error) => {
