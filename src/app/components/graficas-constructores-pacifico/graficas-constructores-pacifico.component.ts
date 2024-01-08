@@ -20,7 +20,7 @@ export class GraficasConstructoresPacificoComponent implements OnInit {
   @ViewChild('chart2') chart2: BaseChartDirective | undefined;
   @ViewChild('chart3') chart3: BaseChartDirective | undefined;
 
-  zona: string = "Pacífico";
+  zona: string = "Pacifico";
   segmento: string = "Constructores";
   cumplimientomesanterior: number[] = new Array(4).fill(0);
   seg = {
@@ -76,7 +76,7 @@ public stackedBarChartOptions: ChartConfiguration['options'] = {
     x: {stacked: true},
     y: {
       min: 0,
-      max: 150,
+      max: 200,
       stacked: true
     },
   },
@@ -217,7 +217,7 @@ actualizarGrafica1mesactualConDatos(datos: any) {
   const sur = datos[1].Sureste;
   const centro = datos[1].Centro;
   const nacional = ((pacifico+centro+sur+norte)/4);
-  console.log('Estos son los datos quese deberian actualizar en el mes actual: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
+  console.log('555 Estos son los datos quese deberian actualizar en el mes actual: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
   // Asigna los datos al conjunto de datos, 
   this.barChartData.datasets[1].data = [nacional, centro, norte, pacifico, sur];
   this.actualizarGrafico();
@@ -228,7 +228,7 @@ actualizarGrafica1mesAnteriorConDatos(datos: any) {
   console.log('estos son los atosque se recben del mes pasado', datos);
 
   // Asegúrate de que las propiedades sean correctas y coincidan con las reales
-  const pacificoData = datos.find((item: any) => item.zona === 'Pacífico');
+  const pacificoData = datos.find((item: any) => item.zona === 'Pacifico');
   const centroData = datos.find((item: any) => item.zona === 'Centro');
   const norteData = datos.find((item: any) => item.zona === 'Noreste');
   const surData = datos.find((item: any) => item.zona === 'Sureste');
@@ -282,7 +282,7 @@ private Moviles() {
 
 private GraficarFijas(datos: any) {
   // Busca el objeto con la zona específica
-  const pacificoData = datos.find((item: any) => item.zona === 'Pacífico');
+  const pacificoData = datos.find((item: any) => item.zona === 'Pacifico');
   const centroData = datos.find((item: any) => item.zona === 'Centro');
   const norteData = datos.find((item: any) => item.zona === 'Noreste');
   const surData = datos.find((item: any) => item.zona === 'Sureste');
@@ -304,7 +304,7 @@ private GraficarFijas(datos: any) {
 }
 private GraficarMoviles(datos: any) {
   // Busca el objeto con la zona específica
-  const pacificoData = datos.find((item: any) => item.zona === 'Pacífico');
+  const pacificoData = datos.find((item: any) => item.zona === 'Pacifico');
   const centroData = datos.find((item: any) => item.zona === 'Centro');
   const norteData = datos.find((item: any) => item.zona === 'Noreste');
   const surData = datos.find((item: any) => item.zona === 'Sureste');
