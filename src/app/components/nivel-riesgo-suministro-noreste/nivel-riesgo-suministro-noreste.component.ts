@@ -26,7 +26,7 @@ export class NivelRiesgoSuministroNoresteComponent implements OnInit{
   cuerpoRiesgoClausura={
     "zona":this.zona,
     "segmento":this.segmento,
-    "impacto":"Clausura"
+    "impacto":"Clausura Total"
   }
   
   cuerpoRiesgoMulta={
@@ -48,13 +48,15 @@ export class NivelRiesgoSuministroNoresteComponent implements OnInit{
 
 
   datosRiesgoClausura(cuerpo: any) {
+    console.log('esto es lo que esta mandando como body el clausura', cuerpo)
     this.logicaService.getDatosRiesgo(cuerpo).subscribe(
+      
       (res) => {
         console.log('Esto me devuelve el metodo datos riesgo clausura: ', res);
         this.logicaService.DatosRiesgoClausura = this.procesarDatos(res);
       },
       (error) => {
-        console.error('Error que arroja el obtener nacional:', error);
+        console.error('Error que arroja el obtener CLAUSURA:', error);
       }
     );
   }
@@ -66,7 +68,7 @@ export class NivelRiesgoSuministroNoresteComponent implements OnInit{
         this.logicaService.DatosRiesgoMulta = this.procesarDatos(res);
       },
       (error) => {
-        console.error('Error que arroja el obtener nacional:', error);
+        console.error('Error que arroja el obtener MULTA:', error);
       }
     );
   }
@@ -76,10 +78,10 @@ export class NivelRiesgoSuministroNoresteComponent implements OnInit{
       (res) => {
         console.log
         ('Esto me devuelve el metodo datos riesgo admin: ', res);
-        this.logicaService.DatosRiesgoAdmin = res
+        this.logicaService.DatosRiesgoAdmin = this.procesarDatos(res);
       },
       (error) => {
-        console.error('Error que arrja el obtener nacional:', error);
+        console.error('Error que arrja el obtener ADMIN:', error);
       }
     );
   }
@@ -89,7 +91,7 @@ export class NivelRiesgoSuministroNoresteComponent implements OnInit{
       (res) => {
         console.log
         ('Esto me devuelve el metodo datos optimas: ', res);
-        this.logicaService.DatosOptimas = res
+        this.logicaService.DatosOptimas = this.procesarDatos(res);
       },
       (error) => {
         console.error(error);

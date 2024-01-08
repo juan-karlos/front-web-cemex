@@ -76,7 +76,7 @@ public stackedBarChartOptions: ChartConfiguration['options'] = {
     x: {stacked: true},
     y: {
       min: 0,
-      max: 150,
+      max: 200,
       stacked: true
     },
   },
@@ -228,7 +228,7 @@ actualizarGrafica1mesAnteriorConDatos(datos: any) {
   console.log('estos son los atosque se recben del mes pasado', datos);
 
   // Asegúrate de que las propiedades sean correctas y coincidan con las reales
-  const pacificoData = datos.find((item: any) => item.zona === 'Pacífico');
+  const pacificoData = datos.find((item: any) => item.zona === 'Pacifico');
   const centroData = datos.find((item: any) => item.zona === 'Centro');
   const norteData = datos.find((item: any) => item.zona === 'Noreste');
   const surData = datos.find((item: any) => item.zona === 'Sureste');
@@ -282,7 +282,7 @@ private Moviles() {
 
 private GraficarFijas(datos: any) {
   // Busca el objeto con la zona específica
-  const pacificoData = datos.find((item: any) => item.zona === 'Pacífico');
+  const pacificoData = datos.find((item: any) => item.zona === 'Pacifico');
   const centroData = datos.find((item: any) => item.zona === 'Centro');
   const norteData = datos.find((item: any) => item.zona === 'Noreste');
   const surData = datos.find((item: any) => item.zona === 'Sureste');
@@ -304,7 +304,7 @@ private GraficarFijas(datos: any) {
 }
 private GraficarMoviles(datos: any) {
   // Busca el objeto con la zona específica
-  const pacificoData = datos.find((item: any) => item.zona === 'Pacífico');
+  const pacificoData = datos.find((item: any) => item.zona === 'Pacifico');
   const centroData = datos.find((item: any) => item.zona === 'Centro');
   const norteData = datos.find((item: any) => item.zona === 'Noreste');
   const surData = datos.find((item: any) => item.zona === 'Sureste');

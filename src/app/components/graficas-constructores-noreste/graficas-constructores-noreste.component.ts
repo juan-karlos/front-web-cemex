@@ -76,7 +76,7 @@ public stackedBarChartOptions: ChartConfiguration['options'] = {
     x: {stacked: true},
     y: {
       min: 0,
-      max: 150,
+      max: 200,
       stacked: true
     },
   },
