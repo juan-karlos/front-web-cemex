@@ -162,7 +162,7 @@ private DatosAmarillos(datos: any){
   // Asegúrate de que las propiedades sean correctas y coincidan con las reales
   const nacional = datos[0].multasnas;
   const norte = datos[2].multasnor;
-  const sur = datos[4].optimaspassur;
+  const sur = datos[4].multaspassur;
   const centro = datos[1].multascen;
   const pacifico = datos[3].multaspas;
   console.log('Estos son los datos que se iran a multas: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
