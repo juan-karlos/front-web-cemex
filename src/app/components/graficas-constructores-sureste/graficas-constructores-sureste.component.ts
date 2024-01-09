@@ -136,7 +136,7 @@ private DatosVerdes(datos: any){
   // Asegúrate de que las propiedades sean correctas y coincidan con las reales
   const nacional = datos[0].optimasnas;
   const norte = datos[2].optimasnor;
-  const sur = datos[4].optimaspassur;
+  const sur = datos[4].multaspassur;
   const centro = datos[1].optimascen;
   const pacifico = datos[3].optimaspas;
   console.log('Estos son los datos que se iran a optimas: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
