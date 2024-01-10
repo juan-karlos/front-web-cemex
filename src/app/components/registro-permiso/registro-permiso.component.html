@@ -54,21 +54,17 @@
           <tbody>
 
             <tr *ngFor="let Registro of registro.Registro | filtroPlanta:filterPost">
-            <!-- <tr *ngFor="let Planta of unidad.Plantas"> -->
               <td>{{Registro.id_registro}}</td>
               <td>{{Registro.nombre_planta}}</td>
               <td>{{Registro.nombre_requerimiento}}</td>
               <td>{{recortarTexto(Registro.fecha_inicio, 10)}}</td>
               <td>{{recortarTexto(Registro.fecha_vencimiento, 10)}}</td>
-              <td>{{Registro.observaciones}}</td>
+              <td [innerHTML]="formatearObservaciones(Registro.observaciones)"></td>
               <td>{{Registro.estatus}}</td>
               <td>{{Registro.url}}</td>
-
               <td>
                 <button class="btn btn-primary" (click)="Actualizar(Registro.id_registro)"><i class="material-icons">edit</i></button>
-
               </td>
-
             </tr>
 
 

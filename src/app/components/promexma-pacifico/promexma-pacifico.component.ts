@@ -137,7 +137,7 @@ export class PromexmaPacificoComponent implements OnInit {
       (datos) => {
         console.log
         ('Esto me devuelve el obtener historial: ', datos);
-       const PorcentajeEnTiempoReal =datos[5].Pacifico;
+       const PorcentajeEnTiempoReal =datos[5].Pacífico;
        this.obtenerHistorial(this.zona, this.segmento, PorcentajeEnTiempoReal);
       },
       (error) => {

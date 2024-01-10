@@ -21,7 +21,7 @@ export class NoOperativosPacificoComponent implements OnInit {
     private logicaService : LogicaService) { }
    
   zona: string = "Pacifico";
-  segmento: string = "Inmuebles no opertivos";
+  segmento: string = "Inmuebles No Operativos";
   cumplimientoAnioActual: number[] = new Array(12).fill(0);
   cumplimientoAnioAnterior: number[] = new Array(12).fill(0);
 
@@ -137,8 +137,10 @@ export class NoOperativosPacificoComponent implements OnInit {
       (datos) => {
         console.log
         ('Esto me devuelve el obtener historial: ', datos);
-       const PorcentajeEnTiempoReal =datos[3].Pacífico;
+       const PorcentajeEnTiempoReal =datos[3].Pacífico
        this.obtenerHistorial(this.zona, this.segmento, PorcentajeEnTiempoReal);
+       
+
       },
       (error) => {
         console.error('Error al obtener el porcentaje:', error);
@@ -179,7 +181,7 @@ export class NoOperativosPacificoComponent implements OnInit {
     this.perPlan.conteoZon2(segmento).subscribe(
       (res) => {
         console.log
-        ('Esto me devuelve el obtener nacional: ', res);
+        ('Esto me devuelve el obtener zonas: ', res);
         this.perPlan.zonasConteo = res
       },
       (error) => {
@@ -189,6 +191,6 @@ export class NoOperativosPacificoComponent implements OnInit {
   }
 
   seg = {
-    "segmento":"Inmuebles no opertivos"
+    "segmento":"Inmuebles No Operativos"
   }
 }
