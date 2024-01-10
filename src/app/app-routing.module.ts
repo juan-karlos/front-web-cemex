@@ -118,6 +118,7 @@ import { PlanmobilactivoComponent } from './components/planmobilactivo/planmobil
 import { PlanmobilinactivoComponent } from './components/planmobilinactivo/planmobilinactivo.component';
 import { ActualizarRegistroComponent } from './components/actualizar-registro/actualizar-registro.component';
 import { RegistrarUsuarioComponent } from './components/registrar-usuario/registrar-usuario.component';
+import { DescargaArchivosComponent } from './components/descarga-archivos/descarga-archivos.component';
 
 
 const routes: Routes = [
@@ -244,7 +245,8 @@ const routes: Routes = [
   {path:'planmobilinactivo',component:PlanmobilinactivoComponent},
   {path: 'actualizar-registro', component:ActualizarRegistroComponent},
   {path: 'actualizar-registro/:id_registro', component: ActualizarRegistroComponent },
-  {path: 'registrar-usuario', component: RegistrarUsuarioComponent }
+  {path: 'registrar-usuario', component: RegistrarUsuarioComponent },
+  {path: 'descarga', component: DescargaArchivosComponent },
 ];
 
 @NgModule({
