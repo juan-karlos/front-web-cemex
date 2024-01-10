@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { registro } from '../components/models/tablas';
-import { HttpClient } from '@angular/common/http';
-
+import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
+import { saveAs } from 'file-saver';
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +44,21 @@ validez_unica: true,
   obtenerRiesgo(Segmento: any){
     return this.http.post(`${this.URL_API}/grafica`,Segmento);
   }
-  
+
+
+
+  async descarga(body: any): Promise<void> {
+    try {
+      // Realiza la solicitud de descarga
+      const response: any = await this.http.post(`${this.URL_API}/descargas`, body, { responseType: 'blob' as 'json' }).toPromise();
+
+      // Guarda el archivo ZIP
+      const blob = new Blob([response], { type: 'application/zip' });
+      saveAs(blob, 'descarga-masiva.zip');
+    } catch (error) {
+      console.error('Error al descargar el archivo', error);
+      // Manejar el error según tus necesidades
+    }
+  }
 
 }
