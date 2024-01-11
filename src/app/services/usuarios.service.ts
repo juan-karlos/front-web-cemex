@@ -24,8 +24,8 @@ ClienteSelect :usuario={
     return this.http.get<usuario[]>(this.URL_API);
   }
   
-  iniciarSesion(correo: string, password: string) {
+  iniciarSesion(body:any) {
     // Enviar solicitud HTTP al backend para iniciar sesión (cambiado a método POST)
-    return this.http.post<any>(`${this.URL_API}comparacion`, { correo, password });
+    return this.http.post<any>(`${this.URL_API}comparacion`, body);
   }
 }

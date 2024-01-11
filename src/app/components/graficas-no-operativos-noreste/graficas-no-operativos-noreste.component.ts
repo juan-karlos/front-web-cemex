@@ -21,10 +21,10 @@ export class GraficasNoOperativosNoresteComponent implements OnInit {
   @ViewChild('chart3') chart3: BaseChartDirective | undefined;
 
   zona: string = "Noreste";
-  segmento: string = "Inmuebles no operativos";
+  segmento: string = "Inmuebles No Operativos";
   cumplimientomesanterior: number[] = new Array(4).fill(0);
   seg = {
-    "segmento":"Inmuebles no operativos"
+    "segmento":"Inmuebles No Operativos"
   }
   
 
