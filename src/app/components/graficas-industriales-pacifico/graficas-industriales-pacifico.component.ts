@@ -24,7 +24,7 @@ export class GraficasIndustrialesPacificoComponent implements OnInit {
   segmento: string = "Industriales";
   cumplimientomesanterior: number[] = new Array(4).fill(0);
   seg = {
-    "segmento":"Pacifico"
+    "segmento":"Industriales"
   }
   
 
