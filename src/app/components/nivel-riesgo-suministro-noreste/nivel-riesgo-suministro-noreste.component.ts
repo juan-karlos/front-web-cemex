@@ -111,7 +111,7 @@ export class NivelRiesgoSuministroNoresteComponent implements OnInit{
         plantas.set(nombrePlanta, {
           nombre_planta: nombrePlanta,
           siglas: dato.siglas,
-          porcentaje_cumplimiento: dato.porcentaje_cumplimiento
+          porcentaje_cumplimiento: this.validarNumero(dato.porcentaje_cumplimiento)
         });
       } else {
         const plantaExistente = plantas.get(nombrePlanta);
@@ -121,6 +121,10 @@ export class NivelRiesgoSuministroNoresteComponent implements OnInit{
     });
 
     return Array.from(plantas.values());
+  }
+  private validarNumero(valor: any): number {
+    // Verificar si el valor es NaN y devolver 0 en ese caso
+    return isNaN(valor) ? 0 : parseFloat(valor);
   }
 
 
