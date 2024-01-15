@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import {UsuariosService} from 'src/app/services/usuarios.service';
 import Swal from 'sweetalert2';
 @Component({
@@ -15,7 +16,7 @@ export class LooginComponent implements OnInit{
     "correo":"",
     "password":"",
   }
-constructor(private router: Router,private usuarios:UsuariosService){}
+constructor(private router: Router,private usuarios:UsuariosService,private cookieService: CookieService){}
 
 ngOnInit(){
 
@@ -45,7 +46,9 @@ IniciarSesion() {
   this.usuarios.iniciarSesion(this.body).subscribe(
     (res) => {
       console.log('Esto me devuelve: ', res);
+      // console.log('logueado');
       // Aquí podrías redirigir a la vista de inicio si los datos son correctos
+      this.cookieService.set('access_token', res.access_token , 4, '/');
       this.router.navigate(['inicio']);
     },
     (error) => {
