@@ -143,6 +143,7 @@ import { ActualizarRegistroComponent } from './components/actualizar-registro/ac
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { RegistrarUsuarioComponent } from './components/registrar-usuario/registrar-usuario.component';
 import { DescargaArchivosComponent } from './components/descarga-archivos/descarga-archivos.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -292,7 +293,7 @@ import { DescargaArchivosComponent } from './components/descarga-archivos/descar
 
   ],
   providers: [
-   
+   CookieService
   ],
   bootstrap: [AppComponent]
 })
