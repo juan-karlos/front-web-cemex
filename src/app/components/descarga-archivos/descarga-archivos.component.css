@@ -188,6 +188,7 @@ height: 100%;
   display: flex;
   flex-direction: row; /* Los divs se colocarán en línea horizontalmente */
   flex-wrap: wrap; /* Los divs se apilarán cuando sea necesario */
+ 
 }
 
 .div1, .div2 {
