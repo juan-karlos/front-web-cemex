@@ -47,17 +47,17 @@ validez_unica: true,
 
 
 
-  async descarga(body: any): Promise<void> {
+  async descarga(body: any): Promise<any> {
     try {
       // Realiza la solicitud de descarga
       const response: any = await this.http.post(`${this.URL_API}/descargas`, body, { responseType: 'blob' as 'json' }).toPromise();
-
-      // Guarda el archivo ZIP
-      const blob = new Blob([response], { type: 'application/zip' });
-      saveAs(blob, 'descarga-masiva.zip');
-    } catch (error) {
-      console.error('Error al descargar el archivo', error);
-      // Manejar el error según tus necesidades
+      
+      // Devolver la respuesta para que el componente pueda manejarla
+      return response;
+    } catch (err) {
+      console.error('Error al descargar el archivo', err);
+      // Relanzar el error para que el componente pueda manejarlo
+      throw err;
     }
   }
 
