@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
 
 
 import { LooginComponent } from './components/loogin/loogin.component';
@@ -137,6 +137,14 @@ import { Moment } from 'moment';
 import { PlantasInactivasComponent } from './components/plantas-inactivas/plantas-inactivas.component';
 import { AgregarRequerimientoComponent } from './components/agregar-requerimiento/agregar-requerimiento.component';
 import { ActualizarRequerimientoComponent } from './components/actualizar-requerimiento/actualizar-requerimiento.component';
+import { PlanmobilactivoComponent } from './components/planmobilactivo/planmobilactivo.component';
+import { PlanmobilinactivoComponent } from './components/planmobilinactivo/planmobilinactivo.component';
+import { ActualizarRegistroComponent } from './components/actualizar-registro/actualizar-registro.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { RegistrarUsuarioComponent } from './components/registrar-usuario/registrar-usuario.component';
+import { DescargaArchivosComponent } from './components/descarga-archivos/descarga-archivos.component';
+import { CookieService } from 'ngx-cookie-service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -258,6 +266,11 @@ import { ActualizarRequerimientoComponent } from './components/actualizar-requer
     PlantasInactivasComponent,
     AgregarRequerimientoComponent,
     ActualizarRequerimientoComponent,
+    PlanmobilactivoComponent,
+    PlanmobilinactivoComponent,
+    ActualizarRegistroComponent,
+    RegistrarUsuarioComponent,
+    DescargaArchivosComponent,
     
     
   ],
@@ -275,12 +288,12 @@ import { ActualizarRequerimientoComponent } from './components/actualizar-requer
     MatNativeDateModule,
     ReactiveFormsModule,
     MatMomentDateModule,
-    MatAutocompleteModule
-
+    MatAutocompleteModule,
+  
 
   ],
   providers: [
-   
+   CookieService
   ],
   bootstrap: [AppComponent]
 })

@@ -9,8 +9,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./actualizar-planta.component.css']
 })
 export class ActualizarPlantaComponent implements OnInit {
-  itemId!: number;
-  datos: any;
+  datos: any;itemId!: number;
+  
   FormRegistro: any;
   nombre_planta!: string
   segmento!: string

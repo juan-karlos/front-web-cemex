@@ -21,8 +21,6 @@
 
   </header>
   <body>
-
-
     <div class="contenedor-tabla">
       <br>
       <div class="col-md-3" style="background-color: rgb(220, 220, 220); padding: .5%; border-radius: 10px;">
@@ -32,12 +30,12 @@
         </form>
       </div>
 
-
       <br><br><br>
+      <h1 id="titulo">(La tabla puede tardar unos segundos en cargar)</h1>
       <table class="table table-hover">
           <thead class="table-dark">
             <tr>
-              <!-- <th scope="col">ID</th> -->
+              <th scope="col">ID</th>
               <th scope="col">Planta</th>
               <th scope="col">Permiso</th>
               <th scope="col">Fecha de inicio</th>
@@ -54,25 +52,17 @@
           <tbody>
 
             <tr *ngFor="let Registro of registro.Registro | filtroPlanta:filterPost">
-            <!-- <tr *ngFor="let Planta of unidad.Plantas"> -->
-              <!-- <td>{{Planta.id_planta}}</td> -->
+              <td>{{Registro.id_registro}}</td>
               <td>{{Registro.nombre_planta}}</td>
               <td>{{Registro.nombre_requerimiento}}</td>
               <td>{{recortarTexto(Registro.fecha_inicio, 10)}}</td>
               <td>{{recortarTexto(Registro.fecha_vencimiento, 10)}}</td>
-              <td>{{Registro.observaciones}}</td>
+              <td [innerHTML]="formatearObservaciones(Registro.observaciones)"></td>
               <td>{{Registro.estatus}}</td>
-              <td>{{Registro.url}}</td>
-
+              <td><a href="{{Registro.url}}">{{Registro.url}}</a></td>
               <td>
-                <!-- <button class="btn btn-primary"
-                [routerLink]="['actualizar-planta']">
-                <i class="material-icons">edit</i>
-                </button> -->
-                <button class="btn btn-primary"><i class="material-icons">edit</i></button>
-
+                <button class="btn btn-primary" (click)="Actualizar(Registro.id_registro)"><i class="material-icons">edit</i></button>
               </td>
-
             </tr>
 
 

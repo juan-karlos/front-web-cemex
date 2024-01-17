@@ -9,7 +9,7 @@
   <title>Inicio Sesión</title>
 </head>
 
-<body class="body" >
+<body class="body">
   <div>
 
     <div id="cem">
@@ -19,22 +19,29 @@
 
       <div id="mover">
 
-        <form>
-        <!-- Usuario-->
-        <label for="exampleInputEmail1" class="letra"><H3>CORREO ELECTRONICO</H3></label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <!-- Contraseña-->
-        <label for="exampleInputEmail1" class="letra"><H3>CONTRASEÑA</H3></label>
-        <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <!-- Boton -->
-      <div id="contenedor-boton">
-        <button (click)="IniciarSesion()" class="btn">Iniciar Sesión</button>
-      </div>
-      </form>
+        <form (ngSubmit)="IniciarSesion()">
+          <!-- Correo Electrónico -->
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label letra"><h1>CORREO ELECTRÓNICO</h1></label>
+            <input type="email" class="form-control" id="exampleInputEmail1"  [(ngModel)]="body.correo" name="correo" required>
+          </div>
+
+          <!-- Contraseña -->
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label letra"><h1>CONTRASEÑA</h1></label>
+            <input type="password" class="form-control" id="exampleInputPassword1"  [(ngModel)]="body.password" name="password" required>
+          </div>
+         <br>
+          <!-- Boton -->
+          <div id="contenedor-boton" class="mb-3">
+            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+          </div>
+          
+        </form>
       </div>
     </div>
   </div>
 
+  <!-- Agrega los scripts de Angular si es necesario -->
 </body>
 </html>
-

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Agrega aquí tus metaetiquetas, enlaces a CSS o cualquier otro encabezado necesario -->
+</head>
+
+<header>
+  <nav class="navbar navbar-expand-lg" style="background-color: #dedada;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="inicio">
+       <img id="logo" src="https://i.ibb.co/HK2Btjq/Logo-Cemex.png" alt="">
+      </a>
+         <ul class="nav justify-content-end" style="margin-right: 3%; ">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="inicio" style="font-size: 20px;">Volver</a>
+          </ul>
+    </div>
+  </nav>
+  <H1 id="titulo">Descarga masiva de documentos</H1>
+
+</header>
+<body style="background-color: bisque; margin: 5%;">
+ 
+  <div class="contenedor-principal">
+
+
+    <form class="row g-3 needs-validation" novalidate (ngSubmit)="validacion()" enctype="multipart/form-data">
+      <div class="col-md-7">
+
+        <label for="requerimiento" class="form-label"><h2>Nombre del permiso</h2></label>
+        <select id="requerimiento" class="form-select" name="requerimiento" [(ngModel)]="requerimiento">
+          <option selected disabled value="">Elegir permiso</option>
+          <option *ngFor="let requerimiento of arregloRequerimientos" [value]="requerimiento">
+            {{ requerimiento }}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-md-7">
+        <label for="segmento" class="form-label"><h2>Segmento</h2></label>
+        <select id="segmento" class="form-select" name="segmento" required [(ngModel)]="segmento">
+          <option selected disabled value="">Elegir segmento</option>
+          <option>Cadena de Suministro</option>
+          <option>Constructores</option>
+          <option>Industriales</option>
+          <option>Inmuebles No Operativos</option>
+          <option>Operaciones</option>
+          <option>Promexma</option>
+          <option>Transporte</option>
+        </select>
+      </div>
+
+      <div class="col-md-7">
+        <label for="zona" class="form-label"><h2>Zona</h2></label>
+        <select id="zona" class="form-select" name="zona" required [(ngModel)]="zona">
+          <option selected disabled value="">Elegir zona</option>
+          <option>Sureste</option>
+          <option>Noreste</option>
+          <option>Pacifico</option>
+          <option>Centro</option>
+        </select>
+      </div>
+
+       <!-- <div class="div1">
+              <h2>Elige la fecha rango de inicio</h2>
+
+               <mat-form-field>
+                <mat-label>Fecha de inicio</mat-label>
+                <input matInput [matDatepicker]="picker" name="fecha_inicio" [(ngModel)]="fecha_inicio"
+              >
+                <mat-hint>MM/DD/AAAA</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+             <div class="div2">
+              <h2>Elige la fecha del rango final</h2>
+              <mat-form-field>
+                <mat-label>Fecha de vencimiento</mat-label>
+                <input matInput [matDatepicker]="picker2" name="fecha_vencimientos"
+                [(ngModel)]="fecha_vencimiento">
+                <mat-hint>MM/DD/AAAA</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+              </mat-form-field>
+            </div> -->
+      <div class="col-12">
+        <br><br>
+        <button class="btn btn-primary" type="submit">Descargar</button>
+      </div>
+    </form>
+  </div> 
+  <br><br><br>
+</body>
+</html>

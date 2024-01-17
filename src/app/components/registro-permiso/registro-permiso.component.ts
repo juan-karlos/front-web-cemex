@@ -16,7 +16,13 @@ export class RegistroPermisoComponent implements OnInit {
     this.obtenerregistros();
   }
 
-
+  formatearObservaciones(observaciones: string): string {
+    if (!observaciones) {
+      return '';
+    }
+    // Agregar saltos de línea manualmente
+    return observaciones.replace(/(.{1,70})/g, "$1\n");
+  }
 
   obtenerregistros(){
     this.registro.obtenerRegistro().subscribe(
@@ -27,8 +33,9 @@ export class RegistroPermisoComponent implements OnInit {
 
 
   Actualizar(id: number) {
-    this.router.navigate(['actualizar-planta', id]);
+    this.router.navigate(['actualizar-registro', id]);
   }
+  
 
   recortarTexto(cadena: string, longitud: number): string {
     if(cadena==null){
