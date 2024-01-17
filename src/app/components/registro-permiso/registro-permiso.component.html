@@ -59,7 +59,7 @@
               <td>{{recortarTexto(Registro.fecha_vencimiento, 10)}}</td>
               <td [innerHTML]="formatearObservaciones(Registro.observaciones)"></td>
               <td>{{Registro.estatus}}</td>
-              <td>{{Registro.url}}</td>
+              <td><a href="{{Registro.url}}">{{Registro.url}}</a></td>
               <td>
                 <button class="btn btn-primary" (click)="Actualizar(Registro.id_registro)"><i class="material-icons">edit</i></button>
               </td>
