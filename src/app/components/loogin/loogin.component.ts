@@ -45,7 +45,7 @@ IniciarSesion() {
   // Llama al servicio solo si los campos no están vacíos
   this.usuarios.iniciarSesion(this.body).subscribe(
     (res) => {
-      console.log('Esto me devuelve: ', res);
+      // console.log('Esto me devuelve: ', res);
       // console.log('logueado');
       // Aquí podrías redirigir a la vista de inicio si los datos son correctos
       this.cookieService.set('access_token', res.access_token , 4, '/');
