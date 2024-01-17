@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { RegistrosService } from 'src/app/services/registros.service';
 import { HttpResponse } from '@angular/common/http';
 import { RequerimientoService } from 'src/app/services/requerimiento.service';
+import * as saveAs from 'file-saver';
 
 @Component({
   selector: 'app-descarga-archivos',
@@ -24,26 +25,49 @@ export class DescargaArchivosComponent implements OnInit{
   }
 
   onSubmit() {
-  
-    // const bod={
-    //   fecha1:moment(this.fecha_inicio).format('YYYY/MM/DD'),
-    //   fecha2:moment(this.fecha_vencimiento).format('YYYY/MM/DD')
-    // }
     const bod = {
       requerimiento: this.requerimiento,
       zona: this.zona,
       segmento: this.segmento
     };
-
+  
     console.log('Esto es lo que se envía: ', bod);
-
-    this.registro.descarga(bod).then(() => {
-      // La descarga se realizó con éxito
-      Swal.fire({
-        icon: 'success',
-        title: 'Descarga Exitosa',
-        text: 'El archivo se ha descargado con éxito.',
-      });
+  
+    this.registro.descarga(bod).then((response: any) => {
+      if (response instanceof Blob) {
+        const blob = new Blob([response], { type: 'application/zip' });
+  
+        if (blob.size > 0) {
+          // La descarga se realizó con éxito
+          saveAs(blob, 'descarga-masiva.zip');
+          Swal.fire({
+            icon: 'success',
+            title: 'Descarga Exitosa',
+            text: 'El archivo se ha descargado con éxito.',
+          });
+        } else {
+          // Mostrar mensaje de error si el archivo está vacío
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'No hay archivos para descargar.',
+          });
+        }
+      } else if (response === undefined || response === null) {
+        // Mostrar mensaje de error si la respuesta es undefined o null
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Hubo un problema al descargar el archivo.',
+        });
+      } else {
+        // Mostrar mensaje de error si la respuesta no es un Blob
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Hubo un problema al descargar el archivo. Respuesta inesperada.',
+        });
+      }
     }).catch(error => {
       // Manejar el error en caso de fallo en la descarga
       console.error('Error en la descarga: ', error);
@@ -54,6 +78,8 @@ export class DescargaArchivosComponent implements OnInit{
       });
     });
   }
+  
+  
   
 
   validacion() {
