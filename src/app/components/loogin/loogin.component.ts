@@ -26,8 +26,6 @@ togglePasswordVisibility() {
     this.mostrarContrasena = !this.mostrarContrasena;
     const inputElement = document.getElementById('exampleInputPassword1') as HTMLInputElement;
     inputElement.type = this.mostrarContrasena ? 'text' : 'password';
-    
-    // Cambiar el texto del botón
     this.textoBoton = this.mostrarContrasena ? 'Ocultar Contraseña' : 'Mostrar Contraseña';
   }
 
