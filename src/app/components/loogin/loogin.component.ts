@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import {UsuariosService} from 'src/app/services/usuarios.service';
 import Swal from 'sweetalert2';
+import { ElementRef } from '@angular/core';
 @Component({
   selector: 'app-loogin',
   templateUrl: './loogin.component.html',
@@ -10,8 +11,8 @@ import Swal from 'sweetalert2';
 })
 export class LooginComponent implements OnInit{
 
- 
-
+  mostrarContrasena = false;
+  textoBoton = 'Mostrar Contraseña';
   body={
     "correo":"",
     "password":"",
@@ -21,6 +22,15 @@ constructor(private router: Router,private usuarios:UsuariosService,private cook
 ngOnInit(){
 
 }
+togglePasswordVisibility() {
+    this.mostrarContrasena = !this.mostrarContrasena;
+    const inputElement = document.getElementById('exampleInputPassword1') as HTMLInputElement;
+    inputElement.type = this.mostrarContrasena ? 'text' : 'password';
+    
+    // Cambiar el texto del botón
+    this.textoBoton = this.mostrarContrasena ? 'Ocultar Contraseña' : 'Mostrar Contraseña';
+  }
+
 obtenerUsuario(){
   this.usuarios.obtenerUsuario().subscribe(
     res=>{
