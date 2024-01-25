@@ -36,6 +36,8 @@
               "node_modules/popper.js/dist/popper.js"
 
             ]
+          
+
           },
           "configurations": {
             "production": {
