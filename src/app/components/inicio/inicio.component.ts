@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-inicio',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 //debemos agregar el constructor y los elementos necesarios en el pra poder hacer nuestro ruteo de la forma correcta//
 export class InicioComponent implements OnInit{
-  constructor(private router: Router){}
+  constructor(private router: Router, private cookieService: CookieService){}
   ngOnInit() {
   }
   //agregamos los metodos que amos a mandar a llamar desde nuestros botones//
@@ -28,7 +29,11 @@ export class InicioComponent implements OnInit{
   Constructores(){
     this.router.navigate(['constructores']);
   }
-  CerrarSesion(){
-    this.router.navigate(['loggin']);
+  cerrarSesion() {
+    // Elimina la cookie access_token
+    this.cookieService.delete('access_token', '/');
+
+    // Redirige a la página de inicio de sesión
+    this.router.navigate(['login']);
   }
 }
