@@ -7,8 +7,8 @@ import { saveAs } from 'file-saver';
   providedIn: 'root'
 })
 export class RegistrosService {
-// URL_API='http://192.168.100.62:3200/api/regi/'
-URL_API='http://localhost:3200/api/regi'
+URL_API='http://86.38.204.102:3200/api/regi'
+// URL_API='http://localhost:3200/api/regi'
 
 Registro:registro[]=[];
 

@@ -19,13 +19,13 @@
   <H1 id="titulo">Descarga masiva de documentos</H1>
 
 </header>
-<body style="background-color: bisque; margin: 5%;">
+<body style="background-color: bisque; margin-top: 4%; margin-left: 15%; width: 70% ;">
  
   <div class="contenedor-principal">
 
 
     <form class="row g-3 needs-validation" novalidate (ngSubmit)="validacion()" enctype="multipart/form-data">
-      <div class="col-md-7">
+      <div style="margin-left: 20%;" class="col-md-7">
 
         <label for="requerimiento" class="form-label"><h2>Nombre del permiso</h2></label>
         <select id="requerimiento" class="form-select" name="requerimiento" [(ngModel)]="requerimiento">
@@ -36,7 +36,7 @@
         </select>
       </div>
 
-      <div class="col-md-7">
+      <div style="margin-left: 20%;" class="col-md-7">
         <label for="segmento" class="form-label"><h2>Segmento</h2></label>
         <select id="segmento" class="form-select" name="segmento" required [(ngModel)]="segmento">
           <option selected disabled value="">Elegir segmento</option>
@@ -50,7 +50,7 @@
         </select>
       </div>
 
-      <div class="col-md-7">
+      <div style="margin-left: 20%;" class="col-md-7">
         <label for="zona" class="form-label"><h2>Zona</h2></label>
         <select id="zona" class="form-select" name="zona" required [(ngModel)]="zona">
           <option selected disabled value="">Elegir zona</option>
@@ -85,11 +85,11 @@
               </mat-form-field>
             </div> -->
       <div class="col-12">
-        <br><br>
-        <button class="btn btn-primary" type="submit">Descargar</button>
+        <br>
+        <button style="margin-left: 20%;" class="btn btn-primary" type="submit">Descargar</button>
       </div>
     </form>
   </div> 
-  <br><br><br>
+  <br>
 </body>
 </html>
