@@ -1,4 +1,4 @@
-.logo{
+  .logo{
     height:60px;
     width:100px ;
    
@@ -23,23 +23,6 @@
     /* text-align: center; */
   }
   
-   #base-mapa{
-    
-     /* height:70%; */
-     width: 90%; 
-     margin: 0px auto;
-     
-  } 
-  
-  .boton-mapa{
-    width: 250px;
-    height: 250px;
-    background: none;
-    background-repeat: no-repeat;
-    border:0;
-    margin-left: 15%;
-    margin-top: 3%;
-  }
   .imagen{
     width: 90%;
   }
@@ -119,7 +102,7 @@
     background: #e9e8e8;
   }
   .contenedor-tabla{
-    width:80%;
+    width:85%;
     margin: 0px auto;
     margin-top: 2%;
     margin-bottom: 5%;
@@ -137,9 +120,16 @@
   
   /* Tamaño y posicion de el logo de cemex */
   #logo{
-    width:120px;
+    width:90px;
     margin-right: 30px;
     margin-bottom: 10px;
+  }
+
+
+/* Estilos para reducir el tamaño del texto en las celdas de la tabla */
+.tabla-pequena th,
+.tabla-pequena td {
+    font-size: 13px; 
   }
   
   
