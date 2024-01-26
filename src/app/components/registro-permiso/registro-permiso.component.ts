@@ -21,7 +21,7 @@ export class RegistroPermisoComponent implements OnInit {
       return '';
     }
     // Agregar saltos de línea manualmente
-    return observaciones.replace(/(.{1,70})/g, "$1\n");
+    return observaciones.replace(/(.{1,40})/g, "$1\n");
   }
 
   obtenerregistros(){
