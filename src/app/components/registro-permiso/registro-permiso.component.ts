@@ -15,13 +15,17 @@ export class RegistroPermisoComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerregistros();
   }
+  abrirUrl(url: string) {
+    // Aquí puedes implementar la lógica para abrir la URL, por ejemplo:
+    window.open(url, '_blank');
+  }
 
   formatearObservaciones(observaciones: string): string {
     if (!observaciones) {
       return '';
     }
     // Agregar saltos de línea manualmente
-    return observaciones.replace(/(.{1,40})/g, "$1\n");
+    return observaciones.replace(/(.{1,30})/g, "$1\n");
   }
 
   obtenerregistros(){
