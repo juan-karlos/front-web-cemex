@@ -64,12 +64,11 @@ obtener_planta_por_id(){
     this.router.navigate(['actualizar-planta', id]);
   }
   recortarTexto(cadena: string) {
-    if(cadena=="NaN"){
-      return "0"
+    if (!cadena || cadena === "NaN" || cadena === "NULL") {
+      return "0";
     }
-     return cadena.slice(0,5);
+    return cadena.slice(0, 5);
   }
-
 
 }
 
