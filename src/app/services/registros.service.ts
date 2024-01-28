@@ -33,7 +33,7 @@ validez_unica: true,
   }
   
   insertar(Registro:registro){
-    return this.http.post(this.URL_API+"insertar",Registro)
+    return this.http.post(this.URL_API+"/insertar",Registro)
   }
 
   obtenerRegistroPorId(id_registro:number){
