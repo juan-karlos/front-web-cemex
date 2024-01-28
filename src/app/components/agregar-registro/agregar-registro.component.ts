@@ -148,7 +148,7 @@ export class AgregarRegistroComponent implements OnInit {
       formData.append('nombre_planta', nombre_planta);
       formData.append('nombre_requerimiento', nombre_requerimiento);
 
-      this.http.post('http://localhost:3200/api/regi/pdf', formData).subscribe(
+      this.http.post('http://86.38.204.102:3200/api/regi/pdf', formData).subscribe(
         (response: any) => {
           this.actualizar();
           swalWithBootstrapButtons.fire(
