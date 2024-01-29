@@ -14,10 +14,10 @@
     </nav>
     <H1 id="titulo">Actualizar registro</H1>
   </header>
-  <body style="background-color: bisque; margin: 5%;">
+  <body >
 
-    <div class="contenedor-principal">
-      <br>
+    <div class="contenedor-principal" style="background-color: bisque;  width: 90%; padding: 5%;">
+      
 
 
         <form class="row g-3 needs-validation" novalidate (ngSubmit)="validacion()" enctype="multipart/form-data" >
@@ -121,13 +121,14 @@
                   <mat-datepicker #picker2></mat-datepicker>
                 </mat-form-field>
               </div>
+              <div class="col-12">
+                
+                <button style="margin-left: 80%;" class="btn btn-primary" type="submit">Actualizar</button>
+              </div>
             </div>
 
 
-            <div class="col-12">
-              <br><br>
-              <button class="btn btn-primary" type="submit">Actualizar</button>
-            </div>
+           
           </form>
 
 
