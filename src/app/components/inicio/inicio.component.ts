@@ -26,6 +26,9 @@ export class InicioComponent implements OnInit{
   Pacifico(){
     this.router.navigate(['Zona-pacifico']);
   }
+  Nacional(){
+    this.router.navigate(['nacional']);
+  }
   Constructores(){
     this.router.navigate(['constructores']);
   }
