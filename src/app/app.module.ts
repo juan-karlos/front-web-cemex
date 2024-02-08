@@ -144,6 +144,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { RegistrarUsuarioComponent } from './components/registrar-usuario/registrar-usuario.component';
 import { DescargaArchivosComponent } from './components/descarga-archivos/descarga-archivos.component';
 import { CookieService } from 'ngx-cookie-service';
+import { NacionalComponent } from './components/nacional/nacional.component';
 
 @NgModule({
   declarations: [
@@ -271,6 +272,7 @@ import { CookieService } from 'ngx-cookie-service';
     ActualizarRegistroComponent,
     RegistrarUsuarioComponent,
     DescargaArchivosComponent,
+    NacionalComponent,
     
     
   ],

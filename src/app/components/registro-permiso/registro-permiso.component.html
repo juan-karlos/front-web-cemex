@@ -9,7 +9,7 @@
 
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="inicio"
-            style="font-size: 30px; margin-right: 40px;">Volver</a>
+            style="font-size: 20px; margin-right: 40px;">Volver</a>
           </li>
 
         </ul>
@@ -30,12 +30,12 @@
         </form>
       </div>
 
-      <br><br><br>
+      <br><br>
       <h1 id="titulo">(La tabla puede tardar unos segundos en cargar)</h1>
-      <table class="table table-hover">
+      <table class="table table-hover tabla-pequena">
           <thead class="table-dark">
             <tr>
-              <th scope="col">ID</th>
+              <!-- <th scope="col">ID</th> -->
               <th scope="col">Planta</th>
               <th scope="col">Permiso</th>
               <th scope="col">Fecha de inicio</th>
@@ -52,14 +52,19 @@
           <tbody>
 
             <tr *ngFor="let Registro of registro.Registro | filtroPlanta:filterPost">
-              <td>{{Registro.id_registro}}</td>
+              <!-- <td>{{Registro.id_registro}}</td> -->
               <td>{{Registro.nombre_planta}}</td>
               <td>{{Registro.nombre_requerimiento}}</td>
               <td>{{recortarTexto(Registro.fecha_inicio, 10)}}</td>
               <td>{{recortarTexto(Registro.fecha_vencimiento, 10)}}</td>
               <td [innerHTML]="formatearObservaciones(Registro.observaciones)"></td>
               <td>{{Registro.estatus}}</td>
-              <td><a href="{{Registro.url}}">{{Registro.url}}</a></td>
+              <td>
+                <button *ngIf="Registro.url" class="btn btn-primary" (click)="abrirUrl(Registro.url)">
+                  <i class="material-icons">description</i> 
+                </button>
+              </td>
+              
               <td>
                 <button class="btn btn-primary" (click)="Actualizar(Registro.id_registro)"><i class="material-icons">edit</i></button>
               </td>

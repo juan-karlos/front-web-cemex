@@ -6,7 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class HistorialService {
 
-  URL_API='http://localhost:3200/api/historial';
+  // URL_API='http://localhost:3200/api/historial';
+  URL_API='http://86.38.204.102:3200/api/historial';
 
   constructor(private http:HttpClient) { }
 

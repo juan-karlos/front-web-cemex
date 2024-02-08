@@ -8,7 +8,8 @@ import {HttpClient} from '@angular/common/http'
 
 export class UsuariosService {
 
-URL_API ='http://localhost:3200/api/login/'
+URL_API ='http://86.38.204.102:3200/api/login/'
+// URL_API ='http://localhost:3200/api/login/'
 Usuarios:usuario[]=[]
 
 ClienteSelect :usuario={

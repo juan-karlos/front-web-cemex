@@ -21,7 +21,7 @@ export class ActualizarRegistroComponent implements OnInit {
   public checkboxActivado = false;
   mostrar: boolean = false;
   selectedFile: File | null = null;
-  fecha_inicio: string | null = null;
+  // fecha_inicio: string | null = null;
   fecha_vencimiento: string | null = null;
   validez_unica: boolean = false;
   estatus: string = '';
@@ -42,7 +42,7 @@ export class ActualizarRegistroComponent implements OnInit {
         this.id_registro = this.datos[0].id_registro;
         this.nombre_planta = this.datos[0].nombre_planta;
         this.nombre_requerimiento = this.datos[0].nombre_requerimiento;
-        this.fecha_inicio = this.datos[0].fecha_inicio;
+        // this.fecha_inicio = this.datos[0].fecha_inicio;
         this.fecha_vencimiento = this.datos[0].fecha_vencimiento;
         this.observaciones = this.datos[0].observaciones;
         this.estatus = this.datos[0].estatus;
@@ -69,9 +69,9 @@ export class ActualizarRegistroComponent implements OnInit {
       buttonsStyling: true
     });
 
-    const fecha1 = moment(this.fecha_inicio);
+    // const fecha1 = moment(this.fecha_inicio);
     const fecha2 = moment(this.fecha_vencimiento);
-    const fechaAcomodada = fecha1.format('YYYY/MM/DD');
+    // const fechaAcomodada = fecha1.format('YYYY/MM/DD');
     const fechaAcomodada2 = fecha2.format('YYYY/MM/DD');
 
     const validez_unica = this.validez_unica ? 'true' : 'false';
@@ -97,7 +97,15 @@ export class ActualizarRegistroComponent implements OnInit {
       formData.append('validez_unica', 'true');
     } else {
       // Si no está marcada, se requieren fechas y se validan
-      if (!fecha1.isValid() || !fecha2.isValid() || fecha1.isAfter(fecha2)) {
+      // if (!fecha1.isValid() || !fecha2.isValid() || fecha1.isAfter(fecha2)) {
+      //   swalWithBootstrapButtons.fire(
+      //     'Error',
+      //     'Las fechas seleccionadas no son válidas.',
+      //     'error'
+      //   );
+      //   return;
+      // }
+      if (!fecha2.isValid()) {
         swalWithBootstrapButtons.fire(
           'Error',
           'Las fechas seleccionadas no son válidas.',
@@ -105,7 +113,7 @@ export class ActualizarRegistroComponent implements OnInit {
         );
         return;
       }
-      formData.append('fechaAcomodada', fechaAcomodada);
+      // formData.append('fechaAcomodada', fechaAcomodada);
       formData.append('fechaAcomodada2', fechaAcomodada2);
       formData.append('validez_unica', 'false');
     }
@@ -123,7 +131,7 @@ export class ActualizarRegistroComponent implements OnInit {
     }
 
     // Realizar la solicitud al servidor
-    this.http.patch('http://localhost:3200/api/regi/actualizarPer', formData).subscribe(
+    this.http.patch('http://86.38.204.102:3200/api/regi/actualizarPer', formData).subscribe(
       (response: any) => {
         console.log('URL del PDF en el servidor:', response);
         swalWithBootstrapButtons.fire(

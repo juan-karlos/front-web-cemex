@@ -87,7 +87,7 @@ export class AgregarRegistroComponent implements OnInit {
     const nombre_planta = this.nombre_planta;
     const formData = new FormData();
     formData.append('nombre_planta', nombre_planta);
-    this.http.post('http://localhost:3200/api/requerimiento/porcentajeAct', formData);
+    this.http.post('http://86.38.204.102:3200/api/requerimiento/porcentajeAct', formData);
   }
 
   onSubmit() {
@@ -99,10 +99,10 @@ export class AgregarRegistroComponent implements OnInit {
       buttonsStyling: true
     });
 
-    const fecha1 = moment(this.fecha_inicio);
+    // const fecha1 = moment(this.fecha_inicio);
     const fecha2 = moment(this.fecha_vencimiento);
 
-    const fechaAcomodada = fecha1.format('YYYY/MM/DD');
+    // const fechaAcomodada = fecha1.format('YYYY/MM/DD');
     const fechaAcomodada2 = fecha2.format('YYYY/MM/DD');
     const validez_unica = this.validez_unica ? 'true' : 'false';
     const estatus = this.estatus;
@@ -114,7 +114,7 @@ export class AgregarRegistroComponent implements OnInit {
 
     if (this.selectedFile) {
       formData.append('pdfFile', this.selectedFile);
-      formData.append('fechaAcomodada', fechaAcomodada);
+      // formData.append('fechaAcomodada', fechaAcomodada);
       formData.append('fechaAcomodada2', fechaAcomodada2);
       formData.append('validez_unica', validez_unica);
       formData.append('estatus', estatus);
@@ -122,7 +122,7 @@ export class AgregarRegistroComponent implements OnInit {
       formData.append('nombre_planta', nombre_planta);
       formData.append('nombre_requerimiento', nombre_requerimiento);
 
-      this.http.post('http://localhost:3200/api/regi/pdf', formData).subscribe(
+      this.http.post('http://86.38.204.102:3200/api/regi/pdf', formData).subscribe(
         (response: any) => {
           this.actualizar();
           swalWithBootstrapButtons.fire(
@@ -140,7 +140,7 @@ export class AgregarRegistroComponent implements OnInit {
         }
       );
     } else {
-      formData.append('fechaAcomodada', fechaAcomodada);
+      // formData.append('fechaAcomodada', fechaAcomodada);
       formData.append('fechaAcomodada2', fechaAcomodada2);
       formData.append('validez_unica', validez_unica);
       formData.append('estatus', estatus);
@@ -148,7 +148,7 @@ export class AgregarRegistroComponent implements OnInit {
       formData.append('nombre_planta', nombre_planta);
       formData.append('nombre_requerimiento', nombre_requerimiento);
 
-      this.http.post('http://localhost:3200/api/regi/pdf', formData).subscribe(
+      this.http.post('http://86.38.204.102:3200/api/regi/pdf', formData).subscribe(
         (response: any) => {
           this.actualizar();
           swalWithBootstrapButtons.fire(
@@ -184,14 +184,14 @@ export class AgregarRegistroComponent implements OnInit {
     }
   
     if (!this.validez_unica) {
-      if (!this.fecha_inicio) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'Por favor, elige una fecha de inicio válida (a partir de hoy).',
-        });
-        return;
-      }
+      // if (!this.fecha_inicio) {
+      //   Swal.fire({
+      //     icon: 'error',
+      //     title: 'Error',
+      //     text: 'Por favor, elige una fecha de inicio válida (a partir de hoy).',
+      //   });
+      //   return;
+      // }
   
       if (!this.fecha_vencimiento || moment(this.fecha_vencimiento).isBefore(moment().add(1, 'days'))) {
         Swal.fire({
