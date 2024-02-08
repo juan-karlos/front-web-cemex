@@ -120,6 +120,7 @@ import { ActualizarRegistroComponent } from './components/actualizar-registro/ac
 import { RegistrarUsuarioComponent } from './components/registrar-usuario/registrar-usuario.component';
 import { DescargaArchivosComponent } from './components/descarga-archivos/descarga-archivos.component';
 import { seguridadGuard } from './seguridad.guard';
+import { NacionalComponent } from './components/nacional/nacional.component';
 
 
 const routes: Routes = [
@@ -248,6 +249,7 @@ const routes: Routes = [
   {path: 'actualizar-registro/:id_registro', component: ActualizarRegistroComponent, canActivate: [seguridadGuard] },
   {path: 'registrar-usuario', component: RegistrarUsuarioComponent, canActivate: [seguridadGuard] },
   {path: 'descarga', component: DescargaArchivosComponent, canActivate: [seguridadGuard] },
+  {path: 'nacional', component: NacionalComponent, canActivate: [seguridadGuard] },
 ];
 
 @NgModule({
