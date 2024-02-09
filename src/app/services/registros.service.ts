@@ -7,13 +7,14 @@ import { saveAs } from 'file-saver';
   providedIn: 'root'
 })
 export class RegistrosService {
-URL_API='http://86.38.204.102:3200/api/regi'
-// URL_API='http://localhost:3200/api/regi'
+// URL_API='http://86.38.204.102:3200/api/regi'
+URL_API='http://localhost:3200/api/regi'
 
 Registro:registro[]=[];
 
 
 Segmento:'' | undefined;
+
 RegistroSelect :registro={
 id_registro:0,
 nombre_planta: '',
@@ -24,6 +25,12 @@ observaciones: '',
 estatus: '',
 url:'',
 validez_unica: true,
+impacto:'',
+peso:0,
+porcentaje_cumplimiento: '',
+segmento:'',
+siglas:'',
+zona:''
 }
 
   constructor(private http:HttpClient) { }

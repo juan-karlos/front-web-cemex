@@ -38,6 +38,12 @@
               <!-- <th scope="col">ID</th> -->
               <th scope="col">Planta</th>
               <th scope="col">Permiso</th>
+              <th scope="col">Zona</th>
+              <th scope="col">Segmento</th>
+              <th scope="col">Peso</th>
+              <th scope="col">Impacto</th>
+              <th scope="col">Porcentaje de cumplimiento</th>
+              <th scope="col">Siglas</th>
               <th scope="col">Fecha de inicio</th>
               <th scope="col">Fecha de vecimiento</th>
               <th scope="col">Observaciones</th>
@@ -55,6 +61,12 @@
               <!-- <td>{{Registro.id_registro}}</td> -->
               <td>{{Registro.nombre_planta}}</td>
               <td>{{Registro.nombre_requerimiento}}</td>
+              <td>{{Registro.zona}}</td>
+              <td>{{Registro.segmento}}</td>
+              <td>{{Registro.peso}}</td>
+              <td>{{Registro.impacto}}</td>
+              <td>{{recortarTexto(Registro.porcentaje_cumplimiento, 4)}}</td>
+              <td>{{Registro.siglas}}</td>
               <td>{{recortarTexto(Registro.fecha_inicio, 10)}}</td>
               <td>{{recortarTexto(Registro.fecha_vencimiento, 10)}}</td>
               <td [innerHTML]="formatearObservaciones(Registro.observaciones)"></td>

@@ -30,9 +30,15 @@ export class RegistroPermisoComponent implements OnInit {
 
   obtenerregistros(){
     this.registro.obtenerRegistro().subscribe(
-      res=>this.registro.Registro=res,
+      
+      res=>{
+        this.registro.Registro=res
+        console.log('esto me devuelve los registros totales ', res);
+      },
       err=>console.error(err),
+    
     )
+   
   }
 
 
