@@ -3,18 +3,21 @@ import {RegistrosService} from 'src/app/services/registros.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
-
 @Component({
-  selector: 'app-registro-permiso',
-  templateUrl: './registro-permiso.component.html',
-  styleUrls: ['./registro-permiso.component.css']
+  selector: 'app-registros-centro',
+  templateUrl: './registros-centro.component.html',
+  styleUrls: ['./registros-centro.component.css']
 })
-export class RegistroPermisoComponent implements OnInit {
-  constructor(public registro:RegistrosService,private router: Router){}
-  filterPost ='';
+export class RegistrosCentroComponent implements OnInit{
+
   ngOnInit(): void {
-    this.obtenerregistros();
-  }
+    
+  } 
+
+  constructor(public registro:RegistrosService,private router: Router){}
+
+  filterPost ='';
+  selectedSegmento: string = '';
   abrirUrl(url: string) {
     // Aquí puedes implementar la lógica para abrir la URL, por ejemplo:
     window.open(url, '_blank');
@@ -26,6 +29,16 @@ export class RegistroPermisoComponent implements OnInit {
     }
     // Agregar saltos de línea manualmente
     return observaciones.replace(/(.{1,30})/g, "$1\n");
+  }
+  Actualizar(id: number) {
+    this.router.navigate(['actualizar-registro', id]);
+  }
+  
+  recortarTexto(cadena: string, longitud: number): string {
+    if(cadena==null){
+      return "fecha Unica"
+    }
+    return cadena.slice(0, longitud);
   }
 
   obtenerregistros(){
@@ -41,17 +54,4 @@ export class RegistroPermisoComponent implements OnInit {
    
   }
 
-  Actualizar(id: number) {
-    this.router.navigate(['actualizar-registro', id]);
-  }
-  
-
-  recortarTexto(cadena: string, longitud: number): string {
-    if(cadena==null){
-      return "fecha Unica"
-    }
-    return cadena.slice(0, longitud);
-  }
 }
-
-
