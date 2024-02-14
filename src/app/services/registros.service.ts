@@ -52,6 +52,11 @@ zona:''
     return this.http.post(`${this.URL_API}/grafica`,Segmento);
   }
 
+  obtenerRegistroZonaSegmento(body : any){
+    return this.http.post<registro[]>(`${this.URL_API}/regisSeg`,body);
+
+  }
+
 
 
   async descarga(body: any): Promise<any> {

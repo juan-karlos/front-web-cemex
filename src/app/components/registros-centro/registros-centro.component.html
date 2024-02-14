@@ -32,7 +32,7 @@
       <br>
       <div class="col-md-3">
         
-        <select class="form-select" id="validationCustom03" required name="Segmento" [(ngModel)]="selectedSegmento">
+        <select class="form-select" id="validationCustom03" required name="Segmento" [(ngModel)]="selectedSegmento" (ngModelChange)="obtenerregistros()">
           <option selected disabled value="">Elegir segmento</option>
                 <option>Cadena de Suministro</option>
                 <option>Constructores</option>
