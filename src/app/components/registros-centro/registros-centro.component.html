@@ -78,7 +78,9 @@
               <td>{{Registro.segmento}}</td>
               <td>{{Registro.peso}}</td>
               <td>{{Registro.impacto}}</td>
-              <td>{{recortarTexto(Registro.porcentaje_cumplimiento, 4)}}</td>
+              <td>
+                {{ Registro.porcentaje_cumplimiento !== 'NaN' ? recortarTexto(Registro.porcentaje_cumplimiento, 4) : '0' }}
+              </td>
               <td>{{Registro.siglas}}</td>
               <td>{{recortarTexto(Registro.fecha_inicio, 10)}}</td>
               <td>{{recortarTexto(Registro.fecha_vencimiento, 10)}}</td>
