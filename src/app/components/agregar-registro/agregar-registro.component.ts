@@ -87,7 +87,8 @@ export class AgregarRegistroComponent implements OnInit {
     const nombre_planta = this.nombre_planta;
     const formData = new FormData();
     formData.append('nombre_planta', nombre_planta);
-    this.http.post('http://86.38.204.102:3200/api/requerimiento/porcentajeAct', formData);
+    // this.http.post('http://86.38.204.102:3200/api/requerimiento/porcentajeAct', formData);
+    this.http.post('http://localhost:3200/api/requerimiento/porcentajeAct', formData);
   }
 
   onSubmit() {
@@ -122,7 +123,9 @@ export class AgregarRegistroComponent implements OnInit {
       formData.append('nombre_planta', nombre_planta);
       formData.append('nombre_requerimiento', nombre_requerimiento);
 
-      this.http.post('http://86.38.204.102:3200/api/regi/pdf', formData).subscribe(
+      
+      // this.http.post('http://86.38.204.102:3200/api/regi/pdf', formData).subscribe(
+        this.http.post('http://localhost:3200/api/regi/pdf', formData).subscribe(
         (response: any) => {
           this.actualizar();
           swalWithBootstrapButtons.fire(
@@ -148,7 +151,8 @@ export class AgregarRegistroComponent implements OnInit {
       formData.append('nombre_planta', nombre_planta);
       formData.append('nombre_requerimiento', nombre_requerimiento);
 
-      this.http.post('http://86.38.204.102:3200/api/regi/pdf', formData).subscribe(
+      // this.http.post('http://86.38.204.102:3200/api/regi/pdf', formData).subscribe(
+        this.http.post('http://localhost:3200/api/regi/pdf', formData).subscribe(
         (response: any) => {
           this.actualizar();
           swalWithBootstrapButtons.fire(

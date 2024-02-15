@@ -145,6 +145,10 @@ import { RegistrarUsuarioComponent } from './components/registrar-usuario/regist
 import { DescargaArchivosComponent } from './components/descarga-archivos/descarga-archivos.component';
 import { CookieService } from 'ngx-cookie-service';
 import { NacionalComponent } from './components/nacional/nacional.component';
+import { RegistrosCentroComponent } from './components/registros-centro/registros-centro.component';
+import { RegistrosNoresteComponent } from './components/registros-noreste/registros-noreste.component';
+import { RegistrosSuresteComponent } from './components/registros-sureste/registros-sureste.component';
+import { RegistrosPacificoComponent } from './components/registros-pacifico/registros-pacifico.component';
 
 @NgModule({
   declarations: [
@@ -273,6 +277,10 @@ import { NacionalComponent } from './components/nacional/nacional.component';
     RegistrarUsuarioComponent,
     DescargaArchivosComponent,
     NacionalComponent,
+    RegistrosCentroComponent,
+    RegistrosNoresteComponent,
+    RegistrosSuresteComponent,
+    RegistrosPacificoComponent,
     
     
   ],

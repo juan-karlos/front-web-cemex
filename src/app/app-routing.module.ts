@@ -121,6 +121,10 @@ import { RegistrarUsuarioComponent } from './components/registrar-usuario/regist
 import { DescargaArchivosComponent } from './components/descarga-archivos/descarga-archivos.component';
 import { seguridadGuard } from './seguridad.guard';
 import { NacionalComponent } from './components/nacional/nacional.component';
+import { RegistrosCentroComponent } from './components/registros-centro/registros-centro.component';
+import { RegistrosNoresteComponent } from './components/registros-noreste/registros-noreste.component';
+import { RegistrosPacificoComponent } from './components/registros-pacifico/registros-pacifico.component';
+import { RegistrosSuresteComponent } from './components/registros-sureste/registros-sureste.component';
 
 
 const routes: Routes = [
@@ -250,6 +254,10 @@ const routes: Routes = [
   {path: 'registrar-usuario', component: RegistrarUsuarioComponent, canActivate: [seguridadGuard] },
   {path: 'descarga', component: DescargaArchivosComponent, canActivate: [seguridadGuard] },
   {path: 'nacional', component: NacionalComponent, canActivate: [seguridadGuard] },
+  {path: 'registros-centro', component: RegistrosCentroComponent, canActivate: [seguridadGuard] },
+  {path: 'registros-noreste', component: RegistrosNoresteComponent, canActivate: [seguridadGuard] },
+  {path: 'registros-pacifico', component: RegistrosPacificoComponent, canActivate: [seguridadGuard] },
+  {path: 'registros-sureste', component: RegistrosSuresteComponent, canActivate: [seguridadGuard] },
 ];
 
 @NgModule({
