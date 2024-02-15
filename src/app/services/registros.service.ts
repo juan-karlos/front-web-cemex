@@ -73,4 +73,21 @@ zona:''
     }
   }
 
+  public descargarExcel(): Promise<any> {
+    const url = `${this.URL_API}/exel`;
+    return new Promise((resolve, reject) => {
+      this.http.get(url, {
+        responseType: 'blob',
+        observe: 'response'
+      }).subscribe(
+        (response: any) => {
+          resolve(response);
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
+  }
+
 }

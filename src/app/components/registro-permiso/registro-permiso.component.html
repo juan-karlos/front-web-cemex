@@ -29,6 +29,13 @@
            [(ngModel)]="filterPost" >
         </form>
       </div>
+      <br>
+      <br>
+      <!-- <div class="col-2">
+        <button style="margin-left: 3%;" class="btn btn-primary" type="submit"  (click)="descargarExcel()">Descargar Excel</button>
+      </div> -->
+      <button class="btn btn-primary" (click)="descargarExcel()">Descargar Excel</button>
+      <a style="margin-left: 5%;" *ngIf="descargando" disabled>Descargando...</a>
 
       <br><br>
       <h1 id="titulo">(La tabla puede tardar unos segundos en cargar)</h1>

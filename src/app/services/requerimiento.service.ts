@@ -36,4 +36,7 @@ export class RequerimientoService {
     // return this.http.put(this.URL_API+"actualizar"+"/"+Planta.id_planta,Planta);
     return this.http.patch(url,Permiso);
   }
+
+  
+  
 }
