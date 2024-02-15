@@ -23,6 +23,7 @@ export class GraficasTransporteSuresteComponent implements OnInit {
   zona: string = "Sureste";
   segmento: string = "Transporte";
   cumplimientomesanterior: number[] = new Array(4).fill(0);
+  
   seg = {
     "segmento":"Transporte"
   }

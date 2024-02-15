@@ -131,8 +131,9 @@ export class ActualizarRegistroComponent implements OnInit {
     }
 
     // Realizar la solicitud al servidor
-    this.http.patch('http://86.38.204.102:3200/api/regi/actualizarPer', formData).subscribe(
-      (response: any) => {
+    // this.http.patch('http://86.38.204.102:3200/api/regi/actualizarPer', formData).subscribe(
+      this.http.patch('http://localhost:3200/api/regi/actualizarPer', formData).subscribe(  
+    (response: any) => {
         console.log('URL del PDF en el servidor:', response);
         swalWithBootstrapButtons.fire(
           'Actualizado',

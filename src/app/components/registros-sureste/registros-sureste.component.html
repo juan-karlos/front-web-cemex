@@ -1,0 +1,105 @@
+<header>
+  <nav class="navbar navbar-expand-lg" style="background-color: #dedada;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="inicio">
+       <img id="logo" src="https://i.ibb.co/HK2Btjq/Logo-Cemex.png" alt="">
+
+      </a>
+      <ul class="nav justify-content-end">
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="Zona-sureste"
+          style="font-size: 20px; margin-right: 40px;">Volver</a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+
+  <h1 id="titulo">Total de registros Zona SURESTE</h1>
+  <!-- <h2 id="subtitulo">74% Cumplimiento CERO; 26 UUNN en riesgo de clausura, 8 en riesgo de multa y 3 optimas.</h2> -->
+
+</header>
+<body>
+  <div class="contenedor-tabla">
+    <br>
+    <div class="col-md-3" style="background-color: rgb(220, 220, 220); padding: .5%; border-radius: 10px;">
+      <form class="form-group">
+        <input class="form-control" type="text" name="filterpost" placeholder="Buscar" aria-label="Search"
+         [(ngModel)]="filterPost" >
+      </form>
+    </div>
+    <br>
+    <div class="col-md-3">
+      
+      <select class="form-select" id="validationCustom03" required name="Segmento" [(ngModel)]="selectedSegmento" (ngModelChange)="obtenerregistros()">
+        <option selected disabled value="">Elegir segmento</option>
+              <option>Cadena de Suministro</option>
+              <option>Constructores</option>
+              <option>Industriales</option>
+              <option>Inmuebles No Operativos</option>
+              <option>Operaciones</option>
+              <option>Promexma</option>
+              <option>Transporte</option>
+      </select>
+    </div>
+    <br><br>
+    <!-- <h1 id="titulo">(La tabla puede tardar unos segundos en cargar)</h1> -->
+    <table class="table table-hover tabla-pequena">
+        <thead class="table-dark">
+          <tr>
+            <!-- <th scope="col">ID</th> -->
+            <th scope="col">Planta</th>
+            <th scope="col">Permiso</th>
+            <th scope="col">Zona</th>
+            <th scope="col">Segmento</th>
+            <th scope="col">Peso</th>
+            <th scope="col">Impacto</th>
+            <th scope="col">Porcentaje de cumplimiento</th>
+            <th scope="col">Siglas</th>
+            <th scope="col">Fecha de inicio</th>
+            <th scope="col">Fecha de vecimiento</th>
+            <th scope="col">Observaciones</th>
+            <th scope="col">Estatus</th>
+            <th scope="col">Documento</th>
+
+
+            <th scope="col"></th>
+            <!-- <th scope="col">Fija</th> -->
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let Registro of registro.Registro | filtroPlanta:filterPost">
+            <!-- <td>{{Registro.id_registro}}</td> -->
+            <td>{{Registro.nombre_planta}}</td>
+            <td>{{Registro.nombre_requerimiento}}</td>
+            <td>{{Registro.zona}}</td>
+            <td>{{Registro.segmento}}</td>
+            <td>{{Registro.peso}}</td>
+            <td>{{Registro.impacto}}</td>
+            <td>
+              {{ Registro.porcentaje_cumplimiento !== 'NaN' ? recortarTexto(Registro.porcentaje_cumplimiento, 4) : '0' }}
+            </td>
+            <td>{{Registro.siglas}}</td>
+            <td>{{recortarTexto(Registro.fecha_inicio, 10)}}</td>
+            <td>{{recortarTexto(Registro.fecha_vencimiento, 10)}}</td>
+            <td [innerHTML]="formatearObservaciones(Registro.observaciones)"></td>
+            <td>{{Registro.estatus}}</td>
+            <td>
+              <button *ngIf="Registro.url" class="btn btn-primary" (click)="abrirUrl(Registro.url)">
+                <i class="material-icons">description</i> 
+              </button>
+            </td>
+            
+            <td>
+              <button class="btn btn-primary" (click)="Actualizar(Registro.id_registro)"><i class="material-icons">edit</i></button>
+            </td>
+          </tr>
+
+
+        </tbody>
+      </table>
+</div>
+</body>
+
