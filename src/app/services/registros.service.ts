@@ -7,13 +7,14 @@ import { saveAs } from 'file-saver';
   providedIn: 'root'
 })
 export class RegistrosService {
-URL_API='http://86.38.204.102:3200/api/regi'
-// URL_API='http://localhost:3200/api/regi'
+// URL_API='http://86.38.204.102:3200/api/regi'
+URL_API='http://localhost:3200/api/regi'
 
 Registro:registro[]=[];
 
 
 Segmento:'' | undefined;
+
 RegistroSelect :registro={
 id_registro:0,
 nombre_planta: '',
@@ -24,6 +25,12 @@ observaciones: '',
 estatus: '',
 url:'',
 validez_unica: true,
+impacto:'',
+peso:0,
+porcentaje_cumplimiento: '',
+segmento:'',
+siglas:'',
+zona:''
 }
 
   constructor(private http:HttpClient) { }
@@ -45,6 +52,11 @@ validez_unica: true,
     return this.http.post(`${this.URL_API}/grafica`,Segmento);
   }
 
+  obtenerRegistroZonaSegmento(body : any){
+    return this.http.post<registro[]>(`${this.URL_API}/regisSeg`,body);
+
+  }
+
 
 
   async descarga(body: any): Promise<any> {
@@ -59,6 +71,23 @@ validez_unica: true,
       // Relanzar el error para que el componente pueda manejarlo
       throw err;
     }
+  }
+
+  public descargarExcel(): Promise<any> {
+    const url = `${this.URL_API}/exel`;
+    return new Promise((resolve, reject) => {
+      this.http.get(url, {
+        responseType: 'blob',
+        observe: 'response'
+      }).subscribe(
+        (response: any) => {
+          resolve(response);
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
   }
 
 }
