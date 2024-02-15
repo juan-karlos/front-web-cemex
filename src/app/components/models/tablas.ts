@@ -31,7 +31,13 @@ fecha_vencimiento:Date ,
 observaciones: String,
 estatus: String,
 validez_unica: boolean,
-url: String
+url: String,
+impacto: String,
+peso: number,
+porcentaje_cumplimiento: String,
+segmento: String,
+siglas: String,
+zona: String
 }
 
 export interface historial{

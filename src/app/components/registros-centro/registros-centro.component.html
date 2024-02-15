@@ -8,7 +8,7 @@
         <ul class="nav justify-content-end">
 
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="inicio"
+            <a class="nav-link active" aria-current="page" href="Zona-centro"
             style="font-size: 20px; margin-right: 40px;">Volver</a>
           </li>
 
@@ -16,7 +16,7 @@
       </div>
     </nav>
 
-    <h1 id="titulo">Total de registros</h1>
+    <h1 id="titulo">Total de registros Zona CENTRO</h1>
     <!-- <h2 id="subtitulo">74% Cumplimiento CERO; 26 UUNN en riesgo de clausura, 8 en riesgo de multa y 3 optimas.</h2> -->
 
   </header>
@@ -30,15 +30,21 @@
         </form>
       </div>
       <br>
-      <br>
-      <!-- <div class="col-2">
-        <button style="margin-left: 3%;" class="btn btn-primary" type="submit"  (click)="descargarExcel()">Descargar Excel</button>
-      </div> -->
-      <button class="btn btn-primary" (click)="descargarExcel()">Descargar Excel</button>
-      <a style="margin-left: 5%;" *ngIf="descargando" disabled>Descargando...</a>
-
+      <div class="col-md-3">
+        
+        <select class="form-select" id="validationCustom03" required name="Segmento" [(ngModel)]="selectedSegmento" (ngModelChange)="obtenerregistros()">
+          <option selected disabled value="">Elegir segmento</option>
+                <option>Cadena de Suministro</option>
+                <option>Constructores</option>
+                <option>Industriales</option>
+                <option>Inmuebles No Operativos</option>
+                <option>Operaciones</option>
+                <option>Promexma</option>
+                <option>Transporte</option>
+        </select>
+      </div>
       <br><br>
-      <h1 id="titulo">(La tabla puede tardar unos segundos en cargar)</h1>
+      <!-- <h1 id="titulo">(La tabla puede tardar unos segundos en cargar)</h1> -->
       <table class="table table-hover tabla-pequena">
           <thead class="table-dark">
             <tr>
@@ -96,3 +102,4 @@
         </table>
   </div>
   </body>
+
