@@ -93,14 +93,14 @@ public stackedBarChartOptions: ChartConfiguration['options'] = {
 public barChartType: ChartType = 'bar';
 public barChartPlugins = [DataLabelsPlugin];
 public barChartData: ChartData<'bar'> = {
-  labels: ['NACIONAL', 'CENTRO', 'NORESTE', 'PACIFICO', 'SURESTE'],
+  labels: ['NACIONAL','PACIFICO'],
   datasets: [
     { data: [], label: this.getMesAnteriorLabel(), backgroundColor: '#B0E2FF' },
     { data: [], label: this.getMesActualLabel(), backgroundColor: '#49BBFC' },
   ],
 };
 public barChartData2: ChartData<'bar'> = {
-  labels: ['NACIONAL', 'CENTRO', 'NORESTE', 'PACIFICO', 'SURESTE'],
+  labels: ['NACIONAL','PACIFICO'],
   datasets: [
     { data: [], label: 'Fíjas', backgroundColor: '#B0E2FF' },
     { data: [], label: 'Móviles', backgroundColor: '#49BBFC' },
@@ -108,7 +108,7 @@ public barChartData2: ChartData<'bar'> = {
 };
 
 public stackedBarData: ChartData<'bar'> = {
-  labels: ['NACIONAL', 'CENTRO', 'NORESTE', 'PACIFICO', 'SURESTE'],
+  labels: ['NACIONAL', 'PACIFICO'],
   datasets: [
     { data: [], label: 'Clausura', backgroundColor: '#FF1B1B'},
     { data: [], label: 'Multa', backgroundColor: '#E5FF0E' },

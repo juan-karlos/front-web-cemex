@@ -92,7 +92,7 @@ export class ConstructoresCentroComponent implements OnInit {
   obtenerHistorial(zona: string, segmento: string, PorcentajeEnTiempoReal: number) {
     this.historialService.getHistorialZonaSegmento(zona, segmento).subscribe(
       (datos) => {
-       
+       console.log('Esto es lo que se esta recibiendo como datos en el metodo de OBTENERHISTORIAL ', datos)
         this.procesarDatosHistorial(datos, this.cumplimientoAnioActual, this.cumplimientoAnioAnterior, PorcentajeEnTiempoReal);
         this.actualizarGrafico();
       },

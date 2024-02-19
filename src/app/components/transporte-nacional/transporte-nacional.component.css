@@ -1,0 +1,184 @@
+.logo{
+    height:60px;
+    width:100px ;
+  
+  }
+  #body{
+    margin: 0;
+    padding: 0;
+    height: 1400px;
+    background-image: url(https://i.ibb.co/G9cnWRQ/CEMEX-FONDO.jpg);
+    background-size:cover ;
+    background-position:center;
+  }
+  #boton-riesgo{
+    margin-right: 10%;
+  
+  }
+  
+  #titulo-inicio{
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0px;
+  }
+   .base-mapa{
+  
+     /* height:70%; */
+     width: 350px;
+     margin: 0px auto;
+  
+  }
+  
+  .boton-mapa{
+    width: 260px;
+    height: 260px;
+    background: none;
+    background-repeat: no-repeat;
+    border:0;
+    margin-left: 20%;
+    margin-top: 3%;
+  }
+  .imagen{
+    width: 100%;
+  }
+  #btn-menu {
+    display: none;
+  }
+  #btn-menu1{
+    margin-top: 2px;
+  
+  }
+  
+  /* Contenedor del menu, cuando se abre y su posición */
+  .container-menu {
+    position: absolute; z-index: 1;
+    background: rgba(255, 255, 255, 0.518);
+    width: 100%;
+    height: 160%;
+    top: 0;
+    left: 0;
+    transition: all 500ms ease;
+    opacity: 0;
+    visibility: hidden;
+  }
+  #contenedor-grafica{
+    width: 100%;
+    /* height: 200px; */
+    margin: auto;
+    /* background-color: rgb(246, 234, 218);
+   */
+  }
+  
+  /* Visibilidad del menú costado, traerlo */
+  #btn-menu:checked~.container-menu {
+    opacity: 4;
+    visibility: visible;
+  
+  }
+  
+  /* Contenido del menú (Inicio, etc, además del color del fondo del mismo) */
+  .cont-menu {
+    width: 100%;
+    max-width: 250px;
+    background: #ff4646d2;
+    height: 100vh;
+    position: relative;
+    transition: all 500ms ease;
+    transform: translateX(-100%);
+  }
+  /* Posición del contenedor (lo despega del lado izquierdo, dejalo así) */
+  #btn-menu:checked~.container-menu .cont-menu {
+    transform: translateX(0%);
+  }
+  /* Determina la altura del contenido del menú */
+  .cont-menu nav {
+    transform: translateY(100%);
+  }
+  
+  /* Tamaño, tipo de letra y demás de Inicio, cerrar sesión  */
+  .cont-menu nav a {
+    display: block;
+    text-decoration: none;
+    padding: 20px;
+    color: #111010;
+    border-left: 20px solid transparent;
+    transition: all 400ms ease;
+    position: relative;
+    top: -465px;
+    font-weight: bold;
+  }
+  
+  /* Color de cuando pasas el puntero por los botones */
+  .cont-menu nav a:hover {
+    border-left: 5px solid #c7c7c7;
+    background: #e9e8e8;
+  }
+  
+  /* Tamaño y color del icon de X (cerrar) */
+  .cont-menu label {
+    position: absolute;
+    right: 5px;
+    top: 2px;
+    color: rgb(48, 48, 48);
+    cursor: pointer;
+    font-size: 28px;
+  }
+  
+  /* Tamaño y posicion de el logo de cemex */
+  #logo{
+    width:120px;
+    margin-right: 30px;
+    margin-bottom: 10px;
+  
+  }
+  
+  .div_paralelo {
+    width: 48%;
+    margin-left: 20px;
+    margin-top: 5%;
+    float: left;
+  }
+  
+  .contenedor-principal{
+    width: 90%;
+    margin: 0px auto;
+  
+  }
+  
+  .tabla{
+  
+    width: 90%;
+    margin-right: 20px;
+    margin: 40px auto;
+  
+  
+  }
+  #titulo{
+    color: rgb(17, 17, 110);
+    margin-top: 20px;
+    margin-left: 35px;
+    /* text-align: center; */
+  }
+  #subtitulo{
+    color: rgb(151, 151, 151);
+    margin-top: 10px;
+    /* margin-left: 35px; */
+    text-align: center;
+  }
+  
+  
+  
+  div.logodiv {
+  width: 60px;
+  height: 60px;
+  /*line-height:60px;
+  margin:0px auto;*/
+  text-align: center;
+  }
+  
+  div.logodiv img {
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+  }
+  
