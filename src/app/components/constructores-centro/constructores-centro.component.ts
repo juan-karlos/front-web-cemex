@@ -84,15 +84,17 @@ export class ConstructoresCentroComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    
     this.obtenerNacional(this.seg);
     this.obtenerZonas(this.seg);
     this.obtenerPorcentajeZonaSegmentos();
+   
   }
 
   obtenerHistorial(zona: string, segmento: string, PorcentajeEnTiempoReal: number) {
     this.historialService.getHistorialZonaSegmento(zona, segmento).subscribe(
       (datos) => {
-       console.log('Esto es lo que se esta recibiendo como datos en el metodo de OBTENERHISTORIAL ', datos)
+     
         this.procesarDatosHistorial(datos, this.cumplimientoAnioActual, this.cumplimientoAnioAnterior, PorcentajeEnTiempoReal);
         this.actualizarGrafico();
       },
@@ -149,20 +151,7 @@ export class ConstructoresCentroComponent implements OnInit {
   }
 
 
-  obtenerPorcentajeTotalActual(){
-    this.logicaService.getProcentajeCumplimietoZonasSegmentos().subscribe(
-      
-      (datos) => {
-        console.log
-        ('Esto me devuelve el porcentaje de cumplimiento total: ', datos);
-      //  const PorcentajeEnTiempoReal =datos[1].Pacífico
-      //  this.obtenerHistorial(this.zona, this.segmento, PorcentajeEnTiempoReal);
-      },
-      (error) => {
-        console.error('Error al obtener el porcentaje:', error);
-      }
-    )
-  }
+ 
 
   obtenerNacional(segmento:any) {
     this.perPlan.conteonacional2(segmento).subscribe(

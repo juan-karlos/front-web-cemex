@@ -41,13 +41,14 @@
     <br><br>
 
     </div>
+   
     <div class="div_paralelo">
 
       <div class="tabla">
         <table class="table" style="font-size: 12px;">
           <thead class="table-dark">
             <tr>
-              <th scope="col">REQUERIMIENTO</th>
+              <th scope="col"> CLAUSURA TOTAL </th>
               <th scope="col">NAC</th>
               <th scope="col">CEN</th>
               <th scope="col">NE</th>
@@ -56,20 +57,94 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let planper of perPlan.permiso_plan ">
-              <td class="col-8">{{planper.nombre}}</td>
+            <!-- Tabla para impacto "Clausura Total" -->
+            <ng-container *ngFor="let planper of perPlan.permiso_plan">
+              <ng-container *ngIf="planper.impacto === 'Clausura Total '">
+                <tr>
 
-              <td>{{planper.plantasgen}}</td>
-              <td>{{planper.plantascen}}</td>
-              <td>{{planper.plantnor}}</td>
-              <td>{{planper.plantaspas}}</td>
-              <td>{{planper.plantsur}}</td>
+                  <td class="col-8">{{planper.nombre}}</td>
 
-            </tr>
+                  <td>{{planper.plantasgen}}</td>
+                  <td>{{planper.plantascen}}</td>
+                  <td>{{planper.plantnor}}</td>
+                  <td>{{planper.plantaspas}}</td>
+                  <td>{{planper.plantsur}}</td>
 
+                </tr>
+              </ng-container>
+            </ng-container>
           </tbody>
         </table>
       </div>
+
+      <div class="tabla">
+        <table class="table" style="font-size: 12px;">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col"> MULTA</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Tabla para impacto "Multa" -->
+            <ng-container *ngFor="let planper of perPlan.permiso_plan">
+              <ng-container *ngIf="planper.impacto === 'Multa'">
+                <tr>
+
+                  <td class="col-8">{{planper.nombre}}</td>
+
+                  <td>{{planper.plantasgen}}</td>
+                  <td>{{planper.plantascen}}</td>
+                  <td>{{planper.plantnor}}</td>
+                  <td>{{planper.plantaspas}}</td>
+                  <td>{{planper.plantsur}}</td>
+
+                </tr>
+              </ng-container>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tabla">
+        <table class="table" style="font-size: 12px;">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col"> ADMINISTRATIVO</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Tabla para impacto "Administrativo" -->
+            <ng-container *ngFor="let planper of perPlan.permiso_plan">
+              <ng-container *ngIf="planper.impacto === 'Administrativo'">
+                <tr>
+
+                  <td class="col-8">{{planper.nombre}}</td>
+
+                  <td>{{planper.plantasgen}}</td>
+                  <td>{{planper.plantascen}}</td>
+                  <td>{{planper.plantnor}}</td>
+                  <td>{{planper.plantaspas}}</td>
+                  <td>{{planper.plantsur}}</td>
+
+                </tr>
+              </ng-container>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+
+
+
 
 
 
@@ -86,7 +161,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor=" let zon of perPlan.zonasConteo" >
+            <tr *ngFor=" let zon of perPlan.zonasConteo">
               <td class="col-8">Total</td>
               <td>{{zon.total}}</td>
               <td>{{zon.Centro}}</td>

@@ -40,56 +40,107 @@
     </div>
 
     </div>
-    <div class="div_paralelo">
+    
 
-      <div class="tabla">
-        <table class="table" style="font-size: 12px;">
-          <thead class="table-dark">
+</div>
+<div class="div_paralelo">
+
+  <div class="tabla">
+    <table class="table" style="font-size: 12px;">
+        <thead class="table-dark">
             <tr>
-              <th scope="col">REQUERIMIENTO</th>
-             
-              <th scope="col">PAC</th>
-            
+                <th scope="col">Requerimientos Clausura Total</th>
+                
+                <th scope="col"></th>
             </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let planper of perPlan.permiso_plan ">
-              <td class="col-10">{{planper.nombre}}</td>
-            
-             
-              <td>{{planper.plantaspas}}</td>
-           
-            </tr>
+        </thead>
+        <tbody>
+            <!-- Tabla para impacto "Clausura Total" -->
+            <ng-container *ngFor="let planper of perPlan.permiso_plan">
+                <ng-container *ngIf="planper.impacto === 'Clausura Total '">
+                    <tr>
+                        <td class="col-10">{{planper.nombre}}</td>
+                        
+                        <td>{{planper.plantaspas}}</td>
+                    </tr>
+                </ng-container>
+            </ng-container>
+        </tbody>
+    </table>
+</div>
 
-          </tbody>
-        </table>
-      </div>
-
-
-
-      <div class="tabla">
-        <table class="table" style="font-size: 12px;">
-          <thead class="table-dark">
+<div class="tabla">
+    <table class="table" style="font-size: 12px;">
+        <thead class="table-dark">
             <tr>
-              <th scope="col">SUMA TOTAL </th>
-              <th scope="col"></th>
-            
+                <th scope="col">Requerimientos Multa</th>
+                
+                <th scope="col"></th>
             </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor=" let zon of perPlan.zonasConteo" >
-              <td class="col-10">Total</td>
-             
-              <td>{{zon.Pasifico}}</td>
-            
+        </thead>
+        <tbody>
+            <!-- Tabla para impacto "Multa" -->
+            <ng-container *ngFor="let planper of perPlan.permiso_plan">
+                <ng-container *ngIf="planper.impacto === 'Multa'">
+                    <tr>
+                        <td class="col-10">{{planper.nombre}}</td>
+                       
+                        <td>{{planper.plantaspas}}</td>
+                    </tr>
+                </ng-container>
+            </ng-container>
+        </tbody>
+    </table>
+</div>
+
+<div class="tabla">
+    <table class="table" style="font-size: 12px;">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Requerimientos Administrativo</th>
+                
+                <th scope="col"></th>
             </tr>
-          </tbody>
-        </table>
-      </div>
+        </thead>
+        <tbody>
+            <!-- Tabla para impacto "Administrativo" -->
+            <ng-container *ngFor="let planper of perPlan.permiso_plan">
+                <ng-container *ngIf="planper.impacto === 'Administrativo'">
+                    <tr>
+                        <td class="col-10">{{planper.nombre}}</td>
+                      
+                        <td>{{planper.plantaspas}}</td>
+                    </tr>
+                </ng-container>
+            </ng-container>
+        </tbody>
+    </table>
+</div>
 
 
-    </div>
 
+  <div class="tabla">
+    <table class="table" style="font-size: 12px;">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">SUMA TOTAL</th>
+          <th scope="col"></th>
+        
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor=" let zon of perPlan.zonasConteo" >
+          <td class="col-10">Total</td>
+        
+          <td>{{zon.Pasifico}}</td>
+      
+      </tbody>
+    </table>
+  </div>
+
+
+    
+   
    </div>
 
 </body>
