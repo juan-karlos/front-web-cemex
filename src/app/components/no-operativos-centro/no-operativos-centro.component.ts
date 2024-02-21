@@ -155,8 +155,8 @@ export class NoOperativosCentroComponent implements OnInit {
       (datos) => {
         console.log
         ('Esto me devuelve el porcentaje de cumplimiento total: ', datos);
-      //  const PorcentajeEnTiempoReal =datos[1].Pacífico
-      //  this.obtenerHistorial(this.zona, this.segmento, PorcentajeEnTiempoReal);
+       const PorcentajeEnTiempoReal =datos[1].Pacífico
+       this.obtenerHistorial(this.zona, this.segmento, PorcentajeEnTiempoReal);
       },
       (error) => {
         console.error('Error al obtener el porcentaje:', error);
