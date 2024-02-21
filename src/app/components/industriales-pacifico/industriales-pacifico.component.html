@@ -38,68 +38,108 @@
         [plugins]="barChartPlugins" [type]="graficalineas">
        </canvas>
     </div>
-    <br><br>
+  
 
     </div>
-    <div class="div_paralelo">
+   
 
-      <div class="tabla">
-        <table class="table" style="font-size: 12px;">
+  </div>
+  <div class="div_paralelo">
+
+    <div class="tabla">
+      <table class="table" style="font-size: 12px;">
           <thead class="table-dark">
-            <tr>
-              <th scope="col">REQUERIMIENTO</th>
-              <th scope="col">NAC</th>
-              <th scope="col">CEN</th>
-              <th scope="col">NE</th>
-              <th scope="col">PAC</th>
-              <th scope="col">SE</th>
-            </tr>
+              <tr>
+                  <th scope="col">Requerimientos Clausura Total</th>
+                  
+                  <th scope="col"></th>
+              </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let planper of perPlan.permiso_plan ">
-              <td>{{planper.nombre}}</td>
-
-              <td>{{planper.plantasgen}}</td>
-              <td>{{planper.plantascen}}</td>
-              <td>{{planper.plantnor}}</td>
-              <td>{{planper.plantaspas}}</td>
-              <td>{{planper.plantsur}}</td>
-
-            </tr>
-
+              <!-- Tabla para impacto "Clausura Total" -->
+              <ng-container *ngFor="let planper of perPlan.permiso_plan">
+                  <ng-container *ngIf="planper.impacto === 'Clausura Total '">
+                      <tr>
+                          <td class="col-10">{{planper.nombre}}</td>
+                          
+                          <td>{{planper.plantaspas}}</td>
+                      </tr>
+                  </ng-container>
+              </ng-container>
           </tbody>
-        </table>
-      </div>
-
-
-
-      <div class="tabla">
-        <table class="table" style="font-size: 12px;">
+      </table>
+  </div>
+  
+  <div class="tabla">
+      <table class="table" style="font-size: 12px;">
           <thead class="table-dark">
-            <tr>
-              <th scope="col">SUMA TOTAL</th>
-              <th scope="col">NAC</th>
-              <th scope="col">CEN</th>
-              <th scope="col">NE</th>
-              <th scope="col">PAC</th>
-              <th scope="col">SE</th>
-            </tr>
+              <tr>
+                  <th scope="col">Requerimientos Multa</th>
+                  
+                  <th scope="col"></th>
+              </tr>
           </thead>
           <tbody>
-            <tr *ngFor=" let zon of perPlan.zonasConteo" >
-              <td>Total</td>
-              <td>{{zon.total}}</td>
-              <td>{{zon.Centro}}</td>
-              <td>{{zon.Noreste}}</td>
-              <td>{{zon.Pasifico}}</td>
-              <td>{{zon.Sureste}}</td>
-            </tr>
+              <!-- Tabla para impacto "Multa" -->
+              <ng-container *ngFor="let planper of perPlan.permiso_plan">
+                  <ng-container *ngIf="planper.impacto === 'Multa'">
+                      <tr>
+                          <td class="col-10">{{planper.nombre}}</td>
+                         
+                          <td>{{planper.plantaspas}}</td>
+                      </tr>
+                  </ng-container>
+              </ng-container>
           </tbody>
-        </table>
-      </div>
+      </table>
+  </div>
+  
+  <div class="tabla">
+      <table class="table" style="font-size: 12px;">
+          <thead class="table-dark">
+              <tr>
+                  <th scope="col">Requerimientos Administrativo</th>
+                  
+                  <th scope="col"></th>
+              </tr>
+          </thead>
+          <tbody>
+              <!-- Tabla para impacto "Administrativo" -->
+              <ng-container *ngFor="let planper of perPlan.permiso_plan">
+                  <ng-container *ngIf="planper.impacto === 'Administrativo'">
+                      <tr>
+                          <td class="col-10">{{planper.nombre}}</td>
+                        
+                          <td>{{planper.plantaspas}}</td>
+                      </tr>
+                  </ng-container>
+              </ng-container>
+          </tbody>
+      </table>
+  </div>
+  
 
 
+    <div class="tabla">
+      <table class="table" style="font-size: 12px;">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">SUMA TOTAL</th>
+            <th scope="col"></th>
+          
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor=" let zon of perPlan.zonasConteo" >
+            <td class="col-10">Total</td>
+          
+            <td>{{zon.Pasifico}}</td>
+        
+        </tbody>
+      </table>
     </div>
+
+
 
    </div>
 

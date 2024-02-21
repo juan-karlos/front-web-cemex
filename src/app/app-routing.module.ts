@@ -125,6 +125,27 @@ import { RegistrosCentroComponent } from './components/registros-centro/registro
 import { RegistrosNoresteComponent } from './components/registros-noreste/registros-noreste.component';
 import { RegistrosPacificoComponent } from './components/registros-pacifico/registros-pacifico.component';
 import { RegistrosSuresteComponent } from './components/registros-sureste/registros-sureste.component';
+import { ConstructoresNacionalComponent } from './components/constructores-nacional/constructores-nacional.component';
+import { SuministroNacionalComponent } from './components/suministro-nacional/suministro-nacional.component';
+import { IndustrialesNacionalComponent } from './components/industriales-nacional/industriales-nacional.component';
+import { NoOperativosNacionalComponent } from './components/no-operativos-nacional/no-operativos-nacional.component';
+import { OperacionesNacionalComponent } from './components/operaciones-nacional/operaciones-nacional.component';
+import { PromexmaNacionalComponent } from './components/promexma-nacional/promexma-nacional.component';
+import { TransporteNacionalComponent } from './components/transporte-nacional/transporte-nacional.component';
+import { GraficasConstructoresNacionalComponent } from './components/graficas-constructores-nacional/graficas-constructores-nacional.component';
+import { GraficasIndustrialesNacionalComponent } from './components/graficas-industriales-nacional/graficas-industriales-nacional.component';
+import { GraficasNoOperativosNacionalComponent } from './components/graficas-no-operativos-nacional/graficas-no-operativos-nacional.component';
+import { GraficasOperacionesNacionalComponent } from './components/graficas-operaciones-nacional/graficas-operaciones-nacional.component';
+import { GraficasPromexmaNacionalComponent } from './components/graficas-promexma-nacional/graficas-promexma-nacional.component';
+import { GraficasSuministroNacionalComponent } from './components/graficas-suministro-nacional/graficas-suministro-nacional.component';
+import { GraficasTransporteNacionalComponent } from './components/graficas-transporte-nacional/graficas-transporte-nacional.component';
+import { NivelRiesgoConstructoresNacionalComponent } from './components/nivel-riesgo-constructores-nacional/nivel-riesgo-constructores-nacional.component';
+import { NivelRiesgoIndustrialesNacionalComponent } from './components/nivel-riesgo-industriales-nacional/nivel-riesgo-industriales-nacional.component';
+import { NivelRiesgoNoOperativosNacionalComponent } from './components/nivel-riesgo-no-operativos-nacional/nivel-riesgo-no-operativos-nacional.component';
+import { NivelRiesgoOperacionesNacionalComponent } from './components/nivel-riesgo-operaciones-nacional/nivel-riesgo-operaciones-nacional.component';
+import { NivelRiesgoPromexmaNacionalComponent } from './components/nivel-riesgo-promexma-nacional/nivel-riesgo-promexma-nacional.component';
+import { NivelRiesgoSuministroNacionalComponent } from './components/nivel-riesgo-suministro-nacional/nivel-riesgo-suministro-nacional.component';
+import { NivelRiesgoTransporteNacionalComponent } from './components/nivel-riesgo-transporte-nacional/nivel-riesgo-transporte-nacional.component';
 
 
 const routes: Routes = [
@@ -145,9 +166,11 @@ const routes: Routes = [
   {path:'cadena-suministros', component: SegmentoCadenaSuministroComponent, canActivate: [seguridadGuard]},
   {path:'constructores-pacifico', component: ConstructoresPacificoComponent, canActivate: [seguridadGuard]},
   {path:'constructores-centro', component: ConstructoresCentroComponent, canActivate: [seguridadGuard] },
+  {path:'constructores-nacional', component: ConstructoresNacionalComponent, canActivate: [seguridadGuard]},
   {path:'constructores-sureste', component: ConstructoresSuresteComponent, canActivate: [seguridadGuard]},
   {path:'constructores-noreste', component: ConstructoresNoresteComponent, canActivate: [seguridadGuard]},
   {path:'suministro-pacifico', component: SuministroPacificoComponent, canActivate: [seguridadGuard] },
+  {path:'suministro-nacional', component: SuministroNacionalComponent, canActivate: [seguridadGuard] },
   {path:'suministro-centro', component: SuministroCentroComponent, canActivate: [seguridadGuard] },
   {path:'suministro-sureste', component:  SuministroSuresteComponent, canActivate: [seguridadGuard]},
   {path:'suministro-noreste', component: SuministroNoresteComponent, canActivate: [seguridadGuard] },
@@ -156,28 +179,34 @@ const routes: Routes = [
   {path:'construrama-sureste', component: ConstruramaSuresteComponent, canActivate: [seguridadGuard] },
   {path:'construrama-noreste', component: ConstruramaNoresteComponent, canActivate: [seguridadGuard] },
   {path:'industriales-pacifico', component:IndustrialesPacificoComponent, canActivate: [seguridadGuard] },
+  {path:'industriales-nacional', component:IndustrialesNacionalComponent, canActivate: [seguridadGuard] },
   {path:'industriales-centro', component: IndustrialesCentroComponent, canActivate: [seguridadGuard] },
   {path:'industriales-sureste', component: IndustrialesSuresteComponent, canActivate: [seguridadGuard] },
   {path:'industriales-noreste', component: IndustrialesNoresteComponent, canActivate: [seguridadGuard] },
   {path:'no-operativo-pacifico', component: NoOperativosPacificoComponent, canActivate: [seguridadGuard] },
+  {path:'no-operativo-nacional', component: NoOperativosNacionalComponent, canActivate: [seguridadGuard] },
   {path:'no-operativo-centro', component: NoOperativosCentroComponent, canActivate: [seguridadGuard] },
   {path:'no-operativo-sureste', component: NoOperativosSuresteComponent, canActivate: [seguridadGuard] },
   {path:'no-operativo-noreste', component: NoOperativosNoresteComponent, canActivate: [seguridadGuard] },
   {path:'operaciones-pacifico', component: OperacionesPacificoComponent, canActivate: [seguridadGuard] },
+  {path:'operaciones-nacional', component: OperacionesNacionalComponent, canActivate: [seguridadGuard] },
   {path:'operaciones-centro', component: OperacionesCentroComponent, canActivate: [seguridadGuard] },
   {path:'operaciones-sureste', component: OperacionesSuresteComponent, canActivate: [seguridadGuard] },
   {path:'operaciones-noreste', component: OperacionesNoresteComponent, canActivate: [seguridadGuard] },
+  {path:'promexma-nacional', component: PromexmaNacionalComponent, canActivate: [seguridadGuard] },
   {path:'promexma-pacifico', component: PromexmaPacificoComponent, canActivate: [seguridadGuard] },
   {path:'promexma-centro', component: PromexmaCentroComponent, canActivate: [seguridadGuard]},
   {path:'promexma-sureste', component: PromexmaSuresteComponent, canActivate: [seguridadGuard] },
   {path:'promexma-noreste', component: PromexmaNoresteComponent, canActivate: [seguridadGuard] },
   {path:'transporte-pacifico', component: TransportePacificoComponent, canActivate: [seguridadGuard] },
+  {path:'transporte-nacional', component: TransporteNacionalComponent, canActivate: [seguridadGuard] },
   {path:'transporte-centro', component: TransporteCentroComponent, canActivate: [seguridadGuard] },
   {path:'transporte-sureste', component: TransporteSuresteComponent, canActivate: [seguridadGuard] },
   {path:'transporte-noreste', component: TransporteNoresteComponent, canActivate: [seguridadGuard]},
   {path:'graficas-constructores-centro', component: GraficasConstructoresCentroComponent, canActivate: [seguridadGuard]},
   {path:'graficas-constructores-noreste', component: GraficasConstructoresNoresteComponent, canActivate: [seguridadGuard]},
   {path:'graficas-constructores-pacifico', component: GraficasConstructoresPacificoComponent, canActivate: [seguridadGuard]},
+  {path:'graficas-constructores-nacional', component: GraficasConstructoresNacionalComponent, canActivate: [seguridadGuard]},
   {path:'graficas-constructores-sureste', component: GraficasConstructoresSuresteComponent, canActivate: [seguridadGuard]},
   {path:'graficas-construrama-centro', component: GraficasConstruramaCentroComponent, canActivate: [seguridadGuard]},
   {path:'graficas-construrama-noreste', component: GraficasConstruramaNoresteComponent, canActivate: [seguridadGuard]},
@@ -185,29 +214,36 @@ const routes: Routes = [
   {path:'graficas-construrama-sureste', component: GraficasConstruramaSuresteComponent, canActivate: [seguridadGuard]},
   {path:'graficas-industriales-centro', component: GraficasIndustrialesCentroComponent, canActivate: [seguridadGuard]},
   {path:'graficas-industriales-pacifico', component: GraficasIndustrialesPacificoComponent, canActivate: [seguridadGuard]},
+  {path:'graficas-industriales-nacional', component: GraficasIndustrialesNacionalComponent, canActivate: [seguridadGuard]},
   {path:'graficas-industriales-noreste', component: GraficasIndustrialesNoresteComponent, canActivate: [seguridadGuard]},
   {path:'graficas-industriales-sureste', component: GraficasIndustrialesSuresteComponent, canActivate: [seguridadGuard]},
   {path:'graficas-no-operativos-centro', component: GraficasNoOperativosCentroComponent, canActivate: [seguridadGuard]},
   {path:'graficas-no-operativos-noreste', component: GraficasNoOperativosNoresteComponent, canActivate: [seguridadGuard]},
+  {path:'graficas-no-operativos-nacional', component: GraficasNoOperativosNacionalComponent, canActivate: [seguridadGuard]},
   {path:'graficas-no-operativos-pacifico', component: GraficasNoOperativosPacificoComponent, canActivate: [seguridadGuard]},
   {path:'graficas-no-operativos-sureste', component: GraficasNoOperativosSuresteComponent, canActivate: [seguridadGuard]},
   {path:'graficas-operaciones-centro', component: GraficasOperacionesCentroComponent, canActivate: [seguridadGuard]},
+  {path:'graficas-operaciones-nacional', component: GraficasOperacionesNacionalComponent, canActivate: [seguridadGuard]},
   {path:'graficas-operaciones-noreste', component: GraficasOperacionesNoresteComponent, canActivate: [seguridadGuard]},
   {path:'graficas-operaciones-pacifico', component: GraficasOperacionesPacificoComponent, canActivate: [seguridadGuard]},
   {path:'graficas-operaciones-sureste', component: GraficasOperacionesSuresteComponent, canActivate: [seguridadGuard]},
   {path:'graficas-promexma-centro', component: GraficasPromexmaCentroComponent, canActivate: [seguridadGuard]},
   {path:'graficas-promexma-noreste', component: GraficasPromexmaNoresteComponent, canActivate: [seguridadGuard]},
   {path:'graficas-promexma-pacifico', component: GraficasPromexmaPacificoComponent, canActivate: [seguridadGuard]},
+  {path:'graficas-promexma-nacional', component: GraficasPromexmaNacionalComponent, canActivate: [seguridadGuard]},
   {path:'graficas-promexma-sureste', component: GraficasPromexmaSuresteComponent, canActivate: [seguridadGuard]},
   {path:'graficas-suministro-centro', component: GraficasSuministroCentroComponent, canActivate: [seguridadGuard]},
   {path:'graficas-suministro-noreste', component: GraficasSuministroNoresteComponent, canActivate: [seguridadGuard]},
   {path:'graficas-suministro-pacifico', component: GraficasSuministroPacificoComponent, canActivate: [seguridadGuard]},
+  {path:'graficas-suministro-nacional', component: GraficasSuministroNacionalComponent, canActivate: [seguridadGuard]},
   {path:'graficas-suministro-sureste', component: GraficasSuministroSuresteComponent, canActivate: [seguridadGuard]},
   {path:'graficas-transporte-centro', component: GraficasTransporteCentroComponent, canActivate: [seguridadGuard]},
   {path:'graficas-transporte-noreste', component: GraficasTransporteNoresteComponent, canActivate: [seguridadGuard]},
+  {path:'graficas-transporte-nacional', component: GraficasTransporteNacionalComponent, canActivate: [seguridadGuard]},
   {path:'graficas-transporte-pacifico', component: GraficasTransportePacificoComponent, canActivate: [seguridadGuard]},
   {path:'graficas-transporte-sureste', component: GraficasTransporteSuresteComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-constructores-pacifico', component: NivelRiesgoConstructoresPacificoComponent, canActivate: [seguridadGuard]},
+  {path:'nivel-riesgo-constructores-nacional', component: NivelRiesgoConstructoresNacionalComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-constructores-centro', component: NivelRiesgoConstructoresCentroComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-constructores-noreste', component: NivelRiesgoConstructoresNoresteComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-constructores-sureste', component: NivelRiesgoConstructoresSuresteComponent, canActivate: [seguridadGuard]},
@@ -217,26 +253,32 @@ const routes: Routes = [
   {path:'nivel-riesgo-construrama-sureste', component: NivelRiesgoConstruramaSuresteComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-industriales-centro', component: NivelRiesgoIndustrialesCentroComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-industriales-noreste', component: NivelRiesgoIndustrialesNoresteComponent, canActivate: [seguridadGuard]},
+  {path:'nivel-riesgo-industriales-nacional', component: NivelRiesgoIndustrialesNacionalComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-industriales-pacifico', component: NivelRiesgoIndustrialesPacificoComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-industriales-sureste', component: NivelRiesgoIndustrialesSuresteComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-no-operativos-centro', component: NivelRiesgoNoOperativosCentroComponent, canActivate: [seguridadGuard]},
+  {path:'nivel-riesgo-no-operativos-nacional', component: NivelRiesgoNoOperativosNacionalComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-no-operativos-noreste', component: NivelRiesgoNoOperativosNoresteComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-no-operativos-pacifico', component: NivelRiesgoNoOperativosPacificoComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-no-operativos-sureste', component: NivelRiesgoNoOperativosSuresteComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-operaciones-centro', component: NivelRiesgoOperacionesCentroComponent, canActivate: [seguridadGuard]},
+  {path:'nivel-riesgo-operaciones-nacional', component: NivelRiesgoOperacionesNacionalComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-operaciones-noreste', component: NivelRiesgoOperacionesNoresteComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-operaciones-pacifico', component: NivelRiesgoOperacionesPacificoComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-operaciones-sureste', component: NivelRiesgoOperacionesSuresteComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-promexma-centro', component: NivelRiesgoPromexmaCentroComponent, canActivate: [seguridadGuard]},
+  {path:'nivel-riesgo-promexma-nacional', component: NivelRiesgoPromexmaNacionalComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-promexma-noreste', component: NivelRiesgoPromexmaNoresteComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-promexma-pacifico', component: NivelRiesgoPromexmaPacificoComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-promexma-sureste', component: NivelRiesgoPromexmaSuresteComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-suministro-centro', component: NivelRiesgoSuministroCentroComponent, canActivate: [seguridadGuard]},
+  {path:'nivel-riesgo-suministro-nacional', component: NivelRiesgoSuministroNacionalComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-suministro-noreste', component: NivelRiesgoSuministroNoresteComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-suministro-pacifico', component: NivelRiesgoSuministroPacificoComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-suministro-sureste', component: NivelRiesgoSuministroSuresteComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-transporte-centro', component: NivelRiesgoTrasnporteCentroComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-transporte-noreste', component: NivelRiesgoTrasnporteNoresteComponent, canActivate: [seguridadGuard]},
+  {path:'nivel-riesgo-transporte-nacional', component: NivelRiesgoTransporteNacionalComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-transporte-pacifico', component: NivelRiesgoTrasnportePacificoComponent, canActivate: [seguridadGuard]},
   {path:'nivel-riesgo-transporte-sureste', component: NivelRiesgoTrasnporteSuresteComponent, canActivate: [seguridadGuard]},
   {path: 'agregar-registro', component: AgregarRegistroComponent, canActivate: [seguridadGuard]},
