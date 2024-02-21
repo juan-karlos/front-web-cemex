@@ -59,6 +59,7 @@ export interface segmentos{
 }
 export interface conteo {
 nombre:String,
+impacto:String
 plantaspas:number
 plantascen:number
 plantnor:number

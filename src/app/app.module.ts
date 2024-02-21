@@ -149,6 +149,28 @@ import { RegistrosCentroComponent } from './components/registros-centro/registro
 import { RegistrosNoresteComponent } from './components/registros-noreste/registros-noreste.component';
 import { RegistrosSuresteComponent } from './components/registros-sureste/registros-sureste.component';
 import { RegistrosPacificoComponent } from './components/registros-pacifico/registros-pacifico.component';
+import { ConstructoresNacionalComponent } from './components/constructores-nacional/constructores-nacional.component';
+import { GraficasConstructoresNacionalComponent } from './components/graficas-constructores-nacional/graficas-constructores-nacional.component';
+import { NivelRiesgoConstructoresNacionalComponent } from './components/nivel-riesgo-constructores-nacional/nivel-riesgo-constructores-nacional.component';
+import { IndustrialesNacionalComponent } from './components/industriales-nacional/industriales-nacional.component';
+import { GraficasIndustrialesNacionalComponent } from './components/graficas-industriales-nacional/graficas-industriales-nacional.component';
+import { NivelRiesgoIndustrialesNacionalComponent } from './components/nivel-riesgo-industriales-nacional/nivel-riesgo-industriales-nacional.component';
+import { NoOperativosNacionalComponent } from './components/no-operativos-nacional/no-operativos-nacional.component';
+import { GraficasNoOperativosNacionalComponent } from './components/graficas-no-operativos-nacional/graficas-no-operativos-nacional.component';
+import { NivelRiesgoNoOperativosNacionalComponent } from './components/nivel-riesgo-no-operativos-nacional/nivel-riesgo-no-operativos-nacional.component';
+import { OperacionesNacionalComponent } from './components/operaciones-nacional/operaciones-nacional.component';
+import { GraficasOperacionesNacionalComponent } from './components/graficas-operaciones-nacional/graficas-operaciones-nacional.component';
+import { NivelRiesgoOperacionesNacionalComponent } from './components/nivel-riesgo-operaciones-nacional/nivel-riesgo-operaciones-nacional.component';
+import { PromexmaNacionalComponent } from './components/promexma-nacional/promexma-nacional.component';
+import { GraficasPromexmaNacionalComponent } from './components/graficas-promexma-nacional/graficas-promexma-nacional.component';
+import { NivelRiesgoPromexmaNacionalComponent } from './components/nivel-riesgo-promexma-nacional/nivel-riesgo-promexma-nacional.component';
+import { SuministroNacionalComponent } from './components/suministro-nacional/suministro-nacional.component';
+import { GraficasSuministroNacionalComponent } from './components/graficas-suministro-nacional/graficas-suministro-nacional.component';
+import { NivelRiesgoSuministroNacionalComponent } from './components/nivel-riesgo-suministro-nacional/nivel-riesgo-suministro-nacional.component';
+import { TrasporteNacionalComponent } from './components/trasporte-nacional/trasporte-nacional.component';
+import { GraficasTransporteNacionalComponent } from './components/graficas-transporte-nacional/graficas-transporte-nacional.component';
+import { NivelRiesgoTransporteNacionalComponent } from './components/nivel-riesgo-transporte-nacional/nivel-riesgo-transporte-nacional.component';
+import { TransporteNacionalComponent } from './components/transporte-nacional/transporte-nacional.component';
 
 @NgModule({
   declarations: [
@@ -281,6 +303,28 @@ import { RegistrosPacificoComponent } from './components/registros-pacifico/regi
     RegistrosNoresteComponent,
     RegistrosSuresteComponent,
     RegistrosPacificoComponent,
+    ConstructoresNacionalComponent,
+    GraficasConstructoresNacionalComponent,
+    NivelRiesgoConstructoresNacionalComponent,
+    IndustrialesNacionalComponent,
+    GraficasIndustrialesNacionalComponent,
+    NivelRiesgoIndustrialesNacionalComponent,
+    NoOperativosNacionalComponent,
+    GraficasNoOperativosNacionalComponent,
+    NivelRiesgoNoOperativosNacionalComponent,
+    OperacionesNacionalComponent,
+    GraficasOperacionesNacionalComponent,
+    NivelRiesgoOperacionesNacionalComponent,
+    PromexmaNacionalComponent,
+    GraficasPromexmaNacionalComponent,
+    NivelRiesgoPromexmaNacionalComponent,
+    SuministroNacionalComponent,
+    GraficasSuministroNacionalComponent,
+    NivelRiesgoSuministroNacionalComponent,
+    TrasporteNacionalComponent,
+    GraficasTransporteNacionalComponent,
+    NivelRiesgoTransporteNacionalComponent,
+    TransporteNacionalComponent,
     
     
   ],
