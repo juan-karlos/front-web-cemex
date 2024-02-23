@@ -28,6 +28,11 @@ export class GraficasConstructoresNacionalComponent implements OnInit {
   seg = {
     "segmento":"Constructores"
   }
+  totalNacional: number = 0;
+  totalCentro: number = 0;
+  totalNoreste: number = 0;
+  totalPacifico: number = 0;
+  totalSureste: number = 0;
   
 
   constructor(private historialService: HistorialService,  private logicaService : LogicaService, private registroService: RegistrosService){}
@@ -42,6 +47,8 @@ export class GraficasConstructoresNacionalComponent implements OnInit {
   ngAfterViewInit(): void {
    
   }
+
+
 
 //Aqui comienzan los metodos para la graficación
 public barChartOptions: ChartConfiguration['options'] = {
@@ -71,6 +78,7 @@ public barChartOptions: ChartConfiguration['options'] = {
   },
 };
 
+
 public stackedBarChartOptions: ChartConfiguration['options'] = {
   responsive: true,
   // We use these empty structures as placeholders for dynamic theming.
@@ -87,6 +95,7 @@ public stackedBarChartOptions: ChartConfiguration['options'] = {
       display: true,
     },
     datalabels: {
+      
 
     },
   },
@@ -141,6 +150,12 @@ private DatosVerdes(datos: any){
   const sur = datos[4].optimaspassur;
   const centro = datos[1].optimascen;
   const pacifico = datos[3].optimaspas;
+  this.totalNacional += nacional;
+  this.totalCentro += centro;
+  this.totalNoreste += norte;
+  this.totalPacifico += pacifico;
+  this.totalSureste += sur;
+  console.log('ESTO LLEVA EL NUMERITO DE ARRIBA NACIONAL EN VERDES', this.totalNacional)
   console.log('Estos son los datos que se iran a optimas: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
   // Asigna los datos al conjunto de datos, 
   this.stackedBarData.datasets[2].data = [nacional, centro, norte, pacifico, sur];
@@ -154,6 +169,12 @@ private DatosRojos(datos: any){
   const sur = datos[4].clausuradassur;
   const centro = datos[1].clausuradascen;
   const pacifico = datos[3].clausuradaspas;
+  this.totalNacional += nacional;
+  this.totalCentro += centro;
+  this.totalNoreste += norte;
+  this.totalPacifico += pacifico;
+  this.totalSureste += sur;
+  console.log('ESTO LLEVA EL NUMERITO DE ARRIBA NACIONAL EN ROJO', this.totalNacional)
   console.log('Estos son los datos que se iran a clausuradas: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
   // Asigna los datos al conjunto de datos, 
   this.stackedBarData.datasets[0].data = [nacional, centro, norte, pacifico, sur];
@@ -167,6 +188,12 @@ private DatosAmarillos(datos: any){
   const sur = datos[4].multaspassur;
   const centro = datos[1].multascen;
   const pacifico = datos[3].multaspas;
+  this.totalNacional += nacional;
+  this.totalCentro += centro;
+  this.totalNoreste += norte;
+  this.totalPacifico += pacifico;
+  this.totalSureste += sur;
+  console.log('ESTO LLEVA EL NUMERITO DE ARRIBA NACIONAL EN AMARILLO', this.totalNacional)
   console.log('Estos son los datos que se iran a multas: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
   // Asigna los datos al conjunto de datos, 
   this.stackedBarData.datasets[1].data = [nacional, centro, norte, pacifico, sur];
@@ -180,6 +207,12 @@ private DatosGrices(datos: any){
   const sur = datos[4].administrativassur;
   const centro = datos[1].administrativascen;
   const pacifico = datos[3].administrativaspas;
+  this.totalNacional += nacional;
+  this.totalCentro += centro;
+  this.totalNoreste += norte;
+  this.totalPacifico += pacifico;
+  this.totalSureste += sur;
+  console.log('ESTO LLEVA EL NUMERITO DE ARRIBA NACIONAL EN GRICES', this.totalNacional)
   console.log('Estos son los datos que se iran a grices: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
   // Asigna los datos al conjunto de datos, 
   this.stackedBarData.datasets[3].data = [nacional, centro, norte, pacifico, sur];
@@ -336,6 +369,12 @@ actualizarGrafico() {
 esMismoMes(fecha1: Date, fecha2: Date): boolean {
   return fecha1.getFullYear() === fecha2.getFullYear() && fecha1.getMonth() === fecha2.getMonth();
 }
+
+
+
+
+
+
 
 }
 
