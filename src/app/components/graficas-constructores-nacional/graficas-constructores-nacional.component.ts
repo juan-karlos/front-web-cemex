@@ -86,7 +86,7 @@ public stackedBarChartOptions: ChartConfiguration['options'] = {
     x: {stacked: true},
     y: {
       min: 0,
-      max: 200,
+      max: 300,
       stacked: true
     },
   },
@@ -125,6 +125,8 @@ public stackedBarData: ChartData<'bar'> = {
     { data: [], label: 'Multa', backgroundColor: '#E5FF0E' },
     { data: [], label: 'Optimas', backgroundColor: '#32FF00'  },
     { data: [], label: 'Administrativos', backgroundColor: '#A9A9A9'  },
+    { data: [], label: '', backgroundColor: '#00FF0000'  },
+    
   ],
 };
 
@@ -136,6 +138,7 @@ private GraficarRiesgo(segmento:any){
      this.DatosRojos(datos);
      this.DatosAmarillos(datos);
      this.DatosGrices(datos);
+     this.DatosDeArriba();
     },
     (error) => {
       console.error('Error al obtener el porcentaje:', error);
@@ -161,6 +164,7 @@ private DatosVerdes(datos: any){
   this.stackedBarData.datasets[2].data = [nacional, centro, norte, pacifico, sur];
   this.actualizarGrafico();
 }
+
 private DatosRojos(datos: any){
   
   // Asegúrate de que las propiedades sean correctas y coincidan con las reales
@@ -216,6 +220,11 @@ private DatosGrices(datos: any){
   console.log('Estos son los datos que se iran a grices: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
   // Asigna los datos al conjunto de datos, 
   this.stackedBarData.datasets[3].data = [nacional, centro, norte, pacifico, sur];
+  this.actualizarGrafico();
+}
+
+private DatosDeArriba(){
+  this.stackedBarData.datasets[4].data =[this.totalNacional,this.totalCentro,this.totalNoreste, this.totalPacifico,this.totalSureste ]
   this.actualizarGrafico();
 }
 
