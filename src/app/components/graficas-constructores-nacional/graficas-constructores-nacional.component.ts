@@ -223,10 +223,7 @@ private DatosGrices(datos: any){
   this.actualizarGrafico();
 }
 
-private DatosDeArriba(){
-  this.stackedBarData.datasets[4].data =[this.totalNacional,this.totalCentro,this.totalNoreste, this.totalPacifico,this.totalSureste ]
-  this.actualizarGrafico();
-}
+
 
 
 private Graficarmesactual() {
@@ -381,7 +378,10 @@ esMismoMes(fecha1: Date, fecha2: Date): boolean {
 
 
 
-
+private DatosDeArriba(){
+  this.stackedBarData.datasets[4].data =[this.totalNacional,this.totalCentro,this.totalNoreste, this.totalPacifico,this.totalSureste ]
+  this.actualizarGrafico();
+}
 
 
 

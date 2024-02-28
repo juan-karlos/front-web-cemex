@@ -138,7 +138,7 @@ export class ConstructoresCentroComponent implements OnInit {
       
       (datos) => {
         console.log
-        ('Esto me devuelve el obtener historial: ', datos);
+        ('Esto me devuelve el obtener porcentajezonasegmentos: ', datos);
        const PorcentajeEnTiempoReal =datos[1].Centro
        this.obtenerHistorial(this.zona, this.segmento, PorcentajeEnTiempoReal);
        
