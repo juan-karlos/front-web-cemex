@@ -31,8 +31,7 @@ export class GraficasConstructoresCentroComponent implements OnInit {
 
   constructor(private historialService: HistorialService,  private logicaService : LogicaService, private registroService: RegistrosService){}
   ngOnInit(): void {
-    
-    this.Graficarmesactual();
+    this.Graficarmesactual(this.body);
     this.GraficarMesAnterior();
     this.Fijas();
     this.Moviles();
@@ -180,10 +179,11 @@ private DatosGrices(datos: any){
 }
 
 
-private Graficarmesactual() {
-  this.logicaService.getProcentajeCumplimietoZonasSegmentos().subscribe(
+private Graficarmesactual(body:any) {
+  this.logicaService.getProcentajeCumplimietoZonasSegmentos2(body).subscribe(
     (datos) => {
       this.actualizarGrafica1mesactualConDatos(datos);
+     console.log('DATOS QUE SE MANDAN A GRAFICAR MES ACTUAL', datos)
     },
     (error) => {
       console.error('Error al obtener el porcentaje:', error);
@@ -191,12 +191,19 @@ private Graficarmesactual() {
   );
 }
 
+
+ body = {
+    "nombrezona": this.zona,
+    "segmento": this.segmento
+  }
+
 GraficarMesAnterior() {
   const segmento = 'Constructores'; // Reemplaza 'tu_segmento' con el valor adecuado
 
   this.historialService.getMesPasado(segmento).subscribe(
     (datos) => {
      this.actualizarGrafica1mesAnteriorConDatos(datos);
+     console.log('DATOS DEL MES PASADO', datos)
     },
     (error) => {
       console.error('Error al obtener el porcentaje:', error);
@@ -205,14 +212,9 @@ GraficarMesAnterior() {
 }
 
 actualizarGrafica1mesactualConDatos(datos: any) {
-  
-  // Asegúrate de que las propiedades sean correctas y coincidan con las reales
- 
-  const centro = datos[1].Centro;
-  
-  console.log('Estos son los datos quese deberian actualizar en el mes actual: ',' centro: ',centro,);
   // Asigna los datos al conjunto de datos, 
-  this.barChartData.datasets[1].data = [centro];
+  const data = datos.zonaporcentaje;
+  this.barChartData.datasets[1].data = [data];
   this.actualizarGrafico();
 }
 
@@ -229,7 +231,7 @@ actualizarGrafica1mesAnteriorConDatos(datos: any) {
   
   const centro = centroData ? +centroData.cumplimiento : 0;
   
-  console.log('Estos son los datos quese deberian actualizar en el mes anterior: ',' centro: ',centro);
+  console.log('Estos son los datos quese deberian actualizar en el mes anterior: ', datos);
   // Asigna los datos al conjunto de datos, 
   this.barChartData.datasets[0].data = [centro];
   this.actualizarGrafico();

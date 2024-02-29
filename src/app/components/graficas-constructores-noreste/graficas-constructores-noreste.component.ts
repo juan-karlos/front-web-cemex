@@ -32,7 +32,7 @@ export class GraficasConstructoresNoresteComponent implements OnInit {
   constructor(private historialService: HistorialService,  private logicaService : LogicaService, private registroService: RegistrosService){}
   ngOnInit(): void {
     
-    this.Graficarmesactual();
+    this.Graficarmesactual(this.body);
     this.GraficarMesAnterior();
     this.Fijas();
     this.Moviles();
@@ -175,10 +175,11 @@ private DatosGrices(datos: any){
 }
 
 
-private Graficarmesactual() {
-  this.logicaService.getProcentajeCumplimietoZonasSegmentos().subscribe(
+private Graficarmesactual(body:any) {
+  this.logicaService.getProcentajeCumplimietoZonasSegmentos2(body).subscribe(
     (datos) => {
       this.actualizarGrafica1mesactualConDatos(datos);
+     console.log('DATOS QUE SE MANDAN A GRAFICAR MES ACTUAL', datos)
     },
     (error) => {
       console.error('Error al obtener el porcentaje:', error);
@@ -200,11 +201,19 @@ GraficarMesAnterior() {
 }
 
 actualizarGrafica1mesactualConDatos(datos: any) {
-  const norte = datos[1].Noreste;
-  this.totalNoreste += norte;
-  this.barChartData.datasets[1].data = [norte];
+  // Asigna los datos al conjunto de datos, 
+  const data = datos.zonaporcentaje;
+  this.barChartData.datasets[1].data = [data];
   this.actualizarGrafico();
 }
+
+
+ body = {
+    "nombrezona": this.zona,
+    "segmento": this.segmento
+  }
+
+
 
 actualizarGrafica1mesAnteriorConDatos(datos: any) {
   console.log('estos son los atosque se recben del mes pasado', datos);

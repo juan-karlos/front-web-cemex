@@ -31,7 +31,7 @@ export class GraficasIndustrialesNoresteComponent implements OnInit {
   constructor(private historialService: HistorialService,  private logicaService : LogicaService, private registroService: RegistrosService){}
   ngOnInit(): void {
     
-    this.Graficarmesactual();
+    this.Graficarmesactual(this.body);
     this.GraficarMesAnterior();
     this.GraficarRiesgo(this.seg);
   }
@@ -124,6 +124,7 @@ private GraficarRiesgo(segmento:any){
      this.DatosRojos(datos);
      this.DatosAmarillos(datos);
      this.DatosGrices(datos);
+     this.DatosDeArriba();
     },
     (error) => {
       console.error('Error al obtener el porcentaje:', error);
@@ -169,11 +170,11 @@ private DatosGrices(datos: any){
 }
 
 
-private Graficarmesactual() {
-  this.logicaService.getProcentajeCumplimietoZonasSegmentos().subscribe(
+private Graficarmesactual(body:any) {
+  this.logicaService.getProcentajeCumplimietoZonasSegmentos2(body).subscribe(
     (datos) => {
-      // console.log('2222222 estos son los datos que me estadevolviendo el servicio de logica en el metodo de zonas', datos)
       this.actualizarGrafica1mesactualConDatos(datos);
+     console.log('DATOS QUE SE MANDAN A GRAFICAR MES ACTUAL', datos)
     },
     (error) => {
       console.error('Error al obtener el porcentaje:', error);
@@ -194,14 +195,17 @@ GraficarMesAnterior() {
 }
 
 actualizarGrafica1mesactualConDatos(datos: any) {
-  
-  // Asegúrate de que las propiedades sean correctas y coincidan con las reales
-  
-  const norte = datos[2].Noreste;
- 
-  this.barChartData.datasets[1].data = [norte];
+  // Asigna los datos al conjunto de datos, 
+  const data = datos.zonaporcentaje;
+  this.barChartData.datasets[1].data = [data];
   this.actualizarGrafico();
 }
+
+
+ body = {
+    "nombrezona": this.zona,
+    "segmento": this.segmento
+  }
 
 actualizarGrafica1mesAnteriorConDatos(datos: any) {
   
