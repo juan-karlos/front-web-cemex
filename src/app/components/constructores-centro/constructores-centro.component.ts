@@ -22,6 +22,10 @@ export class ConstructoresCentroComponent implements OnInit {
    
   zona: string = "Centro";
   segmento: string = "Constructores";
+  body={
+    "nombrezona":"centro",
+    "segmento":"Constructores"
+  }
   cumplimientoAnioActual: number[] = new Array(12).fill(0);
   cumplimientoAnioAnterior: number[] = new Array(12).fill(0);
 
@@ -87,7 +91,7 @@ export class ConstructoresCentroComponent implements OnInit {
     
     this.obtenerNacional(this.seg);
     this.obtenerZonas(this.seg);
-    this.obtenerPorcentajeZonaSegmentos();
+    this.obtenerPorcentajeZonaSegmentos(this.body);
    
   }
 
@@ -133,13 +137,13 @@ export class ConstructoresCentroComponent implements OnInit {
   }
 
 
-  obtenerPorcentajeZonaSegmentos(){
-    this.logicaService.getProcentajeCumplimietoZonasSegmentos().subscribe(
+  obtenerPorcentajeZonaSegmentos(body:any){
+    this.logicaService.getProcentajeCumplimietoZonasSegmentos2(body).subscribe(
       
       (datos) => {
         console.log
-        ('Esto me devuelve el obtener porcentajezonasegmentos: ', datos);
-       const PorcentajeEnTiempoReal =datos[1].Centro
+        ('Esto me devuelve el NUEVO PORCENTAJE EN TIEMPO REAL: ', datos);
+       const PorcentajeEnTiempoReal =datos.zonaporcentaje
        this.obtenerHistorial(this.zona, this.segmento, PorcentajeEnTiempoReal);
        
 

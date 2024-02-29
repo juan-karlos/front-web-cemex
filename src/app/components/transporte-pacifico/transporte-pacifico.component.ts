@@ -22,6 +22,10 @@ export class TransportePacificoComponent implements OnInit {
    
   zona: string = "Pacifico";
   segmento: string = "Transporte";
+  body={
+    "nombrezona":this.zona,
+    "segmento":this.segmento
+    } 
   cumplimientoAnioActual: number[] = new Array(12).fill(0);
   cumplimientoAnioAnterior: number[] = new Array(12).fill(0);
 
@@ -86,7 +90,7 @@ export class TransportePacificoComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerNacional(this.seg);
     this.obtenerZonas(this.seg);
-    this.obtenerPorcentajeZonaSegmentos();
+    this.obtenerPorcentajeZonaSegmentos(this.body);
   }
 
   obtenerHistorial(zona: string, segmento: string, PorcentajeEnTiempoReal: number) {
@@ -131,14 +135,16 @@ export class TransportePacificoComponent implements OnInit {
   }
 
 
-  obtenerPorcentajeZonaSegmentos(){
-    this.logicaService.getProcentajeCumplimietoZonasSegmentos().subscribe(
+  obtenerPorcentajeZonaSegmentos(body:any){
+    this.logicaService.getProcentajeCumplimietoZonasSegmentos2(body).subscribe(
       
       (datos) => {
         console.log
-        ('Esto me devuelve el obtener historial: ', datos);
-       const PorcentajeEnTiempoReal =datos[6].Pacífico;
+        ('Esto me devuelve el obtener porcentajezonasegmentos: ', datos);
+       const PorcentajeEnTiempoReal =datos.zonaporcentaje
        this.obtenerHistorial(this.zona, this.segmento, PorcentajeEnTiempoReal);
+       
+
       },
       (error) => {
         console.error('Error al obtener el porcentaje:', error);
