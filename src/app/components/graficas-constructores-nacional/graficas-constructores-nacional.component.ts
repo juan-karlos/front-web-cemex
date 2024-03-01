@@ -7,6 +7,7 @@ import { HistorialService } from 'src/app/services/historial.service';
 import { LogicaService } from 'src/app/services/logica.service';
 import { ViewChildren, QueryList } from '@angular/core';
 import { RegistrosService } from 'src/app/services/registros.service';
+import { UnidadOperativaService } from 'src/app/services/unidad-operativa.service';
 
 @Component({
   selector: 'app-graficas-constructores-nacional',
@@ -35,14 +36,15 @@ export class GraficasConstructoresNacionalComponent implements OnInit {
   totalSureste: number = 0;
   
 
-  constructor(private historialService: HistorialService,  private logicaService : LogicaService, private registroService: RegistrosService){}
+  constructor(private historialService: HistorialService, private unidad : UnidadOperativaService, private logicaService : LogicaService, private registroService: RegistrosService){}
   ngOnInit(): void {
     
-    this.Graficarmesactual();
+    // this.Graficarmesactual();
     this.GraficarMesAnterior();
     this.Fijas();
     this.Moviles();
     this.GraficarRiesgo(this.seg);
+    this.GetPorcentajes();
   }
   ngAfterViewInit(): void {
    
@@ -86,7 +88,7 @@ public stackedBarChartOptions: ChartConfiguration['options'] = {
     x: {stacked: true},
     y: {
       min: 0,
-      max: 300,
+      max: 400,
       stacked: true
     },
   },
@@ -226,8 +228,8 @@ private DatosGrices(datos: any){
 
 
 
-private Graficarmesactual() {
-  this.logicaService.getProcentajeCumplimietoZonasSegmentos().subscribe(
+private GetPorcentajes() {
+  this.unidad.getProcentajeCumplimietoNacional().subscribe(
     (datos) => {
       this.actualizarGrafica1mesactualConDatos(datos);
     },
@@ -251,13 +253,13 @@ GraficarMesAnterior() {
 }
 
 actualizarGrafica1mesactualConDatos(datos: any) {
-  
+  console.log('DATOS NUEVOS', datos)
   // Asegúrate de que las propiedades sean correctas y coincidan con las reales
-  const pacifico = datos[1].Pacífico;
-  const norte = datos[1].Noreste;
-  const sur = datos[1].Sureste;
-  const centro = datos[1].Centro;
-  const nacional = ((pacifico+centro+sur+norte)/4);
+  const pacifico = datos[10].zona;
+  const norte = datos[8].zona;
+  const sur = datos[9].zona;
+  const centro = datos[11].zona;
+  const nacional = datos[11].nacional;
   console.log('Estos son los datos quese deberian actualizar en el mes actual: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
   // Asigna los datos al conjunto de datos, 
   this.barChartData.datasets[1].data = [nacional, centro, norte, pacifico, sur];
