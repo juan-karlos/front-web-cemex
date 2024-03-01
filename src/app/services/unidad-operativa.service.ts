@@ -66,7 +66,9 @@ PlantaSelect :planta={
   obtenermovilfalse(){
     return this.http.get<planta[]>(this.URL_API+"movilesfalse")
   }
-
+  getProcentajeCumplimietoNacional(){
+    return this.http.get<any>(`${this.URL_API}/Nacional`);
+  }
 
 
   obtenerPlantaPorId(id_planta:number){

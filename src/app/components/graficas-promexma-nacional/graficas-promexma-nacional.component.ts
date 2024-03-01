@@ -7,6 +7,7 @@ import { HistorialService } from 'src/app/services/historial.service';
 import { LogicaService } from 'src/app/services/logica.service';
 import { ViewChildren, QueryList } from '@angular/core';
 import { RegistrosService } from 'src/app/services/registros.service';
+import { UnidadOperativaService } from 'src/app/services/unidad-operativa.service';
 
 @Component({
   selector: 'app-graficas-promexma-nacional',
@@ -28,11 +29,16 @@ export class GraficasPromexmaNacionalComponent implements OnInit {
     "segmento":"Promexma"
   }
   
+  totalNacional: number = 0;
+  totalCentro: number = 0;
+  totalNoreste: number = 0;
+  totalPacifico: number = 0;
+  totalSureste: number = 0;
 
-  constructor(private historialService: HistorialService,  private logicaService : LogicaService, private registroService: RegistrosService){}
+  constructor(private historialService: HistorialService,private unidad : UnidadOperativaService,  private logicaService : LogicaService, private registroService: RegistrosService){}
   ngOnInit(): void {
     
-    this.Graficarmesactual();
+    this.GetPorcentajes();
     this.GraficarMesAnterior();
     this.GraficarRiesgo(this.seg);
   }
@@ -75,7 +81,7 @@ public stackedBarChartOptions: ChartConfiguration['options'] = {
     x: {stacked: true},
     y: {
       min: 0,
-      max: 200,
+      max: 150,
       stacked: true
     },
   },
@@ -113,6 +119,7 @@ public stackedBarData: ChartData<'bar'> = {
     { data: [], label: 'Multa', backgroundColor: '#E5FF0E' },
     { data: [], label: 'Optimas', backgroundColor: '#32FF00'  },
     { data: [], label: 'Administrativos', backgroundColor: '#A9A9A9'  },
+    { data: [], label: '', backgroundColor: '#00FF0000'  },
   ],
 };
 
@@ -124,6 +131,8 @@ private GraficarRiesgo(segmento:any){
      this.DatosRojos(datos);
      this.DatosAmarillos(datos);
      this.DatosGrices(datos);
+     this.DatosDeArriba();
+   
     },
     (error) => {
       console.error('Error al obtener el porcentaje:', error);
@@ -138,6 +147,11 @@ private DatosVerdes(datos: any){
   const sur = datos[4].optimaspassur;
   const centro = datos[1].optimascen;
   const pacifico = datos[3].optimaspas;
+  this.totalNacional += nacional;
+  this.totalCentro += centro;
+  this.totalNoreste += norte;
+  this.totalPacifico += pacifico;
+  this.totalSureste += sur;
   console.log('Estos son los datos que se iran a optimas: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
   // Asigna los datos al conjunto de datos, 
   this.stackedBarData.datasets[2].data = [nacional, centro, norte, pacifico, sur];
@@ -151,6 +165,11 @@ private DatosRojos(datos: any){
   const sur = datos[4].clausuradassur;
   const centro = datos[1].clausuradascen;
   const pacifico = datos[3].clausuradaspas;
+  this.totalNacional += nacional;
+  this.totalCentro += centro;
+  this.totalNoreste += norte;
+  this.totalPacifico += pacifico;
+  this.totalSureste += sur;
   console.log('Estos son los datos que se iran a clausuradas: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
   // Asigna los datos al conjunto de datos, 
   this.stackedBarData.datasets[0].data = [nacional, centro, norte, pacifico, sur];
@@ -164,6 +183,11 @@ private DatosAmarillos(datos: any){
   const sur = datos[4].multaspassur;
   const centro = datos[1].multascen;
   const pacifico = datos[3].multaspas;
+  this.totalNacional += nacional;
+  this.totalCentro += centro;
+  this.totalNoreste += norte;
+  this.totalPacifico += pacifico;
+  this.totalSureste += sur;
   console.log('Estos son los datos que se iran a multas: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
   // Asigna los datos al conjunto de datos, 
   this.stackedBarData.datasets[1].data = [nacional, centro, norte, pacifico, sur];
@@ -177,6 +201,11 @@ private DatosGrices(datos: any){
   const sur = datos[4].administrativassur;
   const centro = datos[1].administrativascen;
   const pacifico = datos[3].administrativaspas;
+  this.totalNacional += nacional;
+  this.totalCentro += centro;
+  this.totalNoreste += norte;
+  this.totalPacifico += pacifico;
+  this.totalSureste += sur;
   console.log('Estos son los datos que se iran a grices: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
   // Asigna los datos al conjunto de datos, 
   this.stackedBarData.datasets[3].data = [nacional, centro, norte, pacifico, sur];
@@ -184,10 +213,9 @@ private DatosGrices(datos: any){
 }
 
 
-private Graficarmesactual() {
-  this.logicaService.getProcentajeCumplimietoZonasSegmentos().subscribe(
+private GetPorcentajes() {
+  this.unidad.getProcentajeCumplimietoNacional().subscribe(
     (datos) => {
-      console.log('2222222 estos son los datos que me estadevolviendo el servicio de logica en el metodo de zonas', datos)
       this.actualizarGrafica1mesactualConDatos(datos);
     },
     (error) => {
@@ -211,13 +239,11 @@ GraficarMesAnterior() {
 actualizarGrafica1mesactualConDatos(datos: any) {
   
   // Asegúrate de que las propiedades sean correctas y coincidan con las reales
-  const pacifico = datos[5].Pacífico;
-  const norte = datos[5].Noreste;
-  const sur = datos[5].Sureste;
-  const centro = datos[5].Centro;
-  const nacional = ((pacifico+centro+sur+norte)/4);
-  console.log('Estos son los datos quese deberian actualizar en el mes actual: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
-  // Asigna los datos al conjunto de datos, 
+  const pacifico = datos[26].zona;
+  const norte = datos[24].zona;
+  const sur = datos[25].zona;
+  const centro = datos[27].zona;
+  const nacional = datos[27].nacional;
   this.barChartData.datasets[1].data = [nacional, centro, norte, pacifico, sur];
   this.actualizarGrafico();
 }
@@ -265,7 +291,10 @@ actualizarGrafico() {
 esMismoMes(fecha1: Date, fecha2: Date): boolean {
   return fecha1.getFullYear() === fecha2.getFullYear() && fecha1.getMonth() === fecha2.getMonth();
 }
-
+private DatosDeArriba(){
+  this.stackedBarData.datasets[4].data =[this.totalNacional,this.totalCentro,this.totalNoreste, this.totalPacifico,this.totalSureste ]
+  this.actualizarGrafico();
+ }
 }
 
 
