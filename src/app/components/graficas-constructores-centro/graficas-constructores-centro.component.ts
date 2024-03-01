@@ -26,12 +26,12 @@ export class GraficasConstructoresCentroComponent implements OnInit {
   seg = {
     "segmento":"Constructores"
   }
+  totalCentro: number = 0;
   
 
   constructor(private historialService: HistorialService,  private logicaService : LogicaService, private registroService: RegistrosService){}
   ngOnInit(): void {
-    
-    this.Graficarmesactual();
+    this.Graficarmesactual(this.body);
     this.GraficarMesAnterior();
     this.Fijas();
     this.Moviles();
@@ -76,7 +76,7 @@ public stackedBarChartOptions: ChartConfiguration['options'] = {
     x: {stacked: true},
     y: {
       min: 0,
-      max: 200,
+      max: 70,
       stacked: true
     },
   },
@@ -93,14 +93,14 @@ public stackedBarChartOptions: ChartConfiguration['options'] = {
 public barChartType: ChartType = 'bar';
 public barChartPlugins = [DataLabelsPlugin];
 public barChartData: ChartData<'bar'> = {
-  labels: ['NACIONAL', 'CENTRO', 'NORESTE', 'PACIFICO', 'SURESTE'],
+  labels: ['CENTRO'],
   datasets: [
     { data: [], label: this.getMesAnteriorLabel(), backgroundColor: '#B0E2FF' },
     { data: [], label: this.getMesActualLabel(), backgroundColor: '#49BBFC' },
   ],
 };
 public barChartData2: ChartData<'bar'> = {
-  labels: ['NACIONAL', 'CENTRO', 'NORESTE', 'PACIFICO', 'SURESTE'],
+  labels: ['CENTRO'],
   datasets: [
     { data: [], label: 'Fíjas', backgroundColor: '#B0E2FF' },
     { data: [], label: 'Móviles', backgroundColor: '#49BBFC' },
@@ -108,12 +108,13 @@ public barChartData2: ChartData<'bar'> = {
 };
 
 public stackedBarData: ChartData<'bar'> = {
-  labels: ['NACIONAL', 'CENTRO', 'NORESTE', 'PACIFICO', 'SURESTE'],
+  labels: ['CENTRO'],
   datasets: [
     { data: [], label: 'Clausura', backgroundColor: '#FF1B1B'},
     { data: [], label: 'Multa', backgroundColor: '#E5FF0E' },
     { data: [], label: 'Optimas', backgroundColor: '#32FF00'  },
     { data: [], label: 'Administrativos', backgroundColor: '#A9A9A9'  },
+    { data: [], label: '', backgroundColor: '#00FF0000'  },
   ],
 };
 
@@ -125,6 +126,7 @@ private GraficarRiesgo(segmento:any){
      this.DatosRojos(datos);
      this.DatosAmarillos(datos);
      this.DatosGrices(datos);
+     this.DatosDeArriba();
     },
     (error) => {
       console.error('Error al obtener el porcentaje:', error);
@@ -134,61 +136,54 @@ private GraficarRiesgo(segmento:any){
 private DatosVerdes(datos: any){
   
   // Asegúrate de que las propiedades sean correctas y coincidan con las reales
-  const nacional = datos[0].optimasnas;
-  const norte = datos[2].optimasnor;
-  const sur = datos[4].optimaspassur;
+ 
   const centro = datos[1].optimascen;
-  const pacifico = datos[3].optimaspas;
-  console.log('Estos son los datos que se iran a optimas: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
+  this.totalCentro += centro;
+  console.log('Estos son los datos que se iran a optimas: ',centro);
   // Asigna los datos al conjunto de datos, 
-  this.stackedBarData.datasets[2].data = [nacional, centro, norte, pacifico, sur];
+  this.stackedBarData.datasets[2].data = [centro];
   this.actualizarGrafico();
 }
 private DatosRojos(datos: any){
   
   // Asegúrate de que las propiedades sean correctas y coincidan con las reales
-  const nacional = datos[0].clausuradasnas;
-  const norte = datos[2].clausuradasnor;
-  const sur = datos[4].clausuradassur;
+ 
   const centro = datos[1].clausuradascen;
-  const pacifico = datos[3].clausuradaspas;
-  console.log('Estos son los datos que se iran a clausuradas: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
+  this.totalCentro += centro;
+  console.log('Estos son los datos que se iran a clausuradas: ',' centro: ',centro);
   // Asigna los datos al conjunto de datos, 
-  this.stackedBarData.datasets[0].data = [nacional, centro, norte, pacifico, sur];
+  this.stackedBarData.datasets[0].data = [ centro ];
   this.actualizarGrafico();
 }
 private DatosAmarillos(datos: any){
   
   // Asegúrate de que las propiedades sean correctas y coincidan con las reales
-  const nacional = datos[0].multasnas;
-  const norte = datos[2].multasnor;
-  const sur = datos[4].multaspassur;
+  
   const centro = datos[1].multascen;
-  const pacifico = datos[3].multaspas;
-  console.log('Estos son los datos que se iran a multas: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
+  this.totalCentro += centro;
+  console.log('Estos son los datos que se iran a multas: ',' centro: ',centro,);
   // Asigna los datos al conjunto de datos, 
-  this.stackedBarData.datasets[1].data = [nacional, centro, norte, pacifico, sur];
+  this.stackedBarData.datasets[1].data = [ centro ];
   this.actualizarGrafico();
 }
 private DatosGrices(datos: any){
   
   // Asegúrate de que las propiedades sean correctas y coincidan con las reales
-  const nacional = datos[0].administrativasnas;
-  const norte = datos[2].administrativasnor;
-  const sur = datos[4].administrativassur;
+ 
   const centro = datos[1].administrativascen;
-  const pacifico = datos[3].administrativaspas;
-  console.log('Estos son los datos que se iran a grices: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
+  this.totalCentro += centro;
+  console.log('Estos son los datos que se iran a grices: ',' centro: ',centro);
   // Asigna los datos al conjunto de datos, 
-  this.stackedBarData.datasets[3].data = [nacional, centro, norte, pacifico, sur];
+  this.stackedBarData.datasets[3].data = [ centro];
   this.actualizarGrafico();
 }
 
 
-private Graficarmesactual() {
-  this.logicaService.getProcentajeCumplimietoZonasSegmentos().subscribe(
+private Graficarmesactual(body:any) {
+  this.logicaService.getProcentajeCumplimietoZonasSegmentos2(body).subscribe(
     (datos) => {
       this.actualizarGrafica1mesactualConDatos(datos);
+     console.log('DATOS QUE SE MANDAN A GRAFICAR MES ACTUAL', datos)
     },
     (error) => {
       console.error('Error al obtener el porcentaje:', error);
@@ -196,12 +191,19 @@ private Graficarmesactual() {
   );
 }
 
+
+ body = {
+    "nombrezona": this.zona,
+    "segmento": this.segmento
+  }
+
 GraficarMesAnterior() {
   const segmento = 'Constructores'; // Reemplaza 'tu_segmento' con el valor adecuado
 
   this.historialService.getMesPasado(segmento).subscribe(
     (datos) => {
      this.actualizarGrafica1mesAnteriorConDatos(datos);
+     console.log('DATOS DEL MES PASADO', datos)
     },
     (error) => {
       console.error('Error al obtener el porcentaje:', error);
@@ -210,16 +212,9 @@ GraficarMesAnterior() {
 }
 
 actualizarGrafica1mesactualConDatos(datos: any) {
-  
-  // Asegúrate de que las propiedades sean correctas y coincidan con las reales
-  const pacifico = datos[1].Pacífico;
-  const norte = datos[1].Noreste;
-  const sur = datos[1].Sureste;
-  const centro = datos[1].Centro;
-  const nacional = ((pacifico+centro+sur+norte)/4);
-  console.log('Estos son los datos quese deberian actualizar en el mes actual: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
   // Asigna los datos al conjunto de datos, 
-  this.barChartData.datasets[1].data = [nacional, centro, norte, pacifico, sur];
+  const data = datos.zonaporcentaje;
+  this.barChartData.datasets[1].data = [data];
   this.actualizarGrafico();
 }
 
@@ -228,21 +223,17 @@ actualizarGrafica1mesAnteriorConDatos(datos: any) {
   console.log('estos son los atosque se recben del mes pasado', datos);
 
   // Asegúrate de que las propiedades sean correctas y coincidan con las reales
-  const pacificoData = datos.find((item: any) => item.zona === 'Pacifico');
+ 
   const centroData = datos.find((item: any) => item.zona === 'Centro');
-  const norteData = datos.find((item: any) => item.zona === 'Noreste');
-  const surData = datos.find((item: any) => item.zona === 'Sureste');
+ 
 
   // Obtiene el valor de cumplimiento o establece en cero si no existe
-  const pacifico = pacificoData ? +pacificoData.cumplimiento : 0;
+  
   const centro = centroData ? +centroData.cumplimiento : 0;
-  const norte = norteData ? +norteData.cumplimiento : 0;
-  const sur = surData ? +surData.cumplimiento : 0;
-
-  const nacional = ((pacifico+centro+sur+norte)/4);
-  console.log('Estos son los datos quese deberian actualizar en el mes anterior: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
+  
+  console.log('Estos son los datos quese deberian actualizar en el mes anterior: ', datos);
   // Asigna los datos al conjunto de datos, 
-  this.barChartData.datasets[0].data = [nacional, centro, norte, pacifico, sur];
+  this.barChartData.datasets[0].data = [centro];
   this.actualizarGrafico();
 }
 
@@ -282,46 +273,32 @@ private Moviles() {
 
 private GraficarFijas(datos: any) {
   // Busca el objeto con la zona específica
-  const pacificoData = datos.find((item: any) => item.zona === 'Pacifico');
+ 
   const centroData = datos.find((item: any) => item.zona === 'Centro');
-  const norteData = datos.find((item: any) => item.zona === 'Noreste');
-  const surData = datos.find((item: any) => item.zona === 'Sureste');
+ 
 
   // Obtiene el valor de cumplimiento o establece en cero si no existe
-  const pacifico = pacificoData ? +pacificoData.porcentaje_cumplimiento_promedio : 0;
+
   const centro = centroData ? +centroData.porcentaje_cumplimiento_promedio : 0;
-  const norte = norteData ? +norteData.porcentaje_cumplimiento_promedio : 0;
-  const sur = surData ? +surData.porcentaje_cumplimiento_promedio : 0;
 
-  // Calcula el total (opcional, dependiendo de tus necesidades)
-  const nacional = ((pacifico + centro + sur + norte)/4);
-
-  console.log('Estos son los datos que debe graficar en fijas:', nacional, centro, norte,pacifico, sur);
+  console.log('Estos son los datos que debe graficar en fijas:', centro);
 
   // Asigna los datos al conjunto de datos
-  this.barChartData2.datasets[0].data = [nacional, centro, norte,pacifico, sur];
+  this.barChartData2.datasets[0].data = [ centro];
   this.actualizarGrafico();
 }
 private GraficarMoviles(datos: any) {
   // Busca el objeto con la zona específica
-  const pacificoData = datos.find((item: any) => item.zona === 'Pacífico');
   const centroData = datos.find((item: any) => item.zona === 'Centro');
-  const norteData = datos.find((item: any) => item.zona === 'Noreste');
-  const surData = datos.find((item: any) => item.zona === 'Sureste');
-
+ 
   // Obtiene el valor de cumplimiento o establece en cero si no existe
-  const pacifico = pacificoData ? +pacificoData.porcentaje_cumplimiento_promedio : 0;
+ 
   const centro = centroData ? +centroData.porcentaje_cumplimiento_promedio : 0;
-  const norte = norteData ? +norteData.porcentaje_cumplimiento_promedio : 0;
-  const sur = surData ? +surData.porcentaje_cumplimiento_promedio : 0;
 
-  // Calcula el total (opcional, dependiendo de tus necesidades)
-  const nacional = ((pacifico + centro + sur + norte)/4);
-
-  console.log('Estos son los datos que debe graficar en moviles:', nacional, pacifico, norte, sur, centro);
+  console.log('Estos son los datos que debe graficar en moviles:', centro);
 
   // Asigna los datos al conjunto de datos
-  this.barChartData2.datasets[1].data = [nacional, centro, norte,pacifico, sur];
+  this.barChartData2.datasets[1].data = [ centro];
   this.actualizarGrafico();
 }
 
@@ -334,6 +311,11 @@ actualizarGrafico() {
 esMismoMes(fecha1: Date, fecha2: Date): boolean {
   return fecha1.getFullYear() === fecha2.getFullYear() && fecha1.getMonth() === fecha2.getMonth();
 }
+private DatosDeArriba(){
+  this.stackedBarData.datasets[4].data =[this.totalCentro]
+  this.actualizarGrafico();
+}
+
 
 }
 
