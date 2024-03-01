@@ -87,7 +87,7 @@ export class IndustrialesNacionalComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerNacional(this.seg);
     this.obtenerZonas(this.seg);
-    this.obtenerPorcentajeZonaSegmentos();
+    this.obtenerPorcentajeZonaSegmentos(this.body);
   }
 
   obtenerHistorial(zona: string, segmento: string, PorcentajeEnTiempoReal: number) {
@@ -132,13 +132,13 @@ export class IndustrialesNacionalComponent implements OnInit {
   }
 
 
-  obtenerPorcentajeZonaSegmentos(){
-    this.logicaService.getProcentajeCumplimietoZonasSegmentos().subscribe(
+  obtenerPorcentajeZonaSegmentos(body:any){
+    this.logicaService.getProcentajeCumplimietoZonasSegmentos2(body).subscribe(
       
       (datos) => {
         console.log
-        ('Esto me devuelve el obtener historial: ', datos);
-       const PorcentajeEnTiempoReal =(datos[2].Total)/4;
+        ('Esto me devuelve el obtener porcentajezonasegmentos: ', datos);
+       const PorcentajeEnTiempoReal =datos.nacional;
        this.obtenerHistorial(this.zona, this.segmento, PorcentajeEnTiempoReal);
        
 
@@ -148,6 +148,13 @@ export class IndustrialesNacionalComponent implements OnInit {
       }
     )
   }
+
+
+
+  body={
+  "nombrezona":this.zona,
+  "segmento":this.segmento
+  } 
 
 
 
