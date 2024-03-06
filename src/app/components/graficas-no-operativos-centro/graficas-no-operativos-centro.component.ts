@@ -35,7 +35,7 @@ export class GraficasNoOperativosCentroComponent implements OnInit {
     this.Graficarmesactual(this.body);
     this.GraficarMesAnterior();
     this.GraficarRiesgo(this.seg);
-    this.DatosNoTramitable(this.body);
+    this.DatosNoTramitable(this.body2);
     
   }
   ngAfterViewInit(): void {
@@ -253,7 +253,10 @@ private DatosOptimos(){
   this.stackedBarData.datasets[2].data = [ this.totalOptimas];
   this.actualizarGrafico();
 }
-
+body2 = {
+  "zona": this.zona,
+  "segmento": this.segmento
+}
 }
 
 
