@@ -24,7 +24,7 @@
 </header>
 
 <body >
-  <!-- <div *ngFor="let centro of centro.Segmentos" > -->
+  <div *ngFor="let nacional of nacional.Segmentos" >
     <div class="contenedor-principal">
       <div class="contenedor-segmentos">
         <div class="row">
@@ -32,7 +32,8 @@
             <div class="card">
               <div class="card-body">
                 <h2 class="card-title">Constructores</h2>
-                <p class="card-text"> Plantas</p>
+                
+                <p class="card-text">{{nacional.constructores}} Plantas</p>
                 <a href="constructores-nacional" class="btn btn-primary">Entrar</a>
               </div>
             </div>
@@ -41,7 +42,7 @@
             <div class="card">
               <div class="card-body">
                 <h2 class="card-title">Cadena de suministro</h2>
-                <p class="card-text">Plantas</p>
+                <p class="card-text">{{nacional.cadena_suministro}} Plantas</p>
                 <a href="suministro-nacional" class="btn btn-primary">Entrar</a>
               </div>
             </div>
@@ -53,8 +54,8 @@
           <div class="col-sm-6">
             <div class="card">
               <div class="card-body">
-                <h2 class="card-title">Transportes</h2>
-                <p class="card-text"> Plantas</p>
+                <h2 class="card-title">Transporte</h2>
+                <p class="card-text">{{nacional.transporte}} Plantas</p>
                 <a href="transporte-nacional" class="btn btn-primary">Entrar</a>
               </div>
             </div>
@@ -63,7 +64,7 @@
             <div class="card">
               <div class="card-body">
                 <h2 class="card-title">Industriales</h2>
-                <p class="card-text"> Plantas</p>
+                <p class="card-text">{{nacional.industriales}} Plantas</p>
               <a href="industriales-nacional" class="btn btn-primary">Entrar</a>
               </div>
             </div>
@@ -76,7 +77,7 @@
             <div class="card">
               <div class="card-body">
                 <h2 class="card-title">Inmuebles No Operativos</h2>
-                <p class="card-text"> Plantas</p>
+                <p class="card-text">{{nacional.inmuebles_no_operativos}} Plantas</p>
                 <a href="no-operativo-nacional" class="btn btn-primary">Entrar</a>
               </div>
             </div>
@@ -85,7 +86,7 @@
             <div class="card">
               <div class="card-body">
                 <h2 class="card-title">Operaciónes</h2>
-                <p class="card-text"> Plantas</p>
+                <p class="card-text">{{nacional.operaciones}} Plantas</p>
                 <a href="operaciones-nacional" class="btn btn-primary">Entrar</a>
               </div>
             </div>
@@ -98,7 +99,7 @@
             <div class="card">
               <div class="card-body">
                 <h2 class="card-title">Promexma</h2>
-                <p class="card-text"> Plantas</p>
+                <p class="card-text">{{nacional.Promexma}} Plantas</p>
                 <a href="promexma-nacional" class="btn btn-primary">Entrar</a>
               </div>
             </div>
@@ -106,7 +107,7 @@
         </div>
       </div>
     </div>
-  
+  </div>
   <br><br>
 </body>
 </html>

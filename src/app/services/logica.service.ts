@@ -54,4 +54,7 @@ export class LogicaService {
     return this.http.post<any>(`${this.URL_API}/vigentes`, cuerpo)
 }
 
+getDatosNoTramitables(cuerpo:any){
+  return this.http.post<any>(`${this.URL_API}/NoTramitables`, cuerpo)
+}
 }
