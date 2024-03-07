@@ -107,7 +107,7 @@ public stackedBarData: ChartData<'bar'> = {
     { data: [], label: 'Clausura', backgroundColor: '#FF1B1B'},
     { data: [], label: 'Multa', backgroundColor: '#E5FF0E' },
     { data: [], label: 'Optimas', backgroundColor: '#32FF00'  },
-    { data: [], label: 'Administrativos', backgroundColor: '#A9A9A9'  },
+    { data: [], label: 'No Tramitables', backgroundColor: '#A9A9A9'  },
     { data: [], label: '', backgroundColor: '#00FF0000'  },
   ],
 };
