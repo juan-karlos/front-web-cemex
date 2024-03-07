@@ -94,7 +94,7 @@ export class ConstructoresNacionalComponent implements OnInit {
   obtenerHistorial(zona: string, segmento: string, PorcentajeEnTiempoReal: number) {
     this.historialService.getHistorialZonaSegmento(zona, segmento).subscribe(
       (datos) => {
-       
+       console.log('OBTENER HISTORIAL PRUEBA DE LO QUE DEVUELVE ', datos)
         this.procesarDatosHistorial(datos, this.cumplimientoAnioActual, this.cumplimientoAnioAnterior, PorcentajeEnTiempoReal);
         this.actualizarGrafico();
       },

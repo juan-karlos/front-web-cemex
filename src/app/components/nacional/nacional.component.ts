@@ -9,15 +9,16 @@ import { UnidadOperativaService } from 'src/app/services/unidad-operativa.servic
 })
 
 export class NacionalComponent implements OnInit{
-  constructor(public centro:UnidadOperativaService ,private router: Router){}
+  constructor(public nacional:UnidadOperativaService ,private router: Router){}
   ngOnInit() {
-   
+   this.ObtenerNacional();
   }
 
-  obtenCentro(){
-    this.centro.obtenerCentro().subscribe(
+  ObtenerNacional(){
+    this.nacional.getProcentajeCumplimietoNacional().subscribe(
       res=>{
-        this.centro.Segmentos=res;
+        console.log('ESTO ES LO QUE DEVUELVE EL DE NACIONAL: ', res)
+        this.nacional.Segmentos=res;
         
       },
       err=>console.log(err)
