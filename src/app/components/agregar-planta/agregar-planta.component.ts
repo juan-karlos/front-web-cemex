@@ -43,8 +43,8 @@ export class AgregarPlantaComponent {
       !form.valid ||
       !this.servisplanta.PlantaSelect.nombre_planta ||
       !this.servisplanta.PlantaSelect.segmento ||
-      !this.servisplanta.PlantaSelect.zona ||
-      !this.servisplanta.PlantaSelect.estado
+      !this.servisplanta.PlantaSelect.zona
+      
     ) {
       // Muestra un mensaje de error si el formulario es inválido o algún campo está vacío
       swalWithBootstrapButtons.fire(

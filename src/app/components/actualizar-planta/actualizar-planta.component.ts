@@ -58,8 +58,8 @@ export class ActualizarPlantaComponent implements OnInit {
       !form.valid ||
       !form.value.nombre_planta ||
       !form.value.segmento ||
-      !form.value.zona ||
-      !form.value.estado
+      !form.value.zona 
+      
     ) {
       // Muestra un mensaje de error si el formulario es inválido o algún campo está vacío
       swalWithBootstrapButtons.fire(
