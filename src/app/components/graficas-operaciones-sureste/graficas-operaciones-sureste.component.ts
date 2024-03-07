@@ -27,7 +27,7 @@ export class GraficasOperacionesSuresteComponent implements OnInit {
     "segmento":"Operaciones"
   }
   totalSureste: number = 0;
-
+  totalOptimas: number = 0;
 
   constructor(private historialService: HistorialService,  private logicaService : LogicaService, private registroService: RegistrosService){}
   ngOnInit(): void {
@@ -35,6 +35,8 @@ export class GraficasOperacionesSuresteComponent implements OnInit {
     this.Graficarmesactual(this.body);
     this.GraficarMesAnterior();
     this.GraficarRiesgo(this.seg);
+    this.DatosNoTramitable(this.body2);
+    
   }
   ngAfterViewInit(): void {
    
@@ -106,7 +108,7 @@ public stackedBarData: ChartData<'bar'> = {
     { data: [], label: 'Clausura', backgroundColor: '#FF1B1B'},
     { data: [], label: 'Multa', backgroundColor: '#E5FF0E' },
     { data: [], label: 'Optimas', backgroundColor: '#32FF00'  },
-    { data: [], label: 'Administrativos', backgroundColor: '#A9A9A9'  },
+    { data: [], label: 'No Tramitables', backgroundColor: '#A9A9A9'  },
     { data: [], label: '', backgroundColor: '#00FF0000'  },
 
   ],
@@ -121,6 +123,7 @@ private GraficarRiesgo(segmento:any){
      this.DatosAmarillos(datos);
      this.DatosGrices(datos);
      this.DatosDeArriba();
+     this.DatosOptimos();
     },
     (error) => {
       console.error('Error al obtener el porcentaje:', error);
@@ -131,8 +134,7 @@ private DatosVerdes(datos: any){
   
   const sur = datos[4].optimaspassur;
   this.totalSureste += sur;
-  this.stackedBarData.datasets[2].data = [sur];
-  this.actualizarGrafico();
+  this.totalOptimas += sur;
 }
 private DatosRojos(datos: any){
   
@@ -152,8 +154,7 @@ private DatosGrices(datos: any){
 
   const sur = datos[4].administrativassur;
   this.totalSureste += sur;
-    this.stackedBarData.datasets[3].data = [ sur];
-  this.actualizarGrafico();
+  this.totalOptimas += sur;
 }
 
 
@@ -228,6 +229,28 @@ private DatosDeArriba(){
   this.stackedBarData.datasets[4].data =[this.totalSureste]
   this.actualizarGrafico();
 }
+
+private DatosOptimos(){
+  this.stackedBarData.datasets[2].data = [ this.totalOptimas];
+  this.actualizarGrafico();
+}
+
+private DatosNoTramitable(body : any){
+  this.logicaService.getDatosNoTramitables(body).subscribe(
+    (datos) => {
+     this.stackedBarData.datasets[3].data = [ datos[0].cantidad_plantas];
+      this.actualizarGrafico();
+    },
+    (error) => {
+      console.error('Error al obtener el porcentaje:', error);
+    }
+  );
+}
+ body2 = {
+    "zona": this.zona,
+    "segmento": this.segmento
+  }
+
 }
 
 

@@ -27,7 +27,7 @@ export class GraficasConstructoresCentroComponent implements OnInit {
     "segmento":"Constructores"
   }
   totalCentro: number = 0;
-  
+  totalOptimas: number = 0;
 
   constructor(private historialService: HistorialService,  private logicaService : LogicaService, private registroService: RegistrosService){}
   ngOnInit(): void {
@@ -36,6 +36,7 @@ export class GraficasConstructoresCentroComponent implements OnInit {
     this.Fijas();
     this.Moviles();
     this.GraficarRiesgo(this.seg);
+    this.DatosNoTramitable(this.body2);
   }
   ngAfterViewInit(): void {
    
@@ -113,7 +114,7 @@ public stackedBarData: ChartData<'bar'> = {
     { data: [], label: 'Clausura', backgroundColor: '#FF1B1B'},
     { data: [], label: 'Multa', backgroundColor: '#E5FF0E' },
     { data: [], label: 'Optimas', backgroundColor: '#32FF00'  },
-    { data: [], label: 'Administrativos', backgroundColor: '#A9A9A9'  },
+    { data: [], label: 'No Tramitables', backgroundColor: '#A9A9A9'  },
     { data: [], label: '', backgroundColor: '#00FF0000'  },
   ],
 };
@@ -127,6 +128,7 @@ private GraficarRiesgo(segmento:any){
      this.DatosAmarillos(datos);
      this.DatosGrices(datos);
      this.DatosDeArriba();
+     this.DatosOptimos();
     },
     (error) => {
       console.error('Error al obtener el porcentaje:', error);
@@ -134,15 +136,10 @@ private GraficarRiesgo(segmento:any){
   );
 }
 private DatosVerdes(datos: any){
-  
-  // Asegúrate de que las propiedades sean correctas y coincidan con las reales
  
   const centro = datos[1].optimascen;
   this.totalCentro += centro;
-  console.log('Estos son los datos que se iran a optimas: ',centro);
-  // Asigna los datos al conjunto de datos, 
-  this.stackedBarData.datasets[2].data = [centro];
-  this.actualizarGrafico();
+  this.totalOptimas += centro;
 }
 private DatosRojos(datos: any){
   
@@ -167,15 +164,22 @@ private DatosAmarillos(datos: any){
   this.actualizarGrafico();
 }
 private DatosGrices(datos: any){
-  
-  // Asegúrate de que las propiedades sean correctas y coincidan con las reales
  
   const centro = datos[1].administrativascen;
   this.totalCentro += centro;
-  console.log('Estos son los datos que se iran a grices: ',' centro: ',centro);
-  // Asigna los datos al conjunto de datos, 
-  this.stackedBarData.datasets[3].data = [ centro];
-  this.actualizarGrafico();
+  this.totalOptimas += centro;
+}
+private DatosNoTramitable(body : any){
+  this.logicaService.getDatosNoTramitables(body).subscribe(
+    (datos) => {
+      console.log('MI ENDPOINT ', datos)
+      this.stackedBarData.datasets[3].data = [ datos[0].cantidad_plantas];
+      this.actualizarGrafico();
+    },
+    (error) => {
+      console.error('Error al obtener el porcentaje:', error);
+    }
+  );
 }
 
 
@@ -194,6 +198,10 @@ private Graficarmesactual(body:any) {
 
  body = {
     "nombrezona": this.zona,
+    "segmento": this.segmento
+  }
+  body2 = {
+    "zona": this.zona,
     "segmento": this.segmento
   }
 
@@ -316,7 +324,10 @@ private DatosDeArriba(){
   this.actualizarGrafico();
 }
 
-
+private DatosOptimos(){
+  this.stackedBarData.datasets[2].data = [ this.totalOptimas];
+  this.actualizarGrafico();
+}
 }
 
 
