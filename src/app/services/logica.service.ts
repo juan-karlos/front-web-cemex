@@ -12,7 +12,8 @@ export class LogicaService {
 
  DatosRiesgoMulta:riesgo[]=[];
  DatosRiesgoClausura:riesgo[]=[];
- DatosRiesgoAdmin:riesgo[]=[]
+ DatosRiesgoAdmin:riesgo[]=[];
+ DatosRiesgoNoTramitables:riesgo[]=[];
  DatosOptimas:optimas[]=[];
 
  
