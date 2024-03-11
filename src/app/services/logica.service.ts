@@ -15,7 +15,7 @@ export class LogicaService {
  DatosRiesgoAdmin:riesgo[]=[];
  DatosRiesgoNoTramitables:riesgo[]=[];
  DatosOptimas:optimas[]=[];
-
+ DatosNoTramitablesTabla:optimas[]=[];
  
 
   constructor(private http:HttpClient) { }
@@ -58,4 +58,9 @@ export class LogicaService {
 getDatosNoTramitables(cuerpo:any){
   return this.http.post<any>(`${this.URL_API}/NoTramitables`, cuerpo)
 }
+
+getDatosNoTramitablesTabla(cuerpo:any){
+  return this.http.post<any>(`${this.URL_API}/NoTramitablesTabla`, cuerpo)
+}
+
 }
