@@ -282,7 +282,8 @@ actualizarGrafica1mesAnteriorConDatos(datos: any) {
   const norte = norteData ? +norteData.cumplimiento : 0;
   const sur = surData ? +surData.cumplimiento : 0;
 
-  const nacional = ((pacifico+centro+sur+norte)/4);
+  const nacionalData = datos.find((item: any) => item.zona === 'Nacional');
+  const nacional = nacionalData ? +nacionalData.porcentaje_nacional :0;
   console.log('Estos son los datos quese deberian actualizar en el mes anterior: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
   // Asigna los datos al conjunto de datos, 
   this.barChartData.datasets[0].data = [nacional, centro, norte, pacifico, sur];
@@ -324,20 +325,20 @@ private Moviles() {
 }
 
 private GraficarFijas(datos: any) {
+
+  console.log('FIJAS FIJAS FIJAS', datos);
   // Busca el objeto con la zona específica
   const pacificoData = datos.find((item: any) => item.zona === 'Pacifico');
   const centroData = datos.find((item: any) => item.zona === 'Centro');
   const norteData = datos.find((item: any) => item.zona === 'Noreste');
   const surData = datos.find((item: any) => item.zona === 'Sureste');
-
+  const nacionalData = datos.find((item: any) => item.zona === 'Nacional');
   // Obtiene el valor de cumplimiento o establece en cero si no existe
   const pacifico = pacificoData ? +pacificoData.porcentaje_cumplimiento_promedio : 0;
   const centro = centroData ? +centroData.porcentaje_cumplimiento_promedio : 0;
   const norte = norteData ? +norteData.porcentaje_cumplimiento_promedio : 0;
   const sur = surData ? +surData.porcentaje_cumplimiento_promedio : 0;
-
-  // Calcula el total (opcional, dependiendo de tus necesidades)
-  const nacional = ((pacifico + centro + sur + norte)/4);
+  const nacional = nacionalData ? +nacionalData.porcentaje_nacional :0;
 
   console.log('Estos son los datos que debe graficar en fijas:', nacional, centro, norte,pacifico, sur);
 
@@ -351,15 +352,14 @@ private GraficarMoviles(datos: any) {
   const centroData = datos.find((item: any) => item.zona === 'Centro');
   const norteData = datos.find((item: any) => item.zona === 'Noreste');
   const surData = datos.find((item: any) => item.zona === 'Sureste');
-
+  const nacionalData = datos.find((item: any) => item.zona === 'Nacional');
+  const nacional = nacionalData ? +nacionalData.porcentaje_nacional :0;
   // Obtiene el valor de cumplimiento o establece en cero si no existe
   const pacifico = pacificoData ? +pacificoData.porcentaje_cumplimiento_promedio : 0;
   const centro = centroData ? +centroData.porcentaje_cumplimiento_promedio : 0;
   const norte = norteData ? +norteData.porcentaje_cumplimiento_promedio : 0;
   const sur = surData ? +surData.porcentaje_cumplimiento_promedio : 0;
-
-  // Calcula el total (opcional, dependiendo de tus necesidades)
-  const nacional = ((pacifico + centro + sur + norte)/4);
+ 
 
   console.log('Estos son los datos que debe graficar en moviles:', nacional, pacifico, norte, sur, centro);
 
