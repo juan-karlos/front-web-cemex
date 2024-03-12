@@ -51,7 +51,7 @@ export class LogicaService {
   getDatosRiesgo(cuerpo:any){
       return this.http.post<any>(`${this.URL_API}/vencidas`, cuerpo)
   }
-  getDatosRiesgoNacional(cuerpo:any){
+  vencidasNacional(cuerpo:any){
     return this.http.post<any>(`${this.URL_API}/vencidasNacional`, cuerpo)
 }
   getDatosOptimas(cuerpo:any){
@@ -65,5 +65,7 @@ getDatosNoTramitables(cuerpo:any){
 getDatosNoTramitablesTabla(cuerpo:any){
   return this.http.post<any>(`${this.URL_API}/NoTramitablesTabla`, cuerpo)
 }
-
+getDatosNoTramitablesTablaNacional(cuerpo:any){
+  return this.http.post<any>(`${this.URL_API}/NoTramitablesTablaNacional`, cuerpo)
+}
 }
