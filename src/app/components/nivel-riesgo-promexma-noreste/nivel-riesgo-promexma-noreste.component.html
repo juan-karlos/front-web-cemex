@@ -80,6 +80,34 @@
     </div>
 </div>
 
+
+<div class="contenedor-tabla">
+  <a style="font-size: 32px; font-weight: bold;">ESTATUS</a>
+  <a style="font-size: 32px; font-weight: bold; color: rgb(44, 4, 248);"> NO TRAMITABLE</a>
+  <br><br><br>
+ 
+    <div class="tabla">
+      <table class="table" style="font-size: 12px;">
+        <thead class="table-dark">
+          <tr>
+            <tr>
+              <th scope="col">Planta</th>
+              <th scope="col">Area de oportunidad</th>
+              <th scope="col">%</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let Not of logicaService.DatosNoTramitablesTabla">
+            <td>{{Not.nombre_planta}}</td>
+            <td>{{Not.siglas}}</td>
+            <td>{{ Not.porcentaje_cumplimiento | number:'1.2-2' }}</td>
+           
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+</div>
 <div class="contenedor-tabla">
   
   <a style="font-size: 32px; font-weight: bold; color: rgb(120, 120, 120);">ADMINISTRATIVO</a>

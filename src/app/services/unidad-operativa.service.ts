@@ -69,7 +69,9 @@ PlantaSelect :planta={
   getProcentajeCumplimietoNacional(){
     return this.http.get<any>(`${this.URL_API}/Nacional`);
   }
-
+  ContNacional(){
+    return this.http.get<any>(`${this.URL_API}/conteoNacional`);
+  }
 
   obtenerPlantaPorId(id_planta:number){
     const url = `${this.URL_API}${'uno'}/${id_planta}`; // Agrega el ID al final de la URL

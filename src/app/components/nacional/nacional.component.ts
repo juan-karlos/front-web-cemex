@@ -15,7 +15,7 @@ export class NacionalComponent implements OnInit{
   }
 
   ObtenerNacional(){
-    this.nacional.getProcentajeCumplimietoNacional().subscribe(
+    this.nacional.ContNacional().subscribe(
       res=>{
         console.log('ESTO ES LO QUE DEVUELVE EL DE NACIONAL: ', res)
         this.nacional.Segmentos=res;

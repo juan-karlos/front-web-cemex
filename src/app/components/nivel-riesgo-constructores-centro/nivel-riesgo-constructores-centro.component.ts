@@ -18,6 +18,7 @@ export class NivelRiesgoConstructoresCentroComponent implements OnInit{
     this.datosRiesgoMulta(this.cuerpoRiesgoMulta);
     this.datosRiesgoAdmin(this.cuerpoRiesgoAdmin);
     this.datosOptimas(this.cuerpoOptima);
+    this.NoTramitablesTabla(this.body);
   }
   
   zona: string = "Centro";
@@ -28,7 +29,7 @@ export class NivelRiesgoConstructoresCentroComponent implements OnInit{
     "segmento":this.segmento,
     "impacto":"Clausura Total"
   }
-  
+ 
   cuerpoRiesgoMulta={
     "zona":this.zona,
     "segmento":this.segmento,
@@ -95,6 +96,22 @@ export class NivelRiesgoConstructoresCentroComponent implements OnInit{
         console.error(error);
       }
     );
+  }
+  NoTramitablesTabla(cuerpo:any) {
+    this.logicaService.getDatosNoTramitablesTabla(cuerpo).subscribe(
+      (res) => {
+        console.log
+        ('Esto me devuelve el metodo no tramitables tabla: ', res);
+        this.logicaService.DatosNoTramitablesTabla = this.procesarDatos(res);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+  body = {
+    "zona": this.zona,
+    "segmento": this.segmento
   }
 
 

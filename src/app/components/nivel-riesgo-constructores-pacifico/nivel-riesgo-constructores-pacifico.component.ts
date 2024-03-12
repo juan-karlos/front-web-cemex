@@ -18,6 +18,7 @@ export class NivelRiesgoConstructoresPacificoComponent implements OnInit{
     this.datosRiesgoMulta(this.cuerpoRiesgoMulta);
     this.datosRiesgoAdmin(this.cuerpoRiesgoAdmin);
     this.datosOptimas(this.cuerpoOptima);
+    this.NoTramitablesTabla(this.body);
   }
   
   zona: string = "Pacífico";
@@ -97,7 +98,22 @@ export class NivelRiesgoConstructoresPacificoComponent implements OnInit{
     );
   }
 
-
+  NoTramitablesTabla(cuerpo:any) {
+    this.logicaService.getDatosNoTramitablesTabla(cuerpo).subscribe(
+      (res) => {
+        console.log
+        ('Esto me devuelve el metodo no tramitables tabla: ', res);
+        this.logicaService.DatosNoTramitablesTabla = this.procesarDatos(res);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+  body = {
+    "zona": this.zona,
+    "segmento": this.segmento
+  }
 
   procesarDatos(datos: any[]) {
     const plantas = new Map();
