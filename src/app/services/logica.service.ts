@@ -51,13 +51,15 @@ export class LogicaService {
   getDatosRiesgo(cuerpo:any){
       return this.http.post<any>(`${this.URL_API}/vencidas`, cuerpo)
   }
-  getDatosRiesgoNacional(cuerpo:any){
+  vencidasNacional(cuerpo:any){
     return this.http.post<any>(`${this.URL_API}/vencidasNacional`, cuerpo)
 }
   getDatosOptimas(cuerpo:any){
     return this.http.post<any>(`${this.URL_API}/vigentes`, cuerpo)
 }
-
+getDatosOptimasNacional(cuerpo:any){
+  return this.http.post<any>(`${this.URL_API}/vigentesNacional`, cuerpo)
+}
 getDatosNoTramitables(cuerpo:any){
   return this.http.post<any>(`${this.URL_API}/NoTramitables`, cuerpo)
 }
@@ -65,5 +67,7 @@ getDatosNoTramitables(cuerpo:any){
 getDatosNoTramitablesTabla(cuerpo:any){
   return this.http.post<any>(`${this.URL_API}/NoTramitablesTabla`, cuerpo)
 }
-
+getDatosNoTramitablesTablaNacional(cuerpo:any){
+  return this.http.post<any>(`${this.URL_API}/NoTramitablesTablaNacional`, cuerpo)
+}
 }
