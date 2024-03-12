@@ -104,7 +104,7 @@ export class NivelRiesgoConstructoresNacionalComponent implements OnInit{
 
 
   datosOptimas(cuerpo:any) {
-    this.logicaService.getDatosOptimas(cuerpo).subscribe(
+    this.logicaService.getDatosOptimasNacional(cuerpo).subscribe(
       (res) => {
         console.log
         ('Esto me devuelve el metodo datos optimas: ', res);

@@ -57,7 +57,9 @@ export class LogicaService {
   getDatosOptimas(cuerpo:any){
     return this.http.post<any>(`${this.URL_API}/vigentes`, cuerpo)
 }
-
+getDatosOptimasNacional(cuerpo:any){
+  return this.http.post<any>(`${this.URL_API}/vigentesNacional`, cuerpo)
+}
 getDatosNoTramitables(cuerpo:any){
   return this.http.post<any>(`${this.URL_API}/NoTramitables`, cuerpo)
 }
