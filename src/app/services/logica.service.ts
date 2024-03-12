@@ -12,9 +12,10 @@ export class LogicaService {
 
  DatosRiesgoMulta:riesgo[]=[];
  DatosRiesgoClausura:riesgo[]=[];
- DatosRiesgoAdmin:riesgo[]=[]
+ DatosRiesgoAdmin:riesgo[]=[];
+ DatosRiesgoNoTramitables:riesgo[]=[];
  DatosOptimas:optimas[]=[];
-
+ DatosNoTramitablesTabla:optimas[]=[];
  
 
   constructor(private http:HttpClient) { }
@@ -50,6 +51,9 @@ export class LogicaService {
   getDatosRiesgo(cuerpo:any){
       return this.http.post<any>(`${this.URL_API}/vencidas`, cuerpo)
   }
+  getDatosRiesgoNacional(cuerpo:any){
+    return this.http.post<any>(`${this.URL_API}/vencidasNacional`, cuerpo)
+}
   getDatosOptimas(cuerpo:any){
     return this.http.post<any>(`${this.URL_API}/vigentes`, cuerpo)
 }
@@ -57,4 +61,9 @@ export class LogicaService {
 getDatosNoTramitables(cuerpo:any){
   return this.http.post<any>(`${this.URL_API}/NoTramitables`, cuerpo)
 }
+
+getDatosNoTramitablesTabla(cuerpo:any){
+  return this.http.post<any>(`${this.URL_API}/NoTramitablesTabla`, cuerpo)
+}
+
 }

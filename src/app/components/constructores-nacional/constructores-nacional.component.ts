@@ -140,7 +140,7 @@ export class ConstructoresNacionalComponent implements OnInit {
         console.log
         ('Esto me devuelve el obtener porcentajezonasegmentos: ', datos);
        const PorcentajeEnTiempoReal =datos.nacional;
-       this.obtenerHistorial(this.zona, this.segmento, PorcentajeEnTiempoReal);
+       this.obtenerHistorial('nacional', this.segmento, PorcentajeEnTiempoReal);
        
 
       },
