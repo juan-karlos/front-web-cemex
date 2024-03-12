@@ -18,6 +18,8 @@ export class NivelRiesgoOperacionesNacionalComponent implements OnInit{
     this.datosRiesgoMulta(this.cuerpoRiesgoMulta);
     this.datosRiesgoAdmin(this.cuerpoRiesgoAdmin);
     this.datosOptimas(this.cuerpoOptima);
+
+    this.NoTramitablesTabla(this.body);
   }
   
   zona: string = "Centro";
@@ -48,7 +50,7 @@ export class NivelRiesgoOperacionesNacionalComponent implements OnInit{
 
 
   datosRiesgoClausura(cuerpo: any) {
-    this.logicaService.getDatosRiesgo(cuerpo).subscribe(
+    this.logicaService.vencidasNacional(cuerpo).subscribe(
       (res) => {
         console.log('Esto me devuelve el metodo datos riesgo clausura: ', res);
         this.logicaService.DatosRiesgoClausura = this.procesarDatos(res);
@@ -60,7 +62,7 @@ export class NivelRiesgoOperacionesNacionalComponent implements OnInit{
   }
 
   datosRiesgoMulta(cuerpo: any) {
-    this.logicaService.getDatosRiesgo(cuerpo).subscribe(
+    this.logicaService.vencidasNacional(cuerpo).subscribe(
       (res) => {
         console.log('Esto me devuelve el metodo datos riesgo multa: ', res);
         this.logicaService.DatosRiesgoMulta = this.procesarDatos(res);
@@ -72,7 +74,7 @@ export class NivelRiesgoOperacionesNacionalComponent implements OnInit{
   }
 
   datosRiesgoAdmin(cuerpo:any) {
-    this.logicaService.getDatosRiesgo(cuerpo).subscribe(
+    this.logicaService.vencidasNacional(cuerpo).subscribe(
       (res) => {
         console.log
         ('Esto me devuelve el metodo datos riesgo admin: ', res);
@@ -85,7 +87,7 @@ export class NivelRiesgoOperacionesNacionalComponent implements OnInit{
   }
 
   datosOptimas(cuerpo:any) {
-    this.logicaService.getDatosOptimas(cuerpo).subscribe(
+    this.logicaService.getDatosOptimasNacional(cuerpo).subscribe(
       (res) => {
         console.log
         ('Esto me devuelve el metodo datos optimas: ', res);
@@ -97,7 +99,21 @@ export class NivelRiesgoOperacionesNacionalComponent implements OnInit{
     );
   }
 
-
+  NoTramitablesTabla(cuerpo:any) {
+    this.logicaService.getDatosNoTramitablesTablaNacional(cuerpo).subscribe(
+      (res) => {
+        console.log
+        ('Esto me devuelve el metodo no tramitables tabla: ', res);
+        this.logicaService.DatosNoTramitablesTabla = this.procesarDatos(res);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+  body = {
+    "segmento": this.segmento
+  }
 
   procesarDatos(datos: any[]) {
     const plantas = new Map();

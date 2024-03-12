@@ -19,6 +19,7 @@ export class NivelRiesgoNoOperativosNacionalComponent implements OnInit{
     this.datosRiesgoAdmin(this.cuerpoRiesgoAdmin);
     this.datosOptimas(this.cuerpoOptima);
     this.NoTramitablesTabla(this.body);
+    
   }
   
   zona: string = "Centro";
@@ -49,7 +50,7 @@ export class NivelRiesgoNoOperativosNacionalComponent implements OnInit{
 
 
   datosRiesgoClausura(cuerpo: any) {
-    this.logicaService.getDatosRiesgo(cuerpo).subscribe(
+    this.logicaService.vencidasNacional(cuerpo).subscribe(
       (res) => {
         console.log('Esto me devuelve el metodo datos riesgo clausura: ', res);
         this.logicaService.DatosRiesgoClausura = this.procesarDatos(res);
@@ -61,7 +62,7 @@ export class NivelRiesgoNoOperativosNacionalComponent implements OnInit{
   }
 
   datosRiesgoMulta(cuerpo: any) {
-    this.logicaService.getDatosRiesgo(cuerpo).subscribe(
+    this.logicaService.vencidasNacional(cuerpo).subscribe(
       (res) => {
         console.log('Esto me devuelve el metodo datos riesgo multa: ', res);
         this.logicaService.DatosRiesgoMulta = this.procesarDatos(res);
@@ -73,7 +74,7 @@ export class NivelRiesgoNoOperativosNacionalComponent implements OnInit{
   }
 
   datosRiesgoAdmin(cuerpo:any) {
-    this.logicaService.getDatosRiesgo(cuerpo).subscribe(
+    this.logicaService.vencidasNacional(cuerpo).subscribe(
       (res) => {
         console.log
         ('Esto me devuelve el metodo datos riesgo admin: ', res);
@@ -86,7 +87,7 @@ export class NivelRiesgoNoOperativosNacionalComponent implements OnInit{
   }
 
   datosOptimas(cuerpo:any) {
-    this.logicaService.getDatosOptimas(cuerpo).subscribe(
+    this.logicaService.getDatosOptimasNacional(cuerpo).subscribe(
       (res) => {
         console.log
         ('Esto me devuelve el metodo datos optimas: ', res);
@@ -100,7 +101,7 @@ export class NivelRiesgoNoOperativosNacionalComponent implements OnInit{
 
 
   NoTramitablesTabla(cuerpo:any) {
-    this.logicaService.getDatosNoTramitablesTabla(cuerpo).subscribe(
+    this.logicaService.getDatosNoTramitablesTablaNacional(cuerpo).subscribe(
       (res) => {
         console.log
         ('Esto me devuelve el metodo no tramitables tabla: ', res);
