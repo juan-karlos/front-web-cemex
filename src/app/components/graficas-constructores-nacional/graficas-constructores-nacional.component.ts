@@ -45,6 +45,7 @@ export class GraficasConstructoresNacionalComponent implements OnInit {
     this.Moviles();
     this.GraficarRiesgo(this.seg);
     this.GetPorcentajes();
+    this.getNoTramitablesNacional(this.seg);
   }
   ngAfterViewInit(): void {
    
@@ -207,22 +208,22 @@ private DatosAmarillos(datos: any){
 }
 private DatosGrices(datos: any){
   
-  // Asegúrate de que las propiedades sean correctas y coincidan con las reales
-  const nacional = datos[0].administrativasnas;
-  const norte = datos[2].administrativasnor;
-  const sur = datos[4].administrativassur;
-  const centro = datos[1].administrativascen;
-  const pacifico = datos[3].administrativaspas;
-  this.totalNacional += nacional;
-  this.totalCentro += centro;
-  this.totalNoreste += norte;
-  this.totalPacifico += pacifico;
-  this.totalSureste += sur;
-  console.log('ESTO LLEVA EL NUMERITO DE ARRIBA NACIONAL EN GRICES', this.totalNacional)
-  console.log('Estos son los datos que se iran a grices: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
-  // Asigna los datos al conjunto de datos, 
-  this.stackedBarData.datasets[3].data = [nacional, centro, norte, pacifico, sur];
-  this.actualizarGrafico();
+  // // Asegúrate de que las propiedades sean correctas y coincidan con las reales
+  // const nacional = datos[0].administrativasnas;
+  // const norte = datos[2].administrativasnor;
+  // const sur = datos[4].administrativassur;
+  // const centro = datos[1].administrativascen;
+  // const pacifico = datos[3].administrativaspas;
+  // this.totalNacional += nacional;
+  // this.totalCentro += centro;
+  // this.totalNoreste += norte;
+  // this.totalPacifico += pacifico;
+  // this.totalSureste += sur;
+  // console.log('ESTO LLEVA EL NUMERITO DE ARRIBA NACIONAL EN GRICES', this.totalNacional)
+  // console.log('Estos son los datos que se iran a grices: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
+  // // Asigna los datos al conjunto de datos, 
+  // this.stackedBarData.datasets[3].data = [nacional, centro, norte, pacifico, sur];
+  // this.actualizarGrafico();
 }
 
 
@@ -365,6 +366,31 @@ private GraficarMoviles(datos: any) {
 
   // Asigna los datos al conjunto de datos
   this.barChartData2.datasets[1].data = [nacional, centro, norte,pacifico, sur];
+  this.actualizarGrafico();
+}
+
+private getNoTramitablesNacional(body : any){
+  this.registroService.obtenerNoTramitablesNacional(body).subscribe(
+    (datos) => {
+     console.log('NOT QUE RECIBE', datos)
+     this.GraficarNoTramitablesNacional(datos);
+     this.actualizarGrafico();
+    },
+    (error) => {
+      console.error('Error al obtener el porcentaje:', error);
+    }
+  );
+}
+
+private GraficarNoTramitablesNacional(datos:any){
+ 
+  const nacional = datos[0].nacional;
+  const pacifico = datos[0].pacifico;
+  const centro = datos[0].centro;
+  const norte = datos[0].norte;
+  const sur = datos[0].sur;
+  console.log('DATOS NOT',nacional, centro, norte,pacifico, sur )
+  this.stackedBarData.datasets[3].data = [nacional, centro, norte,pacifico, sur];
   this.actualizarGrafico();
 }
 

@@ -192,6 +192,7 @@ height: 100%;
 }
 
 .div1, .div2 {
+  margin-left: 30%;
   width: 50%; /* Cada div ocupará el 50% del ancho del contenedor */
   box-sizing: border-box; /* Incluir el padding y el borde en el ancho total */
   padding: 10px; /* Agregar espacio alrededor de los divs si lo deseas */
