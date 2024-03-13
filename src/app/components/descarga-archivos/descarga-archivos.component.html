@@ -23,7 +23,7 @@
  
   <div class="contenedor-principal">
 
-
+<br><br>
     <form class="row g-3 needs-validation" novalidate (ngSubmit)="validacion()" enctype="multipart/form-data">
       <div style="margin-left: 20%;" class="col-md-7">
 
@@ -60,33 +60,44 @@
           <option>Centro</option>
         </select>
       </div>
+      <br><br>
 
-       <!-- <div class="div1">
-              <h2>Elige la fecha rango de inicio</h2>
 
-               <mat-form-field>
-                <mat-label>Fecha de inicio</mat-label>
-                <input matInput [matDatepicker]="picker" name="fecha_inicio" [(ngModel)]="fecha_inicio"
-              >
-                <mat-hint>MM/DD/AAAA</mat-hint>
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
-            </div>
-             <div class="div2">
-              <h2>Elige la fecha del rango final</h2>
-              <mat-form-field>
-                <mat-label>Fecha de vencimiento</mat-label>
-                <input matInput [matDatepicker]="picker2" name="fecha_vencimientos"
-                [(ngModel)]="fecha_vencimiento">
-                <mat-hint>MM/DD/AAAA</mat-hint>
-                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                <mat-datepicker #picker2></mat-datepicker>
-              </mat-form-field>
-            </div> -->
+      <div class="form-check" style="margin-left: 22%; margin-top: 5%;">
+        <input class="form-check-input" type="checkbox" id="validezUnicaCheckbox" name="fecha" (change)="toggleDatepickers()" [checked]="fechaHabilitada">
+        <label class="form-check-label" for="validezUnicaCheckbox">
+          <h2>Elegir rango de fechas</h2>
+        </label>
+      </div>
+      
+      <div class="div1">
+        <h2>Elige la fecha rango de inicio</h2>
+        <mat-form-field>
+          <mat-label>Fecha de inicio</mat-label>
+          <input matInput [matDatepicker]="picker" name="rango1" [(ngModel)]="rango1" [disabled]="!fechaHabilitada">
+          <mat-hint>MM/DD/AAAA</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      
+      <div class="div2">
+        <h2>Elige la fecha del rango final</h2>
+        <mat-form-field>
+          <mat-label>Fecha de vencimiento</mat-label>
+          <input matInput [matDatepicker]="picker2" name="rango2" [(ngModel)]="rango2" [disabled]="!fechaHabilitada">
+          <mat-hint>MM/DD/AAAA</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+      </div>
+      
+
+
+
       <div class="col-12">
         <br>
-        <button style="margin-left: 20%;" class="btn btn-primary" type="submit">Descargar</button>
+        <button style="margin-left: 65%;" class="btn btn-primary" type="submit">Descargar</button>
       </div>
     </form>
   </div> 

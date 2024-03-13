@@ -42,6 +42,7 @@ export class GraficasOperacionesNacionalComponent implements OnInit {
 
     this.GraficarMesAnterior();
     this.GraficarRiesgo(this.seg);
+    this.getNoTramitablesNacional(this.seg);
   }
   ngAfterViewInit(): void {
    
@@ -294,6 +295,33 @@ private DatosDeArriba(){
   this.stackedBarData.datasets[4].data =[this.totalNacional,this.totalCentro,this.totalNoreste, this.totalPacifico,this.totalSureste ]
   this.actualizarGrafico();
  }
+
+ 
+ private getNoTramitablesNacional(body : any){
+  this.registroService.obtenerNoTramitablesNacional(body).subscribe(
+    (datos) => {
+     console.log('NOT QUE RECIBE', datos)
+     this.GraficarNoTramitablesNacional(datos);
+     this.actualizarGrafico();
+    },
+    (error) => {
+      console.error('Error al obtener el porcentaje:', error);
+    }
+  );
+}
+
+private GraficarNoTramitablesNacional(datos:any){
+ 
+  const nacional = datos[0].nacional;
+  const pacifico = datos[0].pacifico;
+  const centro = datos[0].centro;
+  const norte = datos[0].norte;
+  const sur = datos[0].sur;
+  console.log('DATOS NOT',nacional, centro, norte,pacifico, sur )
+  this.stackedBarData.datasets[3].data = [nacional, centro, norte,pacifico, sur];
+  this.actualizarGrafico();
+}
+
 }
 
 

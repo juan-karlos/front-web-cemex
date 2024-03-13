@@ -14,10 +14,13 @@ import * as saveAs from 'file-saver';
 export class DescargaArchivosComponent implements OnInit{
   arregloRequerimientos: string[] = [];
   requerimiento: string = "";
-  fecha_inicio: string | null = null;
-  fecha_vencimiento: string | null = null;
+  rango1: string | null = null;
+  rango2: string | null = null;
   zona: string ="";
   segmento: string ="";
+  public fechaHabilitada = false; // Inicia deshabilitado
+  // public checkboxActivado = false; 
+  mostrar: boolean = false;
 
   constructor(public permiso: RequerimientoService,public registro: RegistrosService) {}
   ngOnInit(): void {
@@ -28,7 +31,10 @@ export class DescargaArchivosComponent implements OnInit{
     const bod = {
       requerimiento: this.requerimiento,
       zona: this.zona,
-      segmento: this.segmento
+      segmento: this.segmento,
+      rango1: this.rango1 ? moment(this.rango1).format('YYYY-MM-DD') : null,
+      rango2: this.rango2 ? moment(this.rango2).format('YYYY-MM-DD') : null,
+      banfech: this.fechaHabilitada
     };
   
     console.log('Esto es lo que se envía: ', bod);
@@ -106,4 +112,11 @@ export class DescargaArchivosComponent implements OnInit{
     );
   }
 
+  mostrarFechas() {
+    this.mostrar = !this.mostrar;
+  }
+ 
+toggleDatepickers() {
+  this.fechaHabilitada = !this.fechaHabilitada;
+}
 }
