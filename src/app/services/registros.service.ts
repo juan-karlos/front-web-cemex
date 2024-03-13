@@ -57,7 +57,10 @@ zona:''
 
   }
 
+  obtenerNoTramitablesNacional(body : any){
+    return this.http.post(`${this.URL_API}/granacio`,body);
 
+  }
 
   async descarga(body: any): Promise<any> {
     try {
