@@ -31,7 +31,10 @@ export class DescargaArchivosComponent implements OnInit{
     const bod = {
       requerimiento: this.requerimiento,
       zona: this.zona,
-      segmento: this.segmento
+      segmento: this.segmento,
+      rango1: this.rango1 ? moment(this.rango1).format('YYYY-MM-DD') : null,
+      rango2: this.rango2 ? moment(this.rango2).format('YYYY-MM-DD') : null,
+      banfech: this.fechaHabilitada
     };
   
     console.log('Esto es lo que se envía: ', bod);
