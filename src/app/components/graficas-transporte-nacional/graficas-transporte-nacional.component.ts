@@ -268,7 +268,7 @@ actualizarGrafica1mesAnteriorConDatos(datos: any) {
   const norte = norteData ? +norteData.cumplimiento : 0;
   const sur = surData ? +surData.cumplimiento : 0;
   const nacionalData = datos.find((item: any) => item.zona === 'Nacional');
-  const nacional = nacionalData ? +nacionalData.porcentaje_nacional :0;
+  const nacional = nacionalData ? +nacionalData.cumplimiento :0;
   console.log('Estos son los datos quese deberian actualizar en el mes anterior: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
   // Asigna los datos al conjunto de datos, 
   this.barChartData.datasets[0].data = [nacional, centro, norte, pacifico, sur];
