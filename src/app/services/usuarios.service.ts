@@ -13,9 +13,13 @@ URL_API ='http://localhost:3200/api/login/'
 Usuarios:usuario[]=[]
 
 ClienteSelect :usuario={
+  id_usuario:0,
   correo:'',
-  nombre:'',
-  contraseña:''
+  user:'',
+  apellidos:'',
+  password:'',
+  zona:'',
+  rol:''
 }
 
   constructor( private http:HttpClient) { }
@@ -24,9 +28,22 @@ ClienteSelect :usuario={
   obtenerUsuario(){
     return this.http.get<usuario[]>(this.URL_API);
   }
-  
+
+  getUsuarios(){
+    return this.http.get<usuario[]>(`${this.URL_API}usuarios`);
+  }
+  registrar(body:any){
+    return this.http.post<usuario[]>(`${this.URL_API}verifica`, body);
+  } 
+  insertar(body:any){
+    return this.http.post(this.URL_API+"verifica",body);
+  }
   iniciarSesion(body:any) {
     // Enviar solicitud HTTP al backend para iniciar sesión (cambiado a método POST)
     return this.http.post<any>(`${this.URL_API}comparacion`, body);
+  }
+  loginAdmin(body:any) {
+    // Enviar solicitud HTTP al backend para iniciar sesión (cambiado a método POST)
+    return this.http.post<any>(`${this.URL_API}administrador`, body);
   }
 }

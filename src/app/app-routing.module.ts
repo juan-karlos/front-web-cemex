@@ -146,6 +146,11 @@ import { NivelRiesgoOperacionesNacionalComponent } from './components/nivel-ries
 import { NivelRiesgoPromexmaNacionalComponent } from './components/nivel-riesgo-promexma-nacional/nivel-riesgo-promexma-nacional.component';
 import { NivelRiesgoSuministroNacionalComponent } from './components/nivel-riesgo-suministro-nacional/nivel-riesgo-suministro-nacional.component';
 import { NivelRiesgoTransporteNacionalComponent } from './components/nivel-riesgo-transporte-nacional/nivel-riesgo-transporte-nacional.component';
+import { AdministracionUsuariosComponent } from './components/administracion-usuarios/administracion-usuarios.component';
+import { LoginAdministracionUsuariosComponent } from './components/login-administracion-usuarios/login-administracion-usuarios.component';
+import { AgregarUsuarioComponent } from './components/agregar-usuario/agregar-usuario.component';
+import { ActualizarUsuarioComponent } from './components/actualizar-usuario/actualizar-usuario.component';
+import { UsuariosTablaComponent } from './components/usuarios-tabla/usuarios-tabla.component';
 
 
 const routes: Routes = [
@@ -300,6 +305,16 @@ const routes: Routes = [
   {path: 'registros-noreste', component: RegistrosNoresteComponent, canActivate: [seguridadGuard] },
   {path: 'registros-pacifico', component: RegistrosPacificoComponent, canActivate: [seguridadGuard] },
   {path: 'registros-sureste', component: RegistrosSuresteComponent, canActivate: [seguridadGuard] },
+  {path: 'administracion_usuarios', component: AdministracionUsuariosComponent, 
+  canActivate: [seguridadGuard] },
+  {path: 'login_administracion_usuarios', component: LoginAdministracionUsuariosComponent, 
+  canActivate: [seguridadGuard] },
+  {path: 'agregar_usuario', component: AgregarUsuarioComponent, 
+  canActivate: [seguridadGuard] },
+  {path: 'actualizar_usuario', component: ActualizarUsuarioComponent, 
+  canActivate: [seguridadGuard] },
+  {path: 'usuarios_tabla', component: UsuariosTablaComponent, 
+  canActivate: [seguridadGuard] },
 ];
 
 @NgModule({

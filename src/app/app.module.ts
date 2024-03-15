@@ -171,6 +171,11 @@ import { TrasporteNacionalComponent } from './components/trasporte-nacional/tras
 import { GraficasTransporteNacionalComponent } from './components/graficas-transporte-nacional/graficas-transporte-nacional.component';
 import { NivelRiesgoTransporteNacionalComponent } from './components/nivel-riesgo-transporte-nacional/nivel-riesgo-transporte-nacional.component';
 import { TransporteNacionalComponent } from './components/transporte-nacional/transporte-nacional.component';
+import { AdministracionUsuariosComponent } from './components/administracion-usuarios/administracion-usuarios.component';
+import { LoginAdministracionUsuariosComponent } from './components/login-administracion-usuarios/login-administracion-usuarios.component';
+import { ActualizarUsuarioComponent } from './components/actualizar-usuario/actualizar-usuario.component';
+import { AgregarUsuarioComponent } from './components/agregar-usuario/agregar-usuario.component';
+import { UsuariosTablaComponent } from './components/usuarios-tabla/usuarios-tabla.component';
 
 @NgModule({
   declarations: [
@@ -325,6 +330,11 @@ import { TransporteNacionalComponent } from './components/transporte-nacional/tr
     GraficasTransporteNacionalComponent,
     NivelRiesgoTransporteNacionalComponent,
     TransporteNacionalComponent,
+    AdministracionUsuariosComponent,
+    LoginAdministracionUsuariosComponent,
+    ActualizarUsuarioComponent,
+    AgregarUsuarioComponent,
+    UsuariosTablaComponent,
     
     
   ],
