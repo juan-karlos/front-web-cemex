@@ -1,7 +1,10 @@
 export interface usuario{
   correo:String,
   nombre:String,
-  contraseña:String
+  apellido:String,
+  contraseña:String,
+  zona_asignada:String,
+  rol:String
 }
 export interface planta{
   id_planta: number,

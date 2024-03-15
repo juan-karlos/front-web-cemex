@@ -15,7 +15,10 @@ Usuarios:usuario[]=[]
 ClienteSelect :usuario={
   correo:'',
   nombre:'',
-  contraseña:''
+  apellido:'',
+  contraseña:'',
+  zona_asignada:'',
+  rol:''
 }
 
   constructor( private http:HttpClient) { }
