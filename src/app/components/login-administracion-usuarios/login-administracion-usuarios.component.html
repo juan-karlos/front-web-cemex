@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <title>Inicio Sesión</title>
+</head>
+<header>
+    <nav class="navbar navbar-expand-lg" style="background-color: #dedada;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="inicio" style="margin-top:1%;">
+         <img id="logo" src="https://i.ibb.co/HK2Btjq/Logo-Cemex.png" alt="">
+        </a>
+  
+           <ul class="nav justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="inicio" style="font-size: 20px;">Volver</a>
+            </li>
+  
+            
+          </ul>
+      </div>
+    </nav>
+  
+  </header>
+<body class="body">
+  <div>
+
+    <div id="cem">
+    </div>
+
+    <div class="login-imagen" >
+
+      <div id="mover">
+
+        <h1 id="titulo" style="text-align: center;">Ingrese con una cuenta de administrador</h1>
+        <br><br>
+        <form (ngSubmit)="IniciarSesion()">
+          <!-- Correo Electrónico -->
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label letra"><h1>CORREO ELECTRÓNICO</h1></label>
+            <input type="email" class="form-control" id="exampleInputEmail1"  [(ngModel)]="body.correo" name="correo" required>
+          </div>
+
+       <!-- Contraseña -->
+         <div class="mb-3">
+       <label for="exampleInputPassword1" class="form-label letra"><h1>CONTRASEÑA</h1></label>
+        <div class="input-group">
+         <input type="password" class="form-control" id="exampleInputPassword1"  [(ngModel)]="body.password" name="password" required>
+         <a style="margin-left: auto; background-color: rgba(255, 255, 255, 0.594); border-radius:10px ; padding: 1%; font-size: 14px;" 
+         type="button" class="btn-link" (click)="togglePasswordVisibility()">
+           {{ textoBoton }}
+         </a>
+         </div>
+      </div>
+<br>
+          <!-- Boton -->
+          <div id="contenedor-boton" class="mb-3">
+            <button type="submit" class="btn btn-primary" >ACCEDER A USUARIOS</button>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Agrega los scripts de Angular si es necesario -->
+</body>
+</html>

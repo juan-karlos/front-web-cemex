@@ -272,19 +272,18 @@ actualizarGrafica1mesAnteriorConDatos(datos: any) {
   console.log('estos son los atosque se recben del mes pasado', datos);
 
   // Asegúrate de que las propiedades sean correctas y coincidan con las reales
-  const pacificoData = datos.find((item: any) => item.zona === 'Pacifico');
+  const pacificoData = datos.find((item: any) => item.zona === 'Pacífico');
   const centroData = datos.find((item: any) => item.zona === 'Centro');
   const norteData = datos.find((item: any) => item.zona === 'Noreste');
   const surData = datos.find((item: any) => item.zona === 'Sureste');
+  const nacionalData = datos.find((item: any) => item.zona === 'Nacional');
 
   // Obtiene el valor de cumplimiento o establece en cero si no existe
   const pacifico = pacificoData ? +pacificoData.cumplimiento : 0;
   const centro = centroData ? +centroData.cumplimiento : 0;
   const norte = norteData ? +norteData.cumplimiento : 0;
   const sur = surData ? +surData.cumplimiento : 0;
-
-  const nacionalData = datos.find((item: any) => item.zona === 'Nacional');
-  const nacional = nacionalData ? +nacionalData.porcentaje_nacional :0;
+  const nacional = nacionalData ? +nacionalData.cumplimiento :0;
   console.log('Estos son los datos quese deberian actualizar en el mes anterior: ','nacional:',nacional,' centro: ',centro,' norte:', norte,' pacifico', pacifico,' sur:', sur);
   // Asigna los datos al conjunto de datos, 
   this.barChartData.datasets[0].data = [nacional, centro, norte, pacifico, sur];
