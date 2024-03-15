@@ -1,7 +1,7 @@
 export interface usuario{
-  correo:String,
+  correo_electronico:String,
   nombre:String,
-  apellido:String,
+  apellidos:String,
   contraseña:String,
   zona_asignada:String,
   rol:String

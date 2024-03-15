@@ -13,9 +13,9 @@ URL_API ='http://localhost:3200/api/login/'
 Usuarios:usuario[]=[]
 
 ClienteSelect :usuario={
-  correo:'',
+  correo_electronico:'',
   nombre:'',
-  apellido:'',
+  apellidos:'',
   contraseña:'',
   zona_asignada:'',
   rol:''
@@ -27,7 +27,10 @@ ClienteSelect :usuario={
   obtenerUsuario(){
     return this.http.get<usuario[]>(this.URL_API);
   }
-  
+
+  getUsuarios(){
+    return this.http.get<usuario[]>(`${this.URL_API}usuarios`);
+  }
   iniciarSesion(body:any) {
     // Enviar solicitud HTTP al backend para iniciar sesión (cambiado a método POST)
     return this.http.post<any>(`${this.URL_API}comparacion`, body);
