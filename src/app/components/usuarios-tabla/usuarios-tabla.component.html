@@ -23,14 +23,7 @@
   </header>
   <body>
     <div class="contenedor-tabla" >
-      <br>
-
-      <div class="col-md-3" style="background-color: rgb(220, 220, 220); padding: .5%; border-radius: 10px;">
-        <form class="form-group" >
-          <input class="form-control" type="text" name="filterpost" placeholder="Buscar" aria-label="Search"
-           [(ngModel)]="filterPost" >
-        </form>
-      </div>
+   
 
 
       <br><br>
@@ -42,24 +35,25 @@
               <th scope="col">Correo</th>
               <th scope="col">Zona</th>
               <th scope="col">Rol</th>
-              <th></th>
-              <th></th>
+          <th></th>
+          <th></th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let Permiso of permiso.Permiso | filtroPermiso:filterPost">
-              <td>{{Permiso.nombre_requerimiento}}</td>
-              <td>{{Permiso.peso}}</td>
-              <td>{{Permiso.impacto}}</td>
-              <td>{{Permiso.siglas}}</td>
-              <td></td>
+            <tr *ngFor="let Usuario of usuario.Usuarios">
+              <td>{{Usuario.nombre_usuario}}</td>
+              <td>{{Usuario.apellidos}}</td>
+              <td>{{Usuario.correo_electronico}}</td>
+              <td>{{Usuario.zona_asignada}}</td>
+              <td>{{Usuario.rol}}</td>
+            
               <td>
                 <button class="btn btn-danger">
                   <i class="material-icons">delete</i>
                 </button>
               </td>
                 <td>
-                    <button class="btn btn-primary" (click)="Actualizar(Permiso.id_requerimiento)"><i class="material-icons">edit</i></button>
+                    <button class="btn btn-primary" ><i class="material-icons">edit</i></button>
                 </tr>
           </tbody>
         </table>

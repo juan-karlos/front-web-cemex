@@ -13,8 +13,9 @@ URL_API ='http://localhost:3200/api/login/'
 Usuarios:usuario[]=[]
 
 ClienteSelect :usuario={
+  id_usuario:0,
   correo_electronico:'',
-  nombre:'',
+  nombre_usuario:'',
   apellidos:'',
   contraseña:'',
   zona_asignada:'',

@@ -1,6 +1,7 @@
 export interface usuario{
+  id_usuario: number, 
   correo_electronico:String,
-  nombre:String,
+  nombre_usuario:String,
   apellidos:String,
   contraseña:String,
   zona_asignada:String,

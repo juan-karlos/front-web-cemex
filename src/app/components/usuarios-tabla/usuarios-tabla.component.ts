@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RequerimientoService } from 'src/app/services/requerimiento.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({
   selector: 'app-usuarios-tabla',
@@ -8,14 +9,16 @@ import { RequerimientoService } from 'src/app/services/requerimiento.service';
   styleUrls: ['./usuarios-tabla.component.css']
 })
 export class UsuariosTablaComponent implements OnInit{
-  constructor(public permiso:RequerimientoService, private router: Router){}
+  constructor(public usuario:UsuariosService, private router: Router){}
   filterPost ='';
   ngOnInit(): void {
     this.obtenerpermisos();
   }
   obtenerpermisos(){
-    this.permiso.obtenerpermiso().subscribe(
-      res=>this.permiso.Permiso=res,
+    this.usuario.getUsuarios().subscribe(
+      (res)=>{
+        this.usuario.Usuarios=res
+      },
       err=>console.error(err)
     )
   }
