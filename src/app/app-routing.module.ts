@@ -150,6 +150,7 @@ import { AdministracionUsuariosComponent } from './components/administracion-usu
 import { LoginAdministracionUsuariosComponent } from './components/login-administracion-usuarios/login-administracion-usuarios.component';
 import { AgregarUsuarioComponent } from './components/agregar-usuario/agregar-usuario.component';
 import { ActualizarUsuarioComponent } from './components/actualizar-usuario/actualizar-usuario.component';
+import { UsuariosTablaComponent } from './components/usuarios-tabla/usuarios-tabla.component';
 
 
 const routes: Routes = [
@@ -311,6 +312,8 @@ const routes: Routes = [
   {path: 'agregar_usuario', component: AgregarUsuarioComponent, 
   canActivate: [seguridadGuard] },
   {path: 'actualizar_usuario', component: ActualizarUsuarioComponent, 
+  canActivate: [seguridadGuard] },
+  {path: 'usuarios_tabla', component: UsuariosTablaComponent, 
   canActivate: [seguridadGuard] },
 ];
 

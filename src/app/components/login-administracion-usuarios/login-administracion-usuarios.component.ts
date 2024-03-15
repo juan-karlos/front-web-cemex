@@ -57,7 +57,7 @@ IniciarSesion() {
       // console.log('logueado');
       // Aquí podrías redirigir a la vista de inicio si los datos son correctos
       this.cookieService.set('access_token', res.access_token , 4, '/');
-      this.router.navigate(['inicio']);
+      this.router.navigate(['usuarios_tabla']);
     },
     (error) => {
       Swal.fire(
