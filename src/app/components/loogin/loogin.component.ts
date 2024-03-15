@@ -11,8 +11,7 @@ import { ElementRef } from '@angular/core';
 })
 export class LooginComponent implements OnInit{
 
-  mostrarContrasena = false;
-  textoBoton = 'Mostrar Contraseña';
+
   body={
     "correo":"",
     "password":"",
@@ -28,6 +27,8 @@ togglePasswordVisibility() {
     inputElement.type = this.mostrarContrasena ? 'text' : 'password';
     this.textoBoton = this.mostrarContrasena ? 'Ocultar Contraseña' : 'Mostrar Contraseña';
   }
+  mostrarContrasena = false;
+  textoBoton = 'Mostrar Contraseña';
 
 obtenerUsuario(){
   this.usuarios.obtenerUsuario().subscribe(

@@ -6,24 +6,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inicio</title>
-
 </head>
 <header>
-  <!-- aqui seteamos los items que van en el nav, como el icono y el color del mismo -->
   <nav class="navbar navbar-expand-lg" style="background-color: #dedada;">
     <div class="container-fluid">
       <a class="navbar-brand">
-        <!-- aqui le asignamos una iamgen a nustro logo -->
        <img id="logo" src="https://i.ibb.co/HK2Btjq/Logo-Cemex.png" alt="">
        <label id="btn-menu1" for="btn-menu" style="font-size: 30px; cursor: pointer;">☰</label>
       </a>
     </div>
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" (click)="cerrarSesion()" href="loggin"
+        style="font-size: 30px; margin-right:50px;">Salir</a>
+      </li>
+    </ul>
   </nav>
-  <!-- este es el menu lateral -->
   <input type="checkbox" id="btn-menu">
   <div class="container-menu">
     <div class="cont-menu">
-
       <nav>
         <a href="plantas">Ver plantas fijas</a>
         <a href="planmobilactivo">Ver plantas móviles</a>
@@ -33,12 +34,9 @@
         <a href="agregar-planta">Agregar nueva planta</a>
         <a href="agregar-permiso">Agregar nuevo requerimiento</a>
         <a (click)="descargarExcel()" title="Haz clic para descargar el Excel de registros">Descargar Excel de registros</a>
-
         <a href="descarga">Descargar archivos</a>
-        <a href="loggin" (click)="cerrarSesion()">Cerrar sesión</a>
+        <a href="login_administracion_usuarios">Administración de usuarios</a>
       </nav>
-<!-- 
-      <label for="btn-menu" id="Boton-cerrar" style="margin-top: 10px;">✖</label> -->
       <label for="btn-menu"  style="margin-top: 10px; font-size: 300%; margin: 20px auto;">✖</label>
     </div>
   </div>
@@ -46,8 +44,6 @@
 <body class="body">
   <br>
   <H1 id="titulo-inicio">MAPA DE ZONAS</H1>
- 
-
   <div class="container">
     <div class="left-panel">
       <div class="top-buttons">
@@ -74,7 +70,6 @@
     </div>
   </div>
   
-
 </body>
 <footer>
   <nav class="navbar navbar-expand-lg" style="background-color: #dedada; height: 70px;">
