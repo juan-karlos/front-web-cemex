@@ -51,18 +51,18 @@ IniciarSesion() {
   }
 
   // Llama al servicio solo si los campos no están vacíos
-  this.usuarios.iniciarSesion(this.body).subscribe(
+  this.usuarios.loginAdmin(this.body).subscribe(
     (res) => {
       // console.log('Esto me devuelve: ', res);
       // console.log('logueado');
       // Aquí podrías redirigir a la vista de inicio si los datos son correctos
-      this.cookieService.set('access_token', res.access_token , 4, '/');
+      // this.cookieService.set('access_token', res.access_token , 4, '/');
       this.router.navigate(['usuarios_tabla']);
     },
     (error) => {
       Swal.fire(
         'Error',
-        'Hubo un error: ' + error.error.message,
+        'Usuario sin permisos de administrador' ,
         'error'
       );
     }

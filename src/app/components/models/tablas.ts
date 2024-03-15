@@ -1,10 +1,10 @@
 export interface usuario{
   id_usuario: number, 
-  correo_electronico:String,
-  nombre_usuario:String,
+  correo:String,
+  user:String,
   apellidos:String,
-  contraseña:String,
-  zona_asignada:String,
+  password:String,
+  zona:String,
   rol:String
 }
 export interface planta{

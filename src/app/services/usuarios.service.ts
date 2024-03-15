@@ -14,11 +14,11 @@ Usuarios:usuario[]=[]
 
 ClienteSelect :usuario={
   id_usuario:0,
-  correo_electronico:'',
-  nombre_usuario:'',
+  correo:'',
+  user:'',
   apellidos:'',
-  contraseña:'',
-  zona_asignada:'',
+  password:'',
+  zona:'',
   rol:''
 }
 
@@ -32,8 +32,18 @@ ClienteSelect :usuario={
   getUsuarios(){
     return this.http.get<usuario[]>(`${this.URL_API}usuarios`);
   }
+  registrar(body:any){
+    return this.http.post<usuario[]>(`${this.URL_API}verifica`, body);
+  } 
+  insertar(body:any){
+    return this.http.post(this.URL_API+"verifica",body);
+  }
   iniciarSesion(body:any) {
     // Enviar solicitud HTTP al backend para iniciar sesión (cambiado a método POST)
     return this.http.post<any>(`${this.URL_API}comparacion`, body);
+  }
+  loginAdmin(body:any) {
+    // Enviar solicitud HTTP al backend para iniciar sesión (cambiado a método POST)
+    return this.http.post<any>(`${this.URL_API}administrador`, body);
   }
 }

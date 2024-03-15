@@ -11,13 +11,16 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 export class UsuariosTablaComponent implements OnInit{
   constructor(public usuario:UsuariosService, private router: Router){}
   filterPost ='';
+  usuarios: any[] = [];
   ngOnInit(): void {
-    this.obtenerpermisos();
+    this.obtener();
   }
-  obtenerpermisos(){
+  obtener(){
     this.usuario.getUsuarios().subscribe(
       (res)=>{
-        this.usuario.Usuarios=res
+       
+      this.usuarios = res;
+      console.log('OBTENER: ', this.usuarios)
       },
       err=>console.error(err)
     )

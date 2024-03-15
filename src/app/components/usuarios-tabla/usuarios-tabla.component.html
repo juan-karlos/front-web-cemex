@@ -23,8 +23,6 @@
   </header>
   <body>
     <div class="contenedor-tabla" >
-   
-
 
       <br><br>
       <table class="table table-hover tabla-pequena">
@@ -35,25 +33,24 @@
               <th scope="col">Correo</th>
               <th scope="col">Zona</th>
               <th scope="col">Rol</th>
-          <th></th>
-          <th></th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let Usuario of usuario.Usuarios">
+             <tr *ngFor="let Usuario of usuarios">
               <td>{{Usuario.nombre_usuario}}</td>
               <td>{{Usuario.apellidos}}</td>
               <td>{{Usuario.correo_electronico}}</td>
               <td>{{Usuario.zona_asignada}}</td>
               <td>{{Usuario.rol}}</td>
-            
               <td>
                 <button class="btn btn-danger">
                   <i class="material-icons">delete</i>
                 </button>
               </td>
                 <td>
-                    <button class="btn btn-primary" ><i class="material-icons">edit</i></button>
+                    <button class="btn btn-primary" (click)="Actualizar(Usuario.id_usuario)"><i class="material-icons">edit</i></button>
                 </tr>
           </tbody>
         </table>
