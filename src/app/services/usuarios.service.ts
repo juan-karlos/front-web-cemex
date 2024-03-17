@@ -46,4 +46,12 @@ ClienteSelect :usuario={
     // Enviar solicitud HTTP al backend para iniciar sesión (cambiado a método POST)
     return this.http.post<any>(`${this.URL_API}administrador`, body);
   }
+  obtenerUnUsuario(id_usuario:number){
+    const url = `${this.URL_API}${'conUsuarios'}/${id_usuario}`; 
+    return this.http.get(url);
+  }
+  actualizar(body:any){
+    const url = `${this.URL_API}${'actualusu'}/${body.id_usuario}`; 
+    return this.http.put(url,body);
+  }
 }

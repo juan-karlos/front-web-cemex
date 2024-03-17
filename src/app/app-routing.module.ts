@@ -290,7 +290,8 @@ const routes: Routes = [
   {path: 'agregar-planta', component: AgregarPlantaComponent, canActivate: [seguridadGuard]},
   {path: 'plantas-inactivas', component: PlantasInactivasComponent, canActivate: [seguridadGuard]},
   {path: 'actualizar-planta', component: ActualizarPlantaComponent, canActivate: [seguridadGuard]},
-  {path: 'actualizar-planta/:id_planta', component: ActualizarPlantaComponent, canActivate: [seguridadGuard]},
+  {path: 'actualizar-planta/:id_planta', component: ActualizarPlantaComponent, 
+  canActivate: [seguridadGuard]},
   {path: 'agregar-permiso', component: AgregarRequerimientoComponent, canActivate: [seguridadGuard]},
   {path: 'registro-permiso', component:RegistroPermisoComponent, canActivate: [seguridadGuard]},
   {path: 'actualizar-requerimiento/:id_requerimiento', component:ActualizarRequerimientoComponent, canActivate: [seguridadGuard]},
@@ -313,6 +314,8 @@ const routes: Routes = [
   canActivate: [seguridadGuard] },
   {path: 'actualizar_usuario', component: ActualizarUsuarioComponent, 
   canActivate: [seguridadGuard] },
+  {path: 'actualizar_usuario/:id_usuario', component: ActualizarUsuarioComponent, 
+  canActivate: [seguridadGuard]},
   {path: 'usuarios_tabla', component: UsuariosTablaComponent, 
   canActivate: [seguridadGuard] },
 ];
