@@ -73,7 +73,7 @@ export class ActualizarUsuarioComponent implements OnInit {
           text: 'Asegúrate de que los datos sean correctos',
           icon: 'warning',
           showCancelButton: true,
-          confirmButtonText: 'Si, mandar correo de confirmacion',
+          confirmButtonText: 'Si, actualizar',
           cancelButtonText: 'Cancelar',
           reverseButtons: true
         })
@@ -86,7 +86,7 @@ export class ActualizarUsuarioComponent implements OnInit {
                 form.reset();
                 swalWithBootstrapButtons.fire(
                         'Hecho',
-                        'El correo de confirmacion de registro fue enviado al usuario',
+                        'Usuario actualizado',
                         'success'
                       );
               },
@@ -94,7 +94,7 @@ export class ActualizarUsuarioComponent implements OnInit {
                 console.log(error);
                 swalWithBootstrapButtons.fire(
                   'Error',
-                  'Hubo un error al registrar: ' + error.error.message,
+                  'Hubo un error al actualizar: ' + error.error.message,
                   'error'
                 );
               }
@@ -102,7 +102,7 @@ export class ActualizarUsuarioComponent implements OnInit {
           } else if (result.dismiss === Swal.DismissReason.cancel) {
             swalWithBootstrapButtons.fire(
               'Cancelado',
-              'El registro no se completo',
+              'La actualización no se completo',
               'error'
             );
           }

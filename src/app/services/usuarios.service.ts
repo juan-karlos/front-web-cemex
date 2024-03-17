@@ -54,4 +54,8 @@ ClienteSelect :usuario={
     const url = `${this.URL_API}${'actualusu'}/${body.id_usuario}`; 
     return this.http.put(url,body);
   }
+  eliminar(id_usuario:number){
+    const url = `${this.URL_API}${'eliminar'}/${id_usuario}`; 
+    return this.http.delete(url);
+  }
 }
