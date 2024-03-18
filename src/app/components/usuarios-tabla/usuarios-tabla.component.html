@@ -45,7 +45,8 @@
               <td>{{Usuario.zona_asignada}}</td>
               <td>{{Usuario.rol}}</td>
               <td>
-                <button class="btn btn-danger">
+                <button class="btn btn-danger"
+                (click)="eliminar(Usuario.id_usuario)">
                   <i class="material-icons">delete</i>
                 </button>
               </td>
