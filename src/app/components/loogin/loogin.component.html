@@ -32,10 +32,17 @@
        <label for="exampleInputPassword1" class="form-label letra"><h1>CONTRASEÑA</h1></label>
         <div class="input-group">
          <input type="password" class="form-control" id="exampleInputPassword1"  [(ngModel)]="body.password" name="password" required>
-         <a style="margin-left: auto; background-color: rgba(255, 255, 255, 0.594); border-radius:10px ; padding: 1%; font-size: 14px;" 
+        
+         <a style="margin-left: auto; margin-bottom: 2%; background-color: rgba(255, 255, 255, 0.594); border-radius:10px ; padding: 1%; font-size: 14px;" 
          type="button" class="btn-link" (click)="togglePasswordVisibility()">
            {{ textoBoton }}
          </a>
+         
+         <a 
+         style=" margin-left: 73%;background-color: rgba(255, 255, 255, 0.594); border-radius:10px ; padding: 1%; font-size: 14px; width: 200px;" 
+        type="button" class="btn-link" href="olvide-contraseña">
+          Olvidé mi contraseña
+        </a>
          </div>
       </div>
 <br>
@@ -43,7 +50,7 @@
           <div id="contenedor-boton" class="mb-3">
             <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
           </div>
-          
+       
         </form>
       </div>
     </div>

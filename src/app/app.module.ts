@@ -176,6 +176,8 @@ import { LoginAdministracionUsuariosComponent } from './components/login-adminis
 import { ActualizarUsuarioComponent } from './components/actualizar-usuario/actualizar-usuario.component';
 import { AgregarUsuarioComponent } from './components/agregar-usuario/agregar-usuario.component';
 import { UsuariosTablaComponent } from './components/usuarios-tabla/usuarios-tabla.component';
+import { OlvideContraComponent } from './components/olvide-contra/olvide-contra.component';
+import { ActualizarContraComponent } from './components/actualizar-contra/actualizar-contra.component';
 
 @NgModule({
   declarations: [
@@ -335,6 +337,8 @@ import { UsuariosTablaComponent } from './components/usuarios-tabla/usuarios-tab
     ActualizarUsuarioComponent,
     AgregarUsuarioComponent,
     UsuariosTablaComponent,
+    OlvideContraComponent,
+    ActualizarContraComponent,
     
     
   ],

@@ -151,6 +151,8 @@ import { LoginAdministracionUsuariosComponent } from './components/login-adminis
 import { AgregarUsuarioComponent } from './components/agregar-usuario/agregar-usuario.component';
 import { ActualizarUsuarioComponent } from './components/actualizar-usuario/actualizar-usuario.component';
 import { UsuariosTablaComponent } from './components/usuarios-tabla/usuarios-tabla.component';
+import { OlvideContraComponent } from './components/olvide-contra/olvide-contra.component';
+import { ActualizarContraComponent } from './components/actualizar-contra/actualizar-contra.component';
 
 
 const routes: Routes = [
@@ -317,6 +319,9 @@ const routes: Routes = [
   {path: 'actualizar_usuario/:id_usuario', component: ActualizarUsuarioComponent, 
   canActivate: [seguridadGuard]},
   {path: 'usuarios_tabla', component: UsuariosTablaComponent, 
+  canActivate: [seguridadGuard] },
+  {path: 'olvide-contraseña', component: OlvideContraComponent},
+  {path: 'actualizar-contraseña', component: ActualizarContraComponent, 
   canActivate: [seguridadGuard] },
 ];
 
