@@ -26,7 +26,6 @@ export class ActualizarContraComponent implements OnInit {
 
 
 
-  
   validacion(form: NgForm) {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -35,64 +34,64 @@ export class ActualizarContraComponent implements OnInit {
       },
       buttonsStyling: true
     });
-  
-    if (
-      !form.valid ||
-      !form.value.correo ||
-      !form.value.password ||
-      !form.value.passnuevo
-      
-    ) {
-      // Muestra un mensaje de error si el formulario es inválido o algún campo está vacío
+
+    if (!form.valid ||
+        !form.value.correo ||
+        !form.value.password ||
+        !form.value.passnuevo) {
       swalWithBootstrapButtons.fire(
         'Error',
         'Por favor, completa todos los campos antes de actualizar.',
         'error'
       );
     } else {
-      // Muestra la confirmación si el formulario es válido y los campos están llenos
-      swalWithBootstrapButtons
-        .fire({
-          title: 'Se actualizara la contraseña',
-          text: 'Asegúrate de que los datos sean correctos',
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonText: 'Si, actualizar',
-          cancelButtonText: 'Cancelar',
-          reverseButtons: true
-        })
-        .then((result) => {
-          console.log('esto mandamos: ', form.value);
-          if (result.isConfirmed) {
-            this.usuario.actualizarContrasena(form.value).subscribe(
-              (res) => {
-              form.reset();
-              console.log('respuesta: ', res)
-              swalWithBootstrapButtons.fire(
-                'Enviado',
-                'Se actualizó la contraseña: ',
-                'success'
-              );
-              },
-              (error) => {
-                console.log(error);
+      swalWithBootstrapButtons.fire({
+        title: 'Se actualizará la contraseña',
+        text: 'Asegúrate de que los datos sean correctos',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, actualizar',
+        cancelButtonText: 'Cancelar',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.usuario.actualizarContrasena(form.value).subscribe(
+            (res) => {
+              if (res === 'se actualizon con exito') {
+                form.reset();
+                swalWithBootstrapButtons.fire(
+                  'Enviado',
+                  'Se actualizó la contraseña.',
+                  'success'
+                );
+              } else {
                 swalWithBootstrapButtons.fire(
                   'Error',
-                  'Hubo un error al actualizar: ' + error.error.message,
+                  'Datos incorrectos', 
                   'error'
                 );
               }
-            );
-          } else if (result.dismiss === Swal.DismissReason.cancel) {
-            swalWithBootstrapButtons.fire(
-              'Cancelado',
-              'No se actualizó la contraseña',
-              'error'
-            );
-          }
-        });
+            },
+            (error) => {
+              console.log(error);
+              swalWithBootstrapButtons.fire(
+                'Error',
+                'Datos incorrectos',
+                'error'
+              );
+            }
+          );
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          swalWithBootstrapButtons.fire(
+            'Cancelado',
+            'No se actualizó la contraseña',
+            'error'
+          );
+        }
+      });
     }
   }
+
   
   togglePasswordVisibility() {
     this.mostrarContrasena = !this.mostrarContrasena;
