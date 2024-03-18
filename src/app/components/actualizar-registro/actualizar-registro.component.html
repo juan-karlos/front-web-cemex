@@ -26,16 +26,16 @@
           <!-- <label class="form-label"> <h3>Id del registro:  <a [href]="id_registro">{{ id_registro }}</a></h3></label>
             -->
           <div class="col-md-6">
-              <label for="validationCustom01" class="form-label"><h3>Nombre de la planta</h3></label>
+              <label for="validationCustom01" class="form-label"><h3>Nombre de la planta (No editable)</h3></label>
               <input type="text" class="form-control" id="validationCustom01"  required name ="nombre_planta"
-              [(ngModel)]="nombre_planta" [readonly]="true">
+              [(ngModel)]="nombre_planta" [readonly]="true" matInput [readonly]="!editable">
 
             </div>
 
             <div class="col-md-6">
-              <label for="validationCustom02" class="form-label"><h3>Nombre del permiso</h3></label>
+              <label for="validationCustom02" class="form-label"><h3>Nombre del permiso (No editable)</h3></label>
               <input type="text" class="form-control" id="validationCustom02"  required name ="nombre_requerimiento"
-              [(ngModel)]="nombre_requerimiento" [readonly]="true">
+              [(ngModel)]="nombre_requerimiento" [readonly]="true" matInput [readonly]="!editable">
 
             </div>
 

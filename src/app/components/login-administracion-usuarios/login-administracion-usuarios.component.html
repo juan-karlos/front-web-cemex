@@ -18,6 +18,10 @@
   
            <ul class="nav justify-content-end">
             <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="actualizar-contraseña" style="font-size: 20px;">Cambiar mi contraseña</a>
+            </li>
+  
+            <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="inicio" style="font-size: 20px;">Volver</a>
             </li>
   
@@ -31,15 +35,15 @@
   <div>
     <div class="login-imagen" >
       <div id="mover">
-        <!-- <h2 id="titulo" style="text-align: center;">Ingrese con una cuenta de administrador</h2>
-       -->
+        <h2 id="titulo" style="text-align: center; font-size: 32px;">Ingrese con una cuenta de administrador</h2>
+      <br><br>
         <form (ngSubmit)="IniciarSesion()">
           <!-- Correo Electrónico -->
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label letra"><h3>CORREO ELECTRÓNICO</h3></label>
             <input type="email" class="form-control" id="exampleInputEmail1"  [(ngModel)]="body.correo" name="correo" required>
           </div>
-
+<br>
        <!-- Contraseña -->
          <div class="mb-3">
        <label for="exampleInputPassword1" class="form-label letra"><h3>CONTRASEÑA</h3></label>
