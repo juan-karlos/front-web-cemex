@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { UnidadOperativaService } from 'src/app/services/unidad-operativa.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,41 +11,37 @@ import Swal from 'sweetalert2';
   styleUrls: ['./actualizar-usuario.component.css']
 })
 export class ActualizarUsuarioComponent implements OnInit {
-  datos: any;itemId!: number;
-  
+  editable: boolean = false;
+  datos: any;
+  itemId!: number;
   FormRegistro: any;
-  nombre_planta!: string
-  segmento!: string
+  user!: string
+  apellidos!:string
   zona!: string
-  Estado!: string
-  fija!: boolean;
-  activo!: boolean;
-  id_planta!: number;
-  constructor(public servisplanta:UnidadOperativaService,private FB: FormBuilder,
+  correo!: string
+  rol!:string
+  id_usuario!: number;
+  constructor(public usuario:UsuariosService,private FB: FormBuilder,
     private route: ActivatedRoute){
   }
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       
-      this.itemId = params['id_planta'];
-      this.servisplanta.obtenerPlantaPorId(this.itemId).subscribe(objeto => {
-        
+      this.itemId = params['id_usuario'];
+      this.usuario.obtenerUnUsuario(this.itemId).subscribe(objeto => {
+         console.log('esto trae: ', objeto)
         this.datos = objeto;
        
-        this.nombre_planta = this.datos[0].nombre_planta;
-        this.segmento = this.datos[0].segmento;
-        this.zona = this.datos[0].zona;
-        this.Estado = this.datos[0].Estado;
-        this.fija = this.datos[0].fija;
-        this.activo = this.datos[0].activo;
-        this.id_planta = this.datos[0].id_planta;
+        this.user = this.datos[0].nombre_usuario;
+        this.apellidos = this.datos[0].apellidos;
+        this.zona = this.datos[0].zona_asignada;
+        this.rol = this.datos[0].rol;
+        this.correo = this.datos[0].correo_electronico;
+        this.id_usuario = this.datos[0].id_usuario;
       });
   })
   }
 
-
-
-  
   validacion(form: NgForm) {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -53,18 +50,19 @@ export class ActualizarUsuarioComponent implements OnInit {
       },
       buttonsStyling: true
     });
-  
+
     if (
-      !form.valid ||
-      !form.value.nombre_planta ||
-      !form.value.segmento ||
-      !form.value.zona 
+      !form.valid
+      // ||
+      // !this.usuario.ClienteSelect.user ||
+      // !this.usuario.ClienteSelect.rol ||
+      // !this.usuario.ClienteSelect.zona 
       
     ) {
       // Muestra un mensaje de error si el formulario es inválido o algún campo está vacío
       swalWithBootstrapButtons.fire(
         'Error',
-        'Por favor, completa todos los campos antes de actualizar.',
+        'Por favor, completa todos los campos antes de registrar.',
         'error'
       );
     } else {
@@ -81,33 +79,22 @@ export class ActualizarUsuarioComponent implements OnInit {
         })
         .then((result) => {
           if (result.isConfirmed) {
-            this.servisplanta.Actualizar(form.value).subscribe(
+            console.log('ESTO MANDA DE BODY: ', form.value)
+            this.usuario.actualizar(form.value).subscribe(
               (res) => {
+                console.log('RES: ',res)
                 form.reset();
-                this.servisplanta.obtenerplanta().subscribe(
-                  (res) => {
-                    this.servisplanta.Plantas = res;
-                    swalWithBootstrapButtons.fire(
-                      'Actualizado',
-                      'La planta fue actualizada',
-                      'success'
-                    );
-                  },
-                  (err) => {
-                    console.log(err);
-                    swalWithBootstrapButtons.fire(
-                      'Error',
-                      'Hubo un error al obtener las plantas: ' + err.error.message,
-                      'error'
-                    );
-                  }
-                );
+                swalWithBootstrapButtons.fire(
+                        'Hecho',
+                        'Usuario actualizado',
+                        'success'
+                      );
               },
               (error) => {
                 console.log(error);
                 swalWithBootstrapButtons.fire(
                   'Error',
-                  'Hubo un error al actualizar la planta: ' + error.error.message,
+                  'Hubo un error al actualizar: ' + error.error.message,
                   'error'
                 );
               }
@@ -115,7 +102,7 @@ export class ActualizarUsuarioComponent implements OnInit {
           } else if (result.dismiss === Swal.DismissReason.cancel) {
             swalWithBootstrapButtons.fire(
               'Cancelado',
-              'La planta no fue actualizada',
+              'La actualización no se completo',
               'error'
             );
           }

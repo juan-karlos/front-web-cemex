@@ -7,32 +7,36 @@
         </a>
         <ul class="nav justify-content-end">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="plantas" style="font-size: 20px; margin-right: 40px;">Volver</a>
+            <a class="nav-link active" aria-current="page" href="usuarios_tabla" style="font-size: 20px; margin-right: 40px;">Volver</a>
           </li>
         </ul>
       </div>
     </nav>
-
     <h1 id="titulo">Actualizar usuario</h1>
-
   </header>
   <body >
-
     <div class="contenedor-principal" style="background-color: bisque; padding: 3%;">
       <br>
         <form class="row g-3 needs-validation"  #FormRegistro ="ngForm" >
-            <div class="col-md-6">
+            <div class="col-md-4">
               <label for="validationCustom01" class="form-label"><h3>Nombre(s)</h3></label>
-             <input type="text" class="form-control" id="validationCustom01" name="nombre">
+             <input type="text" class="form-control" id="validationCustom01" name="user"
+             [(ngModel)]="user">
             </div>        
-            <div class="col-md-6">
-              <label for="validationCustom01" class="form-label"><h3>Apellidos</h3></label>
-             <input type="text" class="form-control" id="validationCustom01" name="Apellidos">
+            <div class="col-md-4">
+              <label for="validationCustom02" class="form-label"><h3>Apellido(s)</h3></label>
+             <input type="text" class="form-control" id="validationCustom02" name="apellidos"  
+             [(ngModel)]="apellidos">
             </div>  
-            <div class="col-md-3">
-              <label for="validationCustom03" class="form-label"><h3>Zona</h3></label>
-              <select class="form-select"  id="validationCustom03" required name="zona"
-              >
+            <div class="col-md-4">
+              <label for="validationCustom03" class="form-label"><h3>Correo electronico (No editable)</h3></label>
+             <input matInput [readonly]="!editable" type="text" class="form-control" id="validationCustom03" name="correo"
+             [(ngModel)]="correo">
+            </div>  
+            <div class="col-md-4">
+              <label for="validationCustom04" class="form-label"><h3>Zona</h3></label>
+              <select class="form-select"  id="validationCustom04" required name="zona"
+              [(ngModel)]="zona">
                 <option selected disabled value="">Elegir zona</option>
                 <option>Centro</option>
                 <option>Noreste</option>
@@ -40,19 +44,21 @@
                 <option>Sureste</option>
               </select>
             </div>
-
-
-
-
+            <div class="col-md-4">
+              <label for="validationCustom05" class="form-label"><h3>Rol</h3></label>
+              <select class="form-select"  id="validationCustom05" required name="rol"
+              [(ngModel)]="rol">
+                <option selected disabled value="">Elegir rol</option>
+                <option>Administrador</option>
+                <option>General</option>
+              </select>
+            </div>
             <div class="col-12">
-              <input for="id_planta" id="id_planta" type="hidden" name="id_planta">
+              <input for="id_usuario" id="id_usuario" type="hidden" name="id_usuario" 
+              [(ngModel)]="id_usuario">
               <br><br>
-              <!-- <button class="btn btn-primary" type="submit" (click)="insertar_planta(FormRegistro)">Agregar</button> -->
-              <button class="btn btn-primary" type="submit" >Actualizar</button>
+              <button class="btn btn-primary" type="submit" (click)="validacion(FormRegistro)">Actualizar</button>
             </div>
           </form>
     </div>
-
-
-
   </body>
