@@ -62,4 +62,8 @@ ClienteSelect :usuario={
     const url = `${this.URL_API}${'actualcontra'}`; 
     return this.http.put(url,correo);
   }
+  actualizarContrasena(body:any){
+    const url = `${this.URL_API}${'actualizarContra'}`; 
+    return this.http.patch(url,body);
+  }
 }
