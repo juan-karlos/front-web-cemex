@@ -13,6 +13,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ActualizarRegistroComponent implements OnInit {
 
+  editable: boolean = false;
   itemId!: number;
   datos: any;
   FormRegistro: any;

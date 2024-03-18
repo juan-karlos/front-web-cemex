@@ -11,7 +11,7 @@ import { ElementRef } from '@angular/core';
 })
 export class LooginComponent implements OnInit{
 
-
+ 
   body={
     "correo":"",
     "password":"",
@@ -69,4 +69,7 @@ IniciarSesion() {
     }
   );
 }
+
 }
+
+

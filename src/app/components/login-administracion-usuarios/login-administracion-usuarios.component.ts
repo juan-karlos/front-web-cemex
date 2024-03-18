@@ -62,7 +62,7 @@ IniciarSesion() {
     (error) => {
       Swal.fire(
         'Error',
-        'Usuario sin permisos de administrador' ,
+        'Credenciales no validas' ,
         'error'
       );
     }

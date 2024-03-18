@@ -213,7 +213,7 @@ actualizarGrafica1mesAnteriorConDatos(datos: any) {
   console.log('estos son los atosque se recben del mes pasado', datos);
 
   // Asegúrate de que las propiedades sean correctas y coincidan con las reales
-  const pacificoData = datos.find((item: any) => item.zona === 'Pacifico');
+  const pacificoData = datos.find((item: any) => item.zona === 'Pacífico');
   
   // Obtiene el valor de cumplimiento o establece en cero si no existe
   const pacifico = pacificoData ? +pacificoData.cumplimiento : 0;
@@ -268,24 +268,15 @@ private GraficarFijas(datos: any) {
 }
 private GraficarMoviles(datos: any) {
   // Busca el objeto con la zona específica
-  const pacificoData = datos.find((item: any) => item.zona === 'Pacifico');
-  const centroData = datos.find((item: any) => item.zona === 'Centro');
-  const norteData = datos.find((item: any) => item.zona === 'Noreste');
-  const surData = datos.find((item: any) => item.zona === 'Sureste');
+  const pacificoData = datos.find((item: any) => item.zona === 'Pacífico');
+ 
 
   // Obtiene el valor de cumplimiento o establece en cero si no existe
   const pacifico = pacificoData ? +pacificoData.porcentaje_cumplimiento_promedio : 0;
-  const centro = centroData ? +centroData.porcentaje_cumplimiento_promedio : 0;
-  const norte = norteData ? +norteData.porcentaje_cumplimiento_promedio : 0;
-  const sur = surData ? +surData.porcentaje_cumplimiento_promedio : 0;
-
-  // Calcula el total (opcional, dependiendo de tus necesidades)
-  const nacional = ((pacifico + centro + sur + norte)/4);
-
-  console.log('Estos son los datos que debe graficar en moviles:', nacional, pacifico, norte, sur, centro);
-
+  
+  console.log('Estos son los datos que debe graficar en moviles:',  pacifico);
   // Asigna los datos al conjunto de datos
-  this.barChartData2.datasets[1].data = [nacional, centro, norte,pacifico, sur];
+  this.barChartData2.datasets[1].data = [pacifico];
   this.actualizarGrafico();
 }
 
