@@ -58,4 +58,8 @@ ClienteSelect :usuario={
     const url = `${this.URL_API}${'eliminar'}/${id_usuario}`; 
     return this.http.delete(url);
   }
+  OlvideContrasena(correo:any){
+    const url = `${this.URL_API}${'actualcontra'}`; 
+    return this.http.put(url,correo);
+  }
 }
