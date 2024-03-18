@@ -29,26 +29,20 @@
   </header>
 <body class="body">
   <div>
-
-    <div id="cem">
-    </div>
-
     <div class="login-imagen" >
-
       <div id="mover">
-
-        <h1 id="titulo" style="text-align: center;">Ingrese con una cuenta de administrador</h1>
-        <br><br>
+        <!-- <h2 id="titulo" style="text-align: center;">Ingrese con una cuenta de administrador</h2>
+       -->
         <form (ngSubmit)="IniciarSesion()">
           <!-- Correo Electrónico -->
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label letra"><h1>CORREO ELECTRÓNICO</h1></label>
+            <label for="exampleInputEmail1" class="form-label letra"><h3>CORREO ELECTRÓNICO</h3></label>
             <input type="email" class="form-control" id="exampleInputEmail1"  [(ngModel)]="body.correo" name="correo" required>
           </div>
 
        <!-- Contraseña -->
          <div class="mb-3">
-       <label for="exampleInputPassword1" class="form-label letra"><h1>CONTRASEÑA</h1></label>
+       <label for="exampleInputPassword1" class="form-label letra"><h3>CONTRASEÑA</h3></label>
         <div class="input-group">
          <input type="password" class="form-control" id="exampleInputPassword1"  [(ngModel)]="body.password" name="password" required>
          <a style="margin-left: auto; background-color: rgba(255, 255, 255, 0.594); border-radius:10px ; padding: 1%; font-size: 14px;" 
@@ -59,8 +53,11 @@
       </div>
 <br>
           <!-- Boton -->
+          <!-- <div id="contenedor-boton" class="mb-3" style="margin-right: 3%;">
+            <button href="inicio" class="btn btn-primary" ><H3>VOLVER</H3></button>
+          </div> -->
           <div id="contenedor-boton" class="mb-3">
-            <button type="submit" class="btn btn-primary" >ACCEDER A USUARIOS</button>
+            <button type="submit" class="btn btn-primary" ><H3>ACCEDER A USUARIOS</H3></button>
           </div>
           
         </form>
