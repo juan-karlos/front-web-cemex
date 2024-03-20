@@ -21,7 +21,7 @@ export class NoOperativosNacionalComponent implements OnInit {
     private historialService: HistorialService,
     private logicaService : LogicaService) { }
    
-  zona: string = "Centro";
+  zona: string = "Nacional";
   segmento: string = "Inmuebles No Operativos";
   cumplimientoAnioActual: number[] = new Array(12).fill(0);
   cumplimientoAnioAnterior: number[] = new Array(12).fill(0);
@@ -93,7 +93,7 @@ export class NoOperativosNacionalComponent implements OnInit {
   obtenerHistorial(zona: string, segmento: string, PorcentajeEnTiempoReal: number) {
     this.historialService.getHistorialZonaSegmento(zona, segmento).subscribe(
       (datos) => {
-       
+       console.log('OBTENER HISTORIAL PRUEBA DE LO QUE DEVUELVE ', datos)
         this.procesarDatosHistorial(datos, this.cumplimientoAnioActual, this.cumplimientoAnioAnterior, PorcentajeEnTiempoReal);
         this.actualizarGrafico();
       },
@@ -139,7 +139,7 @@ export class NoOperativosNacionalComponent implements OnInit {
         console.log
         ('Esto me devuelve el obtener porcentajezonasegmentos: ', datos);
        const PorcentajeEnTiempoReal =datos.nacional;
-       this.obtenerHistorial(this.zona, this.segmento, PorcentajeEnTiempoReal);
+       this.obtenerHistorial('nacional', this.segmento, PorcentajeEnTiempoReal);
        
 
       },
@@ -163,8 +163,8 @@ export class NoOperativosNacionalComponent implements OnInit {
       (datos) => {
         console.log
         ('Esto me devuelve el porcentaje de cumplimiento total: ', datos);
-       const PorcentajeEnTiempoReal =(datos[1].Total)/4
-       this.obtenerHistorial(this.zona, this.segmento, PorcentajeEnTiempoReal);
+      //  const PorcentajeEnTiempoReal =datos[1].Pacífico
+      //  this.obtenerHistorial(this.zona, this.segmento, PorcentajeEnTiempoReal);
       },
       (error) => {
         console.error('Error al obtener el porcentaje:', error);
