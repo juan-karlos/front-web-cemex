@@ -28,6 +28,7 @@ export class GraficasNoOperativosSuresteComponent implements OnInit {
   }
   totalSureste: number = 0;
   totalOptimas: number = 0;
+
   constructor(private historialService: HistorialService,  private logicaService : LogicaService, private registroService: RegistrosService){}
   ngOnInit(): void {
     
@@ -35,6 +36,7 @@ export class GraficasNoOperativosSuresteComponent implements OnInit {
     this.GraficarMesAnterior();
     this.GraficarRiesgo(this.seg);
     this.DatosNoTramitable(this.body2);
+
   }
   ngAfterViewInit(): void {
    
@@ -98,7 +100,13 @@ public barChartData: ChartData<'bar'> = {
     { data: [], label: this.getMesActualLabel(), backgroundColor: '#49BBFC' },
   ],
 };
-
+public barChartData2: ChartData<'bar'> = {
+  labels: ['SURESTE'],
+  datasets: [
+    { data: [], label: 'Fíjas', backgroundColor: '#B0E2FF' },
+    { data: [], label: 'Móviles', backgroundColor: '#49BBFC' },
+  ],
+};
 
 public stackedBarData: ChartData<'bar'> = {
   labels: ['SURESTE'],
@@ -107,6 +115,7 @@ public stackedBarData: ChartData<'bar'> = {
     { data: [], label: 'Multa', backgroundColor: '#E5FF0E' },
     { data: [], label: 'Optimas', backgroundColor: '#32FF00'  },
     { data: [], label: 'No Tramitables', backgroundColor: '#A9A9A9'  },
+    { data: [], label: '', backgroundColor: '#00FF0000'  },
   ],
 };
 
@@ -127,30 +136,31 @@ private GraficarRiesgo(segmento:any){
   );
 }
 private DatosVerdes(datos: any){
- 
+  
   const sur = datos[4].optimaspassur;
   this.totalSureste += sur;
-  this.totalOptimas += sur;
+  this.totalOptimas+= sur;
 }
 private DatosRojos(datos: any){
- 
+  
   const sur = datos[4].clausuradassur;
   this.totalSureste += sur;
-   this.stackedBarData.datasets[0].data = [sur];
+  this.stackedBarData.datasets[0].data = [sur];
   this.actualizarGrafico();
 }
 private DatosAmarillos(datos: any){
+  
  
   const sur = datos[4].multaspassur;
   this.totalSureste += sur;
-   this.stackedBarData.datasets[1].data = [sur];
+  this.stackedBarData.datasets[1].data = [ sur];
   this.actualizarGrafico();
 }
 private DatosGrices(datos: any){
-  
+ 
   const sur = datos[4].administrativassur;
   this.totalSureste += sur;
-  this.totalOptimas += sur;
+  this.totalOptimas+= sur;
 }
 
 
@@ -165,6 +175,7 @@ private Graficarmesactual(body:any) {
     }
   );
 }
+
 
 GraficarMesAnterior() {
   
@@ -192,10 +203,11 @@ actualizarGrafica1mesactualConDatos(datos: any) {
   }
 
 actualizarGrafica1mesAnteriorConDatos(datos: any) {
-
+  
   const surData = datos.find((item: any) => item.zona === 'Sureste');
 
   const sur = surData ? +surData.cumplimiento : 0;
+
   this.barChartData.datasets[0].data = [sur];
   this.actualizarGrafico();
 }
@@ -221,10 +233,13 @@ esMismoMes(fecha1: Date, fecha2: Date): boolean {
   return fecha1.getFullYear() === fecha2.getFullYear() && fecha1.getMonth() === fecha2.getMonth();
 }
 
+
 private DatosDeArriba(){
-  this.stackedBarData.datasets[4].data =[this.totalSureste]
+  this.stackedBarData.datasets[4].data =[this.totalSureste ]
   this.actualizarGrafico();
 }
+
+
 private DatosOptimos(){
   this.stackedBarData.datasets[2].data = [ this.totalOptimas];
   this.actualizarGrafico();
@@ -245,7 +260,6 @@ private DatosNoTramitable(body : any){
     "zona": this.zona,
     "segmento": this.segmento
   }
-
 }
 
 
