@@ -12,6 +12,7 @@ import { LogicaService } from 'src/app/services/logica.service';
   templateUrl: './transporte-nacional.component.html',
   styleUrls: ['./transporte-nacional.component.css']
 })
+
 export class TransporteNacionalComponent implements OnInit {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
@@ -20,7 +21,7 @@ export class TransporteNacionalComponent implements OnInit {
     private historialService: HistorialService,
     private logicaService : LogicaService) { }
    
-  zona: string = "Centro";
+  zona: string = "Nacional";
   segmento: string = "Transporte";
   cumplimientoAnioActual: number[] = new Array(12).fill(0);
   cumplimientoAnioAnterior: number[] = new Array(12).fill(0);
@@ -92,7 +93,7 @@ export class TransporteNacionalComponent implements OnInit {
   obtenerHistorial(zona: string, segmento: string, PorcentajeEnTiempoReal: number) {
     this.historialService.getHistorialZonaSegmento(zona, segmento).subscribe(
       (datos) => {
-       
+       console.log('OBTENER HISTORIAL PRUEBA DE LO QUE DEVUELVE ', datos)
         this.procesarDatosHistorial(datos, this.cumplimientoAnioActual, this.cumplimientoAnioAnterior, PorcentajeEnTiempoReal);
         this.actualizarGrafico();
       },
@@ -138,7 +139,7 @@ export class TransporteNacionalComponent implements OnInit {
         console.log
         ('Esto me devuelve el obtener porcentajezonasegmentos: ', datos);
        const PorcentajeEnTiempoReal =datos.nacional;
-       this.obtenerHistorial(this.zona, this.segmento, PorcentajeEnTiempoReal);
+       this.obtenerHistorial('nacional', this.segmento, PorcentajeEnTiempoReal);
        
 
       },
@@ -154,6 +155,22 @@ export class TransporteNacionalComponent implements OnInit {
   "nombrezona":this.zona,
   "segmento":this.segmento
   } 
+
+
+  obtenerPorcentajeTotalActual(){
+    this.logicaService.getProcentajeCumplimietoZonasSegmentos().subscribe(
+      
+      (datos) => {
+        console.log
+        ('Esto me devuelve el porcentaje de cumplimiento total: ', datos);
+      //  const PorcentajeEnTiempoReal =datos[1].Pacífico
+      //  this.obtenerHistorial(this.zona, this.segmento, PorcentajeEnTiempoReal);
+      },
+      (error) => {
+        console.error('Error al obtener el porcentaje:', error);
+      }
+    )
+  }
 
   obtenerNacional(segmento:any) {
     this.perPlan.conteonacional2(segmento).subscribe(
@@ -172,7 +189,7 @@ export class TransporteNacionalComponent implements OnInit {
     this.perPlan.conteoZon2(segmento).subscribe(
       (res) => {
         console.log
-        ('Esto me devuelve el obtener nacional: ', res);
+        ('Esto me devuelve el obtener zonas: ', res);
         this.perPlan.zonasConteo = res
       },
       (error) => {
