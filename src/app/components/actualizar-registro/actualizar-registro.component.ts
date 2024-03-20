@@ -5,7 +5,7 @@ import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
 import { HttpClient } from '@angular/common/http';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-actualizar-registro',
   templateUrl: './actualizar-registro.component.html',
@@ -32,7 +32,7 @@ export class ActualizarRegistroComponent implements OnInit {
   nombre_planta: string = "";
   id_registro: number = 0;
 
-  constructor(private http: HttpClient, public servisregistro: RegistrosService, private FB: FormBuilder,
+  constructor(private location: Location,private http: HttpClient, public servisregistro: RegistrosService, private FB: FormBuilder,
     private route: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -53,6 +53,10 @@ export class ActualizarRegistroComponent implements OnInit {
         this.toggleValidezUnica();
       });
     });
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
   onFileSelected(event: any) {
