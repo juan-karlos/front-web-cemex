@@ -6,8 +6,8 @@ import { zonas } from '../components/models/tablas';
   providedIn: 'root'
 })
 export class ZonaPasificoService {
-  URL_API='http://localhost:3200/api/requerimiento/'
-  // URL_API='http://86.38.204.102:3200/api/requerimiento/'
+  // URL_API='http://localhost:3200/api/requerimiento/'
+  URL_API='http://86.38.204.102:3200/api/requerimiento/'
 
   permiso_plan:conteo[]=[]
   zonasConteo:zonas[]=[]
