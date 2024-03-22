@@ -63,7 +63,7 @@ export class OlvideContraComponent implements OnInit {
               console.log('respuesta: ', res)
               swalWithBootstrapButtons.fire(
                 'Enviado',
-                'Se mando el correo con la nueva cntraseña: ',
+                'Se mando el correo con la nueva cOntraseña: ',
                 'success'
               );
               },
