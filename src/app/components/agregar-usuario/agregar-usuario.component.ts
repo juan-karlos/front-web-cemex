@@ -99,7 +99,7 @@ export class AgregarUsuarioComponent {
 
 togglePasswordVisibility() {
     this.mostrarContrasena = !this.mostrarContrasena;
-    const inputElement = document.getElementById('exampleInputPassword1') as HTMLInputElement;
+    const inputElement = document.getElementById('validationCustom06') as HTMLInputElement;
     inputElement.type = this.mostrarContrasena ? 'text' : 'password';
     this.textoBoton = this.mostrarContrasena ? 'Ocultar Contraseña' : 'Mostrar Contraseña';
   }
