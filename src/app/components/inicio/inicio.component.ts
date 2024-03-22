@@ -52,8 +52,15 @@ export class InicioComponent implements OnInit{
     this.descargando = true;
     this.registro.descargarExcel()
       .then((response: any) => {
+        const currentDate = new Date();
+        const formattedDate = currentDate.toISOString().slice(0,10); // Formato YYYY-MM-DD
+        const filename = 'Excel de datos Cemex  ' + formattedDate + '.xlsx'; // Nombre del archivo: EXCEL_YYYY-MM-DD.xlsx
         const blob = new Blob([response.body], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
-        this.excelUrl = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(blob));
+        const url = URL.createObjectURL(blob);
+        const anchor = document.createElement('a');
+        anchor.download = filename;
+        anchor.href = url;
+        anchor.click();
         Swal.fire({
           icon: 'success',
           title: 'Descarga Exitosa',
@@ -72,6 +79,9 @@ export class InicioComponent implements OnInit{
         this.descargando = false;
       });
   }
+
+
+
   verEnNavegador(): void {
     if (this.excelUrl) {
       const url: string = this.sanitizer.sanitize(SecurityContext.URL, this.excelUrl) || '';
