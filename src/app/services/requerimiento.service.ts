@@ -5,8 +5,8 @@ import {permiso} from '../components/models/tablas'
   providedIn: 'root'
 })
 export class RequerimientoService {
-  // URL_API = 'http://86.38.204.102:3200/api/requerimiento/'
-  URL_API ='http://localhost:3200/api/requerimiento/'
+  URL_API = 'http://86.38.204.102:3200/api/requerimiento/'
+  // URL_API ='http://localhost:3200/api/requerimiento/'
 
   Permiso:permiso[]=[];
 
