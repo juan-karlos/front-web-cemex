@@ -220,6 +220,7 @@ GraficarMesAnterior() {
 }
 
 actualizarGrafica1mesactualConDatos(datos: any) {
+  console.log('DATOS NUEVOS: ',datos)
   // Asigna los datos al conjunto de datos, 
   const data = datos.zonaporcentaje;
   this.barChartData.datasets[1].data = [data];

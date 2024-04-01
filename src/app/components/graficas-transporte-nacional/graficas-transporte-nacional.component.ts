@@ -240,17 +240,78 @@ GraficarMesAnterior() {
   );
 }
 
-actualizarGrafica1mesactualConDatos(datos: any) {
+// actualizarGrafica1mesactualConDatos(datos: any) {
   
-  // Asegúrate de que las propiedades sean correctas y coincidan con las reales
-  const pacifico = datos[18].zona;
-  const norte = datos[16].zona;
-  const sur = datos[17].zona;
-  const centro = datos[19].zona;
-  const nacional = datos[19].nacional;
-  this.barChartData.datasets[1].data = [nacional, centro, norte, pacifico, sur];
+//   // Asegúrate de que las propiedades sean correctas y coincidan con las reales
+//   const pacifico = datos[18].zona;
+//   const norte = datos[16].zona;
+//   const sur = datos[17].zona;
+//   const centro = datos[19].zona;
+//   const nacional = datos[19].nacional;
+//   this.barChartData.datasets[1].data = [nacional, centro, norte, pacifico, sur];
+//   this.actualizarGrafico();
+// }
+
+
+actualizarGrafica1mesactualConDatos(datos: any[]) {
+  console.log('DATOS NUEVOS', datos);
+
+  // Filtrar datos por segmento "Constructores"
+  const datosConstructores = datos.filter(dato => dato.segmento === this.segmento);
+
+  // Filtrar los datos filtrados por nomzona
+  const datosFiltrados = datosConstructores.filter(dato =>
+    dato.nomzona === 'Nacional' ||
+    dato.nomzona === 'Centro' ||
+    dato.nomzona === 'Noreste' ||
+    dato.nomzona === 'Pacífico' ||
+    dato.nomzona === 'Sureste'
+  );
+
+  // Inicializar variables para almacenar los datos de las diferentes zonas
+  let nacional: number | null = null;
+  let centro: number | null = null;
+  let noreste: number | null = null;
+  let pacifico: number | null = null;
+  let sureste: number | null = null;
+
+  // Recorrer los datos filtrados para obtener los valores de las zonas específicas
+  datosFiltrados.forEach(dato => {
+    switch (dato.nomzona) {
+      case 'Centro':
+        centro = dato.zona;
+        nacional = dato.nacional;
+        break;
+      case 'Noreste':
+        noreste = dato.zona;
+        break;
+      case 'Pacífico':
+        pacifico = dato.zona;
+        break;
+      case 'Sureste':
+        sureste = dato.zona;
+        break;
+      default:
+        break;
+    }
+  });
+
+  console.log('Estos son los datos que se deberían actualizar en el mes actual:', 'nacional:', nacional, ' centro:', centro, ' noreste:', noreste, ' pacifico:', pacifico, ' sureste:', sureste);
+
+  // Verificar si alguna de las variables sigue siendo null
+  if (nacional === null || centro === null || noreste === null || pacifico === null || sureste === null) {
+    console.log('Algunas variables no se han inicializado correctamente.');
+    return; // Salir del método si hay variables sin inicializar
+  }
+
+  // Asignar los datos al conjunto de datos
+  this.barChartData.datasets[1].data = [nacional, centro, noreste, pacifico, sureste];
   this.actualizarGrafico();
 }
+
+
+
+
 
 
 actualizarGrafica1mesAnteriorConDatos(datos: any) {
