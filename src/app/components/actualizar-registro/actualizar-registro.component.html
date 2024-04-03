@@ -72,7 +72,7 @@
 
             </div>
 
-            <label class="form-label"> <h3>Documento actual:  <a [href]="url">{{ url }}</a></h3></label>
+            <label class="form-label"> <h3><a [href]="url">Ver documento actual</a></h3></label>
 
             <div class="mb-3">
 
@@ -130,17 +130,53 @@
            
           </form>
 
+          <br><br><br>
+
+
+          <div style="width: 80%; text-align: center !important" *ngIf="documentos.length > 0">
+            <table class="table table-hover" style="margin-left: 10%;">
+         
+             <thead class="table-dark">
+               <tr>
+                <th>Nombre del Documento</th>
+                 <th>Fecha de Inicio</th>
+                 <th>Fecha de Vencimiento</th>
+                 <th>Impacto</th>
+                 <th>Zona</th>
+                 <th>Segmento</th>
+                 <th>URL</th>
+                 <!-- Agrega más encabezados según necesites -->
+               </tr>
+             </thead>
+             <tbody>
+
+               <tr *ngFor="let documento of documentos">
+                <td>{{ documento.nombre_doc }}</td>
+                <td>{{recortarTexto(documento.inicio, 10)}}</td>
+                <td>{{recortarTexto(documento.fecha_vencimiento, 10)}}</td>
+                 <td>{{ documento.impacto }}</td>
+                 
+                 <td>{{ documento.zona }}</td>
+                 <td>{{ documento.segmento }}</td>
+                 <!-- <td><a href="{{ documento.url }}" target="_blank">{{ documento.url }}</a></td> -->
+                 <td>
+                   <button *ngIf="documento.url" class="btn btn-primary" (click)="abrirUrl(documento.url)">
+                     <i class="material-icons">description</i> 
+                   </button>
+                 </td>
+                 <!-- Agrega más columnas según necesites -->
+               </tr>
+             </tbody>
+           </table>
+         </div>
+         <div *ngIf="documentos.length === 0">
+           <p>No se encontraron documentos.</p>
+         </div>
 
     </div>
     <br><br><br>
     
-    <!-- <tr *ngFor="let Planta of unidad.Plantas | filtroPlanta:filterPost">
-        <td>{{Planta.nombre_planta}}</td>
-        <td>{{Planta.segmento}}</td>
-        <td>{{Planta.zona}}</td>
-        <td>{{Planta.Estado}}</td>
 
-      </tr> -->
       <br><br><br>
   </body>
 

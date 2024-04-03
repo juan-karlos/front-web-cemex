@@ -210,15 +210,32 @@ export class ActualizarRegistroComponent implements OnInit {
         }
       });
   }
-
+  documentos: any[] = [];
   obtenerdocumentos(){
     this.route.params.subscribe(params => {
       this.itemId = params['id_registro'];
-     this.servisregistro.obtenerDocumentosPorRegistro(this.itemId).subscribe(objeto => {
-      this.datos = objeto;
-      console.log('DOCUMENTOS: ', objeto)
-    
+     this.servisregistro.obtenerDocumentosPorRegistro(this.itemId).subscribe((data: any) => {
+      this.documentos = data;
     });
   });
+  }
+
+  
+  recortarTexto(cadena: string, longitud: number): string {
+    if(cadena==null){
+      return "fecha Unica"
+    }
+    return cadena.slice(0, longitud);
+  }
+  formatearObservaciones(observaciones: string): string {
+    if (!observaciones) {
+      return '';
+    }
+    // Agregar saltos de línea manualmente
+    return observaciones.replace(/(.{1,30})/g, "$1\n");
+  }
+  abrirUrl(url: string) {
+    // Aquí puedes implementar la lógica para abrir la URL, por ejemplo:
+    window.open(url, '_blank');
   }
 }
