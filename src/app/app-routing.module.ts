@@ -153,6 +153,7 @@ import { ActualizarUsuarioComponent } from './components/actualizar-usuario/actu
 import { UsuariosTablaComponent } from './components/usuarios-tabla/usuarios-tabla.component';
 import { OlvideContraComponent } from './components/olvide-contra/olvide-contra.component';
 import { ActualizarContraComponent } from './components/actualizar-contra/actualizar-contra.component';
+import { DocumentosPorRegistroComponent } from './components/documentos-por-registro/documentos-por-registro.component';
 
 
 const routes: Routes = [
@@ -323,6 +324,11 @@ const routes: Routes = [
   {path: 'olvide-contraseña', component: OlvideContraComponent},
   {path: 'actualizar-contraseña', component: ActualizarContraComponent, 
   canActivate: [seguridadGuard] },
+  {path: 'actualizar-contraseña', component: ActualizarContraComponent, 
+  canActivate: [seguridadGuard] },
+   {path: 'documentos-por-registro', component: DocumentosPorRegistroComponent, 
+  canActivate: [seguridadGuard] },
+  {path: 'documentos-por-registro/:id_requerimiento', component: DocumentosPorRegistroComponent, canActivate: [seguridadGuard] },
 ];
 
 @NgModule({
