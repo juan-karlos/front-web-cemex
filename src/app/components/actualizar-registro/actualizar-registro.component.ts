@@ -32,12 +32,14 @@ export class ActualizarRegistroComponent implements OnInit {
   nombre_planta: string = "";
   id_registro: number = 0;
 
+
   constructor(private location: Location,private http: HttpClient, public servisregistro: RegistrosService, private FB: FormBuilder,
     private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.itemId = params['id_registro'];
+
       this.servisregistro.obtenerRegistroPorId(this.itemId).subscribe(objeto => {
         this.datos = objeto;
         this.id_registro = this.datos[0].id_registro;
@@ -52,7 +54,12 @@ export class ActualizarRegistroComponent implements OnInit {
         this.toggleValidezUnica();
         this.toggleValidezUnica();
       });
+
+      
+
+
     });
+    this.obtenerdocumentos();
   }
 
   goBack(): void {
@@ -202,5 +209,33 @@ export class ActualizarRegistroComponent implements OnInit {
           );
         }
       });
+  }
+  documentos: any[] = [];
+  obtenerdocumentos(){
+    this.route.params.subscribe(params => {
+      this.itemId = params['id_registro'];
+     this.servisregistro.obtenerDocumentosPorRegistro(this.itemId).subscribe((data: any) => {
+      this.documentos = data;
+    });
+  });
+  }
+
+  
+  recortarTexto(cadena: string, longitud: number): string {
+    if(cadena==null){
+      return "fecha Unica"
+    }
+    return cadena.slice(0, longitud);
+  }
+  formatearObservaciones(observaciones: string): string {
+    if (!observaciones) {
+      return '';
+    }
+    // Agregar saltos de línea manualmente
+    return observaciones.replace(/(.{1,30})/g, "$1\n");
+  }
+  abrirUrl(url: string) {
+    // Aquí puedes implementar la lógica para abrir la URL, por ejemplo:
+    window.open(url, '_blank');
   }
 }

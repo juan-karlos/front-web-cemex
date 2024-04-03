@@ -17,6 +17,15 @@ export interface planta{
   fija: Boolean,
   activa: Boolean
 }
+export interface doc{
+  fecha_inicio: Date,
+  fecha_vencimiento: Date,
+  impacto: String,
+  zona: String,
+  segmento: String,
+  url: String,
+  nombre_doc: String
+}
 
 export interface permiso{
   id_requerimiento: number,
@@ -24,6 +33,7 @@ export interface permiso{
   peso: number,
   impacto: String,
   siglas: String
+
 }
 
 export interface registro{
