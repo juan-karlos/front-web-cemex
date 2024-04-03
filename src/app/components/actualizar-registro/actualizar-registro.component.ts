@@ -38,6 +38,7 @@ export class ActualizarRegistroComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.itemId = params['id_registro'];
+
       this.servisregistro.obtenerRegistroPorId(this.itemId).subscribe(objeto => {
         this.datos = objeto;
         this.id_registro = this.datos[0].id_registro;
@@ -52,6 +53,15 @@ export class ActualizarRegistroComponent implements OnInit {
         this.toggleValidezUnica();
         this.toggleValidezUnica();
       });
+
+      this.servisregistro.obtenerDocumentosPorRegistro(this.itemId).subscribe(objeto => {
+        this.datos = objeto;
+        console.log('DOCUMENTOS: ', objeto)
+      
+      });
+
+
+
     });
   }
 
@@ -136,8 +146,8 @@ export class ActualizarRegistroComponent implements OnInit {
     }
 
     // Realizar la solicitud al servidor
-    this.http.patch('http://86.38.204.102:3200/api/regi/actualizarPer', formData).subscribe(
-      // this.http.patch('http://localhost:3200/api/regi/actualizarPer', formData).subscribe(  
+    // this.http.patch('http://86.38.204.102:3200/api/regi/actualizarPer', formData).subscribe(
+      this.http.patch('http://localhost:3200/api/regi/actualizarPer', formData).subscribe(  
     (response: any) => {
         console.log('URL del PDF en el servidor:', response);
         swalWithBootstrapButtons.fire(

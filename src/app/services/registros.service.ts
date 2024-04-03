@@ -7,8 +7,8 @@ import { saveAs } from 'file-saver';
   providedIn: 'root'
 })
 export class RegistrosService {
-URL_API='http://86.38.204.102:3200/api/regi'
-// URL_API='http://localhost:3200/api/regi'
+// URL_API='http://86.38.204.102:3200/api/regi'
+URL_API='http://localhost:3200/api/regi'
 
 Registro:registro[]=[];
 
@@ -91,6 +91,13 @@ zona:''
         }
       );
     });
+  }
+
+
+
+  obtenerDocumentosPorRegistro(id_requerimiento:number){
+    const url = `${this.URL_API}${'/doc'}/${id_requerimiento}`; // Agrega el ID al final de la URL
+    return this.http.get(url);
   }
 
 }
