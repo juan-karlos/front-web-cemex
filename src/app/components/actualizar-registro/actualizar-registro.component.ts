@@ -32,6 +32,7 @@ export class ActualizarRegistroComponent implements OnInit {
   nombre_planta: string = "";
   id_registro: number = 0;
 
+
   constructor(private location: Location,private http: HttpClient, public servisregistro: RegistrosService, private FB: FormBuilder,
     private route: ActivatedRoute) {}
 
@@ -54,15 +55,11 @@ export class ActualizarRegistroComponent implements OnInit {
         this.toggleValidezUnica();
       });
 
-      this.servisregistro.obtenerDocumentosPorRegistro(this.itemId).subscribe(objeto => {
-        this.datos = objeto;
-        console.log('DOCUMENTOS: ', objeto)
       
-      });
-
 
 
     });
+    this.obtenerdocumentos();
   }
 
   goBack(): void {
@@ -212,5 +209,16 @@ export class ActualizarRegistroComponent implements OnInit {
           );
         }
       });
+  }
+
+  obtenerdocumentos(){
+    this.route.params.subscribe(params => {
+      this.itemId = params['id_registro'];
+     this.servisregistro.obtenerDocumentosPorRegistro(this.itemId).subscribe(objeto => {
+      this.datos = objeto;
+      console.log('DOCUMENTOS: ', objeto)
+    
+    });
+  });
   }
 }

@@ -12,7 +12,6 @@ URL_API='http://localhost:3200/api/regi'
 
 Registro:registro[]=[];
 
-
 Segmento:'' | undefined;
 
 RegistroSelect :registro={
