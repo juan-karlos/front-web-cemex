@@ -178,6 +178,7 @@ import { AgregarUsuarioComponent } from './components/agregar-usuario/agregar-us
 import { UsuariosTablaComponent } from './components/usuarios-tabla/usuarios-tabla.component';
 import { OlvideContraComponent } from './components/olvide-contra/olvide-contra.component';
 import { ActualizarContraComponent } from './components/actualizar-contra/actualizar-contra.component';
+import { DocumentosPorRegistroComponent } from './components/documentos-por-registro/documentos-por-registro.component';
 
 @NgModule({
   declarations: [
@@ -339,6 +340,7 @@ import { ActualizarContraComponent } from './components/actualizar-contra/actual
     UsuariosTablaComponent,
     OlvideContraComponent,
     ActualizarContraComponent,
+    DocumentosPorRegistroComponent,
     
     
   ],

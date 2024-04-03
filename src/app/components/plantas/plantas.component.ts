@@ -59,10 +59,10 @@ obtener_planta_por_id(){
     )
   }
 
-
   Actualizar(id: number) {
     this.router.navigate(['actualizar-planta', id]);
   }
+
   recortarTexto(cadena: string) {
     if (!cadena || cadena === "NaN" || cadena === "NULL") {
       return "0";

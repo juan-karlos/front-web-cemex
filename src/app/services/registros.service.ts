@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { registro } from '../components/models/tablas';
+import { doc, registro } from '../components/models/tablas';
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { saveAs } from 'file-saver';
 
@@ -9,11 +9,24 @@ import { saveAs } from 'file-saver';
 export class RegistrosService {
 URL_API='http://86.38.204.102:3200/api/regi'
 // URL_API='http://localhost:3200/api/regi'
-
-Registro:registro[]=[];
-
-
 Segmento:'' | undefined;
+Registro:registro[]=[];
+Doc: doc[]=[];
+
+
+DocSelect : doc = {
+  fecha_inicio : new Date,
+  fecha_vencimiento : new Date,
+  impacto : '',
+  zona :'',
+  segmento :'',
+  url: '',
+  nombre_doc:''
+
+}
+
+
+
 
 RegistroSelect :registro={
 id_registro:0,
@@ -91,6 +104,13 @@ zona:''
         }
       );
     });
+  }
+
+
+
+  obtenerDocumentosPorRegistro(id_requerimiento:number){
+    const url = `${this.URL_API}${'/doc'}/${id_requerimiento}`; // Agrega el ID al final de la URL
+    return this.http.get(url);
   }
 
 }
