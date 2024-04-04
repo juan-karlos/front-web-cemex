@@ -152,7 +152,7 @@
 
                <tr *ngFor="let documento of documentos">
                 <td>{{ documento.nombre_doc }}</td>
-                <td>{{recortarTexto(documento.inicio, 10)}}</td>
+                <td>{{recortarTexto(documento.fecha_inicio, 10)}}</td>
                 <td>{{recortarTexto(documento.fecha_vencimiento, 10)}}</td>
                  <td>{{ documento.impacto }}</td>
                  
