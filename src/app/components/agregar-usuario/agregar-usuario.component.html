@@ -1,13 +1,13 @@
 <header>
     <nav class="navbar navbar-expand-lg" style="background-color: #dedada;">
       <div class="container-fluid">
-        <a class="navbar-brand" href="inicio">
+        <a class="navbar-brand" href="#/inicio">
          <img id="logo" src="https://i.ibb.co/HK2Btjq/Logo-Cemex.png" alt="">
 
         </a>
         <ul class="nav justify-content-end">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="usuarios_tabla" 
+            <a class="nav-link active" aria-current="page" href="usuarios_tabla"
             style="font-size: 20px; margin-right: 40px;">Volver</a>
           </li>
         </ul>
@@ -26,17 +26,17 @@
               <label for="validationCustom01" class="form-label"><h3>Nombre(s)</h3></label>
              <input type="text" class="form-control" id="validationCustom01" name="user"
              [(ngModel)]="usuario.ClienteSelect.user">
-            </div>        
+            </div>
             <div class="col-md-4">
               <label for="validationCustom02" class="form-label"><h3>Apellidos</h3></label>
              <input type="text" class="form-control" id="validationCustom02" name="apellidos"
              [(ngModel)]="usuario.ClienteSelect.apellidos">
-            </div>  
+            </div>
             <div class="col-md-4">
                 <label for="validationCustom03" class="form-label"><h3>Correo electronico</h3></label>
                <input type="text" class="form-control" id="validationCustom03" name="correo"
                [(ngModel)]="usuario.ClienteSelect.correo">
-              </div> 
+              </div>
             <div class="col-md-4">
               <label for="validationCustom04" class="form-label"><h3>Zona</h3></label>
               <select class="form-select"  id="validationCustom04" required name="zona"
@@ -51,7 +51,7 @@
             <div class="col-md-4">
                 <label for="validationCustom05" class="form-label"><h3>Rol</h3></label>
                 <select class="form-select"  id="validationCustom05" required name="rol"
-                [(ngModel)]="usuario.ClienteSelect.rol"> 
+                [(ngModel)]="usuario.ClienteSelect.rol">
                   <option selected disabled value="">Elegir rol</option>
                   <option>Administrador</option>
                   <option>General</option>
@@ -59,17 +59,17 @@
               </div>
                  <div div class="col-md-4">
                   <label for="validationCustom06" class="form-label letra"><h3>CONTRASEÑA</h3></label>
-                  <input type="password" class="form-control" id="validationCustom06"  
+                  <input type="password" class="form-control" id="validationCustom06"
                   [(ngModel)]="usuario.ClienteSelect.password" name="password" required>
-                  <a style="margin-top:3%; margin-left: 60%; background-color: rgba(255, 255, 255, 0.594); 
-                  border-radius:10px ; padding: 1%; font-size: 14px;" 
+                  <a style="margin-top:3%; margin-left: 60%; background-color: rgba(255, 255, 255, 0.594);
+                  border-radius:10px ; padding: 1%; font-size: 14px;"
                   type="button" class="btn-link" (click)="togglePasswordVisibility()">
                     {{ textoBoton }}
                   </a>
                   </div>
               <h2 style="margin-top: 5%;">
                 *NOTA: Para completar el registro, se enviará un correo de confirmación al usuario. Este correo será válido solo por 24 horas.</h2>
-            
+
                 <div class="col-12">
                   <br><br>
                   <button style="margin-left: 85%;" class="btn btn-primary" type="submit" (click)="validacion(FormRegistro)">Registrar</button>
