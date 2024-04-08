@@ -3,6 +3,8 @@ import Swal from 'sweetalert2';
 import { UnidadOperativaService } from 'src/app/services/unidad-operativa.service';
 import { FormBuilder, NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-actualizar-planta',
   templateUrl: './actualizar-planta.component.html',
@@ -19,9 +21,9 @@ export class ActualizarPlantaComponent implements OnInit {
   fija!: boolean;
   activo!: boolean;
   id_planta!: number;
-  constructor(public servisplanta:UnidadOperativaService,private FB: FormBuilder,
+  constructor(private location: Location, public servisplanta:UnidadOperativaService,private FB: FormBuilder,
     private route: ActivatedRoute){
-    
+
   }
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -42,7 +44,9 @@ export class ActualizarPlantaComponent implements OnInit {
   })
   }
 
-
+  goBack(): void {
+    this.location.back();
+  }
 
   
   validacion(form: NgForm) {
