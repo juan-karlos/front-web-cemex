@@ -89,6 +89,7 @@ export class ConstructoresPacificoComponent implements OnInit {
   obtenerHistorial(zona: string, segmento: string, PorcentajeEnTiempoReal: number) {
     this.historialService.getHistorialZonaSegmento(zona, segmento).subscribe(
       (datos) => {
+       
         this.procesarDatosHistorial(datos, this.cumplimientoAnioActual, this.cumplimientoAnioAnterior, PorcentajeEnTiempoReal);
         this.actualizarGrafico();
       },
@@ -107,9 +108,9 @@ export class ConstructoresPacificoComponent implements OnInit {
 
       if (fecha.getFullYear() === new Date().getFullYear()) {
         cumplimientoAnioActual[mes] = parseFloat(dato.cumplimiento);
-      } else {
+    } else if (fecha.getFullYear() === new Date().getFullYear() - 1) {
         cumplimientoAnioAnterior[mes] = parseFloat(dato.cumplimiento);
-      }
+    }
     });
     
     const mesActual = new Date().getMonth();
@@ -129,7 +130,10 @@ export class ConstructoresPacificoComponent implements OnInit {
 
   obtenerPorcentajeZonaSegmentos(){
     this.logicaService.getProcentajeCumplimietoZonasSegmentos().subscribe(
+      
       (datos) => {
+        console.log
+        ('Esto me devuelve el obtener hidtorial: ', datos);
        const PorcentajeEnTiempoReal =datos[1].Pacífico
        this.obtenerHistorial(this.zona, this.segmento, PorcentajeEnTiempoReal);
        
